@@ -107,31 +107,53 @@
                 </button>
                 <p class="text-[10px] text-gray-500 text-center font-mono">$0 • Статичний ефір • Без зовнішніх залежностей</p>
 
-                <!-- ШІ-Діджей: анонс ефіру -->
-                <div id="dj-announcement" class="mt-4 p-4 rounded-xl bg-imperial-900/50 border border-imperial-500/30 hidden">
+                <!-- ШІ-Діджей: анонс ефіру (завжди видно) -->
+                <div id="dj-announcement" class="mt-4 p-4 rounded-xl bg-imperial-900/60 border border-imperial-500/40 shadow-[0_0_20px_rgba(139,92,246,0.15)]">
                     <div class="flex items-start gap-3">
                         <span class="text-2xl mt-0.5">🎙️</span>
                         <div>
                             <div class="text-xs font-bold text-imperial-400 uppercase tracking-wider mb-1">ШІ-Діджей оголошує</div>
-                            <p id="dj-text" class="text-sm text-gray-200 font-mono italic"></p>
+                            <p id="dj-text" class="text-sm text-gray-200 font-mono italic leading-relaxed">Оберіть медіа-джерело у плейєрі нижче.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Медіаплеєр: YouTube-відео Радіо «Опричник» (YouTube IFrame Player API) -->
+            <!-- Медіаплеєр: динамічне перемикання YouTube / Telegram -->
             <div class="w-full md:w-1/2 flex flex-col gap-3">
-                <div class="aspect-video w-full rounded-xl shadow-lg border border-red-900/50 overflow-hidden bg-gray-900">
-                    <div id="yt-player-container"></div>
+                <div class="aspect-video w-full rounded-xl shadow-lg border border-red-900/50 overflow-hidden bg-gray-900 relative">
+                    <!-- YouTube IFrame Player API контейнер -->
+                    <div id="yt-player-container" class="absolute inset-0 w-full h-full"></div>
+                    <!-- Telegram Embed контейнер (показується при виборі каналу) -->
+                    <iframe id="tg-player"
+                            class="hidden w-full h-full aspect-video"
+                            src=""
+                            allow="encrypted-media; autoplay; clipboard-write; picture-in-picture"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            loading="lazy"></iframe>
                 </div>
                 <div class="flex gap-2 overflow-x-auto pb-2">
+                    <!-- YouTube кнопки -->
                     <button type="button" onclick="switchYtVideo('-dB2PCegJR8')"
                             class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap">
-                        Відео 1
+                        YouTube: Відео 1
                     </button>
                     <button type="button" onclick="switchYtVideo('t_y5zdnov34')"
                             class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap">
-                        Відео 2
+                        YouTube: Відео 2
+                    </button>
+                    <!-- Telegram кнопки -->
+                    <button type="button" onclick="switchTgMedia('tg-1')"
+                            class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap">
+                        Telegram: Diver_D
+                    </button>
+                    <button type="button" onclick="switchTgMedia('tg-2')"
+                            class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap">
+                        Telegram: gistapapapa
+                    </button>
+                    <button type="button" onclick="switchTgMedia('tg-3')"
+                            class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap">
+                        Telegram: ukrainian_sindrom
                     </button>
                 </div>
             </div>
@@ -268,49 +290,49 @@
             { num: '№104', text: 'Про реституцію культурних надбань та повернення історичних діячів до спадщини України-Метрополії.' }
         ];
 
-        /* ===== База ефіру ШІ-Діджея ===== */
-        var MEDIA_BASE = [
+        /* ===== База ефіру ШІ-Діджея: YouTube (чисті videoId) ===== */
+        var YT_MEDIA = [
             {
                 id: 'yt-1',
-                type: 'youtube',
                 videoId: '-dB2PCegJR8',
                 title: 'Ефір Радіо «Опричник» — Директива Канцелярії',
-                channel: 'YouTube',
                 tanunah: 'Увага, Метрополія. Поточний ефір містить аналітичний матеріал щодо державних директив Української Імперії. Рекомендуємо настроїтися на строге сприймання.',
                 achtung: 'Ой-вей, сатани est ici! Запускаємо ще один рольок, де ми розповідаємо, як 잘 і правильно жити під оком канцелярії. Смієтеся або плачете — обирайте самі.'
             },
             {
                 id: 'yt-2',
-                type: 'youtube',
                 videoId: 't_y5zdnov34',
                 title: 'Ефір Радіо «Опричник» — Аналітика Географa',
-                channel: 'YouTube',
                 tanunah: 'Новий сегмент ефіру: інтерактивна ситуаційна карта та паспорти територій. Географ представляє оновлені дані.',
                 achtung: 'Дивіться, як Географ малює границі там, куди нормальній людині не зайти. Карта для тих, хто ще вірить у географію.'
-            },
+            }
+        ];
+
+        /* ===== База ефіру ШІ-Діджея: Telegram-канали ===== */
+        var TG_MEDIA = [
             {
                 id: 'tg-1',
-                type: 'telegram',
                 channel: 'Diver_D',
                 url: 'https://t.me/Diver_D',
+                embedUrl: 'https://t.me/Diver_D/embed',
                 title: 'Diver_D — оперативні публікації',
                 tanunah: 'Канал Diver_D: оперативно про події, які Канцелярія рано або пізно зареєструє.',
                 achtung: 'Diver_D пише так швидко, що навіть Архіваріус не успеє зберегти в Хроніки.'
             },
             {
                 id: 'tg-2',
-                type: 'telegram',
                 channel: 'gistapapapa',
                 url: 'https://t.me/gistapapapa',
+                embedUrl: 'https://t.me/gistapapapa/embed',
                 title: 'gistapapapa — останні матеріали',
                 tanunah: 'Канал gistapapapa: матеріали, відповідні інтересам Ради Оркестраторів.',
                 achtung: 'gistapapapa — коли потрібно почитати щось між репостами проимперських мемів.'
             },
             {
                 id: 'tg-3',
-                type: 'telegram',
                 channel: 'ukrainian_sindrom',
                 url: 'https://t.me/ukrainian_sindrom',
+                embedUrl: 'https://t.me/ukrainian_sindrom/embed',
                 title: 'ukrainian_sindrom — оперативка',
                 tanunah: 'Канал ukrainian_sindrom: актуальні зведення для публічного ознайомлення.',
                 achtung: 'ukrainian_sindром — синдром українності в чистому вигляді. Для спеціальних love-ів сатири.'
@@ -321,6 +343,7 @@
         /* ===== YouTube IFrame Player ===== */
         var player = null;
         var playerReady = false;
+        var currentMediaType = 'youtube'; // 'youtube' | 'telegram'
 
         window.onYouTubeIframeAPIReady = function () {
             player = new YT.Player('yt-player-container', {
@@ -343,35 +366,98 @@
 
         function onPlayerReady(event) {
             playerReady = true;
-            event.target.unMute();
-            event.target.setVolume(100);
+            try { event.target.unMute(); } catch (e) {}
+            try { event.target.setVolume(100); } catch (e) {}
         }
 
         function onPlayerStateChange(event) {
-            if (event.data === YT.PlayerState.ENDED && isLive) {
+            if (event.data === YT.PlayerState.ENDED && isLive && currentMediaType === 'youtube') {
                 playNextRandomVideo();
             }
         }
 
+        function showYtPlayer() {
+            var yt = document.getElementById('yt-player-container');
+            var tg = document.getElementById('tg-player');
+            if (yt) { yt.classList.remove('hidden'); }
+            if (tg) { tg.classList.add('hidden'); tg.src = ''; }
+            currentMediaType = 'youtube';
+        }
+
+        function showTgPlayer() {
+            var yt = document.getElementById('yt-player-container');
+            var tg = document.getElementById('tg-player');
+            if (yt) { yt.classList.add('hidden'); }
+            if (tg) { tg.classList.remove('hidden'); }
+            currentMediaType = 'telegram';
+        }
+
         function playNextRandomVideo() {
-            var youtubeVideos = MEDIA_BASE.filter(function (m) { return m.type === 'youtube'; });
-            if (youtubeVideos.length === 0) { return; }
-            var next = youtubeVideos[Math.floor(Math.random() * youtubeVideos.length)];
+            if (YT_MEDIA.length === 0) { return; }
+            var next = YT_MEDIA[Math.floor(Math.random() * YT_MEDIA.length)];
             var announcement = getDjAnnouncement(next.id);
             var djBox = document.getElementById('dj-announcement');
             var djText = document.getElementById('dj-text');
             if (announcement) {
                 djText.innerText = announcement;
-                djBox.classList.remove('hidden');
-                speak(announcement);
+                speakSafe(announcement);
             }
             setTimeout(function () {
-                if (player && playerReady) {
+                if (player && playerReady && currentMediaType === 'youtube') {
                     player.loadVideoById(next.videoId);
-                    player.unMute();
-                    player.setVolume(100);
+                    try { player.unMute(); } catch (e) {}
+                    try { player.setVolume(100); } catch (e) {}
                 }
             }, announcement ? 4000 : 500);
+        }
+
+        /* ===== Медіаплеєр YouTube — перемикання відео ===== */
+        function switchYtVideo(videoId) {
+            // Виключно чистий videoId (без URL-рядків)
+            var cleanId = String(videoId).replace(/^.*\/(?:embed\/|watch\?v=|v=)/, '').replace(/[?&].*$/, '');
+            window.speechSynthesis.cancel();
+
+            showYtPlayer();
+
+            var media = YT_MEDIA.find(function (m) { return m.videoId === cleanId; });
+            var announcement = media ? getDjAnnouncement(media.id) : '';
+            var djBox = document.getElementById('dj-announcement');
+            var djText = document.getElementById('dj-text');
+            if (announcement) {
+                djText.innerText = announcement;
+                speakSafe(announcement);
+            }
+
+            setTimeout(function () {
+                if (player && playerReady && currentMediaType === 'youtube') {
+                    player.loadVideoById(cleanId);
+                    try { player.unMute(); } catch (e) {}
+                    try { player.setVolume(100); } catch (e) {}
+                }
+            }, announcement ? 4000 : 500);
+        }
+
+        /* ===== Медіаплеєр Telegram — перемикання каналу ===== */
+        function switchTgMedia(id) {
+            window.speechSynthesis.cancel();
+
+            var media = TG_MEDIA.find(function (m) { return m.id === id; });
+            if (!media) { return; }
+
+            showTgPlayer();
+
+            var tgFrame = document.getElementById('tg-player');
+            if (tgFrame && media.embedUrl) {
+                tgFrame.src = media.embedUrl;
+            }
+
+            var announcement = getDjAnnouncement(media.id);
+            var djBox = document.getElementById('dj-announcement');
+            var djText = document.getElementById('dj-text');
+            if (announcement) {
+                djText.innerText = announcement;
+                speakSafe(announcement);
+            }
         }
 
         /* ===== Перемикання світоглядних контурів ===== */
@@ -425,14 +511,13 @@
                 var announcement = getDjAnnouncement('live');
                 if (announcement) {
                     djText.innerText = announcement;
-                    djBox.classList.remove('hidden');
-                    speak(announcement);
+                    speakSafe(announcement);
                 }
 
-                // Розблокувати аудіо плеєра
-                if (player && playerReady) {
-                    player.unMute();
-                    player.setVolume(100);
+                // Розблокувати аудіо плеєра (тільки YouTube)
+                if (currentMediaType === 'youtube' && player && playerReady) {
+                    try { player.unMute(); } catch (e) {}
+                    try { player.setVolume(100); } catch (e) {}
                 }
 
                 icon.innerText = '■';
@@ -443,8 +528,8 @@
                 ind.classList.add('flex');
             } else {
                 window.speechSynthesis.cancel();
-                if (player && playerReady) {
-                    player.pauseVideo();
+                if (currentMediaType === 'youtube' && player && playerReady) {
+                    try { player.pauseVideo(); } catch (e) {}
                 }
                 icon.innerText = '▶';
                 label.innerText = 'Увімкнути Радіоефір';
@@ -452,53 +537,69 @@
                 btn.classList.remove('bg-red-600', 'hover:bg-red-500');
                 ind.classList.add('hidden');
                 ind.classList.remove('flex');
-                djBox.classList.add('hidden');
             }
         }
 
         /* ===== Медіаплеєр YouTube — перемикання відео ===== */
         function switchYtVideo(videoId) {
-            // Скасувати попередню озвучку
+            // Виключно чистий videoId (без URL-рядків)
+            var cleanId = String(videoId).replace(/^.*\/(?:embed\/|watch\?v=|v=)/, '').replace(/[?&].*$/, '');
             window.speechSynthesis.cancel();
 
+            showYtPlayer();
+
+            var media = YT_MEDIA.find(function (m) { return m.videoId === cleanId; });
+            var announcement = media ? getDjAnnouncement(media.id) : '';
             var djBox = document.getElementById('dj-announcement');
             var djText = document.getElementById('dj-text');
-
-            var media = MEDIA_BASE.find(function (m) { return m.type === 'youtube' && m.videoId === videoId; });
-            var announcement = media ? getDjAnnouncement(media.id) : '';
-
             if (announcement) {
                 djText.innerText = announcement;
-                djBox.classList.remove('hidden');
-                speak(announcement);
+                speakSafe(announcement);
             }
 
             setTimeout(function () {
-                if (player && playerReady) {
-                    player.loadVideoById(videoId);
-                    player.unMute();
-                    player.setVolume(100);
+                if (player && playerReady && currentMediaType === 'youtube') {
+                    player.loadVideoById(cleanId);
+                    try { player.unMute(); } catch (e) {}
+                    try { player.setVolume(100); } catch (e) {}
                 }
             }, announcement ? 4000 : 500);
         }
 
         /* ===== ШІ-Діджей: контур-залежний анонс ===== */
         function getDjAnnouncement(contextId) {
-            var media = MEDIA_BASE.find(function (m) { return m.id === contextId; });
+            var media = YT_MEDIA.find(function (m) { return m.id === contextId; });
+            if (!media) {
+                media = TG_MEDIA.find(function (m) { return m.id === contextId; });
+            }
             if (!media) { return null; }
             var contour = document.body.getAttribute('data-contour') || 'tanunah';
             var key = contour === 'achtung' ? 'achtung' : 'tanunah';
             return media[key] || null;
         }
 
-        /* ===== ШІ-Діджей: Web Speech API озвучка ===== */
-        function speak(text) {
+        /* ===== ШІ-Діджей: Web Speech API озвучка (з Ukrainian voice detection + try/catch) ===== */
+        function speakSafe(text) {
             if (!text || !window.speechSynthesis) { return; }
-            var utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'uk-UA';
-            utterance.rate = 1.0;
-            utterance.pitch = 1.0;
-            window.speechSynthesis.speak(utterance);
+            try {
+                window.speechSynthesis.cancel();
+                var utterance = new SpeechSynthesisUtterance(text);
+                // Пошук якісного українського голосу
+                var voices = window.speechSynthesis.getVoices() || [];
+                var ukVoice = voices.find(function (v) { return v.lang && v.lang.includes('uk'); });
+                if (ukVoice) {
+                    utterance.voice = ukVoice;
+                    utterance.lang = ukVoice.lang;
+                } else {
+                    utterance.lang = 'uk-UA';
+                }
+                utterance.rate = 1.0;
+                utterance.pitch = 1.0;
+                window.speechSynthesis.speak(utterance);
+            } catch (e) {
+                // Якщо голосовий симулятор не спрацював — ігноруємо помилку, відео все одно гратиме
+                console.warn('TTS failed:', e);
+            }
         }
 
         /* ===== Рендер стрічки новин ===== */
