@@ -104,6 +104,17 @@
                     <span id="live-icon">▶</span> <span id="live-label">Увімкнути Радіоефір</span>
                 </button>
                 <p class="text-[10px] text-gray-500 text-center font-mono">$0 • Статичний ефір • Без зовнішніх залежностей</p>
+
+                <!-- ШІ-Діджей: анонс ефіру -->
+                <div id="dj-announcement" class="mt-4 p-4 rounded-xl bg-imperial-900/50 border border-imperial-500/30 hidden">
+                    <div class="flex items-start gap-3">
+                        <span class="text-2xl mt-0.5">🎙️</span>
+                        <div>
+                            <div class="text-xs font-bold text-imperial-400 uppercase tracking-wider mb-1">ШІ-Діджей оголошує</div>
+                            <p id="dj-text" class="text-sm text-gray-200 font-mono italic"></p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Медіаплеєр: YouTube-відео Радіо «Опричник» -->
@@ -263,6 +274,55 @@
             { num: '№104', text: 'Про реституцію культурних надбань та повернення історичних діячів до спадщини України-Метрополії.' }
         ];
 
+        /* ===== База ефіру ШІ-Діджея ===== */
+        var MEDIA_BASE = [
+            {
+                id: 'yt-1',
+                type: 'youtube',
+                videoId: '-dB2PCegJR8',
+                title: 'Ефір Радіо «Опричник» — Директива Канцелярії',
+                channel: 'YouTube',
+                tanunah: 'Увага, Метрополія. Поточний ефір містить аналітичний матеріал щодо державних директив Української Імперії. Рекомендуємо настроїтися на строге сприймання.',
+                achtung: 'Ой-вей, сатани est ici! Запускаємо ще один рольок, де ми розповідаємо, як 잘 і правильно жити під оком канцелярії. Смієтеся або плачете — обирайте самі.'
+            },
+            {
+                id: 'yt-2',
+                type: 'youtube',
+                videoId: 't_y5zdnov34',
+                title: 'Ефір Радіо «Опричник» — Аналітика Географa',
+                channel: 'YouTube',
+                tanunah: 'Новий сегмент ефіру: інтерактивна ситуаційна карта та паспорти територій. Географ представляє оновлені дані.',
+                achtung: 'Дивіться, як Географ малює границі там, куди нормальній людині не зайти. Карта для тих, хто ще вірить у географію.'
+            },
+            {
+                id: 'tg-1',
+                type: 'telegram',
+                channel: 'Diver_D',
+                url: 'https://t.me/Diver_D',
+                title: 'Diver_D — оперативні публікації',
+                tanunah: 'Канал Diver_D: оперативно про події, які Канцелярія рано або пізно зареєструє.',
+                achtung: 'Diver_D пише так швидко, що навіть Архіваріус не успеє зберегти в Хроніки.'
+            },
+            {
+                id: 'tg-2',
+                type: 'telegram',
+                channel: 'gistapapapa',
+                url: 'https://t.me/gistapapapa',
+                title: 'gistapapapa — останні матеріали',
+                tanunah: 'Канал gistapapapa: матеріали, відповідні інтересам Ради Оркестраторів.',
+                achtung: 'gistapapapa — коли потрібно почитати щось між репостами проимперських мемів.'
+            },
+            {
+                id: 'tg-3',
+                type: 'telegram',
+                channel: 'ukrainian_sindrom',
+                url: 'https://t.me/ukrainian_sindrom',
+                title: 'ukrainian_sindrom — оперативка',
+                tanunah: 'Канал ukrainian_sindrom: актуальні зведення для публічного ознайомлення.',
+                achtung: 'ukrainian_sindром — синдром українності в чистому вигляді. Для спеціальних love-ів сатири.'
+            }
+        ];
+
         /* ===== Перемикання світоглядних контурів ===== */
         function setContour(c) {
             var cfg = CONTOURS[c];
@@ -299,13 +359,25 @@
         /* ===== Модуль прямого ефіру ===== */
         var isLive = false;
         function toggleLive() {
+            // Скасувати попередню озвучку перед новим анонсом
+            window.speechSynthesis.cancel();
+
             isLive = !isLive;
             var btn = document.getElementById('btn-live');
             var icon = document.getElementById('live-icon');
             var label = document.getElementById('live-label');
             var ind = document.getElementById('live-indicator');
+            var djBox = document.getElementById('dj-announcement');
+            var djText = document.getElementById('dj-text');
 
             if (isLive) {
+                var announcement = getDjAnnouncement('live');
+                if (announcement) {
+                    djText.innerText = announcement;
+                    djBox.classList.remove('hidden');
+                    speak(announcement);
+                }
+
                 icon.innerText = '■';
                 label.innerText = 'Зупинити Радіоефір';
                 btn.classList.remove('bg-oprichnik-500', 'hover:bg-oprichnik-400');
@@ -313,21 +385,57 @@
                 ind.classList.remove('hidden');
                 ind.classList.add('flex');
             } else {
+                window.speechSynthesis.cancel();
                 icon.innerText = '▶';
                 label.innerText = 'Увімкнути Радіоефір';
                 btn.classList.add('bg-oprichnik-500', 'hover:bg-oprichnik-400');
                 btn.classList.remove('bg-red-600', 'hover:bg-red-500');
                 ind.classList.add('hidden');
                 ind.classList.remove('flex');
+                djBox.classList.add('hidden');
             }
         }
 
         /* ===== Медіаплеєр YouTube — перемикання відео ===== */
         function switchYtVideo(videoId) {
+            // Скасувати попередню озвучку
+            window.speechSynthesis.cancel();
+
+            var djBox = document.getElementById('dj-announcement');
+            var djText = document.getElementById('dj-text');
+
+            var media = MEDIA_BASE.find(function (m) { return m.type === 'youtube' && m.videoId === videoId; });
+            var announcement = media ? getDjAnnouncement(media.id) : '';
+
+            if (announcement) {
+                djText.innerText = announcement;
+                djBox.classList.remove('hidden');
+                speak(announcement);
+            }
+
             var iframe = document.getElementById('yt-player');
             if (iframe) {
                 iframe.src = 'https://www.youtube.com/embed/' + videoId;
             }
+        }
+
+        /* ===== ШІ-Діджей: контур-залежний анонс ===== */
+        function getDjAnnouncement(contextId) {
+            var media = MEDIA_BASE.find(function (m) { return m.id === contextId; });
+            if (!media) { return null; }
+            var contour = document.body.getAttribute('data-contour') || 'tanunah';
+            var key = contour === 'achtung' ? 'achtung' : 'tanunah';
+            return media[key] || null;
+        }
+
+        /* ===== ШІ-Діджей: Web Speech API озвучка ===== */
+        function speak(text) {
+            if (!text || !window.speechSynthesis) { return; }
+            var utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'uk-UA';
+            utterance.rate = 1.0;
+            utterance.pitch = 1.0;
+            window.speechSynthesis.speak(utterance);
         }
 
         /* ===== Рендер стрічки новин ===== */
