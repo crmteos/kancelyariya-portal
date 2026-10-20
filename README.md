@@ -75,7 +75,7 @@ python tests/run_tests.py --headful    # з видимим вікном Chrome
 2. Завантажте репозиторій на GitHub.
 3. У репозиторії: **Settings → Pages → Source: `Deploy from a branch`**,
    гілка `main`, тека `/ (root)`.
-4. Файл [`docs/.nojekyll`](.nojekyll) вже додано, щоб Jekyll не фільтрував
+4. Файл [`.nojekyll`](.nojekyll) вже додано, щоб Jekyll не фільтрував
    файли з підкресленнями.
 
 CI-воркфлоу [.github/workflows/pages.yml](.github/workflows/pages.yml)
