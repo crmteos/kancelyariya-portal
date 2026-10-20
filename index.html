@@ -8,6 +8,8 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128251;</text></svg>">
     <!-- Tailwind CSS CDN для $0 бюджету -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- YouTube IFrame Player API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -117,18 +119,10 @@
                 </div>
             </div>
 
-            <!-- Медіаплеєр: YouTube-відео Радіо «Опричник» -->
+            <!-- Медіаплеєр: YouTube-відео Радіо «Опричник» (YouTube IFrame Player API) -->
             <div class="w-full md:w-1/2 flex flex-col gap-3">
                 <div class="aspect-video w-full rounded-xl shadow-lg border border-red-900/50 overflow-hidden bg-gray-900">
-                    <iframe id="yt-player"
-                            src="https://www.youtube.com/embed/-dB2PCegJR8"
-                            title="Радіо «Опричник» — відео 1"
-                            class="w-full h-full"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+                    <div id="yt-player-container"></div>
                 </div>
                 <div class="flex gap-2 overflow-x-auto pb-2">
                     <button type="button" onclick="switchYtVideo('-dB2PCegJR8')"
@@ -323,6 +317,63 @@
             }
         ];
 
+
+        /* ===== YouTube IFrame Player ===== */
+        var player = null;
+        var playerReady = false;
+
+        window.onYouTubeIframeAPIReady = function () {
+            player = new YT.Player('yt-player-container', {
+                height: '100%',
+                width: '100%',
+                videoId: '-dB2PCegJR8',
+                playerVars: {
+                    autoplay: 1,
+                    muted: 0,
+                    controls: 1,
+                    rel: 0,
+                    modestbranding: 1
+                },
+                events: {
+                    onReady: onPlayerReady,
+                    onStateChange: onPlayerStateChange
+                }
+            });
+        };
+
+        function onPlayerReady(event) {
+            playerReady = true;
+            event.target.unMute();
+            event.target.setVolume(100);
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data === YT.PlayerState.ENDED && isLive) {
+                playNextRandomVideo();
+            }
+        }
+
+        function playNextRandomVideo() {
+            var youtubeVideos = MEDIA_BASE.filter(function (m) { return m.type === 'youtube'; });
+            if (youtubeVideos.length === 0) { return; }
+            var next = youtubeVideos[Math.floor(Math.random() * youtubeVideos.length)];
+            var announcement = getDjAnnouncement(next.id);
+            var djBox = document.getElementById('dj-announcement');
+            var djText = document.getElementById('dj-text');
+            if (announcement) {
+                djText.innerText = announcement;
+                djBox.classList.remove('hidden');
+                speak(announcement);
+            }
+            setTimeout(function () {
+                if (player && playerReady) {
+                    player.loadVideoById(next.videoId);
+                    player.unMute();
+                    player.setVolume(100);
+                }
+            }, announcement ? 4000 : 500);
+        }
+
         /* ===== Перемикання світоглядних контурів ===== */
         function setContour(c) {
             var cfg = CONTOURS[c];
@@ -378,6 +429,12 @@
                     speak(announcement);
                 }
 
+                // Розблокувати аудіо плеєра
+                if (player && playerReady) {
+                    player.unMute();
+                    player.setVolume(100);
+                }
+
                 icon.innerText = '■';
                 label.innerText = 'Зупинити Радіоефір';
                 btn.classList.remove('bg-oprichnik-500', 'hover:bg-oprichnik-400');
@@ -386,6 +443,9 @@
                 ind.classList.add('flex');
             } else {
                 window.speechSynthesis.cancel();
+                if (player && playerReady) {
+                    player.pauseVideo();
+                }
                 icon.innerText = '▶';
                 label.innerText = 'Увімкнути Радіоефір';
                 btn.classList.add('bg-oprichnik-500', 'hover:bg-oprichnik-400');
@@ -413,10 +473,13 @@
                 speak(announcement);
             }
 
-            var iframe = document.getElementById('yt-player');
-            if (iframe) {
-                iframe.src = 'https://www.youtube.com/embed/' + videoId;
-            }
+            setTimeout(function () {
+                if (player && playerReady) {
+                    player.loadVideoById(videoId);
+                    player.unMute();
+                    player.setVolume(100);
+                }
+            }, announcement ? 4000 : 500);
         }
 
         /* ===== ШІ-Діджей: контур-залежний анонс ===== */
