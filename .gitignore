@@ -16,6 +16,7 @@ vendor/
 tests/last_report.txt
 tests/_run_stdout.txt
 tests/_run_stderr.txt
+tests/_staged.txt
 tests/_report*.txt
 tests/_t*.txt
 tests/probe_out*.txt
