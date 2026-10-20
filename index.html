@@ -10,6 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- YouTube IFrame Player API -->
     <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="js/media_catalog.js"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -133,6 +134,29 @@
                             loading="lazy"></iframe>
                 </div>
                 <div class="flex gap-2 overflow-x-auto pb-2">
+                    <!-- Format filters: Video / Radio -->
+                    <div class="flex gap-1">
+                        <button type="button" onclick="filterMedia('video', null)"
+                                class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap active"
+                                data-format="video">📺 Відео</button>
+                        <button type="button" onclick="filterMedia('audio', null)"
+                                class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap"
+                                data-format="audio">📻 Радіо</button>
+                    </div>
+                    
+                    <!-- Topic filters: History / News / Futurism -->
+                    <div class="flex gap-1 mt-2">
+                        <button type="button" onclick="filterMedia('null', 'history')"
+                                class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap active"
+                                data-topic="history">📜 Історія</button>
+                        <button type="button" onclick="filterMedia('null', 'news')"
+                                class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap"
+                                data-topic="news">📰 Новини</button>
+                        <button type="button" onclick="filterMedia('null', 'futurism')"
+                                class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap"
+                                data-topic="futurism">🚀 Футуризм</button>
+                    </div>
+                    
                     <!-- YouTube кнопки -->
                     <button type="button" onclick="switchYtVideo('-dB2PCegJR8')"
                             class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap">
@@ -568,14 +592,12 @@
 
         /* ===== ШІ-Діджей: контур-залежний анонс ===== */
         function getDjAnnouncement(contextId) {
-            var media = YT_MEDIA.find(function (m) { return m.id === contextId; });
-            if (!media) {
-                media = TG_MEDIA.find(function (m) { return m.id === contextId; });
-            }
+            var media = window.MEDIA_CATALOG.find(function (m) { return m.id === contextId; });
             if (!media) { return null; }
             var contour = document.body.getAttribute('data-contour') || 'tanunah';
+            // Use the catalog's teaser, with contour translation if available
             var key = contour === 'achtung' ? 'achtung' : 'tanunah';
-            return media[key] || null;
+            return media[key] || media.teaser || null;
         }
 
         /* ===== ШІ-Діджей: Web Speech API озвучка (з Ukrainian voice detection + try/catch) ===== */
@@ -599,6 +621,85 @@
             } catch (e) {
                 // Якщо голосовий симулятор не спрацював — ігноруємо помилку, відео все одно гратиме
                 console.warn('TTS failed:', e);
+            }
+        }
+
+        /* ===== Фільтр MEDIA_CATALOG за форматом та темою ===== */
+        function filterMedia(format, topic) {
+            // Зберемо поточні вибори у localStorage для тривалого зберігання
+            if (format) localStorage.setItem('media_format', format);
+            if (topic) localStorage.setItem('media_topic', topic);
+            
+            // Отримаємо фільтри з localStorage, якщо не передано аргументів
+            var fmt = format || localStorage.getItem('media_format') || 'video';
+            var top = topic || localStorage.getItem('media_topic') || 'history';
+            
+            // Оновимо активність кнопок
+            document.querySelectorAll('.data-format').forEach(function(btn) {
+                btn.classList.toggle('active', btn.dataset.format === fmt);
+            });
+            document.querySelectorAll('.data-topic').forEach(function(btn) {
+                btn.classList.toggle('active', btn.dataset.topic === top);
+            });
+            
+            // Фільтруємо MEDIA_CATALOG
+            var catalog = window.MEDIA_CATALOG;
+            var filtered = catalog.filter(function(item) {
+                var matchFormat = (fmt === 'all' || item.format === fmt);
+                var matchTopic = (top === 'all' || item.category === top);
+                return matchFormat && matchTopic;
+            });
+            
+            // Вибираємо випадковий елемент та завантажуємо його
+            if (filtered.length > 0) {
+                var selected = filtered[Math.floor(Math.random() * filtered.length)];
+                loadMedia(selected);
+            } else {
+                // Fallback: вибрати будь-що з catalog
+                var fallback = catalog.filter(function(item) {
+                    return item.format === fmt || top === 'all';
+                });
+                if (fallback.length > 0) {
+                    var selected = fallback[Math.floor(Math.random() * fallback.length)];
+                    loadMedia(selected);
+                }
+            }
+        }
+
+        /* ===== Завантаження медіа ===== */
+        function loadMedia(media) {
+            window.speechSynthesis.cancel();
+            
+            // Показуємо teaser для ШІ-Діджея
+            var djText = document.getElementById('dj-text');
+            var djBox = document.getElementById('dj-announcement');
+            if (media && media.teaser) {
+                djText.innerText = media.teaser;
+                djBox.classList.remove('hidden');
+                speakSafe(media.teaser);
+            } else {
+                djBox.classList.add('hidden');
+            }
+            
+            // Логіка для YouTube
+            if (media && media.source_type === 'youtube') {
+                showYtPlayer();
+                var cleanId = media.url_or_id.replace(/^.*\/(?:embed\/|watch\?v=|v=)/, '').replace(/[?&].*$/, '');
+                setTimeout(function () {
+                    if (player && playerReady) {
+                        player.loadVideoById(cleanId);
+                        try { player.unMute(); } catch (e) {}
+                        try { player.setVolume(100); } catch (e) {}
+                    }
+                }, 500);
+            }
+            // Логіка для Telegram
+            else if (media && media.source_type === 'telegram') {
+                showTgPlayer();
+                var tgFrame = document.getElementById('tg-player');
+                if (tgFrame && media.url_or_id) {
+                    tgFrame.src = media.url_or_id;
+                }
             }
         }
 
