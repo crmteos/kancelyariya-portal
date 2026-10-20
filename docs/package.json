@@ -1,0 +1,21 @@
+{
+  "name": "ukrainian-empire-portal",
+  "version": "1.1.0",
+  "description": "Медійний портал Української імперії",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "@supabase/supabase-js": "^2.39.8",
+    "rss-parser": "^3.13.0",
+    "sqlite3": "^5.1.7",
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "private": true
+}

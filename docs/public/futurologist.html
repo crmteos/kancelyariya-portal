@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Департамент Форсайту — ШІ-Футуролог Української імперії</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #D4AF37;
+      --gold-dark: #AA7C11;
+      --bg: #0a0a0c;
+      --panel-bg: #141416;
+      --border: #252528;
+      --text: #e2e2e6;
+      --text-muted: #888890;
+      --purple: #8b5cf6;
+      --purple-dark: #6d28d9;
+      --success: #10b981;
+      --alert: #dc2626;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Шапка */
+    header {
+      background-color: #050507;
+      border-bottom: 2px solid var(--purple);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header h1 span {
+      font-size: 11px;
+      background: var(--purple-dark);
+      color: white;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .nav-btn {
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      padding: 8px 15px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .nav-btn:hover {
+      background: var(--gold);
+      color: black;
+    }
+
+    /* Дві колонки */
+    .main-container {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .left-column {
+      border-right: 2px solid var(--purple);
+      background-color: #08080a;
+    }
+
+    .col-header {
+      background: #0e0e11;
+      padding: 15px 25px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .col-header h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      color: var(--purple);
+      letter-spacing: 1px;
+    }
+
+    .col-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 25px;
+    }
+
+    /* Конструктор симулятора */
+    .simulator-form {
+      background: #111113;
+      border: 1px dashed var(--purple);
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+
+    .simulator-form h3 {
+      font-size: 13px;
+      color: var(--gold);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      background: #070709;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 10px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 12px;
+    }
+
+    .form-group input:focus, .form-group select:focus {
+      outline: none;
+      border-color: var(--purple);
+    }
+
+    .btn-simulate {
+      background: var(--purple);
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-simulate:hover {
+      background: var(--purple-dark);
+    }
+
+    /* Картки прогнозів */
+    .forecast-card {
+      background: var(--panel-bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      border-radius: 4px;
+      padding: 20px;
+      margin-bottom: 15px;
+    }
+
+    .forecast-card.achtung {
+      border-left-color: var(--alert);
+    }
+
+    .forecast-card.tanunah {
+      border-left-color: var(--success);
+    }
+
+    .forecast-card h4 {
+      color: #fff;
+      font-size: 15px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .badge {
+      font-size: 9px;
+      padding: 2px 6px;
+      border-radius: 2px;
+      font-weight: bold;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .badge-tanunah { background: rgba(16, 185, 129, 0.2); color: var(--success); }
+    .badge-achtung { background: rgba(220, 38, 38, 0.2); color: var(--alert); }
+
+    .scenario-block {
+      margin-top: 12px;
+      background: #09090b;
+      padding: 12px;
+      border-radius: 4px;
+      border-left: 2px solid #555;
+    }
+
+    .scenario-block strong {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .scenario-opt strong { color: var(--success); }
+    .scenario-base strong { color: var(--gold); }
+    .scenario-strat strong { color: var(--purple); }
+
+    .scenario-block p {
+      font-size: 12px;
+      line-height: 1.5;
+      color: #ccc;
+    }
+
+    /* Вікно попереднього перегляду */
+    .preview-box {
+      background: #15151a;
+      border: 1px solid var(--purple);
+      border-radius: 6px;
+      padding: 15px;
+      margin-top: 15px;
+    }
+
+    .preview-box h4 {
+      color: var(--purple);
+      font-size: 12px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .btn-save {
+      background: var(--success);
+      color: black;
+      border: none;
+      width: 100%;
+      padding: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 11px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: background 0.3s;
+    }
+
+    .btn-save:hover {
+      background: #059669;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🔮 Департамент Форсайту <span>Ш  -Футуролог</span></h1>
+    <a href="/" class="nav-btn">⬅ Центр Керування</a>
+  </header>
+
+  <div class="main-container">
+    
+    <!-- ЛІВЕ КРИЛО: Журнал пророцтв -->
+    <div class="column left-column">
+      <div class="col-header">
+        <h2>🔮 Хроніки Форсайту та Сценаріїв</h2>
+        <div style="display:flex; gap:10px; align-items:center;">
+          <select id="filterContour" style="padding: 4px; font-size: 11px; background:#111; color:var(--gold); border:1px solid var(--border);" onchange="loadForecasts()">
+            <option value="ALL">🌐 Всі контури</option>
+            <option value="TANUNAH">👑 Контур Танунахів</option>
+            <option value="ACHTUNG">📢 Контур Ахтунгів</option>
+          </select>
+          <button class="nav-btn" style="padding: 4px 10px; font-size: 11px;" onclick="loadForecasts()">🔄 Оновити</button>
+        </div>
+      </div>
+      
+      <div class="col-content" id="forecastsContainer">
+        <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+          Завантаження пророцтв...
+        </div>
+      </div>
+    </div>
+
+    <!-- ПРАВЕ КРИЛО: Конструктор сценаріїв майбутнього -->
+    <div class="column">
+      <div class="col-header">
+        <h2>⚡️ Симулятор Траєкторій Майбутнього</h2>
+        <span style="font-size: 11px; color: var(--purple);">Розрахунок за трьома сценаріями</span>
+      </div>
+      
+      <div class="col-content">
+        <div class="simulator-form">
+          <h3>🔮 Запустити Департамент Форсайту</h3>
+          <form id="simulateForm">
+            <div class="form-group">
+              <label>Вибір Світоглядного Контуру</label>
+              <select id="contourSelect">
+                <option value="TANUNAH">👑 Контур Танунахів (Метрополія / Серйозно українською)</option>
+                <option value="ACHTUNG">📢 Контур Ахтунгів (Сатира / Гротеск в стилі Сорокіна російською)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Тема або Траєкторія прогнозу</label>
+              <input type="text" id="topicInput" required placeholder="Наприклад: Євроінтеграція та Acquis ЄС, Енергетичний суверенітет, Розпад РФ на народні республіки...">
+            </div>
+            
+            <button type="submit" class="btn-simulate" id="simulateBtn">Прорахувати Сценарії Майбутнього 🧠</button>
+          </form>
+
+          <!-- Попередній результат ШІ-генерації -->
+          <div id="previewContainer" style="display: none;">
+            <div class="preview-box">
+              <h4>🔮 Згенеровано Департаментом Форсайту:</h4>
+              <div style="font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 10px;" id="previewTopic"></div>
+              
+              <div class="scenario-block scenario-opt">
+                <strong>📈 Оптимістичний сценарій:</strong>
+                <p id="previewOpt"></p>
+              </div>
+
+              <div class="scenario-block scenario-base">
+                <strong>⚖️ Базовий сценарій (Інерційний):</strong>
+                <p id="previewBase"></p>
+              </div>
+
+              <div class="scenario-block scenario-strat">
+                <strong>🛡️ Стратегічний сценарій (Імперський форсайт):</strong>
+                <p id="previewStrat"></p>
+              </div>
+
+              <button class="btn-save" onclick="saveForecast()">Впровадити в Хроніки Форсайту 💾</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let currentForecast = null;
+
+    // Завантаження прогнозів
+    async function loadForecasts() {
+      const container = document.getElementById('forecastsContainer');
+      const filter = document.getElementById('filterContour').value;
+      container.innerHTML = '<div style="text-align: center; color: var(--purple); padding: 20px;">🔮 Зчитуємо Хроніки Форсайту з Supabase...</div>';
+
+      try {
+        const response = await fetch('/api/futurology/forecasts');
+        const forecasts = await response.json();
+        container.innerHTML = '';
+
+        const filtered = filter === 'ALL' ? forecasts : forecasts.filter(f => f.contour === filter);
+
+        if (filtered.length === 0) {
+          container.innerHTML = '<div style="color: var(--text-muted); text-align: center; padding: 20px;">Журнал пророцтв порожній у цьому контурі. Створіть свій перший сценарій!</div>';
+          return;
+        }
+
+        filtered.forEach(item => {
+          const card = document.createElement('div');
+          card.className = `forecast-card ${item.contour.toLowerCase()}`;
+          card.innerHTML = `
+            <span class="badge ${item.contour === 'TANUNAH' ? 'badge-tanunah' : 'badge-achtung'}">
+              ${item.contour === 'TANUNAH' ? '👑 Контур Танунахів' : '📢 Контур Ахтунгів'}
+            </span>
+            <h4>🔮 ${item.topic}</h4>
+            <div style="font-size:10px; color:var(--text-muted); margin-bottom:10px;">📅 Розраховано: ${new Date(item.date).toLocaleString()}</div>
+            
+            <div class="scenario-block scenario-opt">
+              <strong>📈 Оптимістичний сценарій:</strong>
+              <p>${item.optimistic}</p>
+            </div>
+
+            <div class="scenario-block scenario-base">
+              <strong>⚖️ Базовий сценарій:</strong>
+              <p>${item.base}</p>
+            </div>
+
+            <div class="scenario-block scenario-strat">
+              <strong>🛡️ Стратегічний сценарій (Імперський форсайт):</strong>
+              <p>${item.strategic}</p>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      } catch (err) {
+        console.error('Помилка завантаження:', err);
+        container.innerHTML = '<div style="color: red; padding: 20px;">Помилка мережі при завантаженні прогнозів.</div>';
+      }
+    }
+
+    // Запуск генерації
+    document.getElementById('simulateForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const simulateBtn = document.getElementById('simulateBtn');
+      const contour = document.getElementById('contourSelect').value;
+      const topic = document.getElementById('topicInput').value;
+
+      simulateBtn.disabled = true;
+      simulateBtn.innerText = '🔮 Квантове моделювання траєкторій...';
+
+      try {
+        const response = await fetch('/api/futurology/generate', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ contour, topic })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          currentForecast = {
+            contour,
+            topic,
+            optimistic: data.optimistic,
+            base: data.base,
+            strategic: data.strategic
+          };
+
+          document.getElementById('previewTopic').innerText = topic;
+          document.getElementById('previewOpt').innerText = data.optimistic;
+          document.getElementById('previewBase').innerText = data.base;
+          document.getElementById('previewStrat').innerText = data.strategic;
+          
+          document.getElementById('previewContainer').style.display = 'block';
+        } else {
+          alert('Помилка симуляції ШІ.');
+        }
+      } catch (err) {
+        alert('Помилка з\'єднання з сервером.');
+      } finally {
+        simulateBtn.disabled = false;
+        simulateBtn.innerText = 'Прорахувати Сценарії Майбутнього 🧠';
+      }
+    });
+
+    // Збереження в базу даних
+    async function saveForecast() {
+      if (!currentForecast) return;
+
+      try {
+        const response = await fetch('/api/futurology/forecasts', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(currentForecast)
+        });
+
+        if (response.ok) {
+          document.getElementById('topicInput').value = '';
+          document.getElementById('previewContainer').style.display = 'none';
+          currentForecast = null;
+          loadForecasts();
+        } else {
+          alert('Помилка збереження в Supabase.');
+        }
+      } catch (err) {
+        alert('Помилка мережі при збереженні.');
+      }
+    }
+
+    // Ініціалізація
+    window.addEventListener('DOMContentLoaded', () => {
+      loadForecasts();
+    });
+  </script>
+</body>
+</html>

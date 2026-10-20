@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Департамент Суверенітету — ШІ-Архіваріус-Писар</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #D4AF37;
+      --gold-dark: #AA7C11;
+      --bg: #0b0b0d;
+      --panel-bg: #151518;
+      --border: #26262a;
+      --text: #e1e1e5;
+      --text-muted: #87878f;
+      --bronze: #cd7f32;
+      --success: #10b981;
+      --alert: #dc2626;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Шапка */
+    header {
+      background-color: #050507;
+      border-bottom: 2px solid var(--gold);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header h1 span {
+      font-size: 11px;
+      background: var(--gold-dark);
+      color: black;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .nav-btn {
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      padding: 8px 15px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .nav-btn:hover {
+      background: var(--gold);
+      color: black;
+    }
+
+    /* Контейнер двох крил */
+    .main-container {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .left-column {
+      border-right: 2px solid var(--gold);
+      background-color: #09090b;
+    }
+
+    .col-header {
+      background: #0f0f12;
+      padding: 15px 25px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .col-header h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    .col-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 25px;
+    }
+
+    /* Форма деконструкції */
+    .archive-form {
+      background: #121215;
+      border: 1px dashed var(--gold-dark);
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+
+    .archive-form h3 {
+      font-size: 13px;
+      color: var(--gold);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      background: #08080a;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 10px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 12px;
+    }
+
+    .form-group input:focus, .form-group select:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    .btn-deconstruct {
+      background: var(--gold-dark);
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-deconstruct:hover {
+      background: var(--gold);
+      color: black;
+    }
+
+    /* Картки хронік */
+    .chronicle-card {
+      background: var(--panel-bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      border-radius: 4px;
+      padding: 20px;
+      margin-bottom: 15px;
+    }
+
+    .chronicle-card.tanunah { border-left-color: var(--success); }
+    .chronicle-card.achtung { border-left-color: var(--alert); }
+
+    .chronicle-card h4 {
+      color: #fff;
+      font-size: 15px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .badge {
+      font-size: 9px;
+      padding: 2px 6px;
+      border-radius: 2px;
+      font-weight: bold;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .badge-tanunah { background: rgba(16, 185, 129, 0.2); color: var(--success); }
+    .badge-achtung { background: rgba(220, 38, 38, 0.2); color: var(--alert); }
+
+    .chronicle-block {
+      margin-top: 12px;
+      background: #09090b;
+      padding: 12px;
+      border-radius: 4px;
+      border-left: 2px solid var(--gold);
+    }
+
+    .chronicle-block strong {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      color: var(--gold);
+    }
+
+    .restitution-asset-box {
+      margin-top: 10px;
+      background: rgba(16, 185, 129, 0.05);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #fff;
+    }
+
+    /* Попередній перегляд ШІ */
+    .preview-box {
+      background: #17171c;
+      border: 1px solid var(--gold);
+      border-radius: 6px;
+      padding: 15px;
+      margin-top: 15px;
+    }
+
+    .preview-box h4 {
+      color: var(--gold);
+      font-size: 12px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .btn-save {
+      background: var(--success);
+      color: black;
+      border: none;
+      width: 100%;
+      padding: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 11px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: background 0.3s;
+    }
+
+    .btn-save:hover {
+      background: #059669;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📁 Департамент Понятійного Суверенітету <span>ШІ-Архіваріус-Писар</span></h1>
+    <a href="/" class="nav-btn">⬅ Центр Керування</a>
+  </header>
+
+  <div class="main-container">
+    
+    <!-- ЛІВЕ КРИЛО: Реєстр Канонічних Хронік -->
+    <div class="column left-column">
+      <div class="col-header">
+        <h2>📁 Реєстр Канонічних Хронік</h2>
+        <div style="display:flex; gap:10px; align-items:center;">
+          <select id="filterContour" style="padding: 4px; font-size: 11px; background:#111; color:var(--gold); border:1px solid var(--border);" onchange="loadChronicles()">
+            <option value="ALL">🌐 Всі контури</option>
+            <option value="TANUNAH">👑 Контур Танунахів</option>
+            <option value="ACHTUNG">📢 Контур Ахтунгів</option>
+          </select>
+          <button class="nav-btn" style="padding: 4px 10px; font-size: 11px;" onclick="loadChronicles()">🔄</button>
+        </div>
+      </div>
+      
+      <div class="col-content" id="chroniclesContainer">
+        <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+          Завантаження літописів...
+        </div>
+      </div>
+    </div>
+
+    <!-- ПРАВЕ КРИЛО: Лабораторія Деконструкції міфів -->
+    <div class="column">
+      <div class="col-header">
+        <h2>✍️ Лабораторія Деконструкції Міфів</h2>
+        <span style="font-size: 11px; color: var(--gold);">Повернення когнітивних активів</span>
+      </div>
+      
+      <div class="col-content">
+        <div class="archive-form">
+          <h3>⛪️ Розірвати пута понятійної брехні</h3>
+          <form id="deconstructForm">
+            <div class="form-group">
+              <label>Вибір Світоглядного Контуру</label>
+              <select id="contourSelect">
+                <option value="TANUNAH">👑 Контур Танунахів (Метрополія / Серйозно українською)</option>
+                <option value="ACHTUNG">📢 Контур Ахтунгів (Сатира / Десакралізація міфів російською)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Московський міф чи твердження ворога</label>
+              <input type="text" id="topicInput" required placeholder="Наприклад: Гоголь — русский писатель, крещение Руси было началом России...">
+            </div>
+            
+            <button type="submit" class="btn-deconstruct" id="deconstructBtn">Деконструювати Міф ворога 🧠</button>
+          </form>
+
+          <!-- Прев'ю від ШІ -->
+          <div id="previewContainer" style="display: none;">
+            <div class="preview-box">
+              <h4>⛪️ Історична правда Канону:</h4>
+              <div style="font-size: 13px; font-weight: 700; color: var(--gold); margin-bottom: 5px;" id="previewSummary"></div>
+              
+              <div class="chronicle-block">
+                <strong>📜 Обґрунтування Хроніки:</strong>
+                <p id="previewTruth" style="font-size: 12px; line-height: 1.5; color:#ddd;"></p>
+              </div>
+
+              <div class="restitution-asset-box">
+                <strong>🔑 Реституційний Актив (Повернуто Україні-Метрополії):</strong>
+                <span id="previewAsset" style="display:block; margin-top:4px; font-weight:700; color:var(--success);"></span>
+              </div>
+
+              <button class="btn-save" onclick="saveChronicle()">Зареєструвати в Хроніках 💾</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let currentChronicle = null;
+
+    // Завантаження Хронік з бази знань Supabase
+    async function loadChronicles() {
+      const container = document.getElementById('chroniclesContainer');
+      const filter = document.getElementById('filterContour').value;
+      container.innerHTML = '<div style="text-align: center; color: var(--gold); padding: 20px;">📜 Зчитуємо Хроніки з Supabase...</div>';
+
+      try {
+        const response = await fetch('/api/archivist/chronicles');
+        const chronicles = await response.json();
+        container.innerHTML = '';
+
+        const filtered = filter === 'ALL' ? chronicles : chronicles.filter(c => f.contour === filter);
+
+        if (filtered.length === 0) {
+          container.innerHTML = '<div style="color: var(--text-muted); text-align: center; padding: 20px;">Реєстр канонічних хронік порожній. Впровадьте першу Хроніку!</div>';
+          return;
+        }
+
+        filtered.forEach(item => {
+          const card = document.createElement('div');
+          card.className = `chronicle-card ${item.contour.toLowerCase()}`;
+          card.innerHTML = `
+            <span class="badge ${item.contour === 'TANUNAH' ? 'badge-tanunah' : 'badge-achtung'}">
+              ${item.contour === 'TANUNAH' ? '👑 Контур Танунахів' : '📢 Контур Ахтунгів'}
+            </span>
+            <h4>🔮 ${item.topic}</h4>
+            <div style="font-size:10px; color:var(--text-muted); margin-bottom:10px;">📅 Зареєстровано: ${new Date(item.date).toLocaleString()}</div>
+            
+            <div style="font-size:13px; font-weight:700; color:var(--gold); margin-top:10px;">${item.summary}</div>
+            
+            <div class="chronicle-block">
+              <strong>📜 Текст Хроніки:</strong>
+              <p style="font-size:12px; line-height:1.5; color:#ccc;">${item.truth}</p>
+            </div>
+
+            <div class="restitution-asset-box">
+              <strong>🔑 Повернутий Реституційний Актив:</strong>
+              <span style="font-weight:700; color:var(--success);">${item.asset}</span>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      } catch (err) {
+        console.error('Помилка завантаження:', err);
+        container.innerHTML = '<div style="color: red; padding: 20px;">Помилка мережі при завантаженні літописів.</div>';
+      }
+    }
+
+    // Запуск деконструкції
+    document.getElementById('deconstructForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const deconstructBtn = document.getElementById('deconstructBtn');
+      const contour = document.getElementById('contourSelect').value;
+      const topic = document.getElementById('topicInput').value;
+
+      deconstructBtn.disabled = true;
+      deconstructBtn.innerText = '⚙️ Здійснюємо реституцію та очищення...';
+
+      try {
+        const response = await fetch('/api/archivist/generate', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ contour, topic })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          currentChronicle = {
+            contour,
+            topic,
+            summary: data.summary,
+            truth: data.truth,
+            asset: data.asset
+          };
+
+          document.getElementById('previewSummary').innerText = data.summary;
+          document.getElementById('previewTruth').innerText = data.truth;
+          document.getElementById('previewAsset').innerText = data.asset;
+          
+          document.getElementById('previewContainer').style.display = 'block';
+        } else {
+          alert('Помилка деконструкції ШІ.');
+        }
+      } catch (err) {
+        alert('Помилка з\'єднання з сервером.');
+      } finally {
+        deconstructBtn.disabled = false;
+        deconstructBtn.innerText = 'Деконструювати Міф ворога 🧠';
+      }
+    });
+
+    // Збереження в базу даних
+    async function saveChronicle() {
+      if (!currentChronicle) return;
+
+      try {
+        const response = await fetch('/api/archivist/chronicles', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(currentChronicle)
+        });
+
+        if (response.ok) {
+          document.getElementById('topicInput').value = '';
+          document.getElementById('previewContainer').style.display = 'none';
+          currentChronicle = null;
+          loadChronicles();
+        } else {
+          alert('Помилка збереження Хроніки.');
+        }
+      } catch (err) {
+        alert('Помилка мережі при збереженні.');
+      }
+    }
+
+    // Ініціалізація
+    window.addEventListener('DOMContentLoaded', () => {
+      loadChronicles();
+    });
+  </script>
+</body>
+</html>

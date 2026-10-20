@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вагон дослідників — Медійний портал Української імперії</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #D4AF37;
+      --gold-dark: #AA7C11;
+      --bg: #0d0d0d;
+      --panel-bg: #161616;
+      --border: #2a2a2a;
+      --text: #e0e0e0;
+      --text-muted: #8a8a8a;
+      --alert: #dc2626;
+      --success: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    header {
+      background-color: #050505;
+      border-bottom: 2px solid var(--gold);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header h1 span {
+      font-size: 11px;
+      background: var(--alert);
+      color: white;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .nav-btn {
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      padding: 8px 15px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .nav-btn:hover {
+      background: var(--gold);
+      color: black;
+    }
+
+    .main-container {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .left-column {
+      border-right: 2px solid var(--gold);
+      background-color: #0b0b0b;
+    }
+
+    .col-header {
+      background: #111;
+      padding: 15px 25px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .col-header h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    .col-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 25px;
+    }
+
+    .scanner-form {
+      background: #121212;
+      border: 1px dashed var(--gold-dark);
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+
+    .scanner-form h3 {
+      font-size: 13px;
+      color: var(--gold);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      background: #0d0d0d;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 10px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 12px;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    .btn-scan {
+      background: var(--alert);
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-scan:hover {
+      background: #b91c1c;
+    }
+
+    .ahtung-card {
+      background: var(--panel-bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--alert);
+      border-radius: 4px;
+      padding: 18px;
+      margin-bottom: 15px;
+    }
+
+    .ahtung-card h4 {
+      color: #fff;
+      font-size: 14px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .ahtung-card .meta {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .ahtung-card .satire-box {
+      font-size: 12px;
+      line-height: 1.5;
+      background: #0d0d0d;
+      padding: 12px;
+      border-radius: 4px;
+      border-left: 2px solid var(--gold);
+      color: #eaeaea;
+      margin-top: 10px;
+    }
+
+    .ahtung-card .raw-quote {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-style: italic;
+      background: #111;
+      padding: 8px;
+      border-radius: 3px;
+      margin-top: 8px;
+      border-left: 2px solid #555;
+    }
+
+    .preview-box {
+      background: #1a1a1a;
+      border: 1px solid var(--gold);
+      border-radius: 6px;
+      padding: 15px;
+      margin-top: 15px;
+    }
+
+    .preview-box h4 {
+      color: var(--gold);
+      font-size: 12px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .btn-save-report {
+      background: var(--success);
+      color: black;
+      border: none;
+      width: 100%;
+      padding: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 11px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+
+    .btn-save-report:hover {
+      background: #059669;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🚃 Вагон Дослідників <span>Когнітивна розвідка</span></h1>
+    <a href="/" class="nav-btn">⬅ Центр Керування</a>
+  </header>
+
+  <div class="main-container">
+    
+    <!-- ЛІВЕ КРИЛО -->
+    <div class="column left-column">
+      <div class="col-header">
+        <h2>🛰️ Стрічка Польових Ахтунгів</h2>
+        <div style="display:flex; gap:10px;">
+          <button class="nav-btn" style="padding: 4px 10px; font-size: 11px; background: var(--alert); border-color: var(--alert); color: white;" onclick="runAutoRaid()">⚡️ Рейд розвідки</button>
+          <button class="nav-btn" style="padding: 4px 10px; font-size: 11px;" onclick="loadVagonReports()">🔄 Оновити</button>
+        </div>
+      </div>
+      
+      <div class="col-content" id="reportsContainer">
+        <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+          Завантаження розвідданих...
+        </div>
+      </div>
+    </div>
+
+    <!-- ПРАВЕ КРИЛО -->
+    <div class="column">
+      <div class="col-header">
+        <h2>📡 Детектор Когнітивних Аномалій</h2>
+        <span style="font-size: 11px; color: var(--gold);">Перетворення чуток на Ахтунги</span>
+      </div>
+      
+      <div class="col-content">
+        <div class="scanner-form">
+          <h3>🕵️ Запустити сканування ворожого середовища (Ручний режим)</h3>
+          <form id="scanForm">
+            <div class="form-group">
+              <label>Джерело походження чутки / аномалії</label>
+              <input type="text" id="rawSource" required placeholder="Наприклад: yaplakal.com, TG-канал Очевидець..." value="yaplakal.com">
+            </div>
+            
+            <div class="form-group">
+              <label>Сирий текст або заголовок чутки (Оригінал)</label>
+              <textarea id="rawText" rows="4" required placeholder="Введіть сюди сирий текст ворожого коментаря, скарги чи новини..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn-scan" id="scanBtn">Запустити сканування ШІ 🧠</button>
+          </form>
+
+          <div id="previewContainer" style="display: none;">
+            <div class="preview-box">
+              <h4>🔥 Оброблено ШІ-мозком Вагону дослідників:</h4>
+              <div style="font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 5px;" id="previewTitle"></div>
+              <p style="font-size: 12px; color: var(--text-muted); line-height: 1.5;" id="previewSatire"></p>
+              <button class="btn-save-report" onclick="saveReport()">Впровадити в імперську пам'ять 💾</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let currentReport = null;
+
+    async function loadVagonReports() {
+      const container = document.getElementById('reportsContainer');
+      container.innerHTML = '<div style="text-align: center; color: var(--gold); padding: 20px;">🔄 Зчитуємо архівні хроніки розвідки з Supabase...</div>';
+
+      try {
+        const response = await fetch('/api/vagon/ahtungs');
+        const reports = await response.json();
+        container.innerHTML = '';
+
+        if (reports.length === 0) {
+          container.innerHTML = '<div style="color: var(--text-muted); text-align: center; padding: 20px;">Журнал розвідки порожній. Впровадьте перший Ахтунг або запустіть Рейд!</div>';
+          return;
+        }
+
+        reports.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'ahtung-card';
+          card.innerHTML = `
+            <h4>🚨 ${item.title || "Виявлено аномалію"}</h4>
+            <div class="meta">
+              <span>📅 ${new Date(item.date).toLocaleTimeString()}</span>
+              <span>📡 Джерело: ${item.rawSource}</span>
+            </div>
+            <div class="raw-quote">
+              <strong>Сира ворожа чутка:</strong> "${item.rawText}"
+            </div>
+            <div class="satire-box">
+              <strong>Аналітична довідка Вагону:</strong> ${item.processedSatire}
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      } catch (err) {
+        console.error('Помилка завантаження звітів:', err);
+        container.innerHTML = '<div style="color: red; padding: 20px;">Помилка мережі при завантаженні звітів.</div>';
+      }
+    }
+
+    async function runAutoRaid() {
+      const container = document.getElementById('reportsContainer');
+      container.innerHTML = '<div style="text-align: center; color: var(--gold); padding: 20px;">⚡️ Вагон дослідників вирушив у когнітивний рейд. Скануємо ворожі форуми...</div>';
+
+      try {
+        const response = await fetch('/api/vagon/auto-raid', { method: 'POST' });
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          loadVagonReports();
+        } else {
+          alert('Помилка автоматичного рейду.');
+          loadVagonReports();
+        }
+      } catch (err) {
+        alert('Помилка мережі під час автоматичного рейду.');
+        loadVagonReports();
+      }
+    }
+
+    document.getElementById('scanForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const scanBtn = document.getElementById('scanBtn');
+      const rawSource = document.getElementById('rawSource').value;
+      const rawText = document.getElementById('rawText').value;
+
+      scanBtn.disabled = true;
+      scanBtn.innerText = '⚙️ Когнітивне сканування та деконструкція...';
+
+      try {
+        const response = await fetch('/api/vagon/generate', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ rawSource, rawText })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          currentReport = {
+            title: data.title,
+            rawSource: rawSource,
+            rawText: rawText,
+            processedSatire: data.processedSatire
+          };
+
+          document.getElementById('previewTitle').innerText = "🚨 " + data.title;
+          document.getElementById('previewSatire').innerText = data.processedSatire;
+          document.getElementById('previewContainer').style.display = 'block';
+        } else {
+          alert('Помилка генерації: ' + (data.error || 'Невідома помилка'));
+        }
+      } catch (err) {
+        alert('Помилка з\'єднання з сервером.');
+      } finally {
+        scanBtn.disabled = false;
+        scanBtn.innerText = 'Запустити сканування ШІ 🧠';
+      }
+    });
+
+    async function saveReport() {
+      if (!currentReport) return;
+
+      try {
+        const response = await fetch('/api/vagon/ahtungs', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(currentReport)
+        });
+
+        if (response.ok) {
+          document.getElementById('rawText').value = '';
+          document.getElementById('previewContainer').style.display = 'none';
+          currentReport = null;
+          loadVagonReports();
+        } else {
+          alert('Помилка при збереженні звіту в Supabase.');
+        }
+      } catch (err) {
+        alert('Помилка мережі при збереженні.');
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      loadVagonReports();
+    });
+  </script>
+</body>
+</html>

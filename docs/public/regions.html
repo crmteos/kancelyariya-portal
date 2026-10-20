@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Державний Реєстр Територій — Канцелярія Української імперії</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #D4AF37;
+      --gold-dark: #AA7C11;
+      --bg: #09090b;
+      --panel-bg: #141417;
+      --border: #242427;
+      --text: #e1e1e5;
+      --text-muted: #888890;
+      --success: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Шапка */
+    header {
+      background-color: #050507;
+      border-bottom: 2px solid var(--gold);
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-radius: 6px;
+    }
+
+    header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .nav-btn {
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      padding: 8px 15px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .nav-btn:hover {
+      background: var(--gold);
+      color: black;
+    }
+
+    /* Пошуковий рядок */
+    .search-box {
+      margin-bottom: 15px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .search-box input {
+      flex: 1;
+      background: var(--panel-bg);
+      border: 1px solid var(--border);
+      color: white;
+      padding: 12px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    /* Велика Таблиця */
+    .table-container {
+      flex: 1;
+      overflow-y: auto;
+      background: var(--panel-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th {
+      background: #0f0f12;
+      color: var(--gold);
+      padding: 15px;
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      position: sticky;
+      top: 0;
+      border-bottom: 2px solid var(--border);
+      z-index: 10;
+    }
+
+    td {
+      padding: 12px 15px;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+    }
+
+    tr:hover {
+      background: rgba(212, 175, 55, 0.03);
+    }
+
+    .code-badge {
+      background: #222;
+      color: white;
+      font-weight: bold;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-size: 11px;
+    }
+
+    .action-link {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .action-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🗺️ Реєстр Територій Периферії за Каноном Канцелярії</h1>
+    <div style="display:flex; gap:10px;">
+      <a href="/geographer.html" class="nav-btn">🗺️ Карта Штабу</a>
+      <a href="/" class="nav-btn">⬅ Центр Керування</a>
+    </div>
+  </header>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="🔍 Пошук за назвою, автокодом, ЗКАТО або столицею...">
+  </div>
+
+  <div class="table-container">
+    <table id="regionsTable">
+      <thead>
+        <tr>
+          <th>Автокод</th>
+          <th>ЗКАТО</th>
+          <th>Оригінальна назва</th>
+          <th>Імперський повіт</th>
+          <th>Народна Республіка</th>
+          <th>Столиця</th>
+          <th>Паспорт</th>
+        </tr>
+      </thead>
+      <tbody id="regionsBody">
+        <tr>
+          <td colspan="7" style="text-align:center; color:var(--text-muted); padding:30px;">
+            Завантаження офіційного Реєстру Канцелярії...
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    let allRegions = [];
+
+    // Завантаження реєстру з сервера
+    async function loadRegister() {
+      const body = document.getElementById('regionsBody');
+      try {
+        const response = await fetch('/api/geographer/regions');
+        allRegions = await response.json();
+        
+        body.innerHTML = '';
+        if (allRegions.length === 0) {
+          body.innerHTML = '<tr><td colspan="7" style="text-align:center;">Реєстр порожній. Запустіть імпульс!</td></tr>';
+          return;
+        }
+
+        allRegions.forEach(item => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td><span class="code-badge">${item.code}</span></td>
+            <td style="color:var(--text-muted); font-family:monospace;">${item.okato}</td>
+            <td style="color:#bbb; text-decoration:line-through; font-style:italic;">${item.original_name}</td>
+            <td style="font-weight:600; color:#fff;">${item.imperial_name}</td>
+            <td style="color:var(--gold); font-weight:600;">${item.decolonized_name}</td>
+            <td>🏰 ${item.capital}</td>
+            <td><a href="/geographer.html?region=${item.code}" class="action-link">Відкрити →</a></td>
+          `;
+          body.appendChild(row);
+        });
+
+      } catch (err) {
+        console.error('Помилка завантаження реєстру:', err);
+        body.innerHTML = '<tr><td colspan="7" style="text-align:center; color:red;">Помилка завантаження даних.</td></tr>';
+      }
+    }
+
+    // Розумний Excel-фільтр
+    function filterTable() {
+      const input = document.getElementById('searchInput');
+      const filter = input.value.toLowerCase();
+      const rows = document.getElementById('regionsTable').getElementsByTagName('tr');
+
+      for (let i = 1; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('td');
+        let match = false;
+        
+        for (let j = 0; j < cells.length; j++) {
+          if (cells[j]) {
+            const txtValue = cells[j].textContent || cells[j].innerText;
+            if (txtValue.toLowerCase().indexOf(filter) > -1) {
+              match = true;
+              break;
+            }
+          }
+        }
+        rows[i].style.display = match ? "" : "none";
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', loadRegister);
+  </script>
+</body>
+</html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Новинарь — Медійний портал Української імперії</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #D4AF37;
+      --gold-dark: #AA7C11;
+      --bg: #0d0d0d;
+      --panel-bg: #161616;
+      --border: #2a2a2a;
+      --text: #e0e0e0;
+      --text-muted: #8a8a8a;
+      --success: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Шапка порталу */
+    header {
+      background-color: #050505;
+      border-bottom: 2px solid var(--gold);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header h1 span {
+      font-size: 12px;
+      background: var(--gold-dark);
+      color: black;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-weight: bold;
+    }
+
+    .nav-btn {
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      padding: 8px 15px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .nav-btn:hover {
+      background: var(--gold);
+      color: black;
+    }
+
+    /* Головний контейнер з двома колонками */
+    .main-container {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* Загальні стилі колонок */
+    .column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .left-column {
+      border-right: 2px solid var(--gold);
+      background-color: #0b0b0b;
+    }
+
+    .col-header {
+      background: #111;
+      padding: 15px 25px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .col-header h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    .col-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 25px;
+    }
+
+    /* Ручний маніфест */
+    .interpret-form {
+      background: #121212;
+      border: 1px dashed var(--border);
+      border-radius: 6px;
+      padding: 15px;
+      margin-bottom: 25px;
+    }
+
+    .interpret-form h3 {
+      font-size: 12px;
+      color: var(--gold);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .form-group {
+      flex: 1;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+      text-transform: uppercase;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      background: #0d0d0d;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 8px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 12px;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    .btn-submit {
+      background: var(--gold-dark);
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-submit:hover {
+      background: var(--gold);
+      color: black;
+    }
+
+    /* Картки імперських новин */
+    .news-card {
+      background: var(--panel-bg);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .news-card h4 {
+      color: #fff;
+      font-size: 14px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .news-card .meta {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .news-card .interpretation {
+      font-size: 12px;
+      line-height: 1.5;
+      background: #0d0d0d;
+      padding: 10px;
+      border-radius: 4px;
+      border-left: 2px solid var(--success);
+      color: #eaeaea;
+    }
+
+    /* Скирдування RSS */
+    .rss-group {
+      margin-bottom: 25px;
+    }
+
+    .rss-group-title {
+      font-size: 11px;
+      background: #222;
+      color: var(--gold);
+      padding: 5px 10px;
+      border-radius: 3px;
+      margin-bottom: 15px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .rss-item {
+      background: #121212;
+      border: 1px solid #1f1f1f;
+      border-radius: 4px;
+      padding: 15px;
+      margin-bottom: 12px;
+    }
+
+    .rss-item h5 {
+      color: #eee;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .rss-item p {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+
+    /* Секція автоматичної ШІ-інтерпретації прямо у стрічці */
+    .rss-ai-auto {
+      background: rgba(212, 175, 55, 0.04);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 4px;
+      padding: 10px;
+      margin-top: 8px;
+      font-size: 11px;
+    }
+
+    .rss-ai-auto strong {
+      color: var(--gold);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .rss-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+      border-top: 1px solid #1e1e1e;
+      padding-top: 6px;
+    }
+
+    .rss-source-badge {
+      font-size: 9px;
+      background: #1c1c1c;
+      color: var(--gold);
+      padding: 2px 6px;
+      border-radius: 2px;
+    }
+
+    .status-online { color: #00ff00; font-size: 10px; font-weight: bold; }
+    .status-offline { color: #ff0000; font-size: 10px; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>👑 Новинарь <span>Автономні Клейноди Канцелярії</span></h1>
+    <a href="/" class="nav-btn">⬅ Центр Керування</a>
+  </header>
+
+  <div class="main-container">
+    
+    <!-- ЛІВЕ КРИЛО: Агрегатор Канцелярії -->
+    <div class="column left-column">
+      <div class="col-header">
+        <h2>📜 Імперський Агрегатор Канцелярії</h2>
+        <span style="font-size: 11px; color: var(--gold);">Прямий вивід смислових векторів</span>
+      </div>
+      
+      <div class="col-content">
+        <!-- Форма швидкого маніфесту Канцлера (опціонально) -->
+        <div class="interpret-form">
+          <h3>✍️ Видати ручний маніфест Канцлера</h3>
+          <form id="imperialForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Заголовок маніфесту</label>
+                <input type="text" id="impTitle" required placeholder="Наприклад: Прорив на технологічному фронті...">
+              </div>
+              <div class="form-group">
+                <label>Оригінальне джерело</label>
+                <input type="text" id="impOriginal" placeholder="Канцелярія" value="Канцелярія">
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom: 10px;">
+              <label>Текст Смислового Вектора</label>
+              <textarea id="impInterpretation" rows="2" required placeholder="Введіть текст прямої інструкції..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Впровадити в Стек 📻</button>
+          </form>
+        </div>
+
+        <!-- Стрічка імперських новин -->
+        <div id="imperialNewsContainer">
+          <!-- Завантажується динамічно -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ПРАВЕ КРИЛО: Скирдування RSS -->
+    <div class="column">
+      <div class="col-header">
+        <h2>📻 Скирдування Вхідних RSS-стрічок</h2>
+        <button class="nav-btn" style="padding: 4px 10px; font-size: 11px;" onclick="loadRssFeeds()">🔄 Оновити розвідки</button>
+      </div>
+      
+      <div class="col-content" id="rssContainer">
+        <!-- Картки RSS завантажуються динамічно -->
+        <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+          Завантаження свіжих розвідок...
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Завантаження імперських інтерпретацій (Ліве крило)
+    async function loadImperialNews() {
+      try {
+        const response = await fetch('/api/novynar/imperial');
+        const news = await response.json();
+        const container = document.getElementById('imperialNewsContainer');
+        container.innerHTML = '';
+
+        if (news.length === 0) {
+          container.innerHTML = '<div style="color: var(--text-muted); text-align: center;">Стек порожній.</div>';
+          return;
+        }
+
+        news.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'news-card';
+          card.innerHTML = `
+            <h4>${item.title}</h4>
+            <div class="meta">
+              <span>📅 ${new Date(item.date).toLocaleTimeString()}</span>
+              <span>🔗 Джерело: ${item.originalTitle} (${item.originalSource})</span>
+            </div>
+            <div class="interpretation">
+              <strong>Світоглядний вектор:</strong> ${item.interpretation}
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      } catch (err) {
+        console.error('Помилка завантаження імперських новин:', err);
+      }
+    }
+
+    // Завантаження стрічок RSS (Праве крило з авто-інтерпретацією)
+    async function loadRssFeeds() {
+      const container = document.getElementById('rssContainer');
+      container.innerHTML = '<div style="text-align: center; color: var(--gold); padding: 20px;">🔄 Здійснюємо інформаційний рейд та авто-аналіз за Клейнодами...</div>';
+
+      try {
+        const response = await fetch('/api/novynar/rss');
+        const data = await response.json();
+        
+        if (data.status !== "success") {
+          container.innerHTML = '<div style="color: red; padding: 20px;">Помилка отримання даних від Новинаря.</div>';
+          return;
+        }
+
+        container.innerHTML = '';
+
+        // Виводимо регіони (UA, RF, BY)
+        for (const [region, sources] of Object.entries(data.feeds)) {
+          let regionName = region === 'ua' ? '🇺🇦 УКРАЇНСЬКИЙ ПРОСТІР' : (region === 'rf' ? '🇷🇺 ТЕРИТОРІЯ БЕЗЛАДУ (РФ)' : '🇧🇾 БІЛОРУСЬКИЙ НАПРЯМОК');
+          
+          const group = document.createElement('div');
+          group.className = 'rss-group';
+          group.innerHTML = `<div class="rss-group-title">${regionName}</div>`;
+
+          sources.forEach(source => {
+            const sourceHeader = document.createElement('div');
+            sourceHeader.style.cssText = 'font-size: 11px; margin: 10px 0; color: #aaa; display: flex; justify-content: space-between;';
+            sourceHeader.innerHTML = `<span>📡 Джерело: <strong>${source.sourceName}</strong></span> <span class="${source.status === 'ONLINE' ? 'status-online' : 'status-offline'}">${source.status}</span>`;
+            group.appendChild(sourceHeader);
+
+            if (source.status === 'OFFLINE') {
+              const offlineCard = document.createElement('div');
+              offlineCard.className = 'rss-item';
+              offlineCard.style.borderColor = 'red';
+              offlineCard.innerHTML = `<p style="color: #ff8888;">${source.error || 'Джерело недоступне'}</p>`;
+              group.appendChild(offlineCard);
+              return;
+            }
+
+            source.items.forEach(item => {
+              const itemCard = document.createElement('div');
+              itemCard.className = 'rss-item';
+              itemCard.innerHTML = `
+                <h5>${item.title}</h5>
+                <p>${item.summary.replace(/<[^>]*>/g, '').substring(0, 180)}...</p>
+                <div class="rss-ai-auto">
+                  <strong>🤖 Авто-інтерпретація Новинаря:</strong>
+                  <span style="color:#fff; font-weight:600;">${item.autoImperialTitle}</span><br>
+                  <span style="color: #bbb; display:block; margin-top:4px;">${item.autoInterpretation}</span>
+                </div>
+                <div class="rss-footer">
+                  <span class="rss-source-badge">${new Date(item.pubDate).toLocaleTimeString()}</span>
+                  <a href="${item.link}" target="_blank" style="color: var(--gold); text-decoration:none; font-size:10px;">Читати оригінал →</a>
+                </div>
+              `;
+              group.appendChild(itemCard);
+            });
+          });
+
+          container.appendChild(group);
+        }
+
+        // Оновлюємо ліву стрічку, щоб нові авто-інтерпретації з'явилися там
+        loadImperialNews();
+
+      } catch (err) {
+        container.innerHTML = `<div style="color: red; padding: 20px;">Помилка мережі при завантаженні RSS: ${err.message}</div>`;
+      }
+    }
+
+    // Відправка форми імперської новини
+    document.getElementById('imperialForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const title = document.getElementById('impTitle').value;
+      const original = document.getElementById('impOriginal').value;
+      const interpretation = document.getElementById('impInterpretation').value;
+
+      try {
+        const response = await fetch('/api/novynar/imperial', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            title: title,
+            originalTitle: original,
+            originalSource: 'Ручний ввід',
+            interpretation: interpretation
+          })
+        });
+
+        if (response.ok) {
+          // Очищуємо форму
+          document.getElementById('impTitle').value = '';
+          document.getElementById('impInterpretation').value = '';
+          // Оновлюємо стрічку
+          loadImperialNews();
+        } else {
+          alert('Помилка при збереженні маніфесту.');
+        }
+      } catch (err) {
+        alert('Помилка з\'єднання з сервером.');
+      }
+    });
+
+    // Ініціалізація сторінки
+    window.addEventListener('DOMContentLoaded', () => {
+      loadImperialNews();
+      loadRssFeeds();
+    });
+  </script>
+</body>
+</html>

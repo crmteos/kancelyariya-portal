@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="uk" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Генератор Дзеркальних Указів Канцелярії: клієнтський генератор повнотекстових указів із збереженням у localStorage та друком.">
+    <title>📜 Генератор Дзеркальних Указів — ШІ-Канцелярія</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128220;</text></svg>">
+    <!-- Tailwind CSS CDN для $0 бюджету -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        imperial: { 900: '#1a0933', 800: '#2a124d', 700: '#3b1a6b', 500: '#8b5cf6', 400: '#a78bfa' },
+                        oprichnik: { 600: '#d97706', 500: '#f59e0b', 400: '#fbbf24' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @media print {
+            body { background: #fff !important; color: #000 !important; }
+            .no-print { display: none !important; }
+            #decree-paper, #decree-paper * { color: #000 !important; background: transparent !important; }
+            #decree-paper { border: 1px solid #000 !important; box-shadow: none !important; }
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen font-sans antialiased">
+
+    <!-- Header -->
+    <header class="border-b border-imperial-800 bg-imperial-900/90 backdrop-blur sticky top-0 z-50 no-print">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <span class="text-3xl">📜</span>
+                <div>
+                    <h1 class="text-xl font-bold tracking-wide text-imperial-400">ГЕНЕРАТОР ДЗЕРКАЛЬНИХ УКАЗІВ</h1>
+                    <p class="text-xs text-gray-400">Автономний ШІ-модуль створення офіційних актів Канцелярії</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap">
+                <a href="admin.html" class="px-3 py-1.5 text-xs font-bold bg-gray-800 hover:bg-gray-700 text-imperial-400 border border-imperial-500/30 rounded-lg transition-colors">🏛️ Панель Канцелярії</a>
+                <a href="index.html" class="px-3 py-1.5 text-xs font-bold bg-gray-800 hover:bg-gray-700 text-oprichnik-400 border border-oprichnik-500/30 rounded-lg transition-colors">📻 Публічний Портал</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-5 gap-6">
+
+        <!-- Ліва колонка: форма генерації -->
+        <section class="lg:col-span-2 space-y-4 no-print">
+            <div class="p-5 rounded-2xl bg-gray-900/70 border border-gray-800 space-y-4">
+                <h2 class="text-sm font-bold text-imperial-400 uppercase tracking-wider">Вхідні дані указу</h2>
+
+                <!-- Контур -->
+                <div>
+                    <label class="block text-xs font-semibold text-gray-400 mb-1.5">Світоглядний контур</label>
+                    <div class="grid grid-cols-2 gap-2" role="group" aria-label="Світоглядний контур">
+                        <button type="button" id="c-tanunah" onclick="setContour('tanunah')" class="px-2 py-2 text-xs font-semibold rounded-lg bg-imperial-500 text-white transition-colors">🌐 Tanunah</button>
+                        <button type="button" id="c-achtung" onclick="setContour('achtung')" class="px-2 py-2 text-xs font-semibold rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors">⚠️ Achtung</button>
+                    </div>
+                </div>
+
+                <!-- Регіон -->
+                <div>
+                    <label class="block text-xs font-semibold text-gray-400 mb-1.5" for="in-region">Регіон / Код</label>
+                    <input id="in-region" type="text" value="SAMARA" placeholder="SAMARA / GOMEL / TVER / MINSK"
+                           class="w-full px-3 py-2 text-xs font-mono bg-gray-950 border border-gray-800 rounded-lg text-gray-100 focus:border-imperial-500 focus:outline-none">
+                </div>
+
+                <!-- Назва -->
+                <div>
+                    <label class="block text-xs font-semibold text-gray-400 mb-1.5" for="in-title">Заголовок / Предмет указу</label>
+                    <input id="in-title" type="text" value="Про негайне усунення аварийного стану комунальної інфраструктури"
+                           class="w-full px-3 py-2 text-xs bg-gray-950 border border-gray-800 rounded-lg text-gray-100 focus:border-imperial-500 focus:outline-none">
+                </div>
+
+                <!-- Чиновники -->
+                <div>
+                    <label class="block text-xs font-semibold text-gray-400 mb-1.5" for="in-officials">Місцеві смотрящі (посади, прізвища)</label>
+                    <textarea id="in-officials" rows="2" class="w-full px-3 py-2 text-xs bg-gray-950 border border-gray-800 rounded-lg text-gray-100 focus:border-imperial-500 focus:outline-none resize-y">Губернатор Самарської області, мер міста Тольятті, начальник управління ЖКГ</textarea>
+                </div>
+
+                <!-- Больові точки -->
+                <div>
+                    <label class="block text-xs font-semibold text-gray-400 mb-1.5" for="in-bottlenecks">Локальні больові точки</label>
+                    <textarea id="in-bottlenecks" rows="3" class="w-full px-3 py-2 text-xs bg-gray-950 border border-gray-800 rounded-lg text-gray-100 focus:border-imperial-500 focus:outline-none resize-y">Прорив теплотраси у декількох районах; дорожнє покриття в аварійному стані; заборгованість перед житловиками комунальних підприємств</textarea>
+                </div>
+
+                <!-- Номер і дата -->
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-1.5" for="in-number">Номер указу</label>
+                        <input id="in-number" type="text" value="№105" class="w-full px-3 py-2 text-xs font-mono bg-gray-950 border border-gray-800 rounded-lg text-gray-100 focus:border-imperial-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-1.5" for="in-date">Дата</label>
+                        <input id="in-date" type="date" class="w-full px-3 py-2 text-xs bg-gray-950 border border-gray-800 rounded-lg text-gray-100 focus:border-imperial-500 focus:outline-none">
+                    </div>
+                </div>
+
+                <!-- Дія -->
+                <div class="flex flex-wrap gap-2 pt-1">
+                    <button type="button" onclick="generateDecreeWithGemini()"
+                            class="flex-1 min-w-[140px] px-4 py-2.5 bg-imperial-500 hover:bg-imperial-400 text-white font-bold rounded-xl text-xs shadow-lg shadow-imperial-500/20 transition-colors">
+                        ⚡ Згенерувати Указ
+                    </button>
+                    <button type="button" onclick="printDecree()"
+                            class="px-4 py-2.5 bg-gray-800 hover:bg-gray-700 text-gray-200 font-semibold rounded-xl text-xs border border-gray-700 transition-colors">
+                        🖨️ Друк
+                    </button>
+                </div>
+                <p id="gen-status" class="text-[10px] font-mono text-gray-500"></p>
+            </div>
+
+            <!-- Gemini-підсилення (опціонально, $0 Free Tier) -->
+            <div class="p-5 rounded-2xl bg-gray-900/70 border border-gray-800 space-y-3">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-sm font-bold text-imperial-400 uppercase tracking-wider">🤖 Gemini-підсилення</h2>
+                    <label class="flex items-center gap-2 text-[10px] font-mono text-gray-500 cursor-pointer select-none">
+                        <input type="checkbox" id="gemini-enabled" onchange="setGeminiEnabled(this.checked)"
+                               class="accent-imperial-500 w-3.5 h-3.5">
+                        <span>УВІМК</span>
+                    </label>
+                </div>
+
+                <p class="text-[10px] leading-relaxed text-gray-500">
+                    Ключ вводиться під час виконання, зберігається <span class="text-gray-400">лише в пам'яті вкладки</span>
+                    і нікуди не записується. Без ключа працює офлайн-генератор.
+                </p>
+
+                <div id="gemini-panel" class="space-y-3 opacity-40 pointer-events-none transition-opacity">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-1.5" for="gemini-key">Google AI Studio API Key</label>
+                        <input id="gemini-key" type="password" value="" autocomplete="off" spellcheck="false"
+                               placeholder="AIza… (вставляється вручну, не зберігається)"
+                               oninput="saveGeminiKey()"
+                               class="w-full px-3 py-2 text-xs font-mono bg-gray-950 border border-gray-800 rounded-lg text-gray-100 focus:border-imperial-500 focus:outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-1.5" for="gemini-model">Модель</label>
+                        <select id="gemini-model" onchange="geminiModel = this.value"
+                                class="w-full px-3 py-2 text-xs bg-gray-950 border border-gray-800 rounded-lg text-gray-100 focus:border-imperial-500 focus:outline-none">
+                            <option value="gemini-2.5-flash">gemini-2.5-flash (рекомендовано)</option>
+                            <option value="gemini-2.5-pro">gemini-2.5-pro</option>
+                            <option value="gemini-2.0-flash">gemini-2.0-flash</option>
+                        </select>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2">
+                        <button type="button" onclick="testGeminiKey()"
+                                class="flex-1 min-w-[120px] px-3 py-2 text-xs font-bold rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 transition-colors">
+                            🔑 Перевірити ключ
+                        </button>
+                        <button type="button" onclick="clearGeminiKey()"
+                                class="px-3 py-2 text-xs font-semibold rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-400 border border-gray-700 transition-colors">
+                            🗑️ Очистити
+                        </button>
+                    </div>
+                </div>
+
+                <p id="gemini-status" class="text-[10px] font-mono text-gray-500">Gemini вимкнено — працює офлайн-генератор.</p>
+            </div>
+
+            <!-- Сховище -->
+            <div class="p-5 rounded-2xl bg-gray-900/70 border border-gray-800 space-y-3">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-sm font-bold text-imperial-400 uppercase tracking-wider">Архів Указів</h2>
+                    <span id="archive-count" class="text-[10px] font-mono text-gray-500">0</span>
+                </div>
+                <ul id="archive-list" class="space-y-1.5 max-h-64 overflow-y-auto text-xs"></ul>
+                <button type="button" onclick="clearArchive()"
+                        class="w-full px-3 py-1.5 text-[10px] font-semibold rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 transition-colors">
+                    Очистити архів
+                </button>
+            </div>
+        </section>
+
+        <!-- Права колонка: результат -->
+        <section class="lg:col-span-3 space-y-4">
+            <div id="decree-paper" class="p-8 md:p-12 rounded-2xl bg-gray-900/60 border border-gray-800 shadow-2xl shadow-black/40 min-h-[600px]">
+                <div class="text-center space-y-3 pb-6 mb-6 border-b border-gray-800">
+                    <p class="text-[10px] font-mono uppercase tracking-[0.3em] text-gray-500">Канцелярія Української Імперії</p>
+                    <h2 id="out-heading" class="text-xl md:text-2xl font-bold text-gray-100 uppercase tracking-wide">ДЗЕРКАЛЬНИЙ УКАЗ</h2>
+                    <p id="out-meta" class="text-[10px] font-mono text-gray-500">Очікує генерації…</p>
+                </div>
+                <div id="out-body" class="space-y-4 text-sm text-gray-300 leading-relaxed">
+                    <p class="text-center text-xs text-gray-500 italic">Заповніть форму ліворуч та натисніть «Згенерувати Указ».</p>
+                </div>
+                <div id="out-sign" class="mt-8 pt-6 border-t border-gray-800 text-right space-y-1"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-gray-900 py-6 mt-12 text-center text-xs text-gray-500 no-print">
+        <p>Генератор Дзеркальних Указів • $0 Static Deployment • Дані зберігаються локально у вашому браузері</p>
+    </footer>
+
+    <script>
+        /* ===== Канонічні топоніми (за реєстром Писаря) ===== */
+        var TOPONYMS = {
+            SAMARA: 'Самарський край',
+            GOMEL:  'Гомельський край',
+            TVER:   'Тверський край',
+            MINSK:  'Мінський край'
+        };
+
+        var currentContour = 'tanunah';
+        var ARCHIVE_KEY = 'chancery_decrees_archive';
+
+        function setContour(c) {
+            currentContour = (c === 'achtung') ? 'achtung' : 'tanunah';
+            var t = document.getElementById('c-tanunah');
+            var a = document.getElementById('c-achtung');
+            var base = 'px-2 py-2 text-xs font-semibold rounded-lg transition-colors';
+            if (currentContour === 'tanunah') {
+                t.className = base + ' bg-imperial-500 text-white';
+                a.className = base + ' bg-gray-800 text-gray-300 hover:bg-gray-700';
+            } else {
+                a.className = base + ' bg-amber-600 text-white';
+                t.className = base + ' bg-gray-800 text-gray-300 hover:bg-gray-700';
+            }
+            document.body.setAttribute('data-contour', currentContour);
+        }
+
+        function getFormData() {
+            return {
+                region:    document.getElementById('in-region').value.trim() || 'Невідомий регіон',
+                title:     document.getElementById('in-title').value.trim() || 'Про усунення порушень',
+                officials: document.getElementById('in-officials').value.trim(),
+                bottlenecks: document.getElementById('in-bottlenecks').value.trim(),
+                number:    document.getElementById('in-number').value.trim() || '№—',
+                date:      document.getElementById('in-date').value,
+                contour:   currentContour
+            };
+        }
+
+        function splitList(txt) {
+            if (!txt) { return []; }
+            return txt.split(/[;\n]/).map(function (s) { return s.trim(); })
+                        .filter(function (s) { return s.length > 0; });
+        }
+
+        function formatDate(iso) {
+            if (!iso) { return new Date().toLocaleDateString('uk-UA'); }
+            var parts = iso.split('-');
+            if (parts.length !== 3) { return iso; }
+            return parts[2] + '.' + parts[1] + '.' + parts[0];
+        }
+
+        /* ===== Генерація тексту указу ===== */
+        function buildTanunah(d) {
+            var region = TOPONYMS[d.region.toUpperCase()] || d.region;
+            var officials = splitList(d.officials);
+            var pains = splitList(d.bottlenecks);
+            var blocks = [];
+
+            blocks.push('<p><strong>РАДА ОРКЕСТРАТОРІВ ШІ-КАНЦЕЛЯРІЇ</strong>, виходячи з повноважень Департамента Картографії та Департамента Понятійного Суверенітету, <strong>постановляє:</strong></p>');
+
+            blocks.push('<p><strong>1.</strong> Указом, що має силу Стратегічної Директиви Канцелярії, оголошується про необхідність негайної <em>інтеграції інфраструктурного потенціалу</em> ' + escapeHtml(region) + ' до спільного транспортного та енергетичного простору Метрополії.</p>');
+
+            blocks.push('<p><strong>2.</strong> Відповідальним особам ' + escapeHtml(region) + ' — ' + (officials.length ? escapeHtml(officials.join(', ')) : 'керівникам відповідних служб') + ' — доручити провести інвентаризацію об\'єктів комунальної інфраструктури та представити до Ради Оркестраторів Стратегічну Директиву про модернізацію.</p>');
+
+            if (pains.length) {
+                blocks.push('<p><strong>3.</strong> Особливу увагу звернути на критичні вузли розвитку:</p><ul class="list-disc list-inside space-y-1">' +
+                    pains.map(function (p) { return '<li>' + escapeHtml(p) + ';</li>'; }).join('') + '</ul>');
+            }
+
+            blocks.push('<p><strong>' + (pains.length ? '4' : '3') + '.</strong> Державотворчий підхід Метрополії передбачає, що інфраструктурна модернізація краю є закономірним кроком на шляху до спільного європейського простору, а не адміністративною поступкою.</p>');
+            blocks.push('<p><strong>' + (pains.length ? '5' : '4') + '.</strong> Контроль за виконанням покладається на Географа та Департамент Понятійного Суверенітету. Звіт подати до Канцелярії у триденний строк.</p>');
+
+            return { heading: 'СТРАТЕГІЧНА ДИРЕКТИВА КАНЦЕЛЯРІЇ', blocks: blocks };
+        }
+
+        function buildAchtung(d) {
+            var region = TOPONYMS[d.region.toUpperCase()] || d.region;
+            var officials = splitList(d.officials);
+            var pains = splitList(d.bottlenecks);
+            var blocks = [];
+
+            blocks.push('<p><strong>КОМАНДУЮЩИЙ ОРГАН МЕСТНОЙ АХТУНГ-ЗОНЫ</strong> в лице ' + (officials.length ? escapeHtml(officials.join(', ')) : 'местных смотрящих') + ' настоящим уведомляет:</p>');
+
+            blocks.push('<p><strong>1.</strong> Ваша некомпетентность в вопросе элементарного хозяйственного обустройства ' + escapeHtml(region) + ' приобрела масштаб, за которым Канцелярия наблюдает ваше бессилие в режиме реального времени.</p>');
+
+            if (pains.length) {
+                blocks.push('<p><strong>2.</strong> Зафиксированные ниже провалы вашей администрации:</p><ul class="list-disc list-inside space-y-1">' +
+                    pains.map(function (p) { return '<li>' + escapeHtml(p) + ';</li>'; }).join('') + '</ul>');
+            }
+
+            blocks.push('<p><strong>' + (pains.length ? '3' : '2') + '.</strong> Требую немедленно устранить указанные аномалии. Срок — ' + formatDate(d.date) + '. Мера реакции Империи будет соразмерна вашей неспособности удержать элементарный порядок.</p>');
+            blocks.push('<p><strong>' + (pains.length ? '4' : '3') + '.</strong> Напоминаем, что подлинная сила измеряется не парадами, а состоянием дорог, труб и расписей. Ваша территория отныне входит в зону прямого когнитивного воздействия.</p>');
+            blocks.push('<p><strong>' + (pains.length ? '5' : '4') + '.</strong> Исполнение фиксируется Полком Калиновского. Неисполнение будет зафиксировано в Хрониках Архивариуса.</p>');
+
+            return { heading: 'ЗЕРКАЛЬНЫЙ УКАЗ', blocks: blocks };
+        }
+
+        /* ===== Рендер указу ===== */
+        function renderDecree(d, result) {
+            document.getElementById('out-heading').innerText = result.heading;
+            document.getElementById('out-meta').innerText =
+                d.number + ' • ' + formatDate(d.date) + ' • Контур: ' + (d.contour === 'achtung' ? 'Achtung (Сатира)' : 'Tanunah (Метрополія)');
+            document.getElementById('out-body').innerHTML =
+                '<p class="text-center font-bold text-gray-100">' + escapeHtml(d.title) + '</p>' + result.blocks.join('');
+            document.getElementById('out-sign').innerHTML =
+                '<p class="text-xs text-gray-400">Рада Оркестраторів ШІ-Канцелярії</p>' +
+                '<p class="text-[10px] font-mono text-gray-500">Канал: ' + (d.contour === 'achtung' ? 'Achtung / Полк Калиновского' : 'Tanunah / Департамент Картографії') + '</p>';
+        }
+
+        function generateDecree() {
+            var d = getFormData();
+            var result = (d.contour === 'achtung') ? buildAchtung(d) : buildTanunah(d);
+            renderDecree(d, result);
+            saveToArchive(d, result);
+            var st = document.getElementById('gen-status');
+            st.innerText = '✓ Указ ' + d.number + ' згенеровано та збережено в архіві.';
+            st.className = 'text-[10px] font-mono text-emerald-400';
+        }
+
+        /* ===== Gemini-підсилення (опціонально, $0 Free Tier) =====
+           Ключ API НІКОЛИ не потрапляє у сховище: він живе лише у змінній
+           у пам'яті вкладки й зникає після перезавантаження сторінки. */
+        var GEMINI_ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models/';
+        var geminiKey = '';
+        var geminiModel = 'gemini-2.5-flash';
+        var geminiEnabled = false;
+
+        function setGeminiEnabled(on) {
+            geminiEnabled = !!on;
+            var panel = document.getElementById('gemini-panel');
+            if (on) {
+                panel.classList.remove('opacity-40', 'pointer-events-none');
+            } else {
+                panel.classList.add('opacity-40', 'pointer-events-none');
+            }
+            var st = document.getElementById('gemini-status');
+            if (!on) {
+                st.innerText = 'Gemini вимкнено — працює офлайн-генератор.';
+                st.className = 'text-[10px] font-mono text-gray-500';
+            } else if (!geminiKey) {
+                st.innerText = 'Введіть API-ключ, щоб увімкнути підсилення.';
+                st.className = 'text-[10px] font-mono text-oprichnik-400';
+            }
+        }
+
+        function saveGeminiKey() {
+            // Тримаємо ключ лише у змінній — жодного localStorage/sessionStorage.
+            geminiKey = document.getElementById('gemini-key').value.trim();
+            if (geminiEnabled && geminiKey) {
+                var st = document.getElementById('gemini-status');
+                st.innerText = 'Ключ прийнято (у пам\'яті вкладки). Натисніть «Перевірити ключ».';
+                st.className = 'text-[10px] font-mono text-gray-400';
+            }
+        }
+
+        function clearGeminiKey() {
+            geminiKey = '';
+            document.getElementById('gemini-key').value = '';
+            var st = document.getElementById('gemini-status');
+            st.innerText = 'Ключ очищено з пам\'яті вкладки.';
+            st.className = 'text-[10px] font-mono text-gray-500';
+        }
+
+        function geminiStatus(text, cls) {
+            var st = document.getElementById('gemini-status');
+            st.innerText = text;
+            st.className = 'text-[10px] font-mono ' + (cls || 'text-gray-500');
+        }
+
+        function escapeHtml(text) {
+            return String(text)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function buildGeminiPrompt(d) {
+            var region = TOPONYMS[d.region.toUpperCase()] || d.region;
+            var isAchtung = d.contour === 'achtung';
+            var role = isAchtung
+                ? 'Ти — сатиричний «Командующий орган местной ахтунг-зоны». Пиши сухо, угрожающе, з бюрократичним сарказмом, мовою, близькою до російського офіційного меморандуму.'
+                : 'Ти — «Рада Оркестраторів ШІ-Канцелярії». Пиши урочисто, офіційно, з державною канцелярською впевненістю.';
+            var lang = isAchtung ? 'Російською мовою.' : 'Українською мовою.';
+            return role + '\n\n' + lang + '\n' +
+                'Створи повнотекстовий документ-указ (5–8 абзаців) за такими вхідними даними:\n' +
+                '- Регіон: ' + region + '\n' +
+                '- Предмет: ' + d.title + '\n' +
+                '- Посади чиновників: ' + (d.officials || 'не вказано') + '\n' +
+                '- Локальні проблеми: ' + (d.bottlenecks || 'не вказано') + '\n' +
+                '- Номер: ' + d.number + ', дата: ' + formatDate(d.date) + '\n\n' +
+                'Вимоги: почни з офіційного заклику («постановляє» / «настоящим уведомляет»), ' +
+                'заверши вимогою конкретного заходу та строком. Без markdown-заголовків і списків. ' +
+                'Поверни лише текст указу без коментарів.';
+        }
+
+        function geminiRequestBody(d) {
+            return {
+                contents: [
+                    {
+                        role: 'user',
+                        parts: [{ text: buildGeminiPrompt(d) }]
+                    }
+                ],
+                generationConfig: {
+                    temperature: 0.7,
+                    maxOutputTokens: 1024
+                }
+            };
+        }
+
+        function extractGeminiText(payload) {
+            try {
+                var candidate = payload.candidates && payload.candidates[0];
+                var parts = candidate && candidate.content && candidate.content.parts;
+                if (!parts || !parts.length) { return ''; }
+                return parts.map(function (p) { return p.text || ''; }).join('').trim();
+            } catch (e) {
+                return '';
+            }
+        }
+
+        function geminiErrorText(payload, status) {
+            if (payload && payload.error && payload.error.message) {
+                return payload.error.message;
+            }
+            return 'HTTP ' + status;
+        }
+
+        /* Виклик Gemini REST API з ключем у параметрі запиту. */
+        function callGemini(d) {
+            var url = GEMINI_ENDPOINT + encodeURIComponent(geminiModel) +
+                      ':generateContent?key=' + encodeURIComponent(geminiKey);
+            return fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(geminiRequestBody(d))
+            }).then(function (response) {
+                return response.json().then(function (payload) {
+                    if (!response.ok) {
+                        throw new Error(geminiErrorText(payload, response.status));
+                    }
+                    var text = extractGeminiText(payload);
+                    if (!text) {
+                        throw new Error('Порожня відповідь від Gemini');
+                    }
+                    return text;
+                });
+            });
+        }
+
+        function testGeminiKey() {
+            if (!geminiKey) {
+                geminiStatus('✗ Спершу введіть API-ключ.', 'text-red-400');
+                return Promise.resolve(false);
+            }
+            geminiStatus('⏳ Перевіряю ключ…', 'text-gray-400');
+            return callGemini(getFormData()).then(function () {
+                geminiStatus('✓ Ключ робочий. Модель: ' + geminiModel, 'text-emerald-400');
+                return true;
+            }).catch(function (err) {
+                geminiStatus('✗ Помилка: ' + (err && err.message ? err.message : 'невідомо'), 'text-red-400');
+                return false;
+            });
+        }
+
+        /* Генерація через Gemini; за будь-якої помилки — офлайн-фолбек. */
+        function generateDecreeWithGemini() {
+            var d = getFormData();
+            var st = document.getElementById('gen-status');
+
+            if (!geminiEnabled || !geminiKey) {
+                generateDecree();
+                return Promise.resolve('offline');
+            }
+
+            st.innerText = '⏳ Gemini генерує указ…';
+            st.className = 'text-[10px] font-mono text-gray-400';
+
+            return callGemini(d).then(function (text) {
+                var heading = (d.contour === 'achtung')
+                    ? 'ЗЕРКАЛЬНЫЙ УКАЗ'
+                    : 'СТРАТЕГІЧНА ДИРЕКТИВА КАНЦЕЛЯРІЇ';
+                var html = escapeHtml(text)
+                    .replace(/\n{2,}/g, '</p><p>')
+                    .replace(/\n/g, '<br>');
+                var result = { heading: heading, blocks: ['<p>' + html + '</p>'] };
+                renderDecree(d, result);
+                saveToArchive(d, result);
+                st.innerText = '✓ Указ ' + d.number + ' згенеровано Gemini та збережено в архіві.';
+                st.className = 'text-[10px] font-mono text-emerald-400';
+                geminiStatus('✓ Gemini готовий.', 'text-emerald-400');
+                return 'gemini';
+            }).catch(function (err) {
+                var msg = (err && err.message) ? err.message : 'невідомо помилка';
+                geminiStatus('✗ Gemini: ' + msg + ' — використано офлайн-генератор.', 'text-red-400');
+                generateDecree();
+                return 'fallback';
+            });
+        }
+
+        /* ===== Архів (localStorage, $0 без бекенду) ===== */
+        function loadArchive() {
+            try {
+                var raw = localStorage.getItem(ARCHIVE_KEY);
+                var arr = raw ? JSON.parse(raw) : [];
+                return Array.isArray(arr) ? arr : [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveArchive(arr) {
+            try {
+                localStorage.setItem(ARCHIVE_KEY, JSON.stringify(arr.slice(0, 50)));
+            } catch (e) {
+                /* Квота localStorage переповнена або недоступна — продовжуємо без збереження */
+            }
+        }
+
+        function saveToArchive(d, result) {
+            var arr = loadArchive();
+            arr.unshift({
+                number: d.number,
+                date: formatDate(d.date),
+                contour: d.contour,
+                title: d.title,
+                heading: result.heading
+            });
+            saveArchive(arr);
+            renderArchive();
+        }
+
+        function renderArchive() {
+            var arr = loadArchive();
+            var list = document.getElementById('archive-list');
+            var count = document.getElementById('archive-count');
+            count.innerText = String(arr.length);
+            if (!arr.length) {
+                list.innerHTML = '<li class="text-[11px] text-gray-600 italic">Архів порожній. Згенеруйте перший указ.</li>';
+                return;
+            }
+            list.innerHTML = arr.map(function (item, i) {
+                var badge = item.contour === 'achtung'
+                    ? 'text-oprichnik-400' : 'text-imperial-400';
+                return '<li class="p-2 rounded-lg bg-gray-950/60 border border-gray-800 flex items-start gap-2">' +
+                    '<span class="font-mono text-[10px] shrink-0 ' + badge + '">' + escapeHtml(item.number) + '</span>' +
+                    '<span class="min-w-0 flex-1 text-[10px] text-gray-400 truncate" title="' + escapeHtml(item.title) + '">' + escapeHtml(item.title) + '</span>' +
+                    '<button type="button" onclick="loadFromArchive(' + i + ')" ' +
+                        'class="shrink-0 text-[10px] text-gray-500 hover:text-imperial-400 transition-colors">⤢</button>' +
+                '</li>';
+            }).join('');
+        }
+
+        function loadFromArchive(i) {
+            var arr = loadArchive();
+            if (!arr[i]) { return; }
+            var item = arr[i];
+            var d = {
+                region: '', title: item.title, officials: '', bottlenecks: '',
+                number: item.number, date: '', contour: item.contour
+            };
+            setContour(item.contour);
+            document.getElementById('in-title').value = d.title;
+            document.getElementById('in-number').value = d.number;
+            var st = document.getElementById('gen-status');
+            st.innerText = '↺ Завантажено указ ' + item.number + ' із архіву. Перевірте решту полів перед друком.';
+            st.className = 'text-[10px] font-mono text-oprichnik-400';
+        }
+
+        function clearArchive() {
+            saveArchive([]);
+            renderArchive();
+            document.getElementById('gen-status').innerText = '✓ Архів очищено.';
+            document.getElementById('gen-status').className = 'text-[10px] font-mono text-gray-500';
+        }
+
+        /* ===== Друк ===== */
+        function printDecree() {
+            window.print();
+        }
+
+        /* ===== Ініціалізація ===== */
+        document.addEventListener('DOMContentLoaded', function () {
+            var today = new Date();
+            var iso = today.getFullYear() + '-' +
+                String(today.getMonth() + 1).padStart(2, '0') + '-' +
+                String(today.getDate()).padStart(2, '0');
+            document.getElementById('in-date').value = iso;
+            setContour('tanunah');
+            renderArchive();
+        });
+    </script>
+</body>
+</html>

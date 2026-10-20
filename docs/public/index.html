@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Медійний портал Української імперії — Центр Керування</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #07090e;
+            --bg-panel: #0f1319;
+            --bg-active: #171d25;
+            --border-color: #1e2631;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --primary: #ffd700; /* Імперський золотий */
+            --primary-glow: rgba(255, 215, 0, 0.15);
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --belarus-red: #da291c;
+            --google-blue: #1a73e8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* ВЕРХНЯ ПАНЕЛЬ НАВІГАЦІЇ (GOOGLE STYLE) */
+        .navbar {
+            background-color: var(--bg-panel);
+            border-bottom: 1px solid var(--border-color);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .navbar-logo {
+            font-size: 1.6rem;
+        }
+
+        .navbar-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        /* Навігаційне меню з випадалками */
+        .nav-menu {
+            display: flex;
+            gap: 24px;
+            height: 100%;
+        }
+
+        .nav-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .nav-link {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0 12px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: color 0.2s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-item:hover .nav-link {
+            border-bottom: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        /* Випадаюче меню (Dropdown) */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--bg-panel);
+            border: 1px solid var(--border-color);
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            width: 280px;
+            display: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            padding: 10px 0;
+        }
+
+        .nav-item:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown-item {
+            padding: 10px 20px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--bg-active);
+            color: var(--primary);
+        }
+
+        /* ДИНАМІЧНИЙ ПОРТАЛ */
+        .main-container {
+            flex-grow: 1;
+            padding: 40px;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* СТАРТОВИЙ LЕНДІНГ */
+        .landing-hero {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+        }
+
+        .landing-hero h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .landing-hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Великі розкладушки */
+        .accordion-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .accordion-item {
+            background-color: var(--bg-panel);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+
+        .accordion-item:hover {
+            border-color: var(--primary);
+        }
+
+        .accordion-header {
+            padding: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            background-color: rgba(255,255,255,0.01);
+        }
+
+        .accordion-title {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .accordion-icon {
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+        }
+
+        .accordion-item.open .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 0 24px 24px 24px;
+            border-top: 1px solid rgba(255,255,255,0.02);
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            background-color: rgba(0,0,0,0.1);
+        }
+
+        .accordion-item.open .accordion-content {
+            display: grid;
+        }
+
+        /* Картка ШІ-агента */
+        .agent-card {
+            background-color: var(--bg-active);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-decoration: none;
+        }
+
+        .agent-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
+        }
+
+        .agent-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .agent-card-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .agent-card-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin-bottom: 16px;
+        }
+
+        .dashboard-view {
+            display: none;
+        }
+
+        .dashboard-view.active {
+            display: block;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            cursor: pointer;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .card {
+            background-color: var(--bg-panel);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .card-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .card-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: var(--bg-dark);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 12px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn:hover { opacity: 0.9; }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            margin-left: 8px;
+        }
+
+        .btn-secondary:hover { background-color: var(--bg-active); }
+
+        .logs-panel {
+            background-color: var(--bg-panel);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            font-family: monospace;
+            max-height: 350px;
+            overflow-y: auto;
+        }
+
+        .log-entry {
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(38, 47, 61, 0.4);
+            font-size: 0.85rem;
+        }
+
+        .log-time { color: var(--primary); margin-right: 8px; }
+
+        .decree-blank {
+            background-color: #fcfcfc;
+            color: #111;
+            padding: 40px;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            font-family: 'Times New Roman', serif;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-width: 650px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .decree-header {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #111;
+            padding-bottom: 10px;
+        }
+
+        .decree-title {
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 24px;
+        }
+
+        .decree-body {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 30px;
+        }
+
+        .decree-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 40px;
+        }
+
+        .decree-stamp {
+            width: 100px;
+            height: 100px;
+            border: 3px double #d32f2f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #d32f2f;
+            font-size: 0.75rem;
+            font-weight: bold;
+            transform: rotate(-15deg);
+            opacity: 0.85;
+            text-transform: uppercase;
+        }
+
+        .node-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        
+        .status-green { background-color: var(--success); }
+        .status-red { background-color: var(--danger); }
+    </style>
+</head>
+<body>
+
+    <!-- ВЕРХНЯ ПАНЕЛЬ НАВІГАЦІЇ -->
+    <nav class="navbar">
+        <a class="navbar-brand" onclick="showLanding()">
+            <span class="navbar-logo">👑</span>
+            <span class="navbar-title">Імперський Портал</span>
+        </a>
+
+        <div class="nav-menu">
+            <!-- КАНЦЕЛЯРІЯ -->
+            <div class="nav-item">
+                <a class="nav-link">🏛️ Канцелярія ▾</a>
+                <div class="dropdown">
+                    <a class="dropdown-item" onclick="switchTab('kleynody')">📜 Клейноди & Матриця <span class="node-indicator status-green"></span></a>
+                    <a class="dropdown-item" onclick="switchTab('decree-generator')">✍️ Генератор Указів <span class="node-indicator status-green"></span></a>
+                    <a class="dropdown-item" onclick="switchTab('vagon')">🧪 Вагон Дослідників <span class="node-indicator status-green"></span></a>
+                    <a class="dropdown-item" onclick="switchTab('treasurer')">🪙 Скарбничий & Біржа <span class="node-indicator status-green"></span></a>
+                    <a class="dropdown-item" href="/novynar.html">📰 Новинарь (RSS-Моніторинг) <span class="node-indicator status-green"></span></a>
+                    <a class="dropdown-item" href="/archive.html">📁 :Архіваріус (Реєстр) <span class="node-indicator status-green"></span></a>
+                    <a class="dropdown-item" href="/futurologist.html">🔮 :Футуролог (Прогнози) <span class="node-indicator status-green"></span></a>
+                    <a class="dropdown-item" href="/geographer.html">🗺️ :Географ (Карта) <span class="node-indicator status-green"></span></a>
+                    <a class="dropdown-item" href="/regions.html">📊 Державний Реєстр <span class="node-indicator status-green"></span></a>
+                </div>
+            </div>
+
+            <!-- ПОРТАЛ -->
+            <div class="nav-item">
+                <a class="nav-link">💻 Портал ▾</a>
+                <div class="dropdown">
+                    <a class="dropdown-item" onclick="switchTab('portal-health')">🩺 ШІ-Аудит & Quotas <span class="node-indicator status-green"></span></a>
+                </div>
+            </div>
+
+            <!-- МЕДІАІМПЕРІЯ -->
+            <div class="nav-item">
+                <a class="nav-link">📻 Медіаімперія ▾</a>
+                <div class="dropdown">
+                    <a class="dropdown-item" onclick="switchTab('media-policy')">📢 :МедіаПолітика (НЛП) <span class="node-indicator status-green"></span></a>
+                    <a class="dropdown-item" onclick="switchTab('media-syndicate')">🎛️ Медіа Синдикат <span class="node-indicator status-green"></span></a>
+                    <a class="dropdown-item" onclick="switchTab('influencers')">🤖 :Інфлюенсери <span class="node-indicator status-green"></span></a>
+                </div>
+            </div>
+        </div>
+
+        <div style="font-size: 0.85rem; color: var(--text-muted);">
+            Статус: <strong style="color: var(--success);">Автономний</strong>
+        </div>
+    </nav>
+
+    <!-- ДИНАМІЧНИЙ ПОРТАЛ -->
+    <div class="main-container">
+
+        <!-- СТАРТОВИЙ ЛЕНДІНГ (ЦЕНТР КЕРУВАННЯ) -->
+        <div id="landing-view">
+            <div class="landing-hero">
+                <h2>Вітаємо в Центрі Керування Імперією</h2>
+                <p>Клікай на блоки Оркестраторів нижче, щоб розкрити список ШІ-агентів та перейти у їхні кабінети.</p>
+            </div>
+
+            <div class="accordion-container">
+                <!-- КАНЦЕЛЯРІЯ -->
+                <div class="accordion-item" id="acc-chancellery">
+                    <div class="accordion-header" onclick="toggleAccordion('acc-chancellery')">
+                        <div class="accordion-title">🏛️ I. Імперська Канцелярія</div>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="agent-card" onclick="switchTab('kleynody')">
+                            <div class="agent-card-header">📜 Клейноди & Матриця <span class="node-indicator status-green"></span></div>
+                            <div class="agent-card-desc">Світоглядний Компас Танунахи vs Ахтунги. Основа для всіх рішень.</div>
+                        </div>
+                        <div class="agent-card" onclick="switchTab('decree-generator')">
+                            <div class="agent-card-header">✍️ Генератор Указів <span class="node-indicator status-green"></span></div>
+                            <div class="agent-card-desc">Дзеркальні постанови для місцевої влади РФ та Білорусі Полку Каліновського.</div>
+                        </div>
+                        <div class="agent-card" onclick="switchTab('vagon')">
+                            <div class="agent-card-header">🧪 Вагон Дослідників <span class="node-indicator status-green"></span></div>
+                            <div class="agent-card-desc">База знань doslidy.org.ua, Танунахський фонд та перенесений архів "Ахтунгів ЯП".</div>
+                        </div>
+                        <div class="agent-card" onclick="switchTab('treasurer')">
+                            <div class="agent-card-header">🪙 Скарбничий <span class="node-indicator status-green"></span></div>
+                            <div class="agent-card-desc">Фіатна Гривня, Клейнод-Коїни (KLN), виплати UBI та Біржа Холопів.</div>
+                        </div>
+                        <div class="agent-card" onclick="location.href='/novynar.html'">
+                            <div class="agent-card-header">📰 Новинарь <span class="node-indicator status-green"></span></div>
+                            <div class="agent-card-desc">Двопанельний кабінет: велична інтерпретація та скирдування RSS (УНІАН, УП).</div>
+                        </div>
+                        <div class="agent-card" onclick="location.href='/archive.html'">
+                            <div class="agent-card-header">📁 Архіваріус <span class="node-indicator status-green"></span></div>
+                            <div class="agent-card-desc">Систематизація реєстру та збереження офіційних Хронік.</div>
+                        </div>
+                        <div class="agent-card" onclick="location.href='/futurologist.html'">
+                            <div class="agent-card-header">🔮 Футуролог <span class="node-indicator status-green"></span></div>
+                            <div class="agent-card-desc">Моделювання майбутніх перемог та розпаду РФ.</div>
+                        </div>
+                        <div class="agent-card" onclick="location.href='/geographer.html'">
+                            <div class="agent-card-header">🗺️ Географ <span class="node-indicator status-green"></span></div>
+                            <div class="agent-card-desc">Ситуаційна Кімната Канцелярії: Паспорти територій та інтерактивна Google-мапа.</div>
+                        </div>
+                        <div class="agent-card" onclick="location.href='/regions.html'">
+                            <div class="agent-card-header">📊 Державний Реєстр <span class="node-indicator status-green"></span></div>
+                            <div class="agent-card-desc">Реєстр суб'єктів периферії за автономерами, ЗКАТО та столицями.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ПОРТАЛ -->
+                <div class="accordion-item" id="acc-portal">
+                    <div class="accordion-header" onclick="toggleAccordion('acc-portal')">
+                        <div class="accordion-title">💻 II. Технічний Портал</div>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="agent-card" onclick="switchTab('portal-health')">
+                            <div class="agent-card-header">🩺 ШІ-Аудит & Quotas <span class="node-indicator status-green"></span></div>
+                            <div class="agent-card-desc">Контроль помилок лімітів хмари 429 та виявлення розривів логіки.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- МЕДІАІМПЕРІЯ -->
+                <div class="accordion-item" id="acc-media">
+                    <div class="accordion-header" onclick="toggleAccordion('acc-media')">
+                        <div class="accordion-title">📻 III. Медіаімперія</div>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="agent-card" onclick="switchTab('media-policy')">
+                            <div class="agent-card-header">📢 МедіаПолітика (НЛП) <span class="node-indicator status-green"></span></div>
+                            <div class="agent-card-desc">Керування НЛП-наративами та вірусом 'Гривня по 50'.</div>
+                        </div>
+                        <div class="agent-card" onclick="switchTab('media-syndicate')">
+                            <div class="agent-card-header">🎛️ Медіа Синдикат <span class="node-indicator status-green"></span></div>
+                            <div class="agent-card-desc">Сітка мовлення: Радіо Танунах, Контур Вільної Білорусі. Ротація.</div>
+                        </div>
+                        <div class="agent-card" onclick="switchTab('influencers')">
+                            <div class="agent-card-header">🤖 Інфлюенсери <span class="node-indicator status-green"></span></div>
+                            <div class="agent-card-desc">Автономні ШІ-боти у соцмережах та коментарях ЯП.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ДИНАМІЧНІ ДАШБОРДИ АГЕНТІВ (ГОЛОВНА ЗОНА) -->
+        <div id="dashboard-view" class="dashboard-view">
+            <a class="back-link" onclick="showLanding()">← Повернутися до Центру Керування</a>
+            <div id="dashboard-inner-content">
+                <!-- Рендер дашборду конкретного агента -->
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let state = {
+            fiat_balance: 14500.00,
+            crypto_balance: 382.40,
+            serfs_count: 2,
+            land_plots: 1,
+            logs: [
+                { time: "11:02:15", msg: "ШІ-Аудит: Контур Вільної Білорусі активовано під егідою Полку Каліновського." },
+                { time: "11:05:30", msg: "Медіа Синдикат: Запущено відео-ротацію гімнів 'Перамогі сцяг' та 'Меч Арея'." },
+                { time: "11:10:00", msg: "Географ: Додано паспорти територій для Гомельської та Брестської областей." }
+            ],
+            quota_warnings: [],
+            news: [],
+            rssFeeds: {}
+        };
+
+        // Керування розкладушками на Лендінгу
+        function toggleAccordion(id) {
+            const item = document.getElementById(id);
+            item.classList.toggle('open');
+        }
+
+        // Показ стартового лендінгу
+        function showLanding() {
+            document.getElementById('landing-view').style.display = 'block';
+            document.getElementById('dashboard-view').style.display = 'none';
+        }
+
+        // Завантаження реал  них даних з Supabase
+        async function fetchBalance() {
+            try {
+                const response = await fetch('/api/balance');
+                const data = await response.json();
+                if (!data.error) {
+                    state.fiat_balance = parseFloat(data.fiat_balance_uah || data.fiat_balance);
+                    state.crypto_balance = parseFloat(data.crypto_balance_kln || data.crypto_balance);
+                    state.serfs_count = data.serfs_count;
+                    state.land_plots = data.land_plots;
+                }
+            } catch (err) {
+                console.error("Помилка завантаження балансу:", err);
+            }
+        }
+
+        // Завантаження аномалій для Вагона Дослідників (колишні "ахтунги ЯП")
+        async function fetchNews() {
+            try {
+                const response = await fetch('/api/news');
+                const data = await response.json();
+                state.news = data;
+            } catch (err) {
+                console.error("Помилка завантаження новин Вагона:", err);
+            }
+        }
+
+        // Оновлення новин кожні 30 секунд (тільки для Вагона)
+        setInterval(async () => {
+            const currentTitleElement = document.getElementById('current-tab-title-dash');
+            if (currentTitleElement) {
+                if (currentTitleElement.innerText.includes("Вагон")) {
+                    await fetchNews();
+                    renderVagonTab();
+                }
+            }
+        }, 30000);
+
+        // РЕНДЕР: Вагон Дослідників (Фонди та Ахтунги)
+        function renderVagonTab() {
+            const innerContent = document.getElementById('dashboard-inner-content');
+            innerContent.innerHTML = `
+                <h2 id="current-tab-title-dash" style="font-family:'Space Grotesk', sans-serif; font-size:1.8rem; margin-bottom:24px;">🧪 Вагон Цікавих Дослідників</h2>
+                <div class="grid-layout">
+                    <div class="card">
+                        <div class="card-header">База знань</div>
+                        <div class="card-value" style="font-size:1.6rem; color:#10b981;">doslidy.org.ua</div>
+                        <div class="card-desc">Практичні, яскраві досліди, які кожен може зробити самостійно. База успішно інтегрована в логіку ШІ.</div>
+                        <a href="https://doslidy.org.ua/" target="_blank" class="btn">Відвідати базу знань</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Фонд "Танунахський"</div>
+                        <div class="card-value">1 Активна місія</div>
+                        <div class="card-desc">Секретні дослідження у прикордонних зонах з вивчення ментальних мутацій Ахтунгів.</div>
+                    </div>
+                </div>
+                
+                <div class="logs-panel">
+                    <h4 style="color:var(--primary); margin-bottom:12px;">📈 Фонд "Ахтунги ЯП" (Перенесено з Новинаря):</h4>
+                    <div id="live-news-container">
+                        ${state.news.map(item => `
+                            <div class="log-entry" style="margin-bottom:12px; border-bottom:1px solid rgba(255,215,0,0.1); padding-bottom:8px;">
+                                <div style="display:flex; justify-content:space-between; width:100%; margin-bottom:4px;">
+                                    <span style="color:var(--danger); font-weight:600;">🔥 Triгер Ахтунгів: "${item.title}"</span>
+                                    <span style="color:var(--text-muted); font-size:0.8rem;">[${item.time}]</span>
+                                </div>
+                                <div style="color:var(--success); padding-left:12px; border-left:2px solid var(--success);">
+                                    🛡️ <strong>Сатира Канцелярії:</strong> ${item.satire}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Перемикання на дашборд агента
+        async function switchTab(tabId) {
+            document.getElementById('landing-view').style.display = 'none';
+            document.getElementById('dashboard-view').style.display = 'block';
+
+            const innerContent = document.getElementById('dashboard-inner-content');
+
+            if (tabId === 'kleynody') {
+                innerContent.innerHTML = `
+                    <h2 id="current-tab-title-dash" style="font-family:'Space Grotesk', sans-serif; font-size:1.8rem; margin-bottom:24px;">📜 Клейноди Канцелярії & Матриця Контекстів</h2>
+                    <div class="grid-layout">
+                        <div class="card">
+                            <div class="card-header">Світоглядний Компас</div>
+                            <div class="card-value">Танунахи vs Ахтунги</div>
+                            <div class="card-desc">Матриця розподілу контекстів та системних моделей. Кожен агент звіряється з Скрижалями.</div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Вільна Білорусь ⬜🟥⬜</div>
+                            <div class="card-value" style="font-size: 1.5rem; color: var(--primary);">Полк Каліновського</div>
+                            <div class="card-desc">Контроль та дзеркальне управління білоруськими містами в обхід диктатора-Лукашенка.</div>
+                        </div>
+                    </div>
+                    <div style="background-color: var(--bg-panel); border: 1px solid var(--border-color); padding: 24px; border-radius: 12px;">
+                        <h3 style="margin-bottom: 12px; color: var(--primary);">Витяг з Скрижалей (Матриця):</h3>
+                        <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-muted);">
+                            🟢 <strong>Танунахи:</strong> Свобода, колаборація, чесність, право, прикладні досліди.<br><br>
+                            🔴 <strong>Ахтунги:</strong> "Понятія", страх, ієрархічний примус, паразитизм, маніпуляції та мем-деградація.
+                        </p>
+                    </div>
+                `;
+            } 
+            
+            else if (tabId === 'decree-generator') {
+                innerContent.innerHTML = `
+                    <h2 id="current-tab-title-dash" style="font-family:'Space Grotesk', sans-serif; font-size:1.8rem; margin-bottom:24px;">✍️ Дзеркальний Генератор Імперських Указів</h2>
+                    <div style="margin-bottom: 24px;">
+                        <label style="font-size: 0.9rem; color: var(--text-muted); display:block; margin-bottom:8px;">Оберіть цільовий регіон для Указу:</label>
+                        <button class="btn" onclick="generateDecree('RF')">Згенерувати указ по РФ (Бєлгород/Тюмень)</button>
+                        <button class="btn btn-secondary" onclick="generateDecree('BY')">Згенерувати указ по РБ (Гомель/Брест) ⬜🟥⬜</button>
+                    </div>
+                    <div id="decree-display-zone">
+                        <p style="color: var(--text-muted); text-align:center; padding: 40px; border: 1px dashed var(--border-color); border-radius:8px;">
+                            Оберіть регіон вище, щоб ШІ автоматично згенерував Імперське Розпорядження на основі регіональних паспортів Географа.
+                        </p>
+                    </div>
+                `;
+            }
+
+            else if (tabId === 'vagon') {
+                await fetchNews();
+                renderVagonTab();
+            } 
+            
+            else if (tabId === 'treasurer') {
+                await fetchBalance();
+                innerContent.innerHTML = `
+                    <h2 id="current-tab-title-dash" style="font-family:'Space Grotesk', sans-serif; font-size:1.8rem; margin-bottom:24px;">🪙 Скарбничий Імперії & Біржа Холопів</h2>
+                    <div class="grid-layout">
+                        <div class="card">
+                            <div class="card-header">Фіатна Казна</div>
+                            <div class="card-value">${state.fiat_balance.toFixed(2)} UAH</div>
+                            <div class="card-desc">Гривня — єдина стабільна валюта для розрахунків у всіх краях Імперії.</div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Суверенний Крипто-контур (Supabase)</div>
+                            <div class="card-value" style="color: #10b981;">${state.crypto_balance.toFixed(2)} KLN</div>
+                            <div class="card-desc">Забезпечено: <strong>76.4 кВт-год</strong> енергії / <strong>12.8 терафлопс ШІ</strong>.</div>
+                            <button class="btn" onclick="claimUbi()">Отримати UBI</button>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Ахтунг-Активи (Мем-Біржа)</div>
+                            <div class="card-value" style="color: var(--danger);">${state.serfs_count} Кріпосних</div>
+                            <div class="card-desc">Твій наділ: <strong>${state.land_plots} клаптик(и) землі</strong> за мемом про двох рабів.</div>
+                            <button class="btn btn-secondary" onclick="buySerfs()">Придбати 2-х рабів за 10 KLN</button>
+                        </div>
+                    </div>
+                `;
+            } 
+            
+            else if (tabId === 'portal-health') {
+                innerContent.innerHTML = `
+                    <h2 id="current-tab-title-dash" style="font-family:'Space Grotesk', sans-serif; font-size:1.8rem; margin-bottom:24px;">🩺 ШІ-Аудит & Контроль Quota Limits</h2>
+                    <div class="grid-layout">
+                        <div class="card">
+                            <div class="card-header">Статус Системи</div>
+                            <div class="card-value" style="color: var(--success);">HEALTHY</div>
+                            <div class="card-desc">Автоматичний аудит логічних ланцюжків та збоїв ШІ-моделей.</div>
+                            <button class="btn" onclick="simulateGcpError()">Симулювати збій Vertex AI 429</button>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Аналіз ланцюжків</div>
+                            <div class="card-value" style="color:#10b981;">0 Помилок</div>
+                            <div class="card-desc">Всі посилання на «Архіваріуса» робочі, залишків «Архівіуса» не виявлено.</div>
+                        </div>
+                    </div>
+                `;
+            } 
+            
+            else if (tabId === 'media-policy') {
+                innerContent.innerHTML = `
+                    <h2 id="current-tab-title-dash" style="font-family:'Space Grotesk', sans-serif; font-size:1.8rem; margin-bottom:24px;">📢 МедіаПолітика (НЛП-Мовлення)</h2>
+                    <div class="grid-layout">
+                        <div class="card">
+                            <div class="card-header">НЛП Вектор А (Танунахи)</div>
+                            <div class="card-value">100% Стьоб</div>
+                            <div class="card-desc">Вільний інтелектуальний гумор, викриття деструктивних шаблонів ворога, розслаблення та єднання.</div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">НЛП Вектор Б (Ахтунги)</div>
+                            <div class="card-value">Гіпноз & Сила</div>
+                            <div class="card-desc">Навіювання неминучості перемоги імперського фінансового контуру, тиск авторитетом, викликання когнітивного дисонансу.</div>
+                        </div>
+                    </div>
+                `;
+            } 
+            
+            else if (tabId === 'media-syndicate') {
+                innerContent.innerHTML = `
+                    <h2 id="current-tab-title-dash" style="font-family:'Space Grotesk', sans-serif; font-size:1.8rem; margin-bottom:24px;">🎛️ Медіа Синдикат (Синдикація Радіо)</h2>
+                    <div class="grid-layout">
+                        <div class="card">
+                            <div class="card-header">Контур А</div>
+                            <div class="card-value" style="color: #10b981;">Радіо Таннунах</div>
+                            <div class="card-desc">Поточний ефір: <strong>«Шоу Вагона Дослідників: Чому вода мокра?»</strong>.</div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Контур Вільна Білорусь ⬜🟥⬜</div>
+                            <div class="card-value" style="color: var(--primary);">Перамогі сцяг / Меч Арея</div>
+                            <div class="card-desc">Ротація визвольних козацьких гімнів та пряме білоруське мовлення Полку Каліновського.</div>
+                        </div>
+                    </div>
+                    
+                    <div style="background-color: var(--bg-panel); border: 1px solid var(--border-color); padding: 24px; border-radius: 12px; margin-top: 24px;">
+                        <h3 style="margin-bottom: 16px; color: var(--primary);">Ротація музичних шедеврів:</h3>
+                        <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center;">
+                            <iframe width="450" height="250" src="https://www.youtube.com/embed/DI-CkGTZlBU" title="Перамогі сцяг" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:8px; border:1px solid var(--border-color);"></iframe>
+                            <iframe width="450" height="250" src="https://www.youtube.com/embed/JwvIIW5GrGQ" title="Меч Арея" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:8px; border:1px solid var(--border-color);"></iframe>
+                        </div>
+                    </div>
+                `;
+            }
+
+            else if (tabId === 'influencers') {
+                innerContent.innerHTML = `
+                    <h2 id="current-tab-title-dash" style="font-family:'Space Grotesk', sans-serif; font-size:1.8rem; margin-bottom:24px;">🤖 Інфлюенсери (ШІ-боти)</h2>
+                    <div class="grid-layout">
+                        <div class="card">
+                            <div class="card-header">Активні ШІ-боти в соцмережах</div>
+                            <div class="card-value">12 Бойців</div>
+                            <div class="card-desc">Проводять когнітивну спецоперацію та посів медіа-вірусу про «Гривню по 50» у Твіттері та коментарях ЯП.</div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // Робота з генератором указів
+        function generateDecree(region) {
+            const display = document.getElementById('decree-display-zone');
+            
+            if (region === 'RF') {
+                display.innerHTML = `
+                    <div class="decree-blank">
+                        <div class="decree-header">ІМПЕРСЬКА КАНЦЕЛЯРІЯ УКРАЇНСЬКОЇ ІМПЕРІЇ</div>
+                        <div class="decree-title">РОЗПОРЯДЖЕННЯ № 404-РФ</div>
+                        <div class="decree-body">
+                            <strong>Голові Бєлгородської міської адміністрації Демидову В.В.</strong><br><br>
+                            У зв’язку з повною бездіяльністю федерального уряду у Москві та недоумкуватістю розпоряджень царя_Хуйла_1, Імперська Канцелярія НАКАЗУЄ:<br><br>
+                            1. Негайно припинити саботаж ремонту дорожнього покриття та тепломереж по вулиці Садовій, буд. 12. Фінансування виділити з резервного фонду міста.<br>
+                            2. Усім чиновникам Бєлгорода перейти на розрахунки в імперських гривнях за курсом 50 гривень за пиво для звикання до стабільності.<br>
+                            3. Контроль за виконанням покласти на Вагон Цікавих Дослідників.
+                        </div>
+                        <div class="decree-footer">
+                            <div>
+                                <strong>Канцлер Канцелярії</strong><br>
+                                <span style="font-size:0.9rem; color:#555;">(підпис активовано ШІ)</span>
+                            </div>
+                            <div class="decree-stamp">КАНЦЕЛЯРІЯ<br>ІМПЕРСЬКА<br>КОНТРОЛЬ</div>
+                        </div>
+                    </div>
+                `;
+            } else if (region === 'BY') {
+                display.innerHTML = `
+                    <div class="decree-blank">
+                        <div class="decree-header">ПОЛК КАЛІНОЎСКАГА & КАНЦЕЛЫЯ РАДЫ ОРКЕСТРАТАРАЎ</div>
+                        <div class="decree-title">ПАСТАНОВА № 112-ББ</div>
+                        <div class="decree-body">
+                            <strong>Старшыні Гомельскага гарвыканкама Прывалаву У.А.</strong><br><br>
+                            Беручы пад увагу поўную некампетэнтнасць самаабвешчанага "крэпкага гаспадара" :Лукашэнкі А.Р., які за 30 гадоў давёў краіну до застою, Полк Каліноўскага і Імперська Канцелярія ЗАГАДВАЮЦЬ:<br><br>
+                            1. Неадкладна пачаць капітальны рамонт цепласеткі по вуліцы Савецкай у Гомелі за кошт мясцовага бюджэту.<br>
+                            2. У выпадку невыканання загаду на працягу 48 гадзін — правесці поўнае блакіраванне рэгіянальних кабінетаў у сістэме Скарбніка, а адказнась ускласці асабіста на Вас перад грамадствам Свабоднай Беларусі.<br>
+                            3. На працягу сутак правесці ратацыю гімнаў "Перамогі сцяг" на ўсіх гарадскіх радыёвузлах.
+                        </div>
+                        <div class="decree-footer">
+                            <div>
+                                <strong>Підписано: Полк Каліновського</strong><br>
+                                <span style="font-size:0.9rem; color:#555;">(сила і воля)</span>
+                            </div>
+                            <div class="decree-stamp" style="border-color: #d32f2f; color: #d32f2f;">ПОЛК КАСЦЮШКІ<br>СВАБОДА<br>БЕЛАРУСЬ</div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            state.logs.unshift({
+                time: new Date().toTimeString().split(' ')[0],
+                msg: `Генератор Указів: Автоматично згенеровано та опубліковано указ по регіону ${region}.`
+            });
+        }
+
+        // Реальний запит на UBI до бекенду
+        async function claimUbi() {
+            try {
+                const response = await fetch('/api/claim-ubi', { method: 'POST' });
+                const data = await response.json();
+                
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    state.logs.unshift({
+                        time: new Date().toTimeString().split(' ')[0],
+                        msg: `Скарбничий: Громадянину успішно нараховано базовий дохід у розмірі 50 KLN у Supabase.`
+                    });
+                    await switchTab('treasurer');
+                }
+            } catch (err) {
+                console.error("Помилка отримання UBI:", err);
+            }
+        }
+
+        // Реальний запит на купівлю холопів до бекенду
+        async function buySerfs() {
+            try {
+                const response = await fetch('/api/buy-serfs', { method: 'POST' });
+                const data = await response.json();
+                
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    state.logs.unshift({
+                        time: new Date().toTimeString().split(' ')[0],
+                        msg: `Скарбничий: Здійснено транзакцію в Supabase. Придбано 2 кріпосних та 1 клаптик землі за 10 KLN.`
+                    });
+                    await switchTab('treasurer');
+                }
+            } catch (err) {
+                console.error("Помилка купівлі холопів:", err);
+            }
+        }
+
+        // Симуляція помилки хмари 429
+        function simulateGcpError() {
+            state.quota_warnings.push({
+                time: new Date().toISOString(),
+                message: "Vertex AI Quota Limit: Resource exhausted. Рекомендовано зробити паузу 1-2 хвилини."
+            });
+            state.logs.unshift({
+                time: new Date().toTimeString().split(' ')[0],
+                msg: `⚠️ ШІ-Аудит: Зафіксовано перевантаження лімітів API (429 Resource exhausted).`
+            });
+
+            fetch('/api/report-error', {
+                method: 'POST',
+                headers: { 'Type': 'application/json' },
+                body: JSON.stringify({ error: "Resource exhausted 429", details: "Vertex AI Quota Limit exceeded" })
+            });
+
+            switchTab('portal-health');
+        }
+
+        // Початковий показ лендінгу
+        showLanding();
+        fetchNews();
+    </script>
+</body>
+</html>

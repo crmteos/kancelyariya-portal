@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="uk" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Офіційний Публічний Медіа-Портал ШІ-Медіаімперії: прямі ефіри Радіо «Опричник», стрічка новин Вузла «Новинарь», перемикання контурів Tanunah / Achtung.">
+    <title>Радіо «Опричник» — Публічний Медіа-Портал</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128251;</text></svg>">
+    <!-- Tailwind CSS CDN для $0 бюджету -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        imperial: { 900: '#1a0933', 800: '#2a124d', 700: '#3b1a6b', 500: '#8b5cf6', 400: '#a78bfa' },
+                        oprichnik: { 600: '#d97706', 500: '#f59e0b', 400: '#fbbf24' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes eq { 0%,100% { transform: scaleY(.25); } 50% { transform: scaleY(1); } }
+        .animate-eq { transform-origin: bottom; animation: eq 1s ease-in-out infinite; }
+        @media (prefers-reduced-motion: reduce) { .animate-eq { animation: none; } }
+
+        /* ===== Друк: світлий аркуш, приховані службові блоки ===== */
+        @media print {
+            html, body { background: #fff !important; color: #000 !important; }
+            body * { color: #000 !important; background: transparent !important; box-shadow: none !important; }
+            .no-print { display: none !important; }
+            main { max-width: 100% !important; padding: 0 !important; }
+            section, article {
+                border: 1px solid #999 !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+                margin-bottom: 12px;
+            }
+            a { text-decoration: underline; }
+            a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9px; color: #555; }
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen font-sans antialiased">
+
+    <!-- Публічний Header -->
+    <header class="no-print border-b border-imperial-800 bg-imperial-900/90 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <span class="text-3xl">📻</span>
+                <div>
+                    <h1 class="text-xl font-bold tracking-wide text-oprichnik-400">РАДІО «ОПРИЧНИК»</h1>
+                    <p class="text-xs text-gray-400">Офіційний публічний канал ШІ-Медіаімперії</p>
+                </div>
+            </div>
+
+            <!-- Перемикач контурів + Вхід в Канцелярію -->
+            <div class="flex items-center gap-3 flex-wrap">
+                <div class="flex items-center bg-gray-900 p-1 rounded-lg border border-gray-800" role="group" aria-label="Перемикач світоглядних контурів">
+                    <button id="btn-tanunah" type="button" onclick="setContour('tanunah')" aria-pressed="true"
+                            class="px-3 py-1 text-xs font-semibold bg-imperial-500 text-white rounded transition-colors">
+                        🌐 Tanunah (Метрополія)
+                    </button>
+                    <button id="btn-achtung" type="button" onclick="setContour('achtung')" aria-pressed="false"
+                            class="px-3 py-1 text-xs font-semibold text-gray-400 hover:text-white rounded transition-colors">
+                        ⚠️ Achtung (Сатира)
+                    </button>
+                </div>
+                <a href="admin.html" id="admin-link"
+                   class="px-3 py-1.5 text-xs font-bold bg-gray-800 hover:bg-gray-700 text-imperial-400 border border-imperial-500/30 rounded-lg flex items-center gap-1 transition-colors">
+                    <span>🔒</span> Вхід в Канцелярію
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+
+        <!-- Модуль прямого ефіру Радіо «Опричник» -->
+        <section class="p-6 rounded-2xl bg-gradient-to-r from-amber-950/40 via-imperial-900/60 to-gray-900 border border-amber-500/30 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div class="space-y-2">
+                <div class="flex items-center gap-2 flex-wrap">
+                    <span class="inline-block w-3 h-3 bg-red-500 rounded-full animate-ping"></span>
+                    <span class="text-xs font-mono text-oprichnik-400 uppercase tracking-wider font-bold">Прямий Ефір • Радіо «Опричник»</span>
+                    <span id="contour-badge" class="px-2 py-0.5 rounded-full text-[10px] font-bold border border-imperial-500/40 bg-imperial-500/10 text-imperial-400">🌐 Метрополія</span>
+                </div>
+                <h2 class="text-2xl font-bold text-white">Трансляція Новин Канцелярії & Аналітичний Ефір</h2>
+                <p id="public-desc" class="text-xs text-gray-300 max-w-2xl">
+                    Офіційні матеріали від Новинаря, геополітична аналітика та публічні Директиви Української Імперії.
+                </p>
+                <!-- Індикатор ефіру -->
+                <div id="live-indicator" class="hidden items-center gap-1 h-8 mt-1" aria-hidden="true">
+                    <span class="w-1.5 bg-oprichnik-500 rounded-full animate-eq" style="height:40%"></span>
+                    <span class="w-1.5 bg-oprichnik-500 rounded-full animate-eq" style="height:70%;animation-delay:.15s"></span>
+                    <span class="w-1.5 bg-oprichnik-500 rounded-full animate-eq" style="height:100%;animation-delay:.3s"></span>
+                    <span class="w-1.5 bg-oprichnik-500 rounded-full animate-eq" style="height:55%;animation-delay:.45s"></span>
+                    <span class="w-1.5 bg-oprichnik-500 rounded-full animate-eq" style="height:85%;animation-delay:.6s"></span>
+                    <span class="w-1.5 bg-oprichnik-500 rounded-full animate-eq" style="height:35%;animation-delay:.75s"></span>
+                    <span class="w-1.5 bg-oprichnik-500 rounded-full animate-eq" style="height:60%;animation-delay:.9s"></span>
+                    <span class="w-1.5 bg-oprichnik-500 rounded-full animate-eq" style="height:90%;animation-delay:1.05s"></span>
+                </div>
+            </div>
+            <div class="flex flex-col items-stretch gap-2">
+                <button id="btn-live" type="button" onclick="toggleLive()"
+                        class="px-5 py-3 bg-oprichnik-500 hover:bg-oprichnik-400 text-gray-950 font-bold rounded-xl text-sm shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 transition-colors">
+                    <span id="live-icon">▶</span> <span id="live-label">Увімкнути Радіоефір</span>
+                </button>
+                <p class="text-[10px] text-gray-500 text-center font-mono">$0 • Статичний ефір • Без зовнішніх залежностей</p>
+            </div>
+        </section>
+
+
+        <!-- Публічна стрічка новин Вузла «Новинарь» -->
+        <section class="p-6 rounded-2xl bg-gray-900/70 border border-gray-800 space-y-4">
+            <div class="flex flex-wrap justify-between items-end gap-3">
+                <div>
+                    <h3 class="text-lg font-bold text-imperial-400 flex items-center gap-2">
+                        <span>📰</span> Стрічка Новин Вузла «Новинарь»
+                    </h3>
+                    <p class="text-xs text-gray-400 mt-1">Оперативні зведення, аналітика та світоглядні інтерпретації Ради Оркестраторів.</p>
+                </div>
+                <div id="news-filters" class="flex flex-wrap gap-2" role="group" aria-label="Фільтр категорій новин">
+                    <button type="button" data-cat="all" class="news-filter px-3 py-1 text-xs font-semibold rounded-lg bg-imperial-500 text-white transition-colors">Усі</button>
+                    <button type="button" data-cat="dyrektyva" class="news-filter px-3 py-1 text-xs font-semibold rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors">Директиви</button>
+                    <button type="button" data-cat="analityka" class="news-filter px-3 py-1 text-xs font-semibold rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors">Аналітика</button>
+                    <button type="button" data-cat="nauka" class="news-filter px-3 py-1 text-xs font-semibold rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors">Наука</button>
+                    <button type="button" data-cat="svitohlad" class="news-filter px-3 py-1 text-xs font-semibold rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors">Світогляд</button>
+                </div>
+            </div>
+            <div id="news-feed" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+            <p id="news-empty" class="hidden text-xs text-gray-500 text-center py-6">У цій категорії поки що немає матеріалів.</p>
+        </section>
+
+
+        <!-- Публічна Вітрина Указів Канцелярії -->
+        <section class="p-6 rounded-2xl bg-gray-900 border border-imperial-500/20 space-y-4">
+            <h3 class="text-lg font-bold text-imperial-400 flex items-center gap-2">
+                <span>📜</span> Публічний Реєстр Дзеркальних Указів
+            </h3>
+            <p class="text-xs text-gray-400">Перегляд монументальних указів, виданих Радою Оркестраторів для публічного ознайомлення.</p>
+            <div id="decrees-registry" class="space-y-3"></div>
+        </section>
+
+    </main>
+
+    <footer class="no-print border-t border-gray-900 py-6 mt-12 text-center text-xs text-gray-500">
+        <p>Медіаімперія Української Імперії • $0 Static Deployment (GitHub Pages)</p>
+        <p class="mt-2 text-gray-600">Публічний портал <a href="index.html" class="text-imperial-400 hover:text-imperial-500">index.html</a> • Приватна Канцелярія <a href="admin.html" class="text-imperial-400 hover:text-imperial-500">admin.html</a></p>
+    </footer>
+
+    <script>
+        /* ===== Дані порталу (статичні, $0 без бекенду) ===== */
+        var CONTOURS = {
+            tanunah: {
+                desc: 'Офіційні матеріали від Новинаря, геополітична аналітика та публічні Директиви Української Імперії.',
+                badge: '🌐 Метрополія'
+            },
+            achtung: {
+                desc: 'Гостра сатира, ефіри «Опричника» та розвінчання ворожих міфів.',
+                badge: '⚠️ Сатира'
+            }
+        };
+
+        var NEWS = [
+            { cat: 'dyrektyva', tag: '🏛️ Офіційна Директива', tagClass: 'text-imperial-400', date: '20 Жовтня 2026',
+              title: 'Затвердження Канону скасування областей та впровадження Країв',
+              body: 'Канцелярія завершила перереєстрацію суб\'єктів за автономерами та кодами ЗКАТО. Усі області скасовано з перетворенням на Народні Республіки або Края.' },
+            { cat: 'analityka', tag: '🗺️ Аналітика Географа', tagClass: 'text-oprichnik-400', date: '19 Жовтня 2026',
+              title: 'Публікація Інтерактивної Ситуаційної Карти',
+              body: 'Географ оприлюднив актуальну карту паспортів територій з інтеграцією зовнішніх картографічних сервісів та синонімами областей.' },
+            { cat: 'nauka', tag: '🧪 Вагон Дослідників', tagClass: 'text-emerald-400', date: '18 Жовтня 2026',
+              title: 'Польова лабораторія: «Цікаві Досліди» виходять на орбіту',
+              body: 'Науковий крило Канцелярії розгорнуло мережу доступних пізнавальних практик — досліди, які кожен може повторити вдома чи в польових умовах.' },
+            { cat: 'svitohlad', tag: '📁 Хроніки Архіваріуса', tagClass: 'text-rose-400', date: '17 Жовтня 2026',
+              title: 'Реституція топонімів: Московія повертається до Московії',
+              body: 'Канонічний реєстр Писаря поповнено: Московська область знову Московія, Кенігсберг — Прусський край, а Вятка повертає собі Вятський край.' },
+            { cat: 'svitohlad', tag: '⚠️ Контур Ахтунгів', tagClass: 'text-oprichnik-400', date: '16 Жовтня 2026',
+              title: 'Електоральна мімікрія: розбір ритуалів Московії',
+              body: 'Сатиричний розбір псевдореферендумів та механізмів «робів Божих». Матеріал опубліковано в контурі Achtung для прямого когнітивного впливу на периферію.' },
+            { cat: 'dyrektyva', tag: '📜 Дзеркальний Указ', tagClass: 'text-imperial-400', date: '15 Жовтня 2026',
+              title: 'Структурна Директива про інтеграцію (Intermarium)',
+              body: 'Географ представив Стратегічну Директиву щодо транспортних коридорів та адаптації європейських стандартів у Новому Українському Просторі.' }
+        ];
+
+        var DECREES = [
+            { num: '№102', text: 'Про деколонізацію спадщини та повернення когнітивних стандартів до Києва.' },
+            { num: '№103', text: 'Про скасування областей та впровадження адміністративних країв у новому реєстрі суб\'єктів.' },
+            { num: '№104', text: 'Про реституцію культурних надбань та повернення історичних діячів до спадщини України-Метрополії.' }
+        ];
+
+        /* ===== Перемикання світоглядних контурів ===== */
+        function setContour(c) {
+            var cfg = CONTOURS[c];
+            if (!cfg) { return; }
+            var t = document.getElementById('btn-tanunah');
+            var a = document.getElementById('btn-achtung');
+            var d = document.getElementById('public-desc');
+            var badge = document.getElementById('contour-badge');
+
+            var base = 'px-3 py-1 text-xs font-semibold rounded transition-colors';
+            var on = base + ' text-white';
+            var off = base + ' text-gray-400 hover:text-white';
+
+            if (c === 'tanunah') {
+                t.className = on + ' bg-imperial-500';
+                a.className = off;
+            } else {
+                a.className = on + ' bg-amber-600';
+                t.className = off;
+            }
+            t.setAttribute('aria-pressed', String(c === 'tanunah'));
+            a.setAttribute('aria-pressed', String(c === 'achtung'));
+
+            d.innerText = cfg.desc;
+            if (badge) {
+                badge.innerText = cfg.badge;
+                badge.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold border ' +
+                    (c === 'tanunah' ? 'border-imperial-500/40 bg-imperial-500/10 text-imperial-400'
+                                     : 'border-amber-500/40 bg-amber-500/10 text-oprichnik-400');
+            }
+            document.body.setAttribute('data-contour', c);
+        }
+
+        /* ===== Модуль прямого ефіру ===== */
+        var isLive = false;
+        function toggleLive() {
+            isLive = !isLive;
+            var btn = document.getElementById('btn-live');
+            var icon = document.getElementById('live-icon');
+            var label = document.getElementById('live-label');
+            var ind = document.getElementById('live-indicator');
+
+            if (isLive) {
+                icon.innerText = '■';
+                label.innerText = 'Зупинити Радіоефір';
+                btn.classList.remove('bg-oprichnik-500', 'hover:bg-oprichnik-400');
+                btn.classList.add('bg-red-600', 'hover:bg-red-500');
+                ind.classList.remove('hidden');
+                ind.classList.add('flex');
+            } else {
+                icon.innerText = '▶';
+                label.innerText = 'Увімкнути Радіоефір';
+                btn.classList.add('bg-oprichnik-500', 'hover:bg-oprichnik-400');
+                btn.classList.remove('bg-red-600', 'hover:bg-red-500');
+                ind.classList.add('hidden');
+                ind.classList.remove('flex');
+            }
+        }
+
+        /* ===== Рендер стрічки новин ===== */
+        function renderNews(cat) {
+            var feed = document.getElementById('news-feed');
+            var empty = document.getElementById('news-empty');
+            var items = NEWS.filter(function (n) { return cat === 'all' || n.cat === cat; });
+            feed.innerHTML = items.map(function (n) {
+                return '<article class="p-5 rounded-xl bg-gray-900/90 border border-gray-800 space-y-3">' +
+                    '<div class="flex justify-between items-center text-xs text-gray-400 gap-2">' +
+                        '<span class="' + n.tagClass + ' font-semibold">' + n.tag + '</span>' +
+                        '<span class="whitespace-nowrap">' + n.date + '</span>' +
+                    '</div>' +
+                    '<h4 class="font-bold text-base text-gray-100">' + n.title + '</h4>' +
+                    '<p class="text-xs text-gray-300 leading-relaxed">' + n.body + '</p>' +
+                '</article>';
+            }).join('');
+            empty.classList.toggle('hidden', items.length > 0);
+        }
+
+        function initNewsFilters() {
+            var wrap = document.getElementById('news-filters');
+            wrap.addEventListener('click', function (e) {
+                var btn = e.target.closest('.news-filter');
+                if (!btn) { return; }
+                var all = wrap.querySelectorAll('.news-filter');
+                for (var i = 0; i < all.length; i++) {
+                    all[i].className = 'news-filter px-3 py-1 text-xs font-semibold rounded-lg transition-colors ' +
+                        (all[i] === btn ? 'bg-imperial-500 text-white' : 'bg-gray-800 text-gray-300 hover:bg-gray-700');
+                }
+                renderNews(btn.getAttribute('data-cat'));
+            });
+        }
+
+        /* ===== Реєстр Дзеркальних Указів ===== */
+        function renderDecrees() {
+            var box = document.getElementById('decrees-registry');
+            box.innerHTML = DECREES.map(function (d) {
+                return '<div class="p-4 rounded-lg bg-gray-950 border border-gray-800 text-xs text-gray-300 font-mono">[' +
+                    d.num + '] ' + d.text + '</div>';
+            }).join('');
+        }
+
+        /* ===== Ініціалізація ===== */
+        document.addEventListener('DOMContentLoaded', function () {
+            renderNews('all');
+            renderDecrees();
+            initNewsFilters();
+            setContour('tanunah');
+        });
+    </script>
+</body>
+</html>

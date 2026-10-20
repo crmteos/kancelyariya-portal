@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зала Ради Оркестраторів та Секретаріат</title>
+    <!-- Підключення бібліотек для читання Word та PDF прямо в браузері -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 30px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 20px;
+        }
+        h1 {
+            color: #d4af37;
+            margin: 0 0 10px 0;
+            font-size: 32px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        p.subtitle {
+            color: #aaa;
+            font-size: 16px;
+            margin: 0;
+        }
+        .main-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        @media (max-width: 1000px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        .panel {
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            border: 1px solid #333;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .panel h2 {
+            color: #d4af37;
+            margin-top: 0;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+            font-size: 22px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #ccc;
+        }
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 12px;
+            background-color: #151515;
+            border: 1px solid #444;
+            border-radius: 6px;
+            color: #fff;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        input[type="text"]:focus, textarea:focus, select:focus {
+            border-color: #d4af37;
+            outline: none;
+        }
+        .file-upload-box {
+            border: 2px dashed #444;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            background-color: #151515;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+        .file-upload-box:hover {
+            border-color: #d4af37;
+        }
+        .file-upload-box input[type="file"] {
+            display: none;
+        }
+        .file-upload-label {
+            color: #d4af37;
+            cursor: pointer;
+            font-weight: bold;
+            display: block;
+        }
+        .file-status {
+            font-size: 13px;
+            color: #aaa;
+            margin-top: 8px;
+        }
+        .btn {
+            background-color: #d4af37;
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #fff;
+            color: #000;
+        }
+        .knowledge-list {
+            max-height: 500px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        .knowledge-item {
+            background-color: #252525;
+            border: 1px solid #444;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .knowledge-item:hover, .knowledge-item.active {
+            border-color: #d4af37;
+            background-color: #2a2a2a;
+        }
+        .knowledge-item h3 {
+            margin: 0 0 8px 0;
+            color: #fff;
+            font-size: 16px;
+        }
+        .knowledge-item .meta {
+            font-size: 12px;
+            color: #d4af37;
+        }
+        .view-panel {
+            background-color: #1a1a1a;
+            border: 1px solid #444;
+            padding: 20px;
+            border-radius: 6px;
+            min-height: 200px;
+        }
+        .synthesized-text {
+            white-space: pre-line;
+            line-height: 1.6;
+            color: #ddd;
+        }
+        .chat-section {
+            margin-top: 35px;
+            border-top: 1px solid #444;
+            padding-top: 25px;
+        }
+        .chat-messages {
+            height: 200px;
+            overflow-y: auto;
+            background-color: #151515;
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .chat-msg {
+            margin-bottom: 12px;
+            line-height: 1.4;
+            font-size: 14px;
+        }
+        .chat-msg.user {
+            color: #3498db;
+        }
+        .chat-msg.secretary {
+            color: #d4af37;
+            background-color: rgba(212,175,55,0.05);
+            padding: 8px;
+            border-left: 3px solid #d4af37;
+            border-radius: 4px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>👑 Рада Оркестраторів та Секретаріат</h1>
+    <p class="subtitle">Синтез імперського світогляду, завантаження документів та координація знань</p>
+</header>
+
+<div class="main-container">
+
+    <!-- Ліва панель -->
+    <div class="panel">
+        <h2>✍️ Секретар: Завантаження знань</h2>
+        
+        <!-- НОВА ЗОНА ЗАВАНТАЖЕННЯ ФАЙЛУ -->
+        <div class="file-upload-box">
+            <label for="fileInput" class="file-upload-label">📁 Завантажити цілий документ (Word .docx або PDF)</label>
+            <input type="file" id="fileInput" accept=".docx,.pdf">
+            <div id="fileStatus" class="file-status">Оберіть файл на комп'ютері для автоматичного зчитування тексту</div>
+        </div>
+
+        <form id="worldviewForm">
+            <label for="title">Назва документа / Концепції</label>
+            <input type="text" id="title" placeholder="Наприклад: Концепція медійного сувереннітету" required>
+
+            <label for="category">Категорія</label>
+            <select id="category">
+                <option value="Геополітика">Геополітика 🗺️</option>
+                <option value="Медіаполітика">Медіаполітика 📻</option>
+                <option value="Культурний Простір">Культурний Простір 🎨</option>
+                <option value="Технологічний Контур">Технологічний Контур 💻</option>
+                <option value="Загальне" selected>Загальне 📋</option>
+            </select>
+
+            <label for="raw_document">Первинний документ (Текст)</label>
+            <textarea id="raw_document" rows="8" placeholder="Вставте сюди текст або скористайтеся кнопкою завантаження файлу вище..." required></textarea>
+
+            <label for="user_commentary">Ваше розширене пояснення (Контекст)</label>
+            <textarea id="user_commentary" rows="4" placeholder="Напишіть ваші коментарі або додаткові вказівки. Як саме ШІ має інтерпретувати цей документ?"></textarea>
+
+            <button type="submit" class="btn">Завантажити та Синтезувати</button>
+        </form>
+    </div>
+
+    <!-- Права панель -->
+    <div class="panel">
+        <h2>📖 Імперські Скрижалі (Світоглядна Книга)</h2>
+
+        <div id="noDocuments" style="text-align: center; color: #888; padding: 20px;">
+            📂 Немає завантажених світоглядних документів. Скористайтеся формою зліва.
+        </div>
+
+        <div class="knowledge-list" id="knowledgeList"></div>
+
+        <div class="view-panel" id="viewPanel" style="display: none;">
+            <h3 id="activeTitle" style="color: #d4af37; margin-top: 0;"></h3>
+            <div class="synthesized-text" id="activeContent"></div>
+
+            <!-- Чат із Секретарем -->
+            <div class="chat-section">
+                <h4 style="color: #d4af37; margin: 0 0 10px 0;">💬 Діалог із Секретарем про цей документ</h4>
+                <div class="chat-messages" id="chatMessages"></div>
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="chatInput" placeholder="Напишіть вказівку Секретарю..." style="margin-bottom: 0;">
+                    <button class="btn" id="sendChatBtn" style="width: auto; padding: 0 20px;">Надіслати</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div style="text-align: center; margin-top: 30px;">
+    <a href="/admin" class="back-link">◀ Повернутись в Адмін-панель Порталу</a>
+</div>
+
+<script>
+    let activeDocId = null;
+
+    // === НОВИЙ ФУНКЦІОНАЛ: ЗЧИТУВАННЯ ФАЙЛІВ ===
+    document.getElementById('fileInput').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const fileStatus = document.getElementById('fileStatus');
+        fileStatus.innerHTML = "⏳ Зчитую файл, зачекайте...";
+
+        const fileType = file.name.split('.').pop().toLowerCase();
+
+        if (fileType === 'docx') {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const arrayBuffer = event.target.result;
+                mammoth.extractRawText({ arrayBuffer: arrayBuffer })
+                    .then(function(result) {
+                        document.getElementById('raw_document').value = result.value;
+                        document.getElementById('title').value = file.name.replace('.docx', '');
+                        fileStatus.innerHTML = "✅ Файл Word успішно зчитано!";
+                    })
+                    .catch(function(err) {
+                        fileStatus.innerHTML = "❌ Помилка розбору Word-файлу.";
+                        console.error(err);
+                    });
+            };
+            reader.readAsArrayBuffer(file);
+        } 
+        else if (fileType === 'pdf') {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const typedarray = new Uint8Array(event.target.result);
+                
+                // Налаштування PDF.js воркера
+                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+                
+                pdfjsLib.getDocument(typedarray).promise.then(function(pdf) {
+                    let maxPages = pdf.numPages;
+                    let countPromises = [];
+                    
+                    for (let j = 1; j <= maxPages; j++) {
+                        let page = pdf.getPage(j);
+                        countPromises.push(page.then(function(page) {
+                            return page.getTextContent().then(function(textContent) {
+                                return textContent.items.map(function(item) {
+                                    return item.str;
+                                }).join(' ');
+                            });
+                        }));
+                    }
+                    
+                    Promise.all(countPromises).then(function(texts) {
+                        document.getElementById('raw_document').value = texts.join('\n\n');
+                        document.getElementById('title').value = file.name.replace('.pdf', '');
+                        fileStatus.innerHTML = `✅ PDF успішно зчитано (${maxPages} стор.)!`;
+                    });
+                }).catch(function(err) {
+                    fileStatus.innerHTML = "❌ Помилка розбору PDF-файлу.";
+                    console.error(err);
+                });
+            };
+            reader.readAsArrayBuffer(file);
+        } else {
+            fileStatus.innerHTML = "❌ Непідтримуваний формат файлу. Оберіть .docx або .pdf";
+        }
+    });
+
+    // === СТАНДАРТНИЙ ФУНКЦІОНАЛ ЗВ'ЯЗКУ З СЕРВЕРОМ ===
+    async function loadWorldview() {
+        try {
+            const res = await fetch('/api/worldview');
+            const data = await res.json();
+
+            const listContainer = document.getElementById('knowledgeList');
+            const noDocLabel = document.getElementById('noDocuments');
+
+            if (data.length === 0) {
+                listContainer.innerHTML = '';
+                noDocLabel.style.display = 'block';
+                document.getElementById('viewPanel').style.display = 'none';
+                return;
+            }
+
+            noDocLabel.style.display = 'none';
+            listContainer.innerHTML = '';
+
+            data.forEach(doc => {
+                const div = document.createElement('div');
+                div.className = `knowledge-item ${activeDocId === doc.id ? 'active' : ''}`;
+                div.innerHTML = `
+                    <h3>📜 ${doc.title}</h3>
+                    <div class="meta">Категорія: ${doc.category} • Версія: ${doc.version}</div>
+                `;
+                div.onclick = () => selectDocument(doc);
+                listContainer.appendChild(div);
+            });
+
+            if (!activeDocId && data.length > 0) {
+                selectDocument(data[0]);
+            }
+        } catch (e) {
+            console.error("Помилка завантаження світогляду:", e);
+        }
+    }
+
+    function selectDocument(doc) {
+        activeDocId = doc.id;
+
+        document.querySelectorAll('.knowledge-item').forEach(el => el.classList.remove('active'));
+
+        document.getElementById('viewPanel').style.display = 'block';
+        document.getElementById('activeTitle').innerText = doc.title;
+        document.getElementById('activeContent').innerText = doc.synthesized_content;
+
+        const chatBox = document.getElementById('chatMessages');
+        chatBox.innerHTML = `
+            <div class="chat-msg secretary">
+                <strong>✍️ Секретар Ради Оркестраторів:</strong><br>
+                Шляхетний pane, я завантажив світоглядний документ "${doc.title}" до Імперських Скрижалей.
+                Готовий прийняти Ваші вказівки або розширити систему знань за Вашим запитом.
+            </div>
+        `;
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    document.getElementById('worldviewForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const title = document.getElementById('title').value;
+        const category = document.getElementById('category').value;
+        const raw_document = document.getElementById('raw_document').value;
+        const user_commentary = document.getElementById('user_commentary').value;
+
+        try {
+            const res = await fetch('/api/worldview', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title, category, raw_document, user_commentary })
+            });
+
+            if (res.ok) {
+                alert("✍️ Секретар Ради успішно проаналізував та інтегрував до  умент до Скрижалей!");
+                document.getElementById('worldviewForm').reset();
+                document.getElementById('fileStatus').innerHTML = "Оберіть файл на комп'ютері для автоматичного зчитування тексту";
+                await loadWorldview();
+            } else {
+                alert("❌ Помилка завантаження документу.");
+            }
+        } catch (err) {
+            console.error(err);
+            alert("Помилка зв'язку з сервером.");
+        }
+    });
+
+    async function sendChatMessage() {
+        const input = document.getElementById('chatInput');
+        const message = input.value.trim();
+        if (!message || !activeDocId) return;
+
+        const chatBox = document.getElementById('chatMessages');
+
+        chatBox.innerHTML += `
+            <div class="chat-msg user">
+                <strong>👤 Ви:</strong> ${message}
+            </div>
+        `;
+        input.value = '';
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+        try {
+            const res = await fetch(`/api/worldview/${activeDocId}/chat`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message })
+            });
+            const data = await res.json();
+
+            chatBox.innerHTML += `
+                <div class="chat-msg secretary">
+                    <strong>✍️ Секретар:</strong><br>${data.reply.replace('✍️ Секретар Ради Оркестраторів:\n', '')}
+                </div>
+            `;
+            chatBox.scrollTop = chatBox.scrollHeight;
+        } catch (e) {
+            chatBox.innerHTML += `<div class="chat-msg" style="color: red;">Помилка відправки повідомлення.</div>`;
+        }
+    }
+
+    document.getElementById('sendChatBtn').addEventListener('click', sendChatMessage);
+    document.getElementById('chatInput').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendChatMessage();
+    });
+
+    loadWorldview();
+</script>
+
+</body>
+</html>

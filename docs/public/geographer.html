@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Департамент Картографії — ШІ-Географ Української імперії</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #D4AF37;
+      --gold-dark: #AA7C11;
+      --bg: #09090b;
+      --panel-bg: #141417;
+      --border: #242427;
+      --text: #e1e1e5;
+      --text-muted: #888890;
+      --purple: #8b5cf6;
+      --success: #10b981;
+      --alert: #dc2626;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    header {
+      background-color: #050507;
+      border-bottom: 2px solid var(--gold);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header h1 span {
+      font-size: 11px;
+      background: var(--gold-dark);
+      color: black;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .nav-btn {
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      padding: 8px 15px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .nav-btn:hover {
+      background: var(--gold);
+      color: black;
+    }
+
+    .main-container {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .left-column {
+      border-right: 2px solid var(--gold);
+      background-color: #070709;
+    }
+
+    .col-header {
+      background: #0f0f12;
+      padding: 15px 25px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .col-header h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    .col-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 25px;
+    }
+
+    .geographer-form {
+      background: #111114;
+      border: 1px dashed var(--gold);
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+
+    .geographer-form h3 {
+      font-size: 13px;
+      color: var(--gold);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      background: #070709;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 10px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 12px;
+    }
+
+    .form-group input:focus, .form-group select:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    .btn-synthesize {
+      background: var(--gold-dark);
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-synthesize:hover {
+      background: var(--gold);
+      color: black;
+    }
+
+    .passport-card {
+      background: var(--panel-bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      border-radius: 4px;
+      padding: 20px;
+      margin-bottom: 15px;
+    }
+
+    .passport-card.tanunah { border-left-color: var(--success); }
+    .passport-card.achtung { border-left-color: var(--alert); }
+
+    .passport-card h4 {
+      color: #fff;
+      font-size: 16px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .badge {
+      font-size: 9px;
+      padding: 2px 6px;
+      border-radius: 2px;
+      font-weight: bold;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .badge-tanunah { background: rgba(16, 185, 129, 0.2); color: var(--success); }
+    .badge-achtung { background: rgba(220, 38, 38, 0.2); color: var(--alert); }
+
+    .passport-block {
+      margin-top: 12px;
+      background: #09090b;
+      padding: 12px;
+      border-radius: 4px;
+      border-left: 2px solid var(--gold);
+    }
+
+    .passport-block strong {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      color: var(--gold);
+    }
+
+    .decree-box {
+      margin-top: 15px;
+      background: rgba(139, 92, 246, 0.05);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      padding: 15px;
+      border-radius: 4px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #eaeaea;
+      font-family: 'Cinzel', serif;
+    }
+
+    .decree-box strong {
+      color: var(--purple);
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .preview-box {
+      background: #16161a;
+      border: 1px solid var(--gold);
+      border-radius: 6px;
+      padding: 15px;
+      margin-top: 15px;
+    }
+
+    .preview-box h4 {
+      color: var(--gold);
+      font-size: 12px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .btn-save {
+      background: var(--success);
+      color: black;
+      border: none;
+      width: 100%;
+      padding: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 11px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: background 0.3s;
+    }
+
+    .btn-save:hover {
+      background: #059669;
+      color: white;
+    }
+
+    /* Інтерактивна мапа */
+    .map-frame-container {
+      width: 100%;
+      height: 380px;
+      border-bottom: 2px solid var(--gold);
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🗺️ Ситуаційна Кімната Штабу <span>ШІ-Географ</span></h1>
+    <div style="display:flex; gap:10px;">
+      <a href="/regions.html" class="nav-btn">📊 Державний Реєстр</a>
+      <a href="/" class="nav-btn">⬅ Центр Керування</a>
+    </div>
+  </header>
+
+  <!-- ВБУДОВАНА ІМПЕРСЬКА КАРТА З ВІКІПЕДІЇ/GOOGLE MY MAPS -->
+  <div class="map-frame-container">
+    <iframe src="https://www.google.com/maps/d/embed?mid=1nVz5dLwrxEYS3dWcCXfMU2z9-6GubpE&ehbc=2E312F" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+
+  <div class="main-container">
+    
+    <!-- ЛІВЕ КРИЛО: Журнал Паспортів -->
+    <div class="column left-column">
+      <div class="col-header">
+        <h2>🛰️ Стрічка Паспортів територій</h2>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <select id="filterContour" style="padding: 4px; font-size: 11px; background:#111; color:var(--gold); border:1px solid var(--border);" onchange="loadPassports()">
+            <option value="ALL">🌐 Всі контури</option>
+            <option value="TANUNAH">👑 Контур Танунахів</option>
+            <option value="ACHTUNG">📢 Контур Ахтунгів</option>
+          </select>
+          <button class="nav-btn" style="padding: 4px 10px; font-size: 11px;" onclick="loadPassports()">🔄 Оновити</button>
+        </div>
+      </div>
+      
+      <div class="col-content" id="passportsContainer">
+        <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+          Завантаження гео-паспортів...
+        </div>
+      </div>
+    </div>
+
+    <!-- ПРАВЕ КРИЛО: Автоматизований ШІ-синтезатор -->
+    <div class="column">
+      <div class="col-header">
+        <h2>🧠 Геопросторовий ШІ-Синтезатор</h2>
+        <span style="font-size: 11px; color: var(--gold);">Зв'язок із Реєстром</span>
+      </div>
+      
+      <div class="col-content">
+        <div class="geographer-form">
+          <h3>🗺️ Синтезувати Паспорт території</h3>
+          <form id="geographyForm">
+            <div class="form-group">
+              <label>Вибір Світоглядного Контуру</label>
+              <select id="contourSelect">
+                <option value="ACHTUNG">📢 Контур Ахтунгів (Сатиричний Дзеркальний Указ)</option>
+                <option value="TANUNAH">👑 Контур Танунахів (Серйозна Стратегічна Директива)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Вибір Регіону з Офіційного Реєстру</label>
+              <select id="regionCodeSelect">
+                <!-- Завантажується динамічно з бази даних -->
+                <option value="">Завантаження Реєстру...</option>
+              </select>
+            </div>
+            
+            <button type="submit" class="btn-synthesize" id="synthesizeBtn">Синтезувати Паспорт & Указ 🧠</button>
+          </form>
+
+          <!-- Прев'ю -->
+          <div id="previewContainer" style="display: none;">
+            <div class="preview-box">
+              <h4>🗺️ Результат ШІ-картографії:</h4>
+              <div style="font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 10px;" id="previewRegionName"></div>
+              
+              <div class="passport-block">
+                <strong>👤 Місцеві смотрящі / чиновники:</strong>
+                <p id="previewLeaders" style="font-size: 12px; color:#ddd;"></p>
+              </div>
+
+              <div class="passport-block">
+                <strong>🚨 Інфраструктурні больові точки (Bottlenecks):</strong>
+                <p id="previewBottlenecks" style="font-size: 12px; color:#ddd;"></p>
+              </div>
+
+              <div class="decree-box">
+                <strong>👑 УКАЗ КАНЦЕЛЯРІЇ / СТРАТЕГІЧНА ДИРЕКТИВА:</strong>
+                <p id="previewDecree" style="font-size: 12px; line-height: 1.5; font-style:italic; color:#fff;"></p>
+              </div>
+
+              <button class="btn-save" onclick="savePassport()">Зареєструвати в Картографії 💾</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let currentPassport = null;
+    let regionsMap = {}; // Карта назв регіонів за кодами
+
+    // Динамічне завантаження списку 80+ регіонів з бази знань!
+    async function loadRegionsDropdown() {
+      const select = document.getElementById('regionCodeSelect');
+      try {
+        const response = await fetch('/api/geographer/regions');
+        const regions = await response.json();
+        
+        select.innerHTML = '';
+        regionsMap = {};
+
+        regions.forEach(r => {
+          regionsMap[r.code] = r.imperial_name; // Зберігаємо назву для відправки
+          
+          const option = document.createElement('option');
+          option.value = r.code;
+          option.text = `[${r.code}] ${r.imperial_name} (${r.capital})`;
+          select.appendChild(option);
+        });
+      } catch (err) {
+        console.error('Помилка завантаження реєстру:', err);
+        select.innerHTML = '<option value="">Помилка завантаження реєстру</option>';
+      }
+    }
+
+    // Завантаження Паспортів
+    async function loadPassports() {
+      const container = document.getElementById('passportsContainer');
+      const filterContour = document.getElementById('filterContour').value;
+      container.innerHTML = '<div style="text-align: center; color: var(--gold); padding: 20px;">🗺️ Зчитуємо Паспорти з Supabase...</div>';
+
+      try {
+        const response = await fetch('/api/geographer/passports');
+        const passports = await response.json();
+        container.innerHTML = '';
+
+        let filtered = filterContour === 'ALL' ? passports : passports.filter(p => p.contour === filterContour);
+
+        if (filtered.length === 0) {
+          container.innerHTML = '<div style="color: var(--text-muted); text-align: center; padding: 20px;">Реєстр гео-паспортів порожній. Впровадьте першу область!</div>';
+          return;
+        }
+
+        filtered.forEach(item => {
+          const card = document.createElement('div');
+          card.className = `passport-card ${item.contour.toLowerCase()}`;
+          card.innerHTML = `
+            <span class="badge ${item.contour === 'TANUNAH' ? 'badge-tanunah' : 'badge-achtung'}">
+              ${item.contour === 'TANUNAH' ? '👑 Контур Танунахів' : '📢 Контур Ахтунгів'}
+            </span>
+            <span class="badge" style="background:#222; color:#fff;">Код регіону: ${item.region_code}</span>
+            <h4>🗺️ ${item.region_name}</h4>
+            <div style="font-size:10px; color:var(--text-muted); margin-bottom:10px;">📅 Паспорт оновлено: ${new Date(item.date).toLocaleString()}</div>
+            
+            <div class="passport-block">
+              <strong>👤 Місцеві чиновники (Смотрящі):</strong>
+              <p style="font-size: 12px; color:#ccc;">${item.local_leaders}</p>
+            </div>
+
+            <div class="passport-block">
+              <strong>🚨 Больові точки та вразливості:</strong>
+              <p style="font-size: 12px; color:#ccc;">${item.bottlenecks}</p>
+            </div>
+
+            <div class="decree-box">
+              <strong>👑 ${item.contour === 'TANUNAH' ? 'СТРАТЕГІЧНА ДИРЕКТИВА КАНЦЕЛЯРІЇ' : 'ДЗЕРКАЛЬНИЙ УКАЗ КАНЦЕЛЯРІЇ'} :</strong>
+              <p style="font-size: 12px; font-style:italic;">${item.decree_text}</p>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      } catch (err) {
+        console.error('Помилка завантаження:', err);
+        container.innerHTML = '<div style="color: red; padding: 20px;">Помилка мережі при завантаженні паспортів.</div>';
+      }
+    }
+
+    // Запуск генерації ШІ
+    document.getElementById('geographyForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const synthesizeBtn = document.getElementById('synthesizeBtn');
+      const contour = document.getElementById('contourSelect').value;
+      const regionCode = document.getElementById('regionCodeSelect').value;
+      const regionName = regionsMap[regionCode] || regionCode;
+
+      synthesizeBtn.disabled = true;
+      synthesizeBtn.innerText = '⚙️ Здійснюємо геопросторовий синтез...';
+
+      try {
+        const response = await fetch('/api/geographer/generate', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ contour, regionCode, regionName })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          currentPassport = {
+            contour,
+            regionCode,
+            regionName,
+            localLeaders: data.leaders,
+            bottlenecks: data.bottlenecks,
+            decreeText: data.decree_text
+          };
+
+          document.getElementById('previewRegionName').innerText = regionName;
+          document.getElementById('previewLeaders').innerText = data.leaders;
+          document.getElementById('previewBottlenecks').innerText = data.bottlenecks;
+          document.getElementById('previewDecree').innerText = data.decree_text;
+          
+          document.getElementById('previewContainer').style.display = 'block';
+        } else {
+          alert('Помилка синтезу ШІ.');
+        }
+      } catch (err) {
+        alert('Помилка з\'єднання з сервером.');
+      } finally {
+        synthesizeBtn.disabled = false;
+        synthesizeBtn.innerText = 'Синтезувати Паспорт & Указ 🧠';
+      }
+    });
+
+    // Збереження в Supabase
+    async function savePassport() {
+      if (!currentPassport) return;
+
+      try {
+        const response = await fetch('/api/geographer/passports', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(currentPassport)
+        });
+
+        if (response.ok) {
+          document.getElementById('previewContainer').style.display = 'none';
+          currentPassport = null;
+          loadPassports();
+        } else {
+          alert('Помилка збереження Паспорта.');
+        }
+      } catch (err) {
+        alert('Помилка мережі при збереженні.');
+      }
+    }
+
+    // Ініціалізація
+    window.addEventListener('DOMContentLoaded', async () => {
+      await loadRegionsDropdown();
+      loadPassports();
+      
+      // Перевіряємо, чи ми перейшли за лінком з таблиці регіонів
+      const urlParams = new URLSearchParams(window.location.search);
+      const targetRegion = urlParams.get('region');
+      if (targetRegion) {
+        document.getElementById('regionCodeSelect').value = targetRegion;
+      }
+    });
+  </script>
+</body>
+</html>

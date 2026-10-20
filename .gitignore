@@ -1,0 +1,42 @@
+# --- Secrets & local env ---
+docs/.env
+.env
+.env.*
+!.env.example
+
+# --- Nested repositories (docs/ is a separate upstream repo) ---
+docs/.git/
+docs/node_modules/
+
+# --- Dependencies ---
+node_modules/
+vendor/
+
+# --- Test artifacts ---
+tests/last_report.txt
+tests/_run_stdout.txt
+tests/_run_stderr.txt
+tests/_report*.txt
+tests/_t*.txt
+tests/probe_out*.txt
+tests/__pycache__/
+__pycache__/
+*.pyc
+
+# --- Logs ---
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# --- Build output ---
+dist/
+build/
+_site/
+.cache/

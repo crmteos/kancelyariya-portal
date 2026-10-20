@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Імперська Адмін-Консоль v1.2.1</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome для іконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #0b0f19;
+            color: #f3f4f6;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        .imperial-card {
+            background: linear-gradient(145deg, #111827, #1f2937);
+            border: 1px solid #374151;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+        .imperial-card:hover {
+            border-color: #f59e0b;
+            transform: translateY(-2px);
+        }
+        .gold-glow {
+            text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-12">
+
+    <!-- Імперська Шапка -->
+    <header class="border-b border-yellow-600 bg-gray-900 py-6 px-8 shadow-lg">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-4">
+                <span class="text-4xl">👑</span>
+                <div>
+                    <h1 class="text-2xl font-bold tracking-wider text-yellow-500 gold-glow">МЕДІЙНИЙ ПОРТАЛ УКРАЇНСЬКОЇ ІМПЕРІЇ</h1>
+                    <p class="text-xs text-gray-400">Центральна Панель Управління ШШІ-Оркестраторами • v1.2.1</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="text-right">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-950 text-green-400 border border-green-500">
+                        <span class="w-2 h-2 mr-2 bg-green-400 rounded-full animate-pulse"></span> Системи Активні
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Ліва колонка: Моніторинг стану -->
+        <section class="lg:col-span-1 space-y-6">
+            <div class="imperial-card rounded-lg p-6">
+                <h3 class="text-lg font-semibold text-yellow-500 mb-4 border-b border-gray-700 pb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-gauge-high"></i> Загальний стан системи
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center bg-gray-800/50 p-3 rounded">
+                        <span class="text-sm text-gray-400">Активні Агенти</span>
+                        <span class="font-bold text-yellow-400" id="active-agents-count">3 активних</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-gray-800/50 p-3 rounded">
+                        <span class="text-sm text-gray-400">Потребує втручання</span>
+                        <span class="font-bold text-red-400 animate-pulse" id="issues-count">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="imperial-card rounded-lg p-6">
+                <h3 class="text-lg font-semibold text-yellow-500 mb-4 border-b border-gray-700 pb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-list-ul"></i> Лог останніх подій
+                </h3>
+                <div id="sys-log" class="text-xs space-y-2 max-h-48 overflow-y-auto font-mono text-gray-300">
+                    <div>[SYS-INIT] Ініціалізація Імперської Консолі...</div>
+                    <div>[SYS-OK] Зв'язок з сервером встановлено.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Права колонка: Зала Оркестраторів -->
+        <section class="lg:col-span-2 space-y-6">
+            <div class="imperial-card rounded-lg p-6">
+                <div class="flex justify-between items-center mb-6 border-b border-gray-700 pb-4">
+                    <div>
+                        <h2 class="text-xl font-bold text-yellow-500 flex items-center gap-2">
+                            <i class="fa-solid fa-users-gear"></i> Зала Оркестраторів та Завдань
+                        </h2>
+                        <p class="text-xs text-gray-400">Координація автономних агентів та надання ШІ-допомоги</p>
+                    </div>
+                    <button onclick="loadTasks()" class="px-3 py-1.5 bg-yellow-600 hover:bg-yellow-500 text-white rounded text-xs font-semibold flex items-center gap-1.5 transition">
+                        <i class="fa-solid fa-rotate"></i> Оновити
+                    </button>
+                </div>
+
+                <!-- Контейнер для карток Оркестраторів -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="orchestrator-cards-container">
+                    <!-- Картка Канцелярії -->
+                    <div class="bg-gray-800/40 border border-gray-700 rounded-lg p-4 flex flex-col justify-between" id="card-chancellery">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-yellow-500 text-sm">Канцелярія 🏛️</span>
+                                <span class="text-xs bg-gray-700 px-2 py-0.5 rounded text-gray-300" id="count-chancellery">0 завдань</span>
+                            </div>
+                            <div id="tasks-chancellery" class="space-y-3 mt-4 text-xs">
+                                <p class="text-gray-500 italic">Немає активних завдань</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Картка Порталу -->
+                    <div class="bg-gray-800/40 border border-gray-700 rounded-lg p-4 flex flex-col justify-between" id="card-tech">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-yellow-500 text-sm">Портал 💻</span>
+                                <span class="text-xs bg-gray-700 px-2 py-0.5 rounded text-gray-300" id="count-tech">0 завдань</span>
+                            </div>
+                            <div id="tasks-tech" class="space-y-3 mt-4 text-xs">
+                                <p class="text-gray-500 italic">Немає активних завдань</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Картка Медіаімперії -->
+                    <div class="bg-gray-800/40 border border-gray-700 rounded-lg p-4 flex flex-col justify-between" id="card-media">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-yellow-500 text-sm">Медіаімперія 📻</span>
+                                <span class="text-xs bg-gray-700 px-2 py-0.5 rounded text-gray-300" id="count-media">0 завдань</span>
+                            </div>
+                            <div id="tasks-media" class="space-y-3 mt-4 text-xs">
+                                <p class="text-gray-500 italic">Немає активних завдань</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function log(message, type = 'SYS-OK') {
+            const sysLog = document.getElementById('sys-log');
+            const time = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.innerHTML = `<span class="text-gray-500">[${time}]</span> <span class="${type === 'SYS-OK' ? 'text-green-400' : 'text-red-400'}">[${type}]</span> ${message}`;
+            sysLog.appendChild(logEntry);
+            sysLog.scrollTop = sysLog.scrollHeight;
+        }
+
+        async function loadTasks() {
+            try {
+                const response = await fetch('/api/tasks');
+                if (!response.ok) throw new Error("Помилка завантаження API");
+                const tasks = await response.json();
+                
+                // Очистка списків перед виводом
+                document.getElementById('tasks-chancellery').innerHTML = '';
+                document.getElementById('tasks-tech').innerHTML = '';
+                document.getElementById('tasks-media').innerHTML = '';
+
+                let chCount = 0, techCount = 0, mediaCount = 0;
+                let blockedCount = 0;
+
+                tasks.forEach(task => {
+                    const taskElement = document.createElement('div');
+                    taskElement.className = "bg-gray-900/80 p-3 rounded border border-gray-700 space-y-2";
+                    
+                    let statusColor = "text-yellow-400";
+                    if (task.status === "Виконано") statusColor = "text-green-400";
+                    if (task.status === "Заблоковано") {
+                        statusColor = "text-red-400 animate-pulse";
+                        blockedCount++;
+                    }
+
+                    let actionButton = '';
+                    if (task.status === "Заблоковано") {
+                        actionButton = `
+                            <button onclick="resolveTask(${task.id})" class="mt-2 w-full py-1 bg-yellow-600 hover:bg-yellow-500 text-white font-bold rounded text-[10px] transition flex items-center justify-center gap-1">
+                                <span>Надати допомогу 🤝</span>
+                            </button>
+                        `;
+                    }
+
+                    taskElement.innerHTML = `
+                        <div class="font-medium text-gray-200">${task.task}</div>
+                        <div class="flex justify-between items-center text-[10px]">
+                            <span class="text-gray-400">Статус: <b class="${statusColor}">${task.status}</b></span>
+                        </div>
+                        ${task.blocker && task.blocker !== 'Немає' ? `<div class="text-[10px] text-red-300 bg-red-950/30 p-1.5 rounded">⚠️ Блокатор: ${task.blocker}</div>` : ''}
+                        ${actionButton}
+                    `;
+
+                    // Сортуємо по оркестраторах (шукаємо ключові слова у назвах оркестраторів)
+                    if (task.orchestrator.includes("Канцелярія")) {
+                        document.getElementById('tasks-chancellery').appendChild(taskElement);
+                        chCount++;
+                    } else if (task.orchestrator.includes("Портал")) {
+                        document.getElementById('tasks-tech').appendChild(taskElement);
+                        techCount++;
+                    } else if (task.orchestrator.includes("Медіаімперія")) {
+                        document.getElementById('tasks-media').appendChild(taskElement);
+                        mediaCount++;
+                    }
+                });
+
+                // Оновлення лічильників
+                document.getElementById('count-chancellery').innerText = `${chCount} завдань`;
+                document.getElementById('count-tech').innerText = `${techCount} завдань`;
+                document.getElementById('count-media').innerText = `${mediaCount} завдань`;
+                document.getElementById('issues-count').innerText = blockedCount;
+
+                // Перевірка на пусті списки
+                if (chCount === 0) document.getElementById('tasks-chancellery').innerHTML = '<p class="text-gray-500 italic">Немає активних завдань</p>';
+                if (techCount === 0) document.getElementById('tasks-tech').innerHTML = '<p class="text-gray-500 italic">Немає активних завдань</p>';
+                if (mediaCount === 0) document.getElementById('tasks-media').innerHTML = '<p class="text-gray-500 italic">Немає активних завдань</p>';
+
+                log("Завдання Оркестру успішно завантажені.");
+            } catch (err) {
+                console.error(err);
+                log("Помилка оновлення завдань", "SYS-ERR");
+            }
+        }
+
+        async function resolveTask(id) {
+            try {
+                log(`Запит на усунення блокування для завдання #${id}...`);
+                const response = await fetch(`/api/tasks/${id}/resolve`, { method: 'POST' });
+                if (!response.ok) throw new Error("Не вдалося виконати операцію");
+                const resData = await response.json();
+                log(`Блокування завдання #${id} успішно усунено!`, "SYS-OK");
+                loadTasks();
+            } catch (err) {
+                log(`Помилка усунення блокування завдання #${id}`, "SYS-ERR");
+            }
+        }
+
+        // Запуск при завантаженні сторінки
+        window.onload = () => {
+            loadTasks();
+            setInterval(loadTasks, 15000); // автооновлення кожні 15 сек
+        };
+    </script>
+</body>
+</html>

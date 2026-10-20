@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завантаження в Імперський Оркестр</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 650px;
+            background-color: #2a2a2a;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            border: 1px solid #d4af37; /* Імперський золотий */
+        }
+        h1 {
+            color: #d4af37;
+            text-align: center;
+            margin-bottom: 5px;
+            font-size: 24px;
+        }
+        p.subtitle {
+            text-align: center;
+            color: #aaa;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #d4af37;
+        }
+        input[type="text"], select, textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: #3a3a3a;
+            border: 1px solid #555;
+            border-radius: 6px;
+            color: #fff;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+        input[type="text"]:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #d4af37;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #f1c40f;
+        }
+        #message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+            text-align: center;
+            font-weight: bold;
+        }
+        .success {
+            background-color: rgba(46, 204, 113, 0.2);
+            color: #2ecc71;
+            border: 1px solid #2ecc71;
+        }
+        .error {
+            background-color: rgba(231, 76, 60, 0.2);
+            color: #e74c3c;
+            border: 1px solid #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>👑 Наповнення Бази Знань Оркестру</h1>
+    <p class="subtitle">Завантаження першоджерел, книг, нотаток та концептів для ШІ-Оркестраторів</p>
+
+    <form id="ingestForm">
+        <div class="form-group">
+            <label for="title">📝 Назва джерела</label>
+            <input type="text" id="title" placeholder="Наприклад: Маніфест про Клейноди, Книга про державність тощо" required>
+        </div>
+
+        <div class="form-group">
+            <label for="source_type">📁 Тип матеріалу</label>
+            <select id="source_type" required>
+                <option value="BOOK">📚 Книга / Великий Текст</option>
+                <option value="ARTICLE">📰 Стаття / Постулат</option>
+                <option value="MOVIE_NOTES">🎬 Нотатки до фільму / Медіа-аналіз</option>
+                <option value="LINK">🔗 Зовнішнє посилання з описом</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="external_url">🌐 Посилання (якщо є)</label>
+            <input type="text" id="external_url" placeholder="https://example.com/some-resource">
+        </div>
+
+        <div class="form-group">
+            <label for="content">📖 Вміст (Текст джерела, нотатки, тези)</label>
+            <textarea id="content" placeholder="Вставте сюди вміст книги, ваші тези, ідеологічні зразки..." required></textarea>
+        </div>
+
+        <button type="submit" id="submitBtn">📥 Надіслати в Оркестр</button>
+    </form>
+
+    <div id="message"></div>
+</div>
+
+<script>
+    document.getElementById('ingestForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById('submitBtn');
+        const messageDiv = document.getElementById('message');
+        
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Завантаження...';
+        messageDiv.style.display = 'none';
+
+        const payload = {
+            title: document.getElementById('title').value,
+            source_type: document.getElementById('source_type').value,
+            external_url: document.getElementById('external_url').value,
+            content: document.getElementById('content').value
+        };
+
+        try {
+            const response = await fetch('/api/orchestra/ingest', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                messageDiv.className = 'success';
+                messageDiv.innerText = '✨ ' + result.message;
+                messageDiv.style.display = 'block';
+                // Очищуємо форму
+                document.getElementById('ingestForm').reset();
+            } else {
+                throw new Error(result.error || 'Помилка сервера');
+            }
+        } catch (err) {
+            messageDiv.className = 'error';
+            messageDiv.innerText = '❌ Помилка: ' + err.message;
+            messageDiv.style.display = 'block';
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerText = '📥 Надіслати в Оркестр';
+        }
+    });
+</script>
+
+</body>
+</html>

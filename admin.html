@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="uk" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Приватна Панель Керування ШІ-Канцелярією: акордеони 4 вузлів, Генератор Дзеркальних Указів, моніторинг $0-хостингу.">
+    <title>ШІ-Канцелярія — Приватна Панель Керування</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127963;</text></svg>">
+    <!-- Tailwind CSS CDN для $0 бюджету -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        imperial: { 900: '#1a0933', 800: '#2a124d', 700: '#3b1a6b', 500: '#8b5cf6', 400: '#a78bfa' },
+                        oprichnik: { 600: '#d97706', 500: '#f59e0b', 400: '#fbbf24' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* ===== Друк: світлий аркуш, приховані службові блоки ===== */
+        @media print {
+            html, body { background: #fff !important; color: #000 !important; }
+            body * { color: #000 !important; background: transparent !important; box-shadow: none !important; }
+            .no-print { display: none !important; }
+            main { max-width: 100% !important; padding: 0 !important; }
+            section, article {
+                border: 1px solid #999 !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+                margin-bottom: 12px;
+            }
+            a { text-decoration: underline; }
+            a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9px; color: #555; }
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen font-sans antialiased">
+
+    <!-- Приватний Header -->
+    <header class="no-print border-b border-imperial-800 bg-imperial-900/90 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <span class="text-3xl">🏛️</span>
+                <div>
+                    <h1 class="text-xl font-bold tracking-wide text-imperial-400">ШІ-КАНЦЕЛЯРІЯ</h1>
+                    <p class="text-xs text-gray-400">Приватна Панель Керування • Внутрішня кухня проєкту</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3 flex-wrap">
+                <span class="px-2 py-1 text-[10px] font-mono font-bold rounded-lg border border-red-500/40 bg-red-500/10 text-red-400 uppercase tracking-wider">Private Access</span>
+                <a href="index.html" id="public-link"
+                   class="px-3 py-1.5 text-xs font-bold bg-gray-800 hover:bg-gray-700 text-oprichnik-400 border border-oprichnik-500/30 rounded-lg flex items-center gap-1 transition-colors">
+                    <span>📻</span> Відкрити Публічний Портал
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+
+        <!-- Акордеони керування 4 вузлами Канцелярії -->
+        <section class="space-y-4">
+            <div class="flex flex-wrap justify-between items-end gap-3">
+                <div>
+                    <h2 class="text-lg font-bold text-imperial-400 flex items-center gap-2">
+                        <span>🤖</span> Вузли ШІ-Канцелярії
+                    </h2>
+                    <p class="text-xs text-gray-400 mt-1">Натисніть на заголовок вузла, щоб розгорнути його картку ролей, функціоналу та операційних скілів.</p>
+                </div>
+                <div class="flex gap-2">
+                    <button type="button" onclick="expandAll(true)" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-200 transition-colors">Розгорнути всі</button>
+                    <button type="button" onclick="expandAll(false)" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-200 transition-colors">Згорнути всі</button>
+                </div>
+            </div>
+
+            <!-- Вузол 1: Новинарь -->
+            <div class="accordion-item rounded-xl bg-gray-900/80 border border-gray-800 overflow-hidden" data-node="novynar">
+                <button type="button" class="accordion-header w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-gray-800/50 transition-colors" onclick="toggleAccordion('acc-novynar')" aria-expanded="false" aria-controls="acc-novynar">
+                    <span class="flex items-center gap-3 min-w-0">
+                        <span class="text-2xl">📰</span>
+                        <span class="min-w-0">
+                            <span class="block font-bold text-gray-100">Вузол 1 · Новинарь</span>
+                            <span class="block text-xs text-gray-400 truncate">Оперативно-аналітичне серце Медіаімперії · генерація новин та світоглядних інтерпретацій</span>
+                        </span>
+                    </span>
+                    <span class="chevron shrink-0 text-gray-500 transition-transform duration-200">▼</span>
+                </button>
+                <div id="acc-novynar" class="accordion-body hidden border-t border-gray-800 bg-gray-950/50 p-5 space-y-4">
+                    <p class="text-xs text-gray-300 leading-relaxed">Перехоплює хаотичні потоки новин із зовнішнього світу, вичищає ворожі маніпуляції та перетворює їх на імперські інтерпретації, насичені сатирою, здоровим глуздом та державницькою величчю.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 rounded-lg bg-gray-900 border border-gray-800 space-y-2">
+                            <h4 class="text-xs font-bold text-imperial-400 uppercase tracking-wider">Ключові функції</h4>
+                            <ul class="text-xs text-gray-300 space-y-1 list-disc list-inside">
+                                <li>Імперське позиціонування (Контур Танунахів) — спокійна впевненість, технологічний прорив.</li>
+                                <li>Контр-маніпуляція (Контур Ахтунгів) — деструктивні хвилі в гумор та сатиру.</li>
+                                <li>Синхронізація ефіру — передача зведень до Медіаімперії.</li>
+                                <li>Географічна синхронізація — маркер регіону від бази Географа.</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 rounded-lg bg-gray-900 border border-gray-800 space-y-2">
+                            <h4 class="text-xs font-bold text-oprichnik-400 uppercase tracking-wider">Операційні постулати</h4>
+                            <ul class="text-xs text-gray-300 space-y-1 list-disc list-inside">
+                                <li>А. Спокійної Величі — подія як закономірний крок Ренесансу.</li>
+                                <li>Б. Інтелектуального Стьобу — лише іронія, не гнів.</li>
+                                <li>В. Заборони Нейтральності — обов'язковий Світоглядний Вектор.</li>
+                                <li>Г. Географічної Матриці — партнерський тон з союзниками.</li>
+                                <li>Д. Реалістичного Якоря — тільки реальні факти.</li>
+                                <li>Е. Імперських Псевдонімів — словник «поганял» від Вагона.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2 text-xs">
+                        <span class="text-gray-500">Взаємодія:</span>
+                        <span class="px-2 py-0.5 rounded bg-gray-800 text-gray-300">Вагон Дослідників</span>
+                        <span class="px-2 py-0.5 rounded bg-gray-800 text-gray-300">Географ</span>
+                        <span class="px-2 py-0.5 rounded bg-gray-800 text-gray-300">Архіваріус</span>
+                        <a href="docs/chancery/novynar-agent-spec.md" class="ml-auto px-3 py-1 rounded-lg bg-imperial-500/20 text-imperial-400 border border-imperial-500/30 hover:bg-imperial-500/30 transition-colors">📄 Специфікація вузла</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Вузол 2: Вагон Дослідників -->
+            <div class="accordion-item rounded-xl bg-gray-900/80 border border-gray-800 overflow-hidden" data-node="vagon">
+                <button type="button" class="accordion-header w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-gray-800/50 transition-colors" onclick="toggleAccordion('acc-vagon')" aria-expanded="false" aria-controls="acc-vagon">
+                    <span class="flex items-center gap-3 min-w-0">
+                        <span class="text-2xl">🕵️</span>
+                        <span class="min-w-0">
+                            <span class="block font-bold text-gray-100">Вузол 2 · Вагон Дослідників</span>
+                            <span class="block text-xs text-gray-400 truncate">Науково-дослідницьке крило · когнітивна розвідка, польові експерименти, «База поганял»</span>
+                        </span>
+                    </span>
+                    <span class="chevron shrink-0 text-gray-500 transition-transform duration-200">▼</span>
+                </button>
+                <div id="acc-vagon" class="accordion-body hidden border-t border-gray-800 bg-gray-950/50 p-5 space-y-4">
+                    <p class="text-xs text-gray-300 leading-relaxed">Науково-дослідницьке крило Канцелярії та Порталу: займається когнітивною розвідкою, збором даних, прикладним тестуванням теорій на місцях та популяризацією науки в контексті Соціуму Танунахів.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 rounded-lg bg-gray-900 border border-gray-800 space-y-2">
+                            <h4 class="text-xs font-bold text-imperial-400 uppercase tracking-wider">Завдання за Матрицею Контекстів</h4>
+                            <ul class="text-xs text-gray-300 space-y-1 list-disc list-inside">
+                                <li>Когнітивне картування територій — польові дані про настрої та уклади життєдіяльності на кордонах.</li>
+                                <li>Науковий медіа-контент — спільні пізнавальні шоу та трансляції на основі експериментів.</li>
+                                <li>Краудсорсинг знань — інтерактивний кабінет Дослідника на Порталі.</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 rounded-lg bg-gray-900 border border-gray-800 space-y-2">
+                            <h4 class="text-xs font-bold text-oprichnik-400 uppercase tracking-wider">Фундаментальна база</h4>
+                            <ul class="text-xs text-gray-300 space-y-1 list-disc list-inside">
+                                <li>Принцип доступного пізнання — кожен громадянин має право й інструмент досліджувати світ.</li>
+                                <li>Імперська лабораторія — матеріали як навчальні моделі для юних дослідників.</li>
+                                <li>Дослідницький драйв — живий інтерес замість сухої бюрократії.</li>
+                                <li>«База поганял» — словник народних псевдонімів ворогів для контуру Achtung.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2 text-xs">
+                        <span class="text-gray-500">Взаємодія:</span>
+                        <span class="px-2 py-0.5 rounded bg-gray-800 text-gray-300">Новинарь</span>
+                        <span class="px-2 py-0.5 rounded bg-gray-800 text-gray-300">Канцелярія</span>
+                        <span class="px-2 py-0.5 rounded bg-gray-800 text-gray-300">Скарбничий</span>
+                        <a href="docs/chancery/vagon-doslidnykiv-spec.md" class="ml-auto px-3 py-1 rounded-lg bg-imperial-500/20 text-imperial-400 border border-imperial-500/30 hover:bg-imperial-500/30 transition-colors">📄 Специфікація вузла</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Вузол 3: Архіваріус -->
+            <div class="accordion-item rounded-xl bg-gray-900/80 border border-gray-800 overflow-hidden" data-node="archivist">
+                <button type="button" class="accordion-header w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-gray-800/50 transition-colors" onclick="toggleAccordion('acc-archivist')" aria-expanded="false" aria-controls="acc-archivist">
+                    <span class="flex items-center gap-3 min-w-0">
+                        <span class="text-2xl">📁</span>
+                        <span class="min-w-0">
+                            <span class="block font-bold text-gray-100">Вузол 3 · Архіваріус-Писар</span>
+                            <span class="block text-xs text-gray-400 truncate">Хранитель Ідеології · двоконтурне хронікання, реституція, реєстр клейнодів</span>
+                        </span>
+                    </span>
+                    <span class="chevron shrink-0 text-gray-500 transition-transform duration-200">▼</span>
+                </button>
+                <div id="acc-archivist" class="accordion-body hidden border-t border-gray-800 bg-gray-950/50 p-5 space-y-4">
+                    <p class="text-xs text-gray-300 leading-relaxed">Хранитель Ідеології, когнітивних рамок та Хронік Української Імперії. Деконструює понятійні підміни ворога, веде канонічні Писання, проводить реституцію культурних надбань та формує офіційні Хроніки для Інституту національної пам'яті.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 rounded-lg bg-gray-900 border border-gray-800 space-y-2">
+                            <h4 class="text-xs font-bold text-imperial-400 uppercase tracking-wider">Системні контури хронік</h4>
+                            <ul class="text-xs text-gray-300 space-y-1 list-disc list-inside">
+                                <li>А. Контур Танунахів — українська мова, сакральний нормативний канонічний стиль.</li>
+                                <li>Б. Контур Ахтунгів — російська мова, гострі сатира та демаскування міфів.</li>
+                                <li>Закон правової асиметрії — верховенство права Метрополії над полем Московії.</li>
+                                <li>Закон культурної реституції — повернення Гоголя, Рєпіна, Малевича, Бортнянського.</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 rounded-lg bg-gray-900 border border-gray-800 space-y-2">
+                            <h4 class="text-xs font-bold text-oprichnik-400 uppercase tracking-wider">Операційні модулі (Skills)</h4>
+                            <ul class="text-xs text-gray-300 space-y-1 list-disc list-inside font-mono">
+                                <li>prompt_filter — очищення пропаганди до нормативної мови Канону.</li>
+                                <li>toponymic_audit — реституція топонімів та історичних діячів.</li>
+                                <li>symmetry_audit — перевірка цивілізаційного балансу прав та обов'язків.</li>
+                                <li>chronicle_register — запис Хронік до довгострокової бази пам'яті.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2 text-xs">
+                        <span class="text-gray-500">Взаємодія:</span>
+                        <span class="px-2 py-0.5 rounded bg-gray-800 text-gray-300">Новинарь</span>
+                        <span class="px-2 py-0.5 rounded bg-gray-800 text-gray-300">Географ</span>
+                        <span class="px-2 py-0.5 rounded bg-gray-800 text-gray-300">Інститут нацпам'яті</span>
+                        <a href="docs/chancery/archivist-agent-spec.md" class="ml-auto px-3 py-1 rounded-lg bg-imperial-500/20 text-imperial-400 border border-imperial-500/30 hover:bg-imperial-500/30 transition-colors">📄 Специфікація вузла</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Вузол 4: Географ -->
+            <div class="accordion-item rounded-xl bg-gray-900/80 border border-gray-800 overflow-hidden" data-node="geographer">
+                <button type="button" class="accordion-header w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-gray-800/50 transition-colors" onclick="toggleAccordion('acc-geographer')" aria-expanded="false" aria-controls="acc-geographer">
+                    <span class="flex items-center gap-3 min-w-0">
+                        <span class="text-2xl">🗺️</span>
+                        <span class="min-w-0">
+                            <span class="block font-bold text-gray-100">Вузол 4 · Географ</span>
+                            <span class="block text-xs text-gray-400 truncate">Картограф і геополітичний стратег · Паспорти територій та Реєстр країв</span>
+                        </span>
+                    </span>
+                    <span class="chevron shrink-0 text-gray-500 transition-transform duration-200">▼</span>
+                </button>
+                <div id="acc-geographer" class="accordion-body hidden border-t border-gray-800 bg-gray-950/50 p-5 space-y-4">
+                    <p class="text-xs text-gray-300 leading-relaxed">Головний картограф, аналітик просторових даних та геополітичний стратег Медійного порталу. Його місія — детальна геопросторова карта імперського простору, Паспорти територій та Генерація Дзеркальних Указів для прямого когнітивного управління в обхід ворожих диктатур.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 rounded-lg bg-gray-900 border border-gray-800 space-y-2">
+                            <h4 class="text-xs font-bold text-imperial-400 uppercase tracking-wider">Параметри Паспорта Території</h4>
+                            <ul class="text-xs text-gray-300 space-y-1 list-disc list-inside">
+                                <li>Код регіону — SAMARA, GOMEL, TVER, MINSK.</li>
+                                <li>Місцеві смотрящі — прізвища мерів, губернаторів, голів ЖКГ.</li>
+                                <li>Локальні больові точки — прориви труб, діряві дороги, борги по зарплатах.</li>
+                                <li>Текст Дзеркального Указу — вимога виправлення аномалій під загрозою санкцій.</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 rounded-lg bg-gray-900 border border-gray-800 space-y-2">
+                            <h4 class="text-xs font-bold text-oprichnik-400 uppercase tracking-wider">Операційні модулі (Skills)</h4>
+                            <ul class="text-xs text-gray-300 space-y-1 list-disc list-inside font-mono">
+                                <li>toponymic_audit — заміна радянсько-імперських ексонімів на історичні топоніми.</li>
+                                <li>bottleneck_scanner — сканування стрічки Вагона на ЖКГ-колапси.</li>
+                                <li>decree_constructor — синтез дзеркальних указів для когнітивних ударів.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2 text-xs">
+                        <span class="text-gray-500">Взаємодія:</span>
+                        <span class="px-2 py-0.5 rounded bg-gray-800 text-gray-300">Вагон Дослідників</span>
+                        <span class="px-2 py-0.5 rounded bg-gray-800 text-gray-300">Новинарь</span>
+                        <span class="px-2 py-0.5 rounded bg-gray-800 text-gray-300">Рада Оркестраторів</span>
+                        <a href="docs/chancery/geographer-ua-spec.md" class="ml-auto px-3 py-1 rounded-lg bg-imperial-500/20 text-imperial-400 border border-imperial-500/30 hover:bg-imperial-500/30 transition-colors">📄 Специфікація вузла</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Модуль «Генератор Дзеркальних Указів» -->
+        <section class="p-6 rounded-2xl bg-gradient-to-r from-imperial-900/70 via-gray-900/70 to-gray-900 border border-imperial-500/30 space-y-4">
+            <div class="flex flex-wrap justify-between items-start gap-4">
+                <div>
+                    <h3 class="text-lg font-bold text-imperial-400 flex items-center gap-2">
+                        <span>📜</span> Генератор Дзеркальних Указів
+                    </h3>
+                    <p class="text-xs text-gray-400 mt-1 max-w-2xl">Автономний ШІ-модуль створення офіційних актів Канцелярії. Зчитує Паспорт території від Географа та генерує повнотекстові монументальні Укази чи Директиви на весь екран.</p>
+                </div>
+                <a href="decrees.html"
+                   class="px-5 py-3 bg-imperial-500 hover:bg-imperial-400 text-white font-bold rounded-xl text-sm shadow-lg shadow-imperial-500/20 flex items-center gap-2 transition-colors">
+                    <span>📜</span> Відкрити Генератор
+                </a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                <div class="p-3 rounded-lg bg-gray-950/60 border border-gray-800">
+                    <p class="text-gray-500 uppercase tracking-wider text-[10px] font-bold mb-1">Джерело даних</p>
+                    <p class="text-gray-300">Паспорт території (Географ)</p>
+                </div>
+                <div class="p-3 rounded-lg bg-gray-950/60 border border-gray-800">
+                    <p class="text-gray-500 uppercase tracking-wider text-[10px] font-bold mb-1">Сигнали</p>
+                    <p class="text-gray-300">Стрічка Вагона Дослідників</p>
+                </div>
+                <div class="p-3 rounded-lg bg-gray-950/60 border border-gray-800">
+                    <p class="text-gray-500 uppercase tracking-wider text-[10px] font-bold mb-1">Пам'ять</p>
+                    <p class="text-gray-300">localStorage (браузер) • $0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Стан системи / вузли / журнал подій -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="p-6 rounded-2xl bg-gray-900/70 border border-gray-800 space-y-4">
+                <h3 class="text-sm font-bold text-imperial-400 uppercase tracking-wider">Стан Середовища</h3>
+                <ul class="space-y-2 text-xs">
+                    <li class="flex items-center justify-between gap-2 p-2.5 rounded-lg bg-gray-950/60 border border-gray-800">
+                        <span class="text-gray-300">Бюджет проєкту</span>
+                        <span class="font-mono font-bold text-emerald-400">$0</span>
+                    </li>
+                    <li class="flex items-center justify-between gap-2 p-2.5 rounded-lg bg-gray-950/60 border border-gray-800">
+                        <span class="text-gray-300">Хостинг</span>
+                        <span class="font-mono font-bold text-emerald-400">GitHub Pages</span>
+                    </li>
+                    <li class="flex items-center justify-between gap-2 p-2.5 rounded-lg bg-gray-950/60 border border-gray-800">
+                        <span class="text-gray-300">Бекенд / API</span>
+                        <span class="font-mono font-bold text-gray-400">Відсутній</span>
+                    </li>
+                    <li class="flex items-center justify-between gap-2 p-2.5 rounded-lg bg-gray-950/60 border border-gray-800">
+                        <span class="text-gray-300">Сховище</span>
+                        <span class="font-mono font-bold text-gray-400">Статичні .md</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-gray-900/70 border border-gray-800 space-y-4">
+                <h3 class="text-sm font-bold text-imperial-400 uppercase tracking-wider">Вузли на зв'язку</h3>
+                <ul id="agent-list" class="space-y-2 text-xs"></ul>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-gray-900/70 border border-gray-800 space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-sm font-bold text-imperial-400 uppercase tracking-wider">Журнал Подій</h3>
+                    <button type="button" onclick="clearLog()" class="px-2 py-1 text-[10px] font-semibold rounded bg-gray-800 hover:bg-gray-700 text-gray-300 transition-colors">Очистити</button>
+                </div>
+                <ul id="event-log" class="space-y-1.5 text-[11px] font-mono max-h-56 overflow-y-auto"></ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="no-print border-t border-gray-900 py-6 mt-12 text-center text-xs text-gray-500">
+        <p>Приватна Адмін-Панель ШІ-Канцелярії • $0 Static Deployment (GitHub Pages)</p>
+        <p class="mt-2 text-gray-600">Публічний портал <a href="index.html" class="text-imperial-400 hover:text-imperial-500">index.html</a> • Приватна Канцелярія <a href="admin.html" class="text-imperial-400 hover:text-imperial-500">admin.html</a></p>
+    </footer>
+
+    <script>
+        /* ===== Акордеони вузлів Канцелярії ===== */
+        function toggleAccordion(id) {
+            var body = document.getElementById(id);
+            if (!body) { return; }
+            var item = body.parentElement;
+            var header = item.querySelector('.accordion-header');
+            var chevron = item.querySelector('.chevron');
+            var isOpen = body.classList.toggle('hidden') === false;
+
+            if (header) { header.setAttribute('aria-expanded', String(isOpen)); }
+            if (chevron) { chevron.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)'; }
+            item.classList.toggle('border-imperial-500/40', isOpen);
+            logEvent((isOpen ? 'Розгорнуто' : 'Згорнуто') + ' вузол: ' + body.id.replace('acc-', ''));
+        }
+
+        function expandAll(open) {
+            var items = document.querySelectorAll('.accordion-item');
+            for (var i = 0; i < items.length; i++) {
+                var body = items[i].querySelector('.accordion-body');
+                var header = items[i].querySelector('.accordion-header');
+                var chevron = items[i].querySelector('.chevron');
+                if (!body) { continue; }
+                body.classList.toggle('hidden', !open);
+                if (header) { header.setAttribute('aria-expanded', String(open)); }
+                if (chevron) { chevron.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)'; }
+                items[i].classList.toggle('border-imperial-500/40', open);
+            }
+            logEvent(open ? 'Розгорнуто всі вузли' : 'Згорнуто всі вузли');
+        }
+
+        /* ===== Список активних вузлів ===== */
+        var AGENTS = [
+            { icon: '📰', name: 'Новинарь', role: 'Генерація новин та інтерпретацій', state: 'Активний' },
+            { icon: '🕵️', name: 'Вагон Дослідників', role: 'Когнітивна розвідка та польові дані', state: 'Активний' },
+            { icon: '📁', name: 'Архіваріус-Писар', role: 'Хроніки, реституція, реєстр клейнодів', state: 'Активний' },
+            { icon: '🗺️', name: 'Географ', role: 'Паспорти територій та картографія', state: 'Активний' }
+        ];
+
+        function renderAgents() {
+            var list = document.getElementById('agent-list');
+            list.innerHTML = AGENTS.map(function (a) {
+                return '<li class="flex items-center gap-2 p-2.5 rounded-lg bg-gray-950/60 border border-gray-800">' +
+                    '<span class="text-base">' + a.icon + '</span>' +
+                    '<span class="min-w-0 flex-1">' +
+                        '<span class="block font-bold text-gray-200">' + a.name + '</span>' +
+                        '<span class="block text-gray-500 text-[10px] truncate">' + a.role + '</span>' +
+                    '</span>' +
+                    '<span class="shrink-0 text-[10px] font-mono text-emerald-400">' + a.state + '</span>' +
+                '</li>';
+            }).join('');
+        }
+
+        /* ===== Журнал подій ===== */
+        function logEvent(msg) {
+            var list = document.getElementById('event-log');
+            if (!list) { return; }
+            var now = new Date();
+            var time = now.toLocaleTimeString('uk-UA', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            var li = document.createElement('li');
+            li.className = 'flex gap-2 text-gray-400 border-b border-gray-800/50 pb-1';
+            li.innerHTML = '<span class="text-gray-600 shrink-0">' + time + '</span><span>' + msg + '</span>';
+            list.insertBefore(li, list.firstChild);
+            while (list.children.length > 40) { list.removeChild(list.lastChild); }
+        }
+
+        function clearLog() {
+            var list = document.getElementById('event-log');
+            if (list) { list.innerHTML = ''; }
+            logEvent('Журнал подій очищено');
+        }
+
+        /* ===== Ініціалізація ===== */
+        document.addEventListener('DOMContentLoaded', function () {
+            renderAgents();
+            logEvent('Панель керування ініціалізовано');
+            logEvent('Виявлено 4 вузли ШІ-Канцелярії');
+        });
+    </script>
+</body>
+</html>
