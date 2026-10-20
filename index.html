@@ -105,6 +105,31 @@
                 </button>
                 <p class="text-[10px] text-gray-500 text-center font-mono">$0 • Статичний ефір • Без зовнішніх залежностей</p>
             </div>
+
+            <!-- Медіаплеєр: YouTube-відео Радіо «Опричник» -->
+            <div class="w-full md:w-1/2 flex flex-col gap-3">
+                <div class="aspect-video w-full rounded-xl shadow-lg border border-red-900/50 overflow-hidden bg-gray-900">
+                    <iframe id="yt-player"
+                            src="https://www.youtube.com/embed/-dB2PCegJR8"
+                            title="Радіо «Опричник» — відео 1"
+                            class="w-full h-full"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="flex gap-2 overflow-x-auto pb-2">
+                    <button type="button" onclick="switchYtVideo('-dB2PCegJR8')"
+                            class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap">
+                        Відео 1
+                    </button>
+                    <button type="button" onclick="switchYtVideo('t_y5zdnov34')"
+                            class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap">
+                        Відео 2
+                    </button>
+                </div>
+            </div>
         </section>
 
 
@@ -127,6 +152,58 @@
             </div>
             <div id="news-feed" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
             <p id="news-empty" class="hidden text-xs text-gray-500 text-center py-6">У цій категорії поки що немає матеріалів.</p>
+
+            <!-- Телеграм-канали Вузла «Новинарь» -->
+            <div class="mt-6">
+                <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Останні Публікації • Телеграм-канали</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Diver_D -->
+                    <article class="p-4 rounded-xl bg-gray-900/80 border border-gray-700 flex flex-col h-full">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-2xl">📢</span>
+                            <h4 class="font-bold text-sm text-gray-100">Diver_D</h4>
+                        </div>
+                        <p class="text-xs text-gray-400 mb-4 flex-1">Оперативні публікації та коментарі каналу Diver_D.</p>
+                        <a href="https://t.me/Diver_D" target="_blank" rel="noopener noreferrer"
+                           class="px-3 py-2 text-xs font-bold bg-imperial-500 hover:bg-imperial-400 text-white rounded-lg text-center transition-colors">
+                            🚀 Перейти до каналу
+                        </a>
+                    </article>
+                    <!-- gistapapapa -->
+                    <article class="p-4 rounded-xl bg-gray-900/80 border border-gray-700 flex flex-col h-full">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-2xl">📢</span>
+                            <h4 class="font-bold text-sm text-gray-100">gistapapapa</h4>
+                        </div>
+                        <p class="text-xs text-gray-400 mb-4 flex-1">Останні публікації та матеріали каналу gistapapapa.</p>
+                        <a href="https://t.me/gistapapapa" target="_blank" rel="noopener noreferrer"
+                           class="px-3 py-2 text-xs font-bold bg-imperial-500 hover:bg-imperial-400 text-white rounded-lg text-center transition-colors">
+                           🚀 Перейти до каналу
+                        </a>
+                    </article>
+                    <!-- ukrainian_sindrom -->
+                    <article class="p-4 rounded-xl bg-gray-900/80 border border-gray-700 flex flex-col h-full">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-2xl">📢</span>
+                            <h4 class="font-bold text-sm text-gray-100">ukrainian_sindrom</h4>
+                        </div>
+                        <p class="text-xs text-gray-400 mb-4 flex-1">Оперативні публікації каналу ukrainian_sindrom.</p>
+                        <a href="https://t.me/ukrainian_sindrom" target="_blank" rel="noopener noreferrer"
+                           class="px-3 py-2 text-xs font-bold bg-imperial-500 hover:bg-imperial-400 text-white rounded-lg text-center transition-colors">
+                           🚀 Перейти до каналу
+                        </a>
+                    </article>
+                </div>
+                <!-- Швидкі посилання -->
+                <div class="mt-4 flex flex-wrap gap-2">
+                    <a href="https://t.me/Diver_D" target="_blank" rel="noopener noreferrer"
+                       class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-gray-100 rounded border border-gray-600 transition-colors whitespace-nowrap">Diver_D</a>
+                    <a href="https://t.me/gistapapapa" target="_blank" rel="noopener noreferrer"
+                       class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-gray-100 rounded border border-gray-600 transition-colors whitespace-nowrap">gistapapapa</a>
+                    <a href="https://t.me/ukrainian_sindrom" target="_blank" rel="noopener noreferrer"
+                       class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-gray-100 rounded border border-gray-600 transition-colors whitespace-nowrap">ukrainian_sindrom</a>
+                </div>
+            </div>
         </section>
 
 
@@ -242,6 +319,14 @@
                 btn.classList.remove('bg-red-600', 'hover:bg-red-500');
                 ind.classList.add('hidden');
                 ind.classList.remove('flex');
+            }
+        }
+
+        /* ===== Медіаплеєр YouTube — перемикання відео ===== */
+        function switchYtVideo(videoId) {
+            var iframe = document.getElementById('yt-player');
+            if (iframe) {
+                iframe.src = 'https://www.youtube.com/embed/' + videoId;
             }
         }
 
