@@ -1,39 +1,67 @@
-{
+﻿{
+  "data_hub": "schema_registry_relational",
   "contours": [
     {
       "name": "Tanunah",
       "ukrainian": "Танунахи",
-      "description": "Серйозна аналітика, розробка державних реформ, вивчення Acquis Communautaire, солідарність із союзниками (ЄС, Велика Британія) та роль України як щита Європи",
+      "description": "Серйозна аналітика, розробка державних реформ, вивчення Acquis Communautaire, солідарність із союзників (ЄС, Велика Британія) та роль України як щита Європі",
       "language": "укр"
     },
     {
       "name": "Achtung",
       "ukrainian": "Ахтуні",
-      "description": "Гостра, нищівна сатира, неофеодальний гротеск, розвінання ворожого соціуму та коригування частот за допомогою словника «поганял»",
+      "description": "Гостра, нищівна сатура, неофеодальний гротеск, розвінання ворожого соціуму та коригування частот за допомогою словника «поганял»",
       "language": "рос"
     }
   ],
   "worker_nodes": [
     {
       "name": "Новинарь",
-      "role": "Генерація новинної та геополітичної аналітики"
+      "role": "Генерація новинної та геополітичної аналітики",
+      "memory": "imperial_news.json"
     },
     {
       "name": "Вагон",
-      "role": "Оперативно-розвідувальний та моніторинговий вузол"
+      "role": "Оперативно-розвідувальний та моніторинговий вузол",
+      "memory": "vagon_ahtungs.json"
     },
     {
       "name": "Архіваріус",
-      "role": "База національної пам'яті та когнітивна деколонізація"
+      "role": "База національної пам'яті та когнітивна деколонізація",
+      "memory": "national_memory.json"
     },
     {
       "name": "Географ",
-      "role": "Картографічний та гео-адміністративний вузол"
+      "role": "Картографічний та гео-адміністративний вузол",
+      "primary_registry": "regions_register.json",
+      "primary_key": "region_code",
+      "google_maps_mid": "1nVz5dLwrxEYS3dWcCXfMU2z9-6GubpE",
+      "sub_agents": ["smotryaschy_ataman", "cartographer"],
+      "memory": "territory_passports"
     }
   ],
   "media_categories": [
     "Історія",
     "Новини",
     "Футуризм"
-  ]
+  ],
+  "osint_passport_schema": {
+    "region_code": 63,
+    "original_name": "Самарська область",
+    "imperial_title": "Самарський Край",
+    "assigned_ataman": "Атаман OSINT-63",
+    "contour": "Achtung",
+    "coordinates": {
+      "lat": 53.1959,
+      "lng": 50.1002,
+      "map_layer_id": "layer_samara_01"
+    },
+    "osint_profile": {
+      "infrastructure_status": "критичний (84% знос)",
+      "smotryaschy_nickname": "Вася Кувалда",
+      "social_tension": "висока",
+      "operational_signals": ["аварія ТЕЦ", "протест транспортників"]
+    }
+  }
 }
+
