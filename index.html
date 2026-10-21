@@ -25,9 +25,9 @@
         }
     </script>
     <style>
-        @keyframes eq { 0%,100% { transform: scaleY(.25); } 50% { transform: scaleY(1); } }
+        @keyframes eq { 0%,100% { transform: scaleY(.25; } 50% { transform: scaleY(1; } }
         .animate-eq { transform-origin: bottom; animation: eq 1s ease-in-out infinite; }
-        @media (prefers-reduced-motion: reduce) { .animate-eq { animation: none; } }
+        @media (prefers-reduced-motion: reduce { .animate-eq { animation: none; } }
 
         /* ===== Друк: світлий аркуш, приховані службові блоки ===== */
         @media print {
@@ -42,7 +42,7 @@
                 margin-bottom: 12px;
             }
             a { text-decoration: underline; }
-            a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9px; color: #555; }
+            a[href^="http"]::after { content: " (" attr(href ""; font-size: 9px; color: #555; }
         }
     </style>
 </head>
@@ -62,13 +62,13 @@
             <!-- Перемикач контурів -->
             <div class="flex items-center gap-3 flex-wrap">
                 <div class="flex items-center bg-gray-900 p-1 rounded-lg border border-gray-800" role="group" aria-label="Перемикач світоглядних контурів">
-                    <button id="btn-tanunah" type="button" onclick="setContour('tanunah')" aria-pressed="true"
+                    <button id="btn-tanunah" type="button" onclick="setContour('tanunah'" aria-pressed="true"
                             class="px-3 py-1 text-xs font-semibold bg-imperial-500 text-white rounded transition-colors">
-                        🌐 Tanunah (Метрополія)
+                        🌐 Tanunah (Метрополія
                     </button>
-                    <button id="btn-achtung" type="button" onclick="setContour('achtung')" aria-pressed="false"
+                    <button id="btn-achtung" type="button" onclick="setContour('achtung'" aria-pressed="false"
                             class="px-3 py-1 text-xs font-semibold text-gray-400 hover:text-white rounded transition-colors">
-                        ⚠️ Achtung (Сатира)
+                        ⚠️ Achtung (Сатира
                     </button>
                 </div>
             </div>
@@ -102,22 +102,12 @@
                 </div>
             </div>
             <div class="flex flex-col items-stretch gap-2">
-                <button id="btn-live" type="button" onclick="toggleLive()"
+                <button id="btn-live" type="button" onclick="toggleLive("
                         class="px-5 py-3 bg-oprichnik-500 hover:bg-oprichnik-400 text-gray-950 font-bold rounded-xl text-sm shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 transition-colors">
                     <span id="live-icon">▶</span> <span id="live-label">Увімкнути Радіоефір</span>
                 </button>
                 <p class="text-[10px] text-gray-500 text-center font-mono">$0 • Статичний ефір • Без зовнішніх залежностей</p>
 
-                <!-- ШІ-Діджей: анонс ефіру (завжди видно) -->
-                <div id="dj-announcement" class="mt-4 p-4 rounded-xl bg-imperial-900/60 border border-imperial-500/40 shadow-[0_0_20px_rgba(139,92,246,0.15)]">
-                    <div class="flex items-start gap-3">
-                        <span class="text-2xl mt-0.5">🎙️</span>
-                        <div>
-                            <div class="text-xs font-bold text-imperial-400 uppercase tracking-wider mb-1">ШІ-Діджей оголошує</div>
-                            <p id="dj-text" class="text-sm text-gray-200 font-mono italic leading-relaxed">Оберіть медіа-джерело у плейєрі нижче.</p>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <!-- Медіаплеєр: динамічне перемикання YouTube / Telegram -->
@@ -125,7 +115,7 @@
                 <div class="aspect-video w-full rounded-xl shadow-lg border border-red-900/50 overflow-hidden bg-gray-900 relative">
                     <!-- YouTube IFrame Player API контейнер -->
                     <div id="yt-player-container" class="absolute inset-0 w-full h-full"></div>
-                    <!-- Telegram Embed контейнер (показується при виборі каналу) -->
+                    <!-- Telegram Embed контейнер (показується при виборі каналу -->
                     <iframe id="tg-player"
                             class="hidden w-full h-full aspect-video"
                             src=""
@@ -136,46 +126,46 @@
                 <div class="flex gap-2 overflow-x-auto pb-2">
                     <!-- Format filters: Video / Radio -->
                     <div class="flex gap-1">
-                        <button type="button" onclick="filterMedia('video', null)"
+                        <button type="button" onclick="filterMedia('video', null"
                                 class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap active"
                                 data-format="video">📺 Відео</button>
-                        <button type="button" onclick="filterMedia('audio', null)"
+                        <button type="button" onclick="filterMedia('audio', null"
                                 class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap"
                                 data-format="audio">📻 Радіо</button>
                     </div>
                     
                     <!-- Topic filters: History / News / Futurism -->
                     <div class="flex gap-1 mt-2">
-                        <button type="button" onclick="filterMedia('null', 'history')"
+                        <button type="button" onclick="filterMedia('null', 'history'"
                                 class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap active"
                                 data-topic="history">📜 Історія</button>
-                        <button type="button" onclick="filterMedia('null', 'news')"
+                        <button type="button" onclick="filterMedia('null', 'news'"
                                 class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap"
                                 data-topic="news">📰 Новини</button>
-                        <button type="button" onclick="filterMedia('null', 'futurism')"
+                        <button type="button" onclick="filterMedia('null', 'futurism'"
                                 class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap"
                                 data-topic="futurism">🚀 Футуризм</button>
                     </div>
                     
                     <!-- YouTube кнопки -->
-                    <button type="button" onclick="switchYtVideo('-dB2PCegJR8')"
+                    <button type="button" onclick="switchYtVideo('-dB2PCegJR8'"
                             class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap">
                         YouTube: Відео 1
                     </button>
-                    <button type="button" onclick="switchYtVideo('t_y5zdnov34')"
+                    <button type="button" onclick="switchYtVideo('t_y5zdnov34'"
                             class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap">
                         YouTube: Відео 2
                     </button>
                     <!-- Telegram кнопки -->
-                    <button type="button" onclick="switchTgMedia('tg-1')"
+                    <button type="button" onclick="switchTgMedia('tg-1'"
                             class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap">
                         Telegram: Diver_D
                     </button>
-                    <button type="button" onclick="switchTgMedia('tg-2')"
+                    <button type="button" onclick="switchTgMedia('tg-2'"
                             class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap">
                         Telegram: gistapapapa
                     </button>
-                    <button type="button" onclick="switchTgMedia('tg-3')"
+                    <button type="button" onclick="switchTgMedia('tg-3'"
                             class="px-3 py-1 text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-white rounded border border-gray-700 transition-colors whitespace-nowrap">
                         Telegram: ukrainian_sindrom
                     </button>
@@ -270,12 +260,12 @@
     </main>
 
     <footer class="no-print border-t border-gray-900 py-6 mt-12 text-center text-xs text-gray-500">
-        <p>Медіаімперія Української Імперії • $0 Static Deployment (GitHub Pages)</p>
+        <p>Медіаімперія Української Імперії • $0 Static Deployment (GitHub Pages</p>
         <p class="mt-2 text-gray-600">Публічний портал <a href="index.html" class="text-imperial-400 hover:text-imperial-500">index.html</a> • Приватна Канцелярія <a href="admin.html" class="text-imperial-400 hover:text-imperial-500">admin.html</a></p>
     </footer>
 
     <script>
-        /* ===== Дані порталу (статичні, $0 без бекенду) ===== */
+        /* ===== Дані порталу (статичні, $0 без бекенду ===== */
         var CONTOURS = {
             tanunah: {
                 desc: 'Офіційні матеріали від Новинаря, геополітична аналітика та публічні Директиви Української Імперії.',
@@ -304,7 +294,7 @@
               title: 'Електоральна мімікрія: розбір ритуалів Московії',
               body: 'Сатиричний розбір псевдореферендумів та механізмів «робів Божих». Матеріал опубліковано в контурі Achtung для прямого когнітивного впливу на периферію.' },
             { cat: 'dyrektyva', tag: '📜 Дзеркальний Указ', tagClass: 'text-imperial-400', date: '15 Жовтня 2026',
-              title: 'Структурна Директива про інтеграцію (Intermarium)',
+              title: 'Структурна Директива про інтеграцію (Intermarium',
               body: 'Географ представив Стратегічну Директиву щодо транспортних коридорів та адаптації європейських стандартів у Новому Українському Просторі.' }
         ];
 
@@ -314,7 +304,7 @@
             { num: '№104', text: 'Про реституцію культурних надбань та повернення історичних діячів до спадщини України-Метрополії.' }
         ];
 
-        /* ===== База ефіру ШІ-Діджея: YouTube (чисті videoId) ===== */
+        /* ===== База ефіру ШІ-Діджея: YouTube (чисті videoId ===== */
         var YT_MEDIA = [
             {
                 id: 'yt-1',
@@ -369,7 +359,7 @@
         var playerReady = false;
         var currentMediaType = 'youtube'; // 'youtube' | 'telegram'
 
-        window.onYouTubeIframeAPIReady = function () {
+        window.onYouTubeIframeAPIReady = function ( {
             player = new YT.Player('yt-player-container', {
                 height: '100%',
                 width: '100%',
@@ -385,330 +375,290 @@
                     onReady: onPlayerReady,
                     onStateChange: onPlayerStateChange
                 }
-            });
+            };
         };
 
-        function onPlayerReady(event) {
+        function onPlayerReady(event {
             playerReady = true;
-            try { event.target.unMute(); } catch (e) {}
-            try { event.target.setVolume(100); } catch (e) {}
+            try { event.target.unMute(; } catch (e {}
+            try { event.target.setVolume(100; } catch (e {}
         }
 
-        function onPlayerStateChange(event) {
-            if (event.data === YT.PlayerState.ENDED && isLive && currentMediaType === 'youtube') {
-                playNextRandomVideo();
+        function onPlayerStateChange(event {
+            if (event.data === YT.PlayerState.ENDED && isLive && currentMediaType === 'youtube' {
+                playNextRandomVideo(;
             }
         }
 
-        function showYtPlayer() {
-            var yt = document.getElementById('yt-player-container');
-            var tg = document.getElementById('tg-player');
-            if (yt) { yt.classList.remove('hidden'); }
-            if (tg) { tg.classList.add('hidden'); tg.src = ''; }
+        function showYtPlayer( {
+            var yt = document.getElementById('yt-player-container';
+            var tg = document.getElementById('tg-player';
+            if (yt { yt.classList.remove('hidden'; }
+            if (tg { tg.classList.add('hidden'; tg.src = ''; }
             currentMediaType = 'youtube';
         }
 
-        function showTgPlayer() {
-            var yt = document.getElementById('yt-player-container');
-            var tg = document.getElementById('tg-player');
-            if (yt) { yt.classList.add('hidden'); }
-            if (tg) { tg.classList.remove('hidden'); }
+        function showTgPlayer( {
+            var yt = document.getElementById('yt-player-container';
+            var tg = document.getElementById('tg-player';
+            if (yt { yt.classList.add('hidden'; }
+            if (tg { tg.classList.remove('hidden'; }
             currentMediaType = 'telegram';
         }
 
-        function playNextRandomVideo() {
-            if (YT_MEDIA.length === 0) { return; }
-            var next = YT_MEDIA[Math.floor(Math.random() * YT_MEDIA.length)];
-            var announcement = getDjAnnouncement(next.id);
-            var djBox = document.getElementById('dj-announcement');
-            var djText = document.getElementById('dj-text');
-            if (announcement) {
+        function playNextRandomVideo( {
+            if (YT_MEDIA.length === 0 { return; }
+            var next = YT_MEDIA[Math.floor(Math.random( * YT_MEDIA.length];
+            var announcement = next.id;
+            var djBox = document.getElementById('dj-announcement';
+            var djText = document.getElementById('dj-text';
+            if (announcement {
                 djText.innerText = announcement;
-                speakSafe(announcement);
+                announcement;
             }
-            setTimeout(function () {
-                if (player && playerReady && currentMediaType === 'youtube') {
-                    player.loadVideoById(next.videoId);
-                    try { player.unMute(); } catch (e) {}
-                    try { player.setVolume(100); } catch (e) {}
+            setTimeout(function ( {
+                if (player && playerReady && currentMediaType === 'youtube' {
+                    player.loadVideoById(next.videoId;
+                    try { player.unMute(; } catch (e {}
+                    try { player.setVolume(100; } catch (e {}
                 }
-            }, announcement ? 4000 : 500);
+            }, announcement ? 4000 : 500;
         }
 
         /* ===== Медіаплеєр YouTube — перемикання відео ===== */
-        function switchYtVideo(videoId) {
-            // Виключно чистий videoId (без URL-рядків)
-            var cleanId = String(videoId).replace(/^.*\/(?:embed\/|watch\?v=|v=)/, '').replace(/[?&].*$/, '');
-            window.speechSynthesis.cancel();
+        function switchYtVideo(videoId {
+            // Виключно чистий videoId (без URL-рядків
+            var cleanId = String(videoId.replace(/^.*\/(?:embed\/|watch\?v=|v=/, ''.replace(/[?&].*$/, '';
+            ;
 
-            showYtPlayer();
+            showYtPlayer(;
 
-            var media = YT_MEDIA.find(function (m) { return m.videoId === cleanId; });
-            var announcement = media ? getDjAnnouncement(media.id) : '';
-            var djBox = document.getElementById('dj-announcement');
-            var djText = document.getElementById('dj-text');
-            if (announcement) {
+            var media = YT_MEDIA.find(function (m { return m.videoId === cleanId; };
+            var announcement = media ? media.id : '';
+            var djBox = document.getElementById('dj-announcement';
+            var djText = document.getElementById('dj-text';
+            if (announcement {
                 djText.innerText = announcement;
-                speakSafe(announcement);
+                announcement;
             }
 
-            setTimeout(function () {
-                if (player && playerReady && currentMediaType === 'youtube') {
-                    player.loadVideoById(cleanId);
-                    try { player.unMute(); } catch (e) {}
-                    try { player.setVolume(100); } catch (e) {}
+            setTimeout(function ( {
+                if (player && playerReady && currentMediaType === 'youtube' {
+                    player.loadVideoById(cleanId;
+                    try { player.unMute(; } catch (e {}
+                    try { player.setVolume(100; } catch (e {}
                 }
-            }, announcement ? 4000 : 500);
+            }, announcement ? 4000 : 500;
         }
 
         /* ===== Медіаплеєр Telegram — перемикання каналу ===== */
-        function switchTgMedia(id) {
-            window.speechSynthesis.cancel();
+        function switchTgMedia(id {
+            ;
 
-            var media = TG_MEDIA.find(function (m) { return m.id === id; });
-            if (!media) { return; }
+            var media = TG_MEDIA.find(function (m { return m.id === id; };
+            if (!media { return; }
 
-            showTgPlayer();
+            showTgPlayer(;
 
-            var tgFrame = document.getElementById('tg-player');
-            if (tgFrame && media.embedUrl) {
+            var tgFrame = document.getElementById('tg-player';
+            if (tgFrame && media.embedUrl {
                 tgFrame.src = media.embedUrl;
             }
 
-            var announcement = getDjAnnouncement(media.id);
-            var djBox = document.getElementById('dj-announcement');
-            var djText = document.getElementById('dj-text');
-            if (announcement) {
+            var announcement = media.id;
+            var djBox = document.getElementById('dj-announcement';
+            var djText = document.getElementById('dj-text';
+            if (announcement {
                 djText.innerText = announcement;
-                speakSafe(announcement);
+                announcement;
             }
         }
 
         /* ===== Перемикання світоглядних контурів ===== */
-        function setContour(c) {
+        function setContour(c {
             var cfg = CONTOURS[c];
-            if (!cfg) { return; }
-            var t = document.getElementById('btn-tanunah');
-            var a = document.getElementById('btn-achtung');
-            var d = document.getElementById('public-desc');
-            var badge = document.getElementById('contour-badge');
+            if (!cfg { return; }
+            var t = document.getElementById('btn-tanunah';
+            var a = document.getElementById('btn-achtung';
+            var d = document.getElementById('public-desc';
+            var badge = document.getElementById('contour-badge';
 
             var base = 'px-3 py-1 text-xs font-semibold rounded transition-colors';
             var on = base + ' text-white';
             var off = base + ' text-gray-400 hover:text-white';
 
-            if (c === 'tanunah') {
+            if (c === 'tanunah' {
                 t.className = on + ' bg-imperial-500';
                 a.className = off;
             } else {
                 a.className = on + ' bg-amber-600';
                 t.className = off;
             }
-            t.setAttribute('aria-pressed', String(c === 'tanunah'));
-            a.setAttribute('aria-pressed', String(c === 'achtung'));
+            t.setAttribute('aria-pressed', String(c === 'tanunah';
+            a.setAttribute('aria-pressed', String(c === 'achtung';
 
             d.innerText = cfg.desc;
-            if (badge) {
+            if (badge {
                 badge.innerText = cfg.badge;
                 badge.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold border ' +
                     (c === 'tanunah' ? 'border-imperial-500/40 bg-imperial-500/10 text-imperial-400'
-                                     : 'border-amber-500/40 bg-amber-500/10 text-oprichnik-400');
+                                     : 'border-amber-500/40 bg-amber-500/10 text-oprichnik-400';
             }
-            document.body.setAttribute('data-contour', c);
+            document.body.setAttribute('data-contour', c;
         }
 
         /* ===== Модуль прямого ефіру ===== */
         var isLive = false;
-        function toggleLive() {
-            // Скасувати попередню озвучку перед новим анонсом
-            window.speechSynthesis.cancel();
+function toggleLive( {
+            // Скасувати попередню озвучку (озвучка вже вилучена
+            cancel(;
 
             isLive = !isLive;
-            var btn = document.getElementById('btn-live');
-            var icon = document.getElementById('live-icon');
-            var label = document.getElementById('live-label');
-            var ind = document.getElementById('live-indicator');
-            var djBox = document.getElementById('dj-announcement');
-            var djText = document.getElementById('dj-text');
+            var btn = document.getElementById('btn-live';
+            var icon = document.getElementById('live-icon';
+            var label = document.getElementById('live-label';
+            var ind = document.getElementById('live-indicator';
 
-            if (isLive) {
-                var announcement = getDjAnnouncement('live');
-                if (announcement) {
-                    djText.innerText = announcement;
-                    speakSafe(announcement);
-                }
-
-                // Розблокувати аудіо плеєра (тільки YouTube)
-                if (currentMediaType === 'youtube' && player && playerReady) {
-                    try { player.unMute(); } catch (e) {}
-                    try { player.setVolume(100); } catch (e) {}
+            if (isLive {
+                // Розблокувати аудіо pleєr (тільки YouTube
+                if (currentMediaType === 'youtube' && player && playerReady {
+                    try { player.unMute(; } catch (e {}
+                    try { player.setVolume(100; } catch (e {}
                 }
 
                 icon.innerText = '■';
                 label.innerText = 'Зупинити Радіоефір';
-                btn.classList.remove('bg-oprichnik-500', 'hover:bg-oprichnik-400');
-                btn.classList.add('bg-red-600', 'hover:bg-red-500');
-                ind.classList.remove('hidden');
-                ind.classList.add('flex');
+                btn.classList.remove('bg-oprichnik-500', 'hover:bg-oprichnik-400';
+                btn.classList.add('bg-red-600', 'hover:bg-red-500';
+                ind.classList.remove('hidden';
+                ind.classList.add('flex';
             } else {
-                window.speechSynthesis.cancel();
-                if (currentMediaType === 'youtube' && player && playerReady) {
-                    try { player.pauseVideo(); } catch (e) {}
+                cancel(;
+                if (currentMediaType === 'youtube' && player && playerReady {
+                    try { player.pauseVideo(; } catch (e {}
                 }
                 icon.innerText = '▶';
                 label.innerText = 'Увімкнути Радіоефір';
-                btn.classList.add('bg-oprichnik-500', 'hover:bg-oprichnik-400');
-                btn.classList.remove('bg-red-600', 'hover:bg-red-500');
-                ind.classList.add('hidden');
-                ind.classList.remove('flex');
+                btn.classList.add('bg-oprichnik-500', 'hover:bg-oprichnik-400';
+                btn.classList.remove('bg-red-600', 'hover:bg-red-500';
+                ind.classList.add('hidden';
+                ind.classList.remove('flex';
             }
         }
 
         /* ===== Медіаплеєр YouTube — перемикання відео ===== */
-        function switchYtVideo(videoId) {
-            // Виключно чистий videoId (без URL-рядків)
-            var cleanId = String(videoId).replace(/^.*\/(?:embed\/|watch\?v=|v=)/, '').replace(/[?&].*$/, '');
-            window.speechSynthesis.cancel();
+        function switchYtVideo(videoId {
+            // Виключно чистий videoId (без URL-рядків
+            var cleanId = String(videoId.replace(/^.*\/(?:embed\/|watch\?v=|v=/, ''.replace(/[?&].*$/, '';
+            ;
 
-            showYtPlayer();
+            showYtPlayer(;
 
-            var media = YT_MEDIA.find(function (m) { return m.videoId === cleanId; });
-            var announcement = media ? getDjAnnouncement(media.id) : '';
-            var djBox = document.getElementById('dj-announcement');
-            var djText = document.getElementById('dj-text');
-            if (announcement) {
+            var media = YT_MEDIA.find(function (m { return m.videoId === cleanId; };
+            var announcement = media ? media.id : '';
+            var djBox = document.getElementById('dj-announcement';
+            var djText = document.getElementById('dj-text';
+            if (announcement {
                 djText.innerText = announcement;
-                speakSafe(announcement);
+                announcement;
             }
 
-            setTimeout(function () {
-                if (player && playerReady && currentMediaType === 'youtube') {
-                    player.loadVideoById(cleanId);
-                    try { player.unMute(); } catch (e) {}
-                    try { player.setVolume(100); } catch (e) {}
+            setTimeout(function ( {
+                if (player && playerReady && currentMediaType === 'youtube' {
+                    player.loadVideoById(cleanId;
+                    try { player.unMute(; } catch (e {}
+                    try { player.setVolume(100; } catch (e {}
                 }
-            }, announcement ? 4000 : 500);
+            }, announcement ? 4000 : 500;
         }
 
         /* ===== ШІ-Діджей: контур-залежний анонс ===== */
-        function getDjAnnouncement(contextId) {
-            var media = window.MEDIA_CATALOG.find(function (m) { return m.id === contextId; });
-            if (!media) { return null; }
-            var contour = document.body.getAttribute('data-contour') || 'tanunah';
-            // Use the catalog's teaser, with contour translation if available
-            var key = contour === 'achtung' ? 'achtung' : 'tanunah';
-            return media[key] || media.teaser || null;
-        }
-
-        /* ===== ШІ-Діджей: Web Speech API озвучка (з Ukrainian voice detection + try/catch) ===== */
-        function speakSafe(text) {
-            if (!text || !window.speechSynthesis) { return; }
-            try {
-                window.speechSynthesis.cancel();
-                var utterance = new SpeechSynthesisUtterance(text);
-                // Пошук якісного українського голосу
-                var voices = window.speechSynthesis.getVoices() || [];
-                var ukVoice = voices.find(function (v) { return v.lang && v.lang.includes('uk'); });
-                if (ukVoice) {
-                    utterance.voice = ukVoice;
-                    utterance.lang = ukVoice.lang;
-                } else {
-                    utterance.lang = 'uk-UA';
-                }
-                utterance.rate = 1.0;
-                utterance.pitch = 1.0;
-                window.speechSynthesis.speak(utterance);
-            } catch (e) {
-                // Якщо голосовий симулятор не спрацював — ігноруємо помилку, відео все одно гратиме
-                console.warn('TTS failed:', e);
-            }
-        }
 
         /* ===== Фільтр MEDIA_CATALOG за форматом та темою ===== */
-        function filterMedia(format, topic) {
+        function filterMedia(format, topic {
             // Зберемо поточні вибори у localStorage для тривалого зберігання
-            if (format) localStorage.setItem('media_format', format);
-            if (topic) localStorage.setItem('media_topic', topic);
+            if (format localStorage.setItem('media_format', format;
+            if (topic localStorage.setItem('media_topic', topic;
             
             // Отримаємо фільтри з localStorage, якщо не передано аргументів
-            var fmt = format || localStorage.getItem('media_format') || 'video';
-            var top = topic || localStorage.getItem('media_topic') || 'history';
+            var fmt = format || localStorage.getItem('media_format' || 'video';
+            var top = topic || localStorage.getItem('media_topic' || 'history';
             
             // Оновимо активність кнопок
-            document.querySelectorAll('.data-format').forEach(function(btn) {
-                btn.classList.toggle('active', btn.dataset.format === fmt);
-            });
-            document.querySelectorAll('.data-topic').forEach(function(btn) {
-                btn.classList.toggle('active', btn.dataset.topic === top);
-            });
+            document.querySelectorAll('.data-format'.forEach(function(btn {
+                btn.classList.toggle('active', btn.dataset.format === fmt;
+            };
+            document.querySelectorAll('.data-topic'.forEach(function(btn {
+                btn.classList.toggle('active', btn.dataset.topic === top;
+            };
             
             // Фільтруємо MEDIA_CATALOG
             var catalog = window.MEDIA_CATALOG;
-            var filtered = catalog.filter(function(item) {
-                var matchFormat = (fmt === 'all' || item.format === fmt);
-                var matchTopic = (top === 'all' || item.category === top);
+            var filtered = catalog.filter(function(item {
+                var matchFormat = (fmt === 'all' || item.format === fmt;
+                var matchTopic = (top === 'all' || item.category === top;
                 return matchFormat && matchTopic;
-            });
+            };
             
             // Вибираємо випадковий елемент та завантажуємо його
-            if (filtered.length > 0) {
-                var selected = filtered[Math.floor(Math.random() * filtered.length)];
-                loadMedia(selected);
+            if (filtered.length > 0 {
+                var selected = filtered[Math.floor(Math.random( * filtered.length];
+                loadMedia(selected;
             } else {
                 // Fallback: вибрати будь-що з catalog
-                var fallback = catalog.filter(function(item) {
+                var fallback = catalog.filter(function(item {
                     return item.format === fmt || top === 'all';
-                });
-                if (fallback.length > 0) {
-                    var selected = fallback[Math.floor(Math.random() * fallback.length)];
-                    loadMedia(selected);
+                };
+                if (fallback.length > 0 {
+                    var selected = fallback[Math.floor(Math.random( * fallback.length];
+                    loadMedia(selected;
                 }
             }
         }
 
         /* ===== Завантаження медіа ===== */
-        function loadMedia(media) {
-            window.speechSynthesis.cancel();
+        function loadMedia(media {
+            ;
             
             // Показуємо teaser для ШІ-Діджея
-            var djText = document.getElementById('dj-text');
-            var djBox = document.getElementById('dj-announcement');
-            if (media && media.teaser) {
+            var djText = document.getElementById('dj-text';
+            var djBox = document.getElementById('dj-announcement';
+            if (media && media.teaser {
                 djText.innerText = media.teaser;
-                djBox.classList.remove('hidden');
-                speakSafe(media.teaser);
+                djBox.classList.remove('hidden';
+                media.teaser;
             } else {
-                djBox.classList.add('hidden');
+                djBox.classList.add('hidden';
             }
             
             // Логіка для YouTube
-            if (media && media.source_type === 'youtube') {
-                showYtPlayer();
-                var cleanId = media.url_or_id.replace(/^.*\/(?:embed\/|watch\?v=|v=)/, '').replace(/[?&].*$/, '');
-                setTimeout(function () {
-                    if (player && playerReady) {
-                        player.loadVideoById(cleanId);
-                        try { player.unMute(); } catch (e) {}
-                        try { player.setVolume(100); } catch (e) {}
+            if (media && media.source_type === 'youtube' {
+                showYtPlayer(;
+                var cleanId = media.url_or_id.replace(/^.*\/(?:embed\/|watch\?v=|v=/, ''.replace(/[?&].*$/, '';
+                setTimeout(function ( {
+                    if (player && playerReady {
+                        player.loadVideoById(cleanId;
+                        try { player.unMute(; } catch (e {}
+                        try { player.setVolume(100; } catch (e {}
                     }
-                }, 500);
+                }, 500;
             }
             // Логіка для Telegram
-            else if (media && media.source_type === 'telegram') {
-                showTgPlayer();
-                var tgFrame = document.getElementById('tg-player');
-                if (tgFrame && media.url_or_id) {
+            else if (media && media.source_type === 'telegram' {
+                showTgPlayer(;
+                var tgFrame = document.getElementById('tg-player';
+                if (tgFrame && media.url_or_id {
                     tgFrame.src = media.url_or_id;
                 }
             }
         }
 
         /* ===== Рендер стрічки новин ===== */
-        function renderNews(cat) {
-            var feed = document.getElementById('news-feed');
-            var empty = document.getElementById('news-empty');
-            var items = NEWS.filter(function (n) { return cat === 'all' || n.cat === cat; });
-            feed.innerHTML = items.map(function (n) {
+        function renderNews(cat {
+            var feed = document.getElementById('news-feed';
+            var empty = document.getElementById('news-empty';
+            var items = NEWS.filter(function (n { return cat === 'all' || n.cat === cat; };
+            feed.innerHTML = items.map(function (n {
                 return '<article class="p-5 rounded-xl bg-gray-900/90 border border-gray-800 space-y-3">' +
                     '<div class="flex justify-between items-center text-xs text-gray-400 gap-2">' +
                         '<span class="' + n.tagClass + ' font-semibold">' + n.tag + '</span>' +
@@ -717,40 +667,40 @@
                     '<h4 class="font-bold text-base text-gray-100">' + n.title + '</h4>' +
                     '<p class="text-xs text-gray-300 leading-relaxed">' + n.body + '</p>' +
                 '</article>';
-            }).join('');
-            empty.classList.toggle('hidden', items.length > 0);
+            }.join('';
+            empty.classList.toggle('hidden', items.length > 0;
         }
 
-        function initNewsFilters() {
-            var wrap = document.getElementById('news-filters');
-            wrap.addEventListener('click', function (e) {
-                var btn = e.target.closest('.news-filter');
-                if (!btn) { return; }
-                var all = wrap.querySelectorAll('.news-filter');
-                for (var i = 0; i < all.length; i++) {
+        function initNewsFilters( {
+            var wrap = document.getElementById('news-filters';
+            wrap.addEventListener('click', function (e {
+                var btn = e.target.closest('.news-filter';
+                if (!btn { return; }
+                var all = wrap.querySelectorAll('.news-filter';
+                for (var i = 0; i < all.length; i++ {
                     all[i].className = 'news-filter px-3 py-1 text-xs font-semibold rounded-lg transition-colors ' +
-                        (all[i] === btn ? 'bg-imperial-500 text-white' : 'bg-gray-800 text-gray-300 hover:bg-gray-700');
+                        (all[i] === btn ? 'bg-imperial-500 text-white' : 'bg-gray-800 text-gray-300 hover:bg-gray-700';
                 }
-                renderNews(btn.getAttribute('data-cat'));
-            });
+                renderNews(btn.getAttribute('data-cat';
+            };
         }
 
         /* ===== Реєстр Дзеркальних Указів ===== */
-        function renderDecrees() {
-            var box = document.getElementById('decrees-registry');
-            box.innerHTML = DECREES.map(function (d) {
+        function renderDecrees( {
+            var box = document.getElementById('decrees-registry';
+            box.innerHTML = DECREES.map(function (d {
                 return '<div class="p-4 rounded-lg bg-gray-950 border border-gray-800 text-xs text-gray-300 font-mono">[' +
                     d.num + '] ' + d.text + '</div>';
-            }).join('');
+            }.join('';
         }
 
         /* ===== Ініціалізація ===== */
-        document.addEventListener('DOMContentLoaded', function () {
-            renderNews('all');
-            renderDecrees();
-            initNewsFilters();
-            setContour('tanunah');
-        });
+        document.addEventListener('DOMContentLoaded', function ( {
+            renderNews('all';
+            renderDecrees(;
+            initNewsFilters(;
+            setContour('tanunah';
+        };
     </script>
 </body>
 </html>
