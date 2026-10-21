@@ -1,0 +1,4052 @@
+{
+  "schema_version": "2.0",
+  "primary_key": "entity_id",
+  "entities": [
+    {
+      "entity_id": "UA-01",
+      "identity": {
+        "name": {
+          "ua": "Автономна Республіка Крим",
+          "ru": "Автономная Республика Крым",
+          "en": "Автономна Республіка Крим"
+        },
+        "type": "Автономна Республіка",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "АРК",
+            "Крим",
+            "Таврида"
+          ],
+          "ru": [
+            "АРК",
+            "Крым",
+            "Таврида"
+          ]
+        },
+        "capital": {
+          "ua": "Сімферополь",
+          "ru": "Сімферополь"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 26081,
+        "population": 1967259,
+        "economic_region": "Причорноморський",
+        "titular_nations": [
+          "Українці",
+          "Кримські татари"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-02",
+      "identity": {
+        "name": {
+          "ua": "Вінницька область",
+          "ru": "Винницкая область",
+          "en": "Вінницька область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Вінниччина",
+            "Поділля"
+          ],
+          "ru": [
+            "Винничина",
+            "Подолье"
+          ]
+        },
+        "capital": {
+          "ua": "Вінниця",
+          "ru": "Вінниця"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 26513,
+        "population": 1529123,
+        "economic_region": "Подільський",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-03",
+      "identity": {
+        "name": {
+          "ua": "Волинська область",
+          "ru": "Волынская область",
+          "en": "Волинська область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Волинь",
+            "Луччина"
+          ],
+          "ru": [
+            "Волынь",
+            "Луччина"
+          ]
+        },
+        "capital": {
+          "ua": "Луцьк",
+          "ru": "Луцьк"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 20144,
+        "population": 1027397,
+        "economic_region": "Північно-Західний",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-04",
+      "identity": {
+        "name": {
+          "ua": "Дніпропетровська область",
+          "ru": "Днепропетровская область",
+          "en": "Дніпропетровська область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Дніпровщина",
+            "Січеславщина"
+          ],
+          "ru": [
+            "Днепровщина",
+            "Сичеславщина"
+          ]
+        },
+        "capital": {
+          "ua": "Дніпро",
+          "ru": "Дніпро"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 31974,
+        "population": 3142035,
+        "economic_region": "Придніпровський",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-05",
+      "identity": {
+        "name": {
+          "ua": "Донецька область",
+          "ru": "Донецкая область",
+          "en": "Донецька область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Донеччина",
+            "Донбас"
+          ],
+          "ru": [
+            "Донеччина",
+            "Донбасс"
+          ]
+        },
+        "capital": {
+          "ua": "Донецьк",
+          "ru": "Донецьк"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 26517,
+        "population": 4100280,
+        "economic_region": "Донецький",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-06",
+      "identity": {
+        "name": {
+          "ua": "Житомирська область",
+          "ru": "Житомирская область",
+          "en": "Житомирська область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Житомирщина",
+            "Полісся"
+          ],
+          "ru": [
+            "Житомирщина",
+            "Полесье"
+          ]
+        },
+        "capital": {
+          "ua": "Житомир",
+          "ru": "Житомир"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 29832,
+        "population": 1195495,
+        "economic_region": "Поліський",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-07",
+      "identity": {
+        "name": {
+          "ua": "Закарпатська область",
+          "ru": "Закарпатская область",
+          "en": "Закарпатська область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Закарпаття",
+            "Срібна Земля"
+          ],
+          "ru": [
+            "Закарпатье",
+            "Серебряная Земля"
+          ]
+        },
+        "capital": {
+          "ua": "Ужгород",
+          "ru": "Ужгород"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 12777,
+        "population": 1250129,
+        "economic_region": "Карпатський",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-08",
+      "identity": {
+        "name": {
+          "ua": "Запорізька область",
+          "ru": "Запорожская область",
+          "en": "Запорізька область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Запоріжжя",
+            "Запорожчина"
+          ],
+          "ru": [
+            "Запорожье",
+            "Запорожчина"
+          ]
+        },
+        "capital": {
+          "ua": "Запоріжжя",
+          "ru": "Запоріжжя"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 27180,
+        "population": 1666515,
+        "economic_region": "Придніпровський",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-09",
+      "identity": {
+        "name": {
+          "ua": "Івано-Франківська область",
+          "ru": "Ивано-Франковская область",
+          "en": "Івано-Франківська область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Прикарпаття",
+            "Франківщина"
+          ],
+          "ru": [
+            "Прикарпатье",
+            "Франковщина"
+          ]
+        },
+        "capital": {
+          "ua": "Івано-Франківськ",
+          "ru": "Івано-Франківськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 13928,
+        "population": 1361109,
+        "economic_region": "Карпатський",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-10",
+      "identity": {
+        "name": {
+          "ua": "Київська область",
+          "ru": "Киевская область",
+          "en": "Київська область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Київщина"
+          ],
+          "ru": [
+            "Киевщина"
+          ]
+        },
+        "capital": {
+          "ua": "Київ",
+          "ru": "Київ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 28131,
+        "population": 1788530,
+        "economic_region": "Центральний",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-11",
+      "identity": {
+        "name": {
+          "ua": "Кіровоградська область",
+          "ru": "Кировоградская область",
+          "en": "Кіровоградська область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Кропивниччина",
+            "Центральна Україна"
+          ],
+          "ru": [
+            "Кропивниччина",
+            "Центральная Украина"
+          ]
+        },
+        "capital": {
+          "ua": "Кропивницький",
+          "ru": "Кропивницький"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 24588,
+        "population": 920128,
+        "economic_region": "Центральноукраїнський",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-12",
+      "identity": {
+        "name": {
+          "ua": "Луганська область",
+          "ru": "Луганская область",
+          "en": "Луганська область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Луганщина",
+            "Луганщина-Донбас"
+          ],
+          "ru": [
+            "Луганщина",
+            "Луганщина-Донбасс"
+          ]
+        },
+        "capital": {
+          "ua": "Луганськ",
+          "ru": "Луганськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 26684,
+        "population": 2121322,
+        "economic_region": "Донецький",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-13",
+      "identity": {
+        "name": {
+          "ua": "Львівська область",
+          "ru": "Львовская область",
+          "en": "Львівська область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Львівщина",
+            "Галичина"
+          ],
+          "ru": [
+            "Львовщина",
+            "Галичина"
+          ]
+        },
+        "capital": {
+          "ua": "Львів",
+          "ru": "Львів"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 21833,
+        "population": 2497750,
+        "economic_region": "Карпатський",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-14",
+      "identity": {
+        "name": {
+          "ua": "Миколаївська область",
+          "ru": "Николаевская область",
+          "en": "Миколаївська область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Миколаївщина",
+            "Прибужжя"
+          ],
+          "ru": [
+            "Николаевщина",
+            "Прибужье"
+          ]
+        },
+        "capital": {
+          "ua": "Миколаїв",
+          "ru": "Миколаїв"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 24598,
+        "population": 1108394,
+        "economic_region": "Причорноморський",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-15",
+      "identity": {
+        "name": {
+          "ua": "Одеська область",
+          "ru": "Одесская область",
+          "en": "Одеська область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Одещина",
+            "Бессарабія-Одещина"
+          ],
+          "ru": [
+            "Одесчина",
+            "Бессарабия-Одесчина"
+          ]
+        },
+        "capital": {
+          "ua": "Одеса",
+          "ru": "Одеса"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 33310,
+        "population": 2368107,
+        "economic_region": "Причорноморський",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-16",
+      "identity": {
+        "name": {
+          "ua": "Полтавська область",
+          "ru": "Полтавская область",
+          "en": "Полтавська область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Полтавщина"
+          ],
+          "ru": [
+            "Полтавщина"
+          ]
+        },
+        "capital": {
+          "ua": "Полтава",
+          "ru": "Полтава"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 28748,
+        "population": 1371529,
+        "economic_region": "Північно-Східний",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-17",
+      "identity": {
+        "name": {
+          "ua": "Рівненська область",
+          "ru": "Ровненская область",
+          "en": "Рівненська область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Рівненщина",
+            "Полісся-Рівне"
+          ],
+          "ru": [
+            "Ровненщина",
+            "Полесье-Ровно"
+          ]
+        },
+        "capital": {
+          "ua": "Рівне",
+          "ru": "Рівне"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 20047,
+        "population": 1148456,
+        "economic_region": "Північно-Західний",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-18",
+      "identity": {
+        "name": {
+          "ua": "Сумська область",
+          "ru": "Сумская область",
+          "en": "Сумська область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Сумщина",
+            "Слобожанщина-Суми"
+          ],
+          "ru": [
+            "Сумщина",
+            "Слобожанщина-Сумы"
+          ]
+        },
+        "capital": {
+          "ua": "Суми",
+          "ru": "Суми"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 23834,
+        "population": 1053452,
+        "economic_region": "Північно-Східний",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-19",
+      "identity": {
+        "name": {
+          "ua": "Тернопільська область",
+          "ru": "Тернопольская область",
+          "en": "Тернопільська область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Тернопільщина",
+            "Галицько-Подільський край"
+          ],
+          "ru": [
+            "Тернопольщина",
+            "Галицко-Подольский край"
+          ]
+        },
+        "capital": {
+          "ua": "Тернопіль",
+          "ru": "Тернопіль"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 13823,
+        "population": 1030562,
+        "economic_region": "Подільський",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-20",
+      "identity": {
+        "name": {
+          "ua": "Харківська область",
+          "ru": "Харьковская область",
+          "en": "Харківська область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Харківщина",
+            "Слобожанщина"
+          ],
+          "ru": [
+            "Харьковщина",
+            "Слобожанщина"
+          ]
+        },
+        "capital": {
+          "ua": "Харків",
+          "ru": "Харків"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 31415,
+        "population": 2633834,
+        "economic_region": "Північно-Східний",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-21",
+      "identity": {
+        "name": {
+          "ua": "Херсонська область",
+          "ru": "Херсонская область",
+          "en": "Херсонська область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Херсонщина",
+            "Нижнє Дніпро"
+          ],
+          "ru": [
+            "Херсонщина",
+            "Нижнее Днепровье"
+          ]
+        },
+        "capital": {
+          "ua": "Херсон",
+          "ru": "Херсон"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 28461,
+        "population": 1016707,
+        "economic_region": "Причорноморський",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-22",
+      "identity": {
+        "name": {
+          "ua": "Хмельницька область",
+          "ru": "Хмельницкая область",
+          "en": "Хмельницька область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Хмельниччина",
+            "Поділля-Хмельницький"
+          ],
+          "ru": [
+            "Хмельниччина",
+            "Подолье-Хмельницкий"
+          ]
+        },
+        "capital": {
+          "ua": "Хмельницький",
+          "ru": "Хмельницький"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 20645,
+        "population": 1243787,
+        "economic_region": "Подільський",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-23",
+      "identity": {
+        "name": {
+          "ua": "Черкаська область",
+          "ru": "Черкасская область",
+          "en": "Черкаська область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Черкащина",
+            "Наддніпрянщина"
+          ],
+          "ru": [
+            "Черкасчина",
+            "Приднепровье"
+          ]
+        },
+        "capital": {
+          "ua": "Черкаси",
+          "ru": "Черкаси"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 20900,
+        "population": 1178266,
+        "economic_region": "Центральний",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-24",
+      "identity": {
+        "name": {
+          "ua": "Чернівецька область",
+          "ru": "Черновицкая область",
+          "en": "Чернівецька область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Буковина",
+            "Чернівеччина"
+          ],
+          "ru": [
+            "Буковина",
+            "Черновиччина"
+          ]
+        },
+        "capital": {
+          "ua": "Чернівці",
+          "ru": "Чернівці"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 8097,
+        "population": 896566,
+        "economic_region": "Карпатський",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-25",
+      "identity": {
+        "name": {
+          "ua": "Чернігівська область",
+          "ru": "Черниговская область",
+          "en": "Чернігівська область"
+        },
+        "type": "Область",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Чернігівщина",
+            "Сіверщина"
+          ],
+          "ru": [
+            "Черниговщина",
+            "Северщина"
+          ]
+        },
+        "capital": {
+          "ua": "Чернігів",
+          "ru": "Чернігів"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 31865,
+        "population": 976701,
+        "economic_region": "Поліський",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-26",
+      "identity": {
+        "name": {
+          "ua": "Місто Київ",
+          "ru": "Город Киев",
+          "en": "Місто Київ"
+        },
+        "type": "Столиця Імперії / Спеціальний статус",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Столиця Метрополії",
+            "Мати міст Руських",
+            "Золотоверхий Київ"
+          ],
+          "ru": [
+            "Столица Метрополии",
+            "Мать городов Русских",
+            "Златоверхий Киев"
+          ]
+        },
+        "capital": {
+          "ua": "Київ",
+          "ru": "Київ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 839,
+        "population": 2962180,
+        "economic_region": "Столичний",
+        "titular_nations": [
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "UA-27",
+      "identity": {
+        "name": {
+          "ua": "Місто Севастополь",
+          "ru": "Город Севастополь",
+          "en": "Місто Севастополь"
+        },
+        "type": "Місто зі спеціальним статусом",
+        "status": "METROPOLIS_CORE",
+        "synonyms": {
+          "ua": [
+            "Севастополь",
+            "Ахтіар",
+            "Головна Військово-Морська База Імперії"
+          ],
+          "ru": [
+            "Севастополь",
+            "Ахтиар",
+            "Главная Военно-Морская База Империи"
+          ]
+        },
+        "capital": {
+          "ua": "Севастополь",
+          "ru": "Севастополь"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 864,
+        "population": 385870,
+        "economic_region": "Причорноморський",
+        "titular_nations": [
+          "Українці",
+          "Кримські татари"
+        ]
+      }
+    },
+    {
+      "entity_id": "BY-01",
+      "identity": {
+        "name": {
+          "ua": "Берестейська область",
+          "ru": "Брестская область",
+          "en": "Берестейська область"
+        },
+        "type": "Суб'єкт Домініону",
+        "status": "DOMINION_AUTONOMOUS",
+        "synonyms": {
+          "ua": [
+            "Берестейщина",
+            "Берестейський край",
+            "Західне Полісся"
+          ],
+          "ru": [
+            "Брестчина",
+            "Берестейский край",
+            "Западное Полесье"
+          ]
+        },
+        "capital": {
+          "ua": "Берестя (Брест)",
+          "ru": "Берестя (Брест)"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 32790,
+        "population": 1308569,
+        "economic_region": "Західний",
+        "titular_nations": [
+          "Білоруси",
+          "Українці"
+        ]
+      }
+    },
+    {
+      "entity_id": "BY-02",
+      "identity": {
+        "name": {
+          "ua": "Гомельська область",
+          "ru": "Гомельская область",
+          "en": "Гомельська область"
+        },
+        "type": "Суб'єкт Домініону",
+        "status": "DOMINION_AUTONOMOUS",
+        "synonyms": {
+          "ua": [
+            "Гомельщина",
+            "Східне Полісся"
+          ],
+          "ru": [
+            "Гомельщина",
+            "Восточное Полесье"
+          ]
+        },
+        "capital": {
+          "ua": "Гомель",
+          "ru": "Гомель"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 40361,
+        "population": 1338617,
+        "economic_region": "Південно-Східний",
+        "titular_nations": [
+          "Білоруси"
+        ]
+      }
+    },
+    {
+      "entity_id": "BY-03",
+      "identity": {
+        "name": {
+          "ua": "Гродненська область",
+          "ru": "Гродненская область",
+          "en": "Гродненська область"
+        },
+        "type": "Суб'єкт Домініону",
+        "status": "DOMINION_AUTONOMOUS",
+        "synonyms": {
+          "ua": [
+            "Гродненщина",
+            "Чорна Русь",
+            "Принімання"
+          ],
+          "ru": [
+            "Гродненщина",
+            "Черная Русь",
+            "Принеманье"
+          ]
+        },
+        "capital": {
+          "ua": "Гродно",
+          "ru": "Гродно"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 25118,
+        "population": 992556,
+        "economic_region": "Західний",
+        "titular_nations": [
+          "Білоруси",
+          "Поляки"
+        ]
+      }
+    },
+    {
+      "entity_id": "BY-04",
+      "identity": {
+        "name": {
+          "ua": "Могильовська область",
+          "ru": "Могилевская область",
+          "en": "Могильовська область"
+        },
+        "type": "Суб'єкт Домініону",
+        "status": "DOMINION_AUTONOMOUS",
+        "synonyms": {
+          "ua": [
+            "Могильовщина",
+            "Подніпров'я"
+          ],
+          "ru": [
+            "Могилевщина",
+            "Поднепровье"
+          ]
+        },
+        "capital": {
+          "ua": "Могильов",
+          "ru": "Могильов"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 29079,
+        "population": 981174,
+        "economic_region": "Східний",
+        "titular_nations": [
+          "Білоруси"
+        ]
+      }
+    },
+    {
+      "entity_id": "BY-05",
+      "identity": {
+        "name": {
+          "ua": "Мінська область",
+          "ru": "Минская область",
+          "en": "Мінська область"
+        },
+        "type": "Суб'єкт Домініону",
+        "status": "DOMINION_AUTONOMOUS",
+        "synonyms": {
+          "ua": [
+            "Мінщина",
+            "Центральний Білоруський край"
+          ],
+          "ru": [
+            "Минщина",
+            "Центральный Белорусский край"
+          ]
+        },
+        "capital": {
+          "ua": "Мінськ",
+          "ru": "Мінськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 39912,
+        "population": 1460289,
+        "economic_region": "Центральний Домініон",
+        "titular_nations": [
+          "Білоруси"
+        ]
+      }
+    },
+    {
+      "entity_id": "BY-06",
+      "identity": {
+        "name": {
+          "ua": "Вітебська область",
+          "ru": "Витебская область",
+          "en": "Вітебська область"
+        },
+        "type": "Суб'єкт Домініону",
+        "status": "DOMINION_AUTONOMOUS",
+        "synonyms": {
+          "ua": [
+            "Вітебщина",
+            "Подвиння",
+            "Полоцька земля"
+          ],
+          "ru": [
+            "Витебщина",
+            "Подвинье",
+            "Полоцкая земля"
+          ]
+        },
+        "capital": {
+          "ua": "Вітебськ",
+          "ru": "Вітебськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 40049,
+        "population": 1081911,
+        "economic_region": "Північний",
+        "titular_nations": [
+          "Білоруси"
+        ]
+      }
+    },
+    {
+      "entity_id": "BY-07",
+      "identity": {
+        "name": {
+          "ua": "Місто Мінськ",
+          "ru": "Город Минск",
+          "en": "Місто Мінськ"
+        },
+        "type": "Столиця Домініону",
+        "status": "DOMINION_AUTONOMOUS",
+        "synonyms": {
+          "ua": [
+            "Мінськ",
+            "Столиця Домініону Білорусь",
+            "Менськ"
+          ],
+          "ru": [
+            "Минск",
+            "Столица Доминиона Беларусь",
+            "Менск"
+          ]
+        },
+        "capital": {
+          "ua": "Мінськ",
+          "ru": "Мінськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 305,
+        "population": 1992862,
+        "economic_region": "Центральний Домініон",
+        "titular_nations": [
+          "Білоруси"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-01",
+      "identity": {
+        "name": {
+          "ua": "Самарський край",
+          "ru": "Самарский край",
+          "en": "Самарський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Самарщина",
+            "Самарська Народна Республіка",
+            "Поволзький протекторат"
+          ],
+          "ru": [
+            "Самарщина",
+            "Самарская Народная Республика",
+            "Поволжский протекторат"
+          ]
+        },
+        "capital": {
+          "ua": "Самара",
+          "ru": "Самара"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 53565,
+        "population": 3108944,
+        "economic_region": "Поволзький",
+        "titular_nations": [
+          "Волзькі народи",
+          "Поволзькі громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-02",
+      "identity": {
+        "name": {
+          "ua": "Татарстанська Народна Республіка",
+          "ru": "Татарстанская Народная Республика",
+          "en": "Татарстанська Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Татарстан",
+            "Казанське ханство",
+            "Волзька Булгарія"
+          ],
+          "ru": [
+            "Татарстан",
+            "Казанское ханство",
+            "Волжская Булгария"
+          ]
+        },
+        "capital": {
+          "ua": "Казань",
+          "ru": "Казань"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 67847,
+        "population": 4016571,
+        "economic_region": "Поволзький",
+        "titular_nations": [
+          "Татари"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-03",
+      "identity": {
+        "name": {
+          "ua": "Башкортостанська Народна Республіка",
+          "ru": "Башкортостанская Народная Республика",
+          "en": "Башкортостанська Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Башкортостан",
+            "Башкирія",
+            "Урало-Волзький штат"
+          ],
+          "ru": [
+            "Башкортостан",
+            "Башкирия",
+            "Урало-Волжский штат"
+          ]
+        },
+        "capital": {
+          "ua": "Уфа",
+          "ru": "Уфа"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 142947,
+        "population": 4046094,
+        "economic_region": "Уральський",
+        "titular_nations": [
+          "Башкири"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-04",
+      "identity": {
+        "name": {
+          "ua": "Чуваська Народна Республіка",
+          "ru": "Чувашская Народная Республика",
+          "en": "Чуваська Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Чувашія",
+            "Чаваш Ен"
+          ],
+          "ru": [
+            "Чувашия",
+            "Чаваш Эн"
+          ]
+        },
+        "capital": {
+          "ua": "Чебоксари",
+          "ru": "Чебоксари"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 18343,
+        "population": 1159757,
+        "economic_region": "Волго-В'ятський",
+        "titular_nations": [
+          "Чуваші"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-05",
+      "identity": {
+        "name": {
+          "ua": "Удмуртська Народна Республіка",
+          "ru": "Удмуртская Народная Республика",
+          "en": "Удмуртська Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Удмуртія",
+            "Вотячина"
+          ],
+          "ru": [
+            "Удмуртия",
+            "Вотячина"
+          ]
+        },
+        "capital": {
+          "ua": "Іжевськ",
+          "ru": "Іжевськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 42061,
+        "population": 1427018,
+        "economic_region": "Уральський",
+        "titular_nations": [
+          "Удмурти"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-06",
+      "identity": {
+        "name": {
+          "ua": "Марійська Народна Республіка",
+          "ru": "Марийская Народная Республика",
+          "en": "Марійська Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Марій Ел",
+            "Марійщина"
+          ],
+          "ru": [
+            "Марий Эл",
+            "Марийщина"
+          ]
+        },
+        "capital": {
+          "ua": "Йошкар-Ола",
+          "ru": "Йошкар-Ола"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 23375,
+        "population": 665983,
+        "economic_region": "Волго-В'ятський",
+        "titular_nations": [
+          "Марійці"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-07",
+      "identity": {
+        "name": {
+          "ua": "Мордовська Народна Республіка",
+          "ru": "Мордовская Народная Республика",
+          "en": "Мордовська Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Мордовія",
+            "Ерзяно-Мокшанія"
+          ],
+          "ru": [
+            "Мордовия",
+            "Эрзяно-Мокшания"
+          ]
+        },
+        "capital": {
+          "ua": "Саранськ",
+          "ru": "Саранськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 26128,
+        "population": 758390,
+        "economic_region": "Волго-В'ятський",
+        "titular_nations": [
+          "Ерзя",
+          "Мокша"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-08",
+      "identity": {
+        "name": {
+          "ua": "Саратівський край",
+          "ru": "Саратовский край",
+          "en": "Саратівський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Саратівщина",
+            "Нижнє Поволжя"
+          ],
+          "ru": [
+            "Саратовщина",
+            "Нижнее Поволжье"
+          ]
+        },
+        "capital": {
+          "ua": "Саратів",
+          "ru": "Саратів"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 101240,
+        "population": 2368387,
+        "economic_region": "Поволзький",
+        "titular_nations": [
+          "Поволзькі громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-09",
+      "identity": {
+        "name": {
+          "ua": "Волгоградський край",
+          "ru": "Волгоградский край",
+          "en": "Волгоградський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Царицинський край",
+            "Волгоградщина"
+          ],
+          "ru": [
+            "Царицынский край",
+            "Волгоградчина"
+          ]
+        },
+        "capital": {
+          "ua": "Волгоград",
+          "ru": "Волгоград"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 112877,
+        "population": 2435355,
+        "economic_region": "Поволзький",
+        "titular_nations": [
+          "Поволзькі громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-10",
+      "identity": {
+        "name": {
+          "ua": "Астраханська Народна Республіка",
+          "ru": "Астраханская Народная Республика",
+          "en": "Астраханська Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Астраханщина",
+            "Хаджи-Тархан",
+            "Дельта Волги"
+          ],
+          "ru": [
+            "Астраханщина",
+            "Хаджи-Тархан",
+            "Дельта Волги"
+          ]
+        },
+        "capital": {
+          "ua": "Астрахань",
+          "ru": "Астрахань"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 49024,
+        "population": 945991,
+        "economic_region": "Поволзький",
+        "titular_nations": [
+          "Астраханські татари",
+          "Ногайці"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-11",
+      "identity": {
+        "name": {
+          "ua": "Ульяновський край",
+          "ru": "Ульяновский край",
+          "en": "Ульяновський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Симбірський край",
+            "Симбірщина"
+          ],
+          "ru": [
+            "Симбирский край",
+            "Симбирщина"
+          ]
+        },
+        "capital": {
+          "ua": "Ульяновськ (Симбірськ)",
+          "ru": "Ульяновськ (Симбірськ)"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 37181,
+        "population": 1164837,
+        "economic_region": "Поволзький",
+        "titular_nations": [
+          "Поволзькі громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-12",
+      "identity": {
+        "name": {
+          "ua": "Пензенський край",
+          "ru": "Пензенский край",
+          "en": "Пензенський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Пензенщина",
+            "Сурський край"
+          ],
+          "ru": [
+            "Пензенщина",
+            "Сурский край"
+          ]
+        },
+        "capital": {
+          "ua": "Пенза",
+          "ru": "Пенза"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 43352,
+        "population": 1225984,
+        "economic_region": "Поволзький",
+        "titular_nations": [
+          "Поволзькі громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-13",
+      "identity": {
+        "name": {
+          "ua": "Нижегородський край",
+          "ru": "Нижегородский край",
+          "en": "Нижегородський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Нижегородчина",
+            "Горьківський край"
+          ],
+          "ru": [
+            "Нижегородчина",
+            "Горьковский край"
+          ]
+        },
+        "capital": {
+          "ua": "Нижній Новгород",
+          "ru": "Нижній Новгород"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 76624,
+        "population": 3037816,
+        "economic_region": "Волго-В'ятський",
+        "titular_nations": [
+          "Волзькі громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-14",
+      "identity": {
+        "name": {
+          "ua": "Кіровський край (В'ятка)",
+          "ru": "Кировский край (Вятка)",
+          "en": "Кіровський край (В'ятка)"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "В'ятський край",
+            "В'ятчина"
+          ],
+          "ru": [
+            "Вятский край",
+            "Вятчина"
+          ]
+        },
+        "capital": {
+          "ua": "Кіров (В'ятка)",
+          "ru": "Кіров (В'ятка)"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 120374,
+        "population": 1120178,
+        "economic_region": "Волго-В'ятський",
+        "titular_nations": [
+          "В'ятичі"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-15",
+      "identity": {
+        "name": {
+          "ua": "Оренбурзький край",
+          "ru": "Оренбургский край",
+          "en": "Оренбурзький край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Оренбуржчина",
+            "Південно-Уральський край"
+          ],
+          "ru": [
+            "Оренбуржчина",
+            "Южно-Уральский край"
+          ]
+        },
+        "capital": {
+          "ua": "Оренбург",
+          "ru": "Оренбург"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 123702,
+        "population": 1815655,
+        "economic_region": "Уральський",
+        "titular_nations": [
+          "Степові громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-16",
+      "identity": {
+        "name": {
+          "ua": "Курський край (Курщина)",
+          "ru": "Курский край (Курщина)",
+          "en": "Курський край (Курщина)"
+        },
+        "type": "Прикордонний Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Курщина",
+            "Посем'я",
+            "Курський протекторат"
+          ],
+          "ru": [
+            "Курщина",
+            "Посемье",
+            "Курский протекторат"
+          ]
+        },
+        "capital": {
+          "ua": "Курськ",
+          "ru": "Курськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 29997,
+        "population": 1050134,
+        "economic_region": "Центрально-Чорноземний",
+        "titular_nations": [
+          "Слобожани"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-17",
+      "identity": {
+        "name": {
+          "ua": "Білгородський край (Білгородщина)",
+          "ru": "Белгородский край (Белгородщина)",
+          "en": "Білгородський край (Білгородщина)"
+        },
+        "type": "Прикордонний Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Білгородщина",
+            "Слобожанський край"
+          ],
+          "ru": [
+            "Белгородщина",
+            "Слобожанский край"
+          ]
+        },
+        "capital": {
+          "ua": "Білгород",
+          "ru": "Білгород"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 27134,
+        "population": 1481098,
+        "economic_region": "Центрально-Чорноземний",
+        "titular_nations": [
+          "Слобожани"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-18",
+      "identity": {
+        "name": {
+          "ua": "Воронізький край (Вороніжчина)",
+          "ru": "Воронежский край (Воронежчина)",
+          "en": "Воронізький край (Вороніжчина)"
+        },
+        "type": "Прикордонний Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Вороніжчина",
+            "Східна Слобожанщина"
+          ],
+          "ru": [
+            "Воронежчина",
+            "Восточная Слобожанщина"
+          ]
+        },
+        "capital": {
+          "ua": "Вороніж",
+          "ru": "Вороніж"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 52216,
+        "population": 2259610,
+        "economic_region": "Центрально-Чорноземний",
+        "titular_nations": [
+          "Слобожани"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-19",
+      "identity": {
+        "name": {
+          "ua": "Брянський край (Брянщина)",
+          "ru": "Брянский край (Брянщина)",
+          "en": "Брянський край (Брянщина)"
+        },
+        "type": "Прикордонний Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Брянщина",
+            "Стародубщина"
+          ],
+          "ru": [
+            "Брянщина",
+            "Стародубщина"
+          ]
+        },
+        "capital": {
+          "ua": "Брянськ",
+          "ru": "Брянськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 34857,
+        "population": 1132475,
+        "economic_region": "Центральний",
+        "titular_nations": [
+          "Сіверяни"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-20",
+      "identity": {
+        "name": {
+          "ua": "Донська Народна Республіка",
+          "ru": "Донская Народная Республика",
+          "en": "Донська Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Донщина",
+            "Всевелике Військо Донське",
+            "Ростовський край"
+          ],
+          "ru": [
+            "Донщина",
+            "Всевеликое Войско Донское",
+            "Ростовский край"
+          ]
+        },
+        "capital": {
+          "ua": "Ростов-на-Дону",
+          "ru": "Ростов-на-Дону"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 100967,
+        "population": 4135018,
+        "economic_region": "Північно-Кавказький",
+        "titular_nations": [
+          "Донські козаки"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-21",
+      "identity": {
+        "name": {
+          "ua": "Кубанський край",
+          "ru": "Кубанский край",
+          "en": "Кубанський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Кубань",
+            "Кубанська Народна Республіка",
+            "Малиновий Клин"
+          ],
+          "ru": [
+            "Кубань",
+            "Кубанская Народная Республика",
+            "Малиновый Клин"
+          ]
+        },
+        "capital": {
+          "ua": "Краснодар (Катеринодар)",
+          "ru": "Краснодар (Катеринодар)"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 75485,
+        "population": 5841846,
+        "economic_region": "Північно-Кавказький",
+        "titular_nations": [
+          "Кубанські козаки",
+          "Українці Кубані"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-22",
+      "identity": {
+        "name": {
+          "ua": "Ставропольський край",
+          "ru": "Ставропольский край",
+          "en": "Ставропольський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Ставропілля",
+            "Передкавказзя"
+          ],
+          "ru": [
+            "Ставрополье",
+            "Предкавказье"
+          ]
+        },
+        "capital": {
+          "ua": "Ставрополь",
+          "ru": "Ставрополь"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 66160,
+        "population": 2883494,
+        "economic_region": "Північно-Кавказький",
+        "titular_nations": [
+          "Степові громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-23",
+      "identity": {
+        "name": {
+          "ua": "Дагестанська Народна Республіка",
+          "ru": "Дагестанская Народная Республика",
+          "en": "Дагестанська Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Дагестан",
+            "Країна Гір"
+          ],
+          "ru": [
+            "Дагестан",
+            "Страна Гор"
+          ]
+        },
+        "capital": {
+          "ua": "Махачкала",
+          "ru": "Махачкала"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 50270,
+        "population": 3258993,
+        "economic_region": "Північно-Кавказький",
+        "titular_nations": [
+          "Аварці",
+          "Даргінці",
+          "Кумики",
+          "Лезгини"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-24",
+      "identity": {
+        "name": {
+          "ua": "Чеченська Республіка Ічкерія",
+          "ru": "Чеченская Республика Ичкерия",
+          "en": "Чеченська Республіка Ічкерія"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Ічкерія",
+            "Чечня"
+          ],
+          "ru": [
+            "Ичкерия",
+            "Чечня"
+          ]
+        },
+        "capital": {
+          "ua": "Грозний (Джохар)",
+          "ru": "Грозний (Джохар)"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 16165,
+        "population": 1575819,
+        "economic_region": "Північно-Кавказький",
+        "titular_nations": [
+          "Чеченці (Нохчі)"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-25",
+      "identity": {
+        "name": {
+          "ua": "Інгушська Народна Республіка",
+          "ru": "Ингушская Народная Республика",
+          "en": "Інгушська Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Інгушетія",
+            "Галгайче"
+          ],
+          "ru": [
+            "Ингушетия",
+            "Галгайче"
+          ]
+        },
+        "capital": {
+          "ua": "Магас",
+          "ru": "Магас"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 3628,
+        "population": 534219,
+        "economic_region": "Північно-Кавказький",
+        "titular_nations": [
+          "Інгуші (Галгаї)"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-26",
+      "identity": {
+        "name": {
+          "ua": "Північно-Осетинська Народна Республіка",
+          "ru": "Северо-Осетинская Народная Республика",
+          "en": "Північно-Осетинська Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Аланія",
+            "Північна Осетія"
+          ],
+          "ru": [
+            "Алания",
+            "Северная Осетия"
+          ]
+        },
+        "capital": {
+          "ua": "Владикавказ",
+          "ru": "Владикавказ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 7987,
+        "population": 678454,
+        "economic_region": "Північно-Кавказький",
+        "titular_nations": [
+          "Осетини (Оси)"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-27",
+      "identity": {
+        "name": {
+          "ua": "Кабардино-Балкарська Народна Республіка",
+          "ru": "Кабардино-Балкарская Народная Республика",
+          "en": "Кабардино-Балкарська Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Кабардино-Балкарія",
+            "Кабарда"
+          ],
+          "ru": [
+            "Кабардино-Bалкария",
+            "Кабарда"
+          ]
+        },
+        "capital": {
+          "ua": "Нальчик",
+          "ru": "Нальчик"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 12470,
+        "population": 908090,
+        "economic_region": "Північно-Кавказький",
+        "titular_nations": [
+          "Кабардинці",
+          "Балкарці"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-28",
+      "identity": {
+        "name": {
+          "ua": "Карачаєво-Черкеська Народна Республіка",
+          "ru": "Карачаево-Черкесская Народная Республика",
+          "en": "Карачаєво-Черкеська Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Карачаєво-Черкесія",
+            "Черкесія"
+          ],
+          "ru": [
+            "Карачаево-Черкесия",
+            "Черкесия"
+          ]
+        },
+        "capital": {
+          "ua": "Черкеськ",
+          "ru": "Черкеськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 14277,
+        "population": 468531,
+        "economic_region": "Північно-Кавказький",
+        "titular_nations": [
+          "Карачаївці",
+          "Черкеси",
+          "Абазини"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-29",
+      "identity": {
+        "name": {
+          "ua": "Республіка Адигея",
+          "ru": "Республика Адыгея",
+          "en": "Республіка Адигея"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Адигея",
+            "Черкесія-Майкоп"
+          ],
+          "ru": [
+            "Адыгея",
+            "Черкесия-Майкоп"
+          ]
+        },
+        "capital": {
+          "ua": "Майкоп",
+          "ru": "Майкоп"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 7792,
+        "population": 501038,
+        "economic_region": "Північно-Кавказький",
+        "titular_nations": [
+          "Адиги (Черкеси)"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-30",
+      "identity": {
+        "name": {
+          "ua": "Республіка Калмикія",
+          "ru": "Республика Калмыкия",
+          "en": "Республіка Калмикія"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Калмикія",
+            "Хальмг Тангч"
+          ],
+          "ru": [
+            "Калмыкия",
+            "Хальмг Тангч"
+          ]
+        },
+        "capital": {
+          "ua": "Еліста",
+          "ru": "Еліста"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 74731,
+        "population": 267376,
+        "economic_region": "Поволзький",
+        "titular_nations": [
+          "Калмики"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-31",
+      "identity": {
+        "name": {
+          "ua": "Московський спеціальний округ",
+          "ru": "Московский специальный округ",
+          "en": "Московський спеціальний округ"
+        },
+        "type": "Спеціальна Денацифікована Зона",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Москва",
+            "Московська резервація",
+            "Денацифікована зона Москва"
+          ],
+          "ru": [
+            "Москва",
+            "Московская резервация",
+            "Денацифицированная зона Москва"
+          ]
+        },
+        "capital": {
+          "ua": "Москва",
+          "ru": "Москва"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 2561,
+        "population": 13258262,
+        "economic_region": "Центральний",
+        "titular_nations": [
+          "Безтитульні громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-32",
+      "identity": {
+        "name": {
+          "ua": "Московія (Московський край)",
+          "ru": "Московия (Московский край)",
+          "en": "Московія (Московський край)"
+        },
+        "type": "Протекторат Метрополії",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Московія",
+            "Московщина",
+            "Підмосков'я"
+          ],
+          "ru": [
+            "Московия",
+            "Московщина",
+            "Подмосковье"
+          ]
+        },
+        "capital": {
+          "ua": "Красногорськ",
+          "ru": "Красногорськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 44329,
+        "population": 8766594,
+        "economic_region": "Центральний",
+        "titular_nations": [
+          "Московити"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-33",
+      "identity": {
+        "name": {
+          "ua": "Тверська Народна Республіка",
+          "ru": "Тверская Народная Республика",
+          "en": "Тверська Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Тверщина",
+            "Тверське князівство"
+          ],
+          "ru": [
+            "Тверщина",
+            "Тверское княжество"
+          ]
+        },
+        "capital": {
+          "ua": "Твер",
+          "ru": "Твер"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 84201,
+        "population": 1189685,
+        "economic_region": "Центральний",
+        "titular_nations": [
+          "Тверичі"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-34",
+      "identity": {
+        "name": {
+          "ua": "Смоленський край (Смоленщина)",
+          "ru": "Смоленский край (Смоленщина)",
+          "en": "Смоленський край (Смоленщина)"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Смоленщина",
+            "Смоленська земля"
+          ],
+          "ru": [
+            "Смоленщина",
+            "Смоленская земля"
+          ]
+        },
+        "capital": {
+          "ua": "Смоленськ",
+          "ru": "Смоленськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 49779,
+        "population": 857847,
+        "economic_region": "Центральний",
+        "titular_nations": [
+          "Смоляни"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-35",
+      "identity": {
+        "name": {
+          "ua": "Ярославська Народна Республіка",
+          "ru": "Ярославская Народная Республика",
+          "en": "Ярославська Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Ярославщина",
+            "Верхньоволзький край"
+          ],
+          "ru": [
+            "Ярославщина",
+            "Верхневолжский край"
+          ]
+        },
+        "capital": {
+          "ua": "Ярославль",
+          "ru": "Ярославль"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 36177,
+        "population": 1179301,
+        "economic_region": "Центральний",
+        "titular_nations": [
+          "Верхньоволжці"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-36",
+      "identity": {
+        "name": {
+          "ua": "Вологодський край",
+          "ru": "Вологодский край",
+          "en": "Вологодський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Вологодчина",
+            "Північний край"
+          ],
+          "ru": [
+            "Вологодчина",
+            "Северный край"
+          ]
+        },
+        "capital": {
+          "ua": "Вологда",
+          "ru": "Вологда"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 144527,
+        "population": 1114639,
+        "economic_region": "Північний",
+        "titular_nations": [
+          "Північні громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-37",
+      "identity": {
+        "name": {
+          "ua": "Костромський край",
+          "ru": "Костромской край",
+          "en": "Костромський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Костромщина"
+          ],
+          "ru": [
+            "Костромщина"
+          ]
+        },
+        "capital": {
+          "ua": "Кострома",
+          "ru": "Кострома"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 60211,
+        "population": 560758,
+        "economic_region": "Центральний",
+        "titular_nations": [
+          "Центральні громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-38",
+      "identity": {
+        "name": {
+          "ua": "Владимирський край",
+          "ru": "Владимирский край",
+          "en": "Владимирський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Владимирщина",
+            "Залісся"
+          ],
+          "ru": [
+            "Владимирщина",
+            "Залесье"
+          ]
+        },
+        "capital": {
+          "ua": "Владимир",
+          "ru": "Владимир"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 29084,
+        "population": 1295930,
+        "economic_region": "Центральний",
+        "titular_nations": [
+          "Залісся"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-39",
+      "identity": {
+        "name": {
+          "ua": "Івановський край",
+          "ru": "Ивановский край",
+          "en": "Івановський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Івановщина",
+            "Текстильний край"
+          ],
+          "ru": [
+            "Ивановщина",
+            "Текстильный край"
+          ]
+        },
+        "capital": {
+          "ua": "Іваново",
+          "ru": "Іваново"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 21437,
+        "population": 897869,
+        "economic_region": "Центральний",
+        "titular_nations": [
+          "Центральні громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-40",
+      "identity": {
+        "name": {
+          "ua": "Рязанський край",
+          "ru": "Рязанский край",
+          "en": "Рязанський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Рязанщина",
+            "Переяславль-Рязанський"
+          ],
+          "ru": [
+            "Рязанщина",
+            "Переяславль-Рязанский"
+          ]
+        },
+        "capital": {
+          "ua": "Рязань",
+          "ru": "Рязань"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 39605,
+        "population": 1073981,
+        "economic_region": "Центральний",
+        "titular_nations": [
+          "Рязанці"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-41",
+      "identity": {
+        "name": {
+          "ua": "Тульський край",
+          "ru": "Тульский край",
+          "en": "Тульський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Тульщина",
+            "Зброярський край"
+          ],
+          "ru": [
+            "Тульщина",
+            "Оружейный край"
+          ]
+        },
+        "capital": {
+          "ua": "Тула",
+          "ru": "Тула"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 25679,
+        "population": 1455911,
+        "economic_region": "Центральний",
+        "titular_nations": [
+          "Центральні громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-42",
+      "identity": {
+        "name": {
+          "ua": "Калузький край",
+          "ru": "Калужский край",
+          "en": "Калузький край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Калужчина"
+          ],
+          "ru": [
+            "Калужчина"
+          ]
+        },
+        "capital": {
+          "ua": "Калуга",
+          "ru": "Калуга"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 29777,
+        "population": 1064747,
+        "economic_region": "Центральний",
+        "titular_nations": [
+          "Центральні громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-43",
+      "identity": {
+        "name": {
+          "ua": "Орловський край",
+          "ru": "Орловский край",
+          "en": "Орловський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Орловщина"
+          ],
+          "ru": [
+            "Орловщина"
+          ]
+        },
+        "capital": {
+          "ua": "Орел",
+          "ru": "Орел"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 24652,
+        "population": 685693,
+        "economic_region": "Центральний",
+        "titular_nations": [
+          "Центральні громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-44",
+      "identity": {
+        "name": {
+          "ua": "Липецький край",
+          "ru": "Липецкий край",
+          "en": "Липецький край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Липеччина"
+          ],
+          "ru": [
+            "Липеччина"
+          ]
+        },
+        "capital": {
+          "ua": "Липецьк",
+          "ru": "Липецьк"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 24047,
+        "population": 1107812,
+        "economic_region": "Центрально-Чорноземний",
+        "titular_nations": [
+          "Чорноземні громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-45",
+      "identity": {
+        "name": {
+          "ua": "Тамбовський край",
+          "ru": "Тамбовский край",
+          "en": "Тамбовський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Тамбовщина"
+          ],
+          "ru": [
+            "Тамбовщина"
+          ]
+        },
+        "capital": {
+          "ua": "Тамбов",
+          "ru": "Тамбов"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 34462,
+        "population": 946010,
+        "economic_region": "Центрально-Чорноземний",
+        "titular_nations": [
+          "Чорноземні громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-46",
+      "identity": {
+        "name": {
+          "ua": "Вільне місто Санкт-Петербург",
+          "ru": "Свободный город Санкт-Петербург",
+          "en": "Вільне місто Санкт-Петербург"
+        },
+        "type": "Спеціальна Адміністративна Зона (Інгрія)",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Інгрія",
+            "Інгерманландія",
+            "Вільне місто Пітер"
+          ],
+          "ru": [
+            "Ингрия",
+            "Ингерманландия",
+            "Свободный город Питер"
+          ]
+        },
+        "capital": {
+          "ua": "Санкт-Петербург",
+          "ru": "Санкт-Петербург"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 1403,
+        "population": 5645943,
+        "economic_region": "Північно-Західний",
+        "titular_nations": [
+          "Інгрійці",
+          "Міські громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-47",
+      "identity": {
+        "name": {
+          "ua": "Інгерманландський край",
+          "ru": "Ингерманландский край",
+          "en": "Інгерманландський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Інгрія",
+            "Ленінградська зона"
+          ],
+          "ru": [
+            "Ингрия",
+            "Ленинградская зона"
+          ]
+        },
+        "capital": {
+          "ua": "Гатчина",
+          "ru": "Гатчина"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 83908,
+        "population": 2057708,
+        "economic_region": "Північно-Західний",
+        "titular_nations": [
+          "Іжорці",
+          "Водь",
+          "Фінно-угри"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-48",
+      "identity": {
+        "name": {
+          "ua": "Новгородська Вічева Республіка",
+          "ru": "Новгородская Вечевая Республика",
+          "en": "Новгородська Вічева Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Новгородщина",
+            "Новгородська земля"
+          ],
+          "ru": [
+            "Новгородчина",
+            "Новгородская земля"
+          ]
+        },
+        "capital": {
+          "ua": "Великий Новгород",
+          "ru": "Великий Новгород"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 54501,
+        "population": 566745,
+        "economic_region": "Північно-Західний",
+        "titular_nations": [
+          "Новгородці"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-49",
+      "identity": {
+        "name": {
+          "ua": "Псковська Народна Республіка",
+          "ru": "Псковская Народная Республика",
+          "en": "Псковська Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Псковщина",
+            "Псковська вічова республіка"
+          ],
+          "ru": [
+            "Псковщина",
+            "Псковская вечевая республика"
+          ]
+        },
+        "capital": {
+          "ua": "Псков",
+          "ru": "Псков"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 55399,
+        "population": 574199,
+        "economic_region": "Північно-Західний",
+        "titular_nations": [
+          "Псковичі",
+          "Сето"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-50",
+      "identity": {
+        "name": {
+          "ua": "Карельська Народна Республіка",
+          "ru": "Карельская Народная Республика",
+          "en": "Карельська Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Карелія",
+            "Кар'яла"
+          ],
+          "ru": [
+            "Карелия",
+            "Карьяла"
+          ]
+        },
+        "capital": {
+          "ua": "Петрозаводськ",
+          "ru": "Петрозаводськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 180520,
+        "population": 518644,
+        "economic_region": "Північний",
+        "titular_nations": [
+          "Карели",
+          "Вепси"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-51",
+      "identity": {
+        "name": {
+          "ua": "Республіка Комі",
+          "ru": "Республика Коми",
+          "en": "Республіка Комі"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Комі",
+            "Зирянський край"
+          ],
+          "ru": [
+            "Коми",
+            "Зырянский край"
+          ]
+        },
+        "capital": {
+          "ua": "Сиктивкар",
+          "ru": "Сиктивкар"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 416774,
+        "population": 714391,
+        "economic_region": "Північний",
+        "titular_nations": [
+          "Комі-зиряни"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-52",
+      "identity": {
+        "name": {
+          "ua": "Мурманський імперський порт",
+          "ru": "Мурманский имперский порт",
+          "en": "Мурманський імперський порт"
+        },
+        "type": "Спеціальна Стратегічна Зона",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Мурманськ",
+            "Романів-на-Мурмані",
+            "Кольська арктична база"
+          ],
+          "ru": [
+            "Мурманск",
+            "Романов-на-Мурмане",
+            "Кольская арктическая база"
+          ]
+        },
+        "capital": {
+          "ua": "Мурманськ",
+          "ru": "Мурманськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 144902,
+        "population": 650920,
+        "economic_region": "Північний",
+        "titular_nations": [
+          "Саами",
+          "Портові громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-53",
+      "identity": {
+        "name": {
+          "ua": "Архангельський край",
+          "ru": "Архангельский край",
+          "en": "Архангельський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Архангельщина",
+            "Помор'я"
+          ],
+          "ru": [
+            "Архангельщина",
+            "Поморье"
+          ]
+        },
+        "capital": {
+          "ua": "Архангельськ",
+          "ru": "Архангельськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 413103,
+        "population": 947192,
+        "economic_region": "Північний",
+        "titular_nations": [
+          "Помори"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-54",
+      "identity": {
+        "name": {
+          "ua": "Ненецька Народна Республіка",
+          "ru": "Ненецкая Народная Республика",
+          "en": "Ненецька Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Ненецький округ",
+            "Неньциє Янг"
+          ],
+          "ru": [
+            "Ненецкий округ",
+            "Неньцие Янг"
+          ]
+        },
+        "capital": {
+          "ua": "Нар'ян-Мар",
+          "ru": "Нар'ян-Мар"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 176810,
+        "population": 41829,
+        "economic_region": "Північний",
+        "titular_nations": [
+          "Ненці"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-55",
+      "identity": {
+        "name": {
+          "ua": "Янтарний край (Кенігсберг)",
+          "ru": "Янтарный край (Кенигсберг)",
+          "en": "Янтарний край (Кенігсберг)"
+        },
+        "type": "Спеціальна Адміністративна Зона Балтика",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Янтарний край",
+            "Кенігсберг",
+            "Балтійська спеціальна зона"
+          ],
+          "ru": [
+            "Янтарный край",
+            "Кенигсберг",
+            "Балтийская специальная зона"
+          ]
+        },
+        "capital": {
+          "ua": "Кенігсберг (Калінінград)",
+          "ru": "Кенігсберг (Калінінград)"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 15125,
+        "population": 1064747,
+        "economic_region": "Калінінградський",
+        "titular_nations": [
+          "Балтійські громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-56",
+      "identity": {
+        "name": {
+          "ua": "Уральська Народна Республіка",
+          "ru": "Уральская Народная Республика",
+          "en": "Уральська Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Урал",
+            "Екатеринбуржчина",
+            "Середній Урал"
+          ],
+          "ru": [
+            "Урал",
+            "Екатеринбуржчина",
+            "Средний Урал"
+          ]
+        },
+        "capital": {
+          "ua": "Екатеринбург",
+          "ru": "Екатеринбург"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 194307,
+        "population": 4218204,
+        "economic_region": "Уральський",
+        "titular_nations": [
+          "Уральці"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-57",
+      "identity": {
+        "name": {
+          "ua": "Челябінський край",
+          "ru": "Челябинский край",
+          "en": "Челябінський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Челябінщина",
+            "Південний Урал"
+          ],
+          "ru": [
+            "Челябинщина",
+            "Южный Урал"
+          ]
+        },
+        "capital": {
+          "ua": "Челябінськ",
+          "ru": "Челябінськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 88529,
+        "population": 3383188,
+        "economic_region": "Уральський",
+        "titular_nations": [
+          "Уральські громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-58",
+      "identity": {
+        "name": {
+          "ua": "Пермський край",
+          "ru": "Пермский край",
+          "en": "Пермський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Пермщина",
+            "Перм Велика"
+          ],
+          "ru": [
+            "Пермщина",
+            "Пермь Великая"
+          ]
+        },
+        "capital": {
+          "ua": "Пермь",
+          "ru": "Пермь"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 160236,
+        "population": 2482080,
+        "economic_region": "Уральський",
+        "titular_nations": [
+          "Комі-перм'яки",
+          "Уральці"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-59",
+      "identity": {
+        "name": {
+          "ua": "Курганський край",
+          "ru": "Курганский край",
+          "en": "Курганський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Курганщина",
+            "Зауралля"
+          ],
+          "ru": [
+            "Курганщина",
+            "Зауралье"
+          ]
+        },
+        "capital": {
+          "ua": "Курган",
+          "ru": "Курган"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 71488,
+        "population": 744197,
+        "economic_region": "Уральський",
+        "titular_nations": [
+          "Зауралці"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-60",
+      "identity": {
+        "name": {
+          "ua": "Сибірська Народна Республіка",
+          "ru": "Сибирская Народная Республика",
+          "en": "Сибірська Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Сибір",
+            "Сибірська Республіка",
+            "Західний Сибір"
+          ],
+          "ru": [
+            "Сибирь",
+            "Сибирская Республика",
+            "Западная Сибирь"
+          ]
+        },
+        "capital": {
+          "ua": "Новосибірськ",
+          "ru": "Новосибірськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 177756,
+        "population": 2784587,
+        "economic_region": "Західно-Сибірський",
+        "titular_nations": [
+          "Сибіряки"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-61",
+      "identity": {
+        "name": {
+          "ua": "Омський край",
+          "ru": "Омский край",
+          "en": "Омський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Омщина",
+            "Приіртишшя"
+          ],
+          "ru": [
+            "Омщина",
+            "Приртышье"
+          ]
+        },
+        "capital": {
+          "ua": "Омськ",
+          "ru": "Омськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 141140,
+        "population": 1805443,
+        "economic_region": "Західно-Сибірський",
+        "titular_nations": [
+          "Сибіряки"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-62",
+      "identity": {
+        "name": {
+          "ua": "Томський край",
+          "ru": "Томский край",
+          "en": "Томський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Томщина"
+          ],
+          "ru": [
+            "Томщина"
+          ]
+        },
+        "capital": {
+          "ua": "Томськ",
+          "ru": "Томськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 314391,
+        "population": 1039458,
+        "economic_region": "Західно-Сибірський",
+        "titular_nations": [
+          "Сибіряки"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-63",
+      "identity": {
+        "name": {
+          "ua": "Тюменський край",
+          "ru": "Тюменский край",
+          "en": "Тюменський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Тюменщина"
+          ],
+          "ru": [
+            "Тюменщина"
+          ]
+        },
+        "capital": {
+          "ua": "Тюмень",
+          "ru": "Тюмень"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 160122,
+        "population": 1625129,
+        "economic_region": "Західно-Сибірський",
+        "titular_nations": [
+          "Сибіряки"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-64",
+      "identity": {
+        "name": {
+          "ua": "Ханти-Мансійська Народна Республіка (Югра)",
+          "ru": "Ханты-Мансийская Народная Республика (Югра)",
+          "en": "Ханти-Мансійська Народна Республіка (Югра)"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Югра",
+            "Ханти-Мансія"
+          ],
+          "ru": [
+            "Югра",
+            "Ханты-Мансия"
+          ]
+        },
+        "capital": {
+          "ua": "Ханти-Мансійськ",
+          "ru": "Ханти-Мансійськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 534801,
+        "population": 1779510,
+        "economic_region": "Західно-Сибірський",
+        "titular_nations": [
+          "Ханти",
+          "Мансі"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-65",
+      "identity": {
+        "name": {
+          "ua": "Ямало-Ненецька Народна Республіка",
+          "ru": "Ямало-Ненецкая Народная Республика",
+          "en": "Ямало-Ненецька Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Ямал",
+            "Ямало-Ненецький край"
+          ],
+          "ru": [
+            "Ямал",
+            "Ямало-Ненецкий край"
+          ]
+        },
+        "capital": {
+          "ua": "Салехард",
+          "ru": "Салехард"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 769250,
+        "population": 521655,
+        "economic_region": "Західно-Сибірський",
+        "titular_nations": [
+          "Ненці",
+          "Ханти"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-66",
+      "identity": {
+        "name": {
+          "ua": "Кемеровський край (Кузбас)",
+          "ru": "Кемеровский край (Кузбасс)",
+          "en": "Кемеровський край (Кузбас)"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Кузбас",
+            "Кемеровщина"
+          ],
+          "ru": [
+            "Кузбасс",
+            "Кемеровщина"
+          ]
+        },
+        "capital": {
+          "ua": "Кемерово",
+          "ru": "Кемерово"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 95725,
+        "population": 2526384,
+        "economic_region": "Західно-Сибірський",
+        "titular_nations": [
+          "Шорці",
+          "Телеути"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-67",
+      "identity": {
+        "name": {
+          "ua": "Алтайський край",
+          "ru": "Алтайский край",
+          "en": "Алтайський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Алтай",
+            "Спеціальна сільськогосподарська зона Алтай"
+          ],
+          "ru": [
+            "Алтай",
+            "Специальная сельскохозяйственная зона Алтай"
+          ]
+        },
+        "capital": {
+          "ua": "Барнаул",
+          "ru": "Барнаул"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 167996,
+        "population": 2098979,
+        "economic_region": "Західно-Сибірський",
+        "titular_nations": [
+          "Алтайські громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-68",
+      "identity": {
+        "name": {
+          "ua": "Республіка Алтай",
+          "ru": "Республика Алтай",
+          "en": "Республіка Алтай"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Алтай",
+            "Горний Алтай"
+          ],
+          "ru": [
+            "Алтай",
+            "Горный Алтай"
+          ]
+        },
+        "capital": {
+          "ua": "Горно-Алтайськ",
+          "ru": "Горно-Алтайськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 92903,
+        "population": 210099,
+        "economic_region": "Західно-Сибірський",
+        "titular_nations": [
+          "Алтайці"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-69",
+      "identity": {
+        "name": {
+          "ua": "Красноярський край",
+          "ru": "Красноярский край",
+          "en": "Красноярський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Красноярщина",
+            "Єнісейський край"
+          ],
+          "ru": [
+            "Красноярщина",
+            "Енисейский край"
+          ]
+        },
+        "capital": {
+          "ua": "Красноярськ",
+          "ru": "Красноярськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 2366797,
+        "population": 2837374,
+        "economic_region": "Східно-Сибірський",
+        "titular_nations": [
+          "Сибіряки",
+          "Евенки",
+          "Таймиртці"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-70",
+      "identity": {
+        "name": {
+          "ua": "Республіка Хакасія",
+          "ru": "Республика Хакасия",
+          "en": "Республіка Хакасія"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Хакасія",
+            "Хакаська земля"
+          ],
+          "ru": [
+            "Хакасия",
+            "Хакасская земля"
+          ]
+        },
+        "capital": {
+          "ua": "Абакан",
+          "ru": "Абакан"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 61569,
+        "population": 534795,
+        "economic_region": "Східно-Сибірський",
+        "titular_nations": [
+          "Хакаси"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-71",
+      "identity": {
+        "name": {
+          "ua": "Республіка Тива",
+          "ru": "Республика Тыва",
+          "en": "Республіка Тива"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Тува",
+            "Тива",
+            "Урянхайський край"
+          ],
+          "ru": [
+            "Тува",
+            "Тыва",
+            "Урянхайский край"
+          ]
+        },
+        "capital": {
+          "ua": "Кизіл",
+          "ru": "Кизіл"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 168604,
+        "population": 338341,
+        "economic_region": "Східно-Сибірський",
+        "titular_nations": [
+          "Тувинці"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-72",
+      "identity": {
+        "name": {
+          "ua": "Іркутський край",
+          "ru": "Иркутский край",
+          "en": "Іркутський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Іркутщина",
+            "Прибайкалля"
+          ],
+          "ru": [
+            "Иркутщина",
+            "Прибайкалье"
+          ]
+        },
+        "capital": {
+          "ua": "Іркутськ",
+          "ru": "Іркутськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 774846,
+        "population": 2316571,
+        "economic_region": "Східно-Сибірський",
+        "titular_nations": [
+          "Буряти",
+          "Прибайкальці"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-73",
+      "identity": {
+        "name": {
+          "ua": "Республіка Бурятія",
+          "ru": "Республика Бурятия",
+          "en": "Республіка Бурятія"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Бурятія",
+            "Буряд-Монгол Улас"
+          ],
+          "ru": [
+            "Бурятия",
+            "Буряд-Монгол Улас"
+          ]
+        },
+        "capital": {
+          "ua": "Улан-Уде",
+          "ru": "Улан-Уде"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 351334,
+        "population": 970679,
+        "economic_region": "Східно-Сибірський",
+        "titular_nations": [
+          "Буряти"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-74",
+      "identity": {
+        "name": {
+          "ua": "Забайкальський край",
+          "ru": "Забайкальский край",
+          "en": "Забайкальський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Забайкалля",
+            "Чітинський край"
+          ],
+          "ru": [
+            "Забайкалье",
+            "Читинский край"
+          ]
+        },
+        "capital": {
+          "ua": "Чита",
+          "ru": "Чита"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 431892,
+        "population": 982525,
+        "economic_region": "Східно-Сибірський",
+        "titular_nations": [
+          "Забайкальці",
+          "Буряти"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-75",
+      "identity": {
+        "name": {
+          "ua": "Республіка Саха (Якутія)",
+          "ru": "Республика Саха (Якутия)",
+          "en": "Республіка Саха (Якутія)"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Саха",
+            "Якутія",
+            "Саха Олонхо"
+          ],
+          "ru": [
+            "Саха",
+            "Якутия",
+            "Саха Олонхо"
+          ]
+        },
+        "capital": {
+          "ua": "Якутськ",
+          "ru": "Якутськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 3083523,
+        "population": 1007058,
+        "economic_region": "Далекосхідний",
+        "titular_nations": [
+          "Якути (Саха)"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-76",
+      "identity": {
+        "name": {
+          "ua": "Автономна Земля Зелений Клин (Примор'я)",
+          "ru": "Автономная Земля Зеленый Клин (Приморье)",
+          "en": "Автономна Земля Зелений Клин (Примор'я)"
+        },
+        "type": "Автономна Земля Метрополії",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Зелений Клин",
+            "Тихоокеанська Україна",
+            "Приморський край"
+          ],
+          "ru": [
+            "Зеленый Клин",
+            "Тихоокеанская Украина",
+            "Приморский край"
+          ]
+        },
+        "capital": {
+          "ua": "Владивосток",
+          "ru": "Владивосток"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 164673,
+        "population": 1798047,
+        "economic_region": "Далекосхідний",
+        "titular_nations": [
+          "Українці Зеленого Клину"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-77",
+      "identity": {
+        "name": {
+          "ua": "Хабаровський край",
+          "ru": "Хабаровский край",
+          "en": "Хабаровський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Хабаровщина",
+            "Приамур'я"
+          ],
+          "ru": [
+            "Хабаровщина",
+            "Приамурье"
+          ]
+        },
+        "capital": {
+          "ua": "Хабаровськ",
+          "ru": "Хабаровськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 787633,
+        "population": 1273093,
+        "economic_region": "Далекосхідний",
+        "titular_nations": [
+          "Нанайці",
+          "Ульчі",
+          "Приамурці"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-78",
+      "identity": {
+        "name": {
+          "ua": "Амурський край",
+          "ru": "Амурский край",
+          "en": "Амурський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Амурщина",
+            "Верхнє Приамур'я"
+          ],
+          "ru": [
+            "Амурщина",
+            "Верхнее Приамурье"
+          ]
+        },
+        "capital": {
+          "ua": "Благовєщенськ",
+          "ru": "Благовєщенськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 361908,
+        "population": 750870,
+        "economic_region": "Далекосхідний",
+        "titular_nations": [
+          "Далекосхідні громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-79",
+      "identity": {
+        "name": {
+          "ua": "Єврейська Автономна Область",
+          "ru": "Еврейская Автономная Область",
+          "en": "Єврейська Автономна Область"
+        },
+        "type": "Автономна Область",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Біробіджан",
+            "ЄАО"
+          ],
+          "ru": [
+            "Биробиджан",
+            "ЕАО"
+          ]
+        },
+        "capital": {
+          "ua": "Біробіджан",
+          "ru": "Біробіджан"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 36271,
+        "population": 144389,
+        "economic_region": "Далекосхідний",
+        "titular_nations": [
+          "Євреї",
+          "Далекосхідні громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-80",
+      "identity": {
+        "name": {
+          "ua": "Сахалінський край",
+          "ru": "Сахалинский край",
+          "en": "Сахалінський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Сахалін",
+            "Курили",
+            "Острівний край"
+          ],
+          "ru": [
+            "Сахалин",
+            "Курилы",
+            "Островной край"
+          ]
+        },
+        "capital": {
+          "ua": "Южно-Сахалінськ",
+          "ru": "Южно-Сахалінськ"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 87101,
+        "population": 456792,
+        "economic_region": "Далекосхідний",
+        "titular_nations": [
+          "Нивхи",
+          "Айни",
+          "Острів'яни"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-81",
+      "identity": {
+        "name": {
+          "ua": "Камчатський край",
+          "ru": "Камчатский край",
+          "en": "Камчатський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Камчатка",
+            "Корякія"
+          ],
+          "ru": [
+            "Камчатка",
+            "Корякия"
+          ]
+        },
+        "capital": {
+          "ua": "Петропавловськ-Камчатський",
+          "ru": "Петропавловськ-Камчатський"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 464275,
+        "population": 287949,
+        "economic_region": "Далекосхідний",
+        "titular_nations": [
+          "Коряки",
+          "Ительмени"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-82",
+      "identity": {
+        "name": {
+          "ua": "Магаданський край",
+          "ru": "Магаданский край",
+          "en": "Магаданський край"
+        },
+        "type": "Край",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Магаданщина",
+            "Колима"
+          ],
+          "ru": [
+            "Магаданщина",
+            "Колыма"
+          ]
+        },
+        "capital": {
+          "ua": "Магадан",
+          "ru": "Магадан"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 462464,
+        "population": 134202,
+        "economic_region": "Далекосхідний",
+        "titular_nations": [
+          "Евени",
+          "Північні громади"
+        ]
+      }
+    },
+    {
+      "entity_id": "REG-83",
+      "identity": {
+        "name": {
+          "ua": "Чукотська Народна Республіка",
+          "ru": "Чукотская Народная Республика",
+          "en": "Чукотська Народна Республіка"
+        },
+        "type": "Народна Республіка",
+        "status": "REORGANIZED_REGION",
+        "synonyms": {
+          "ua": [
+            "Чукотка",
+            "Чукотський автономний край"
+          ],
+          "ru": [
+            "Чукотка",
+            "Чукотский автономный край"
+          ]
+        },
+        "capital": {
+          "ua": "Анадир",
+          "ru": "Анадир"
+        }
+      },
+      "geography_demographics": {
+        "area_sq_km": 721481,
+        "population": 47902,
+        "economic_region": "Далекосхідний",
+        "titular_nations": [
+          "Чукчі",
+          "Ескімоси"
+        ]
+      }
+    }
+  ]
+}

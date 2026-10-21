@@ -1,0 +1,1176 @@
+{
+  "schema_version": "2.0",
+  "foreign_key": "entity_id",
+  "directives": {
+    "UA-01": {
+      "entity_id": "UA-01",
+      "region_name": "Автономна Республіка Крим",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-02": {
+      "entity_id": "UA-02",
+      "region_name": "Вінницька область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-03": {
+      "entity_id": "UA-03",
+      "region_name": "Волинська область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-04": {
+      "entity_id": "UA-04",
+      "region_name": "Дніпропетровська область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-05": {
+      "entity_id": "UA-05",
+      "region_name": "Донецька область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-06": {
+      "entity_id": "UA-06",
+      "region_name": "Житомирська область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-07": {
+      "entity_id": "UA-07",
+      "region_name": "Закарпатська область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-08": {
+      "entity_id": "UA-08",
+      "region_name": "Запорізька область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-09": {
+      "entity_id": "UA-09",
+      "region_name": "Івано-Франківська область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-10": {
+      "entity_id": "UA-10",
+      "region_name": "Київська область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-11": {
+      "entity_id": "UA-11",
+      "region_name": "Кіровоградська область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-12": {
+      "entity_id": "UA-12",
+      "region_name": "Луганська область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-13": {
+      "entity_id": "UA-13",
+      "region_name": "Львівська область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-14": {
+      "entity_id": "UA-14",
+      "region_name": "Миколаївська область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-15": {
+      "entity_id": "UA-15",
+      "region_name": "Одеська область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-16": {
+      "entity_id": "UA-16",
+      "region_name": "Полтавська область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-17": {
+      "entity_id": "UA-17",
+      "region_name": "Рівненська область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-18": {
+      "entity_id": "UA-18",
+      "region_name": "Сумська область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-19": {
+      "entity_id": "UA-19",
+      "region_name": "Тернопільська область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-20": {
+      "entity_id": "UA-20",
+      "region_name": "Харківська область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-21": {
+      "entity_id": "UA-21",
+      "region_name": "Херсонська область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-22": {
+      "entity_id": "UA-22",
+      "region_name": "Хмельницька область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-23": {
+      "entity_id": "UA-23",
+      "region_name": "Черкаська область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-24": {
+      "entity_id": "UA-24",
+      "region_name": "Чернівецька область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-25": {
+      "entity_id": "UA-25",
+      "region_name": "Чернігівська область",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-26": {
+      "entity_id": "UA-26",
+      "region_name": "Місто Київ",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "UA-27": {
+      "entity_id": "UA-27",
+      "region_name": "Місто Севастополь",
+      "status": "METROPOLIS_CORE",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "METROPOLIS_ARMED_FORCES",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "BY-01": {
+      "entity_id": "BY-01",
+      "region_name": "Берестейська область",
+      "status": "DOMINION_AUTONOMOUS",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DOMINION_DEFENSE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "BY-02": {
+      "entity_id": "BY-02",
+      "region_name": "Гомельська область",
+      "status": "DOMINION_AUTONOMOUS",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DOMINION_DEFENSE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "BY-03": {
+      "entity_id": "BY-03",
+      "region_name": "Гродненська область",
+      "status": "DOMINION_AUTONOMOUS",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DOMINION_DEFENSE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "BY-04": {
+      "entity_id": "BY-04",
+      "region_name": "Могильовська область",
+      "status": "DOMINION_AUTONOMOUS",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DOMINION_DEFENSE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "BY-05": {
+      "entity_id": "BY-05",
+      "region_name": "Мінська область",
+      "status": "DOMINION_AUTONOMOUS",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DOMINION_DEFENSE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "BY-06": {
+      "entity_id": "BY-06",
+      "region_name": "Вітебська область",
+      "status": "DOMINION_AUTONOMOUS",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DOMINION_DEFENSE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "BY-07": {
+      "entity_id": "BY-07",
+      "region_name": "Місто Мінськ",
+      "status": "DOMINION_AUTONOMOUS",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DOMINION_DEFENSE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-01": {
+      "entity_id": "REG-01",
+      "region_name": "Самарський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-02": {
+      "entity_id": "REG-02",
+      "region_name": "Татарстанська Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-03": {
+      "entity_id": "REG-03",
+      "region_name": "Башкортостанська Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-04": {
+      "entity_id": "REG-04",
+      "region_name": "Чуваська Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-05": {
+      "entity_id": "REG-05",
+      "region_name": "Удмуртська Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-06": {
+      "entity_id": "REG-06",
+      "region_name": "Марійська Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-07": {
+      "entity_id": "REG-07",
+      "region_name": "Мордовська Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-08": {
+      "entity_id": "REG-08",
+      "region_name": "Саратівський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-09": {
+      "entity_id": "REG-09",
+      "region_name": "Волгоградський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-10": {
+      "entity_id": "REG-10",
+      "region_name": "Астраханська Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-11": {
+      "entity_id": "REG-11",
+      "region_name": "Ульяновський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-12": {
+      "entity_id": "REG-12",
+      "region_name": "Пензенський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-13": {
+      "entity_id": "REG-13",
+      "region_name": "Нижегородський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-14": {
+      "entity_id": "REG-14",
+      "region_name": "Кіровський край (В'ятка)",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-15": {
+      "entity_id": "REG-15",
+      "region_name": "Оренбурзький край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-16": {
+      "entity_id": "REG-16",
+      "region_name": "Курський край (Курщина)",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-17": {
+      "entity_id": "REG-17",
+      "region_name": "Білгородський край (Білгородщина)",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-18": {
+      "entity_id": "REG-18",
+      "region_name": "Воронізький край (Вороніжчина)",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-19": {
+      "entity_id": "REG-19",
+      "region_name": "Брянський край (Брянщина)",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-20": {
+      "entity_id": "REG-20",
+      "region_name": "Донська Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-21": {
+      "entity_id": "REG-21",
+      "region_name": "Кубанський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-22": {
+      "entity_id": "REG-22",
+      "region_name": "Ставропольський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-23": {
+      "entity_id": "REG-23",
+      "region_name": "Дагестанська Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-24": {
+      "entity_id": "REG-24",
+      "region_name": "Чеченська Республіка Ічкерія",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-25": {
+      "entity_id": "REG-25",
+      "region_name": "Інгушська Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-26": {
+      "entity_id": "REG-26",
+      "region_name": "Північно-Осетинська Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-27": {
+      "entity_id": "REG-27",
+      "region_name": "Кабардино-Балкарська Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-28": {
+      "entity_id": "REG-28",
+      "region_name": "Карачаєво-Черкеська Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-29": {
+      "entity_id": "REG-29",
+      "region_name": "Республіка Адигея",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-30": {
+      "entity_id": "REG-30",
+      "region_name": "Республіка Калмикія",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-31": {
+      "entity_id": "REG-31",
+      "region_name": "Московський спеціальний округ",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-32": {
+      "entity_id": "REG-32",
+      "region_name": "Московія (Московський край)",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-33": {
+      "entity_id": "REG-33",
+      "region_name": "Тверська Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-34": {
+      "entity_id": "REG-34",
+      "region_name": "Смоленський край (Смоленщина)",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-35": {
+      "entity_id": "REG-35",
+      "region_name": "Ярославська Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-36": {
+      "entity_id": "REG-36",
+      "region_name": "Вологодський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-37": {
+      "entity_id": "REG-37",
+      "region_name": "Костромський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-38": {
+      "entity_id": "REG-38",
+      "region_name": "Владимирський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-39": {
+      "entity_id": "REG-39",
+      "region_name": "Івановський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-40": {
+      "entity_id": "REG-40",
+      "region_name": "Рязанський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-41": {
+      "entity_id": "REG-41",
+      "region_name": "Тульський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-42": {
+      "entity_id": "REG-42",
+      "region_name": "Калузький край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-43": {
+      "entity_id": "REG-43",
+      "region_name": "Орловський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-44": {
+      "entity_id": "REG-44",
+      "region_name": "Липецький край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-45": {
+      "entity_id": "REG-45",
+      "region_name": "Тамбовський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-46": {
+      "entity_id": "REG-46",
+      "region_name": "Вільне місто Санкт-Петербург",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-47": {
+      "entity_id": "REG-47",
+      "region_name": "Інгерманландський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-48": {
+      "entity_id": "REG-48",
+      "region_name": "Новгородська Вічева Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-49": {
+      "entity_id": "REG-49",
+      "region_name": "Псковська Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-50": {
+      "entity_id": "REG-50",
+      "region_name": "Карельська Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-51": {
+      "entity_id": "REG-51",
+      "region_name": "Республіка Комі",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-52": {
+      "entity_id": "REG-52",
+      "region_name": "Мурманський імперський порт",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-53": {
+      "entity_id": "REG-53",
+      "region_name": "Архангельський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-54": {
+      "entity_id": "REG-54",
+      "region_name": "Ненецька Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-55": {
+      "entity_id": "REG-55",
+      "region_name": "Янтарний край (Кенігсберг)",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-56": {
+      "entity_id": "REG-56",
+      "region_name": "Уральська Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-57": {
+      "entity_id": "REG-57",
+      "region_name": "Челябінський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-58": {
+      "entity_id": "REG-58",
+      "region_name": "Пермський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-59": {
+      "entity_id": "REG-59",
+      "region_name": "Курганський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-60": {
+      "entity_id": "REG-60",
+      "region_name": "Сибірська Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-61": {
+      "entity_id": "REG-61",
+      "region_name": "Омський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-62": {
+      "entity_id": "REG-62",
+      "region_name": "Томський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-63": {
+      "entity_id": "REG-63",
+      "region_name": "Тюменський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-64": {
+      "entity_id": "REG-64",
+      "region_name": "Ханти-Мансійська Народна Республіка (Югра)",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-65": {
+      "entity_id": "REG-65",
+      "region_name": "Ямало-Ненецька Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-66": {
+      "entity_id": "REG-66",
+      "region_name": "Кемеровський край (Кузбас)",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-67": {
+      "entity_id": "REG-67",
+      "region_name": "Алтайський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-68": {
+      "entity_id": "REG-68",
+      "region_name": "Республіка Алтай",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-69": {
+      "entity_id": "REG-69",
+      "region_name": "Красноярський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-70": {
+      "entity_id": "REG-70",
+      "region_name": "Республіка Хакасія",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-71": {
+      "entity_id": "REG-71",
+      "region_name": "Республіка Тива",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-72": {
+      "entity_id": "REG-72",
+      "region_name": "Іркутський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-73": {
+      "entity_id": "REG-73",
+      "region_name": "Республіка Бурятія",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-74": {
+      "entity_id": "REG-74",
+      "region_name": "Забайкальський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-75": {
+      "entity_id": "REG-75",
+      "region_name": "Республіка Саха (Якутія)",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-76": {
+      "entity_id": "REG-76",
+      "region_name": "Автономна Земля Зелений Клин (Примор'я)",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-77": {
+      "entity_id": "REG-77",
+      "region_name": "Хабаровський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-78": {
+      "entity_id": "REG-78",
+      "region_name": "Амурський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-79": {
+      "entity_id": "REG-79",
+      "region_name": "Єврейська Автономна Область",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-80": {
+      "entity_id": "REG-80",
+      "region_name": "Сахалінський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-81": {
+      "entity_id": "REG-81",
+      "region_name": "Камчатський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-82": {
+      "entity_id": "REG-82",
+      "region_name": "Магаданський край",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    },
+    "REG-83": {
+      "entity_id": "REG-83",
+      "region_name": "Чукотська Народна Республіка",
+      "status": "REORGANIZED_REGION",
+      "governance_body": null,
+      "security_mode": null,
+      "demilitarization_level": "DEMILITARIZED_ZONE",
+      "resource_quota_pct": null,
+      "chancery_directive": null
+    }
+  }
+}

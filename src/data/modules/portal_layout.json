@@ -1,0 +1,1761 @@
+{
+  "schema_version": "2.0",
+  "foreign_key": "entity_id",
+  "layouts": {
+    "UA-01": {
+      "entity_id": "UA-01",
+      "display_name_ua": "Автономна Республіка Крим",
+      "display_name_ru": "Автономная Республика Крым",
+      "capital_ua": "Сімферополь",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-02": {
+      "entity_id": "UA-02",
+      "display_name_ua": "Вінницька область",
+      "display_name_ru": "Винницкая область",
+      "capital_ua": "Вінниця",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-03": {
+      "entity_id": "UA-03",
+      "display_name_ua": "Волинська область",
+      "display_name_ru": "Волынская область",
+      "capital_ua": "Луцьк",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-04": {
+      "entity_id": "UA-04",
+      "display_name_ua": "Дніпропетровська область",
+      "display_name_ru": "Днепропетровская область",
+      "capital_ua": "Дніпро",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-05": {
+      "entity_id": "UA-05",
+      "display_name_ua": "Донецька область",
+      "display_name_ru": "Донецкая область",
+      "capital_ua": "Донецьк",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-06": {
+      "entity_id": "UA-06",
+      "display_name_ua": "Житомирська область",
+      "display_name_ru": "Житомирская область",
+      "capital_ua": "Житомир",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-07": {
+      "entity_id": "UA-07",
+      "display_name_ua": "Закарпатська область",
+      "display_name_ru": "Закарпатская область",
+      "capital_ua": "Ужгород",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-08": {
+      "entity_id": "UA-08",
+      "display_name_ua": "Запорізька область",
+      "display_name_ru": "Запорожская область",
+      "capital_ua": "Запоріжжя",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-09": {
+      "entity_id": "UA-09",
+      "display_name_ua": "Івано-Франківська область",
+      "display_name_ru": "Ивано-Франковская область",
+      "capital_ua": "Івано-Франківськ",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-10": {
+      "entity_id": "UA-10",
+      "display_name_ua": "Київська область",
+      "display_name_ru": "Киевская область",
+      "capital_ua": "Київ",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-11": {
+      "entity_id": "UA-11",
+      "display_name_ua": "Кіровоградська область",
+      "display_name_ru": "Кировоградская область",
+      "capital_ua": "Кропивницький",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-12": {
+      "entity_id": "UA-12",
+      "display_name_ua": "Луганська область",
+      "display_name_ru": "Луганская область",
+      "capital_ua": "Луганськ",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-13": {
+      "entity_id": "UA-13",
+      "display_name_ua": "Львівська область",
+      "display_name_ru": "Львовская область",
+      "capital_ua": "Львів",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-14": {
+      "entity_id": "UA-14",
+      "display_name_ua": "Миколаївська область",
+      "display_name_ru": "Николаевская область",
+      "capital_ua": "Миколаїв",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-15": {
+      "entity_id": "UA-15",
+      "display_name_ua": "Одеська область",
+      "display_name_ru": "Одесская область",
+      "capital_ua": "Одеса",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-16": {
+      "entity_id": "UA-16",
+      "display_name_ua": "Полтавська область",
+      "display_name_ru": "Полтавская область",
+      "capital_ua": "Полтава",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-17": {
+      "entity_id": "UA-17",
+      "display_name_ua": "Рівненська область",
+      "display_name_ru": "Ровненская область",
+      "capital_ua": "Рівне",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-18": {
+      "entity_id": "UA-18",
+      "display_name_ua": "Сумська область",
+      "display_name_ru": "Сумская область",
+      "capital_ua": "Суми",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-19": {
+      "entity_id": "UA-19",
+      "display_name_ua": "Тернопільська область",
+      "display_name_ru": "Тернопольская область",
+      "capital_ua": "Тернопіль",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-20": {
+      "entity_id": "UA-20",
+      "display_name_ua": "Харківська область",
+      "display_name_ru": "Харьковская область",
+      "capital_ua": "Харків",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-21": {
+      "entity_id": "UA-21",
+      "display_name_ua": "Херсонська область",
+      "display_name_ru": "Херсонская область",
+      "capital_ua": "Херсон",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-22": {
+      "entity_id": "UA-22",
+      "display_name_ua": "Хмельницька область",
+      "display_name_ru": "Хмельницкая область",
+      "capital_ua": "Хмельницький",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-23": {
+      "entity_id": "UA-23",
+      "display_name_ua": "Черкаська область",
+      "display_name_ru": "Черкасская область",
+      "capital_ua": "Черкаси",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-24": {
+      "entity_id": "UA-24",
+      "display_name_ua": "Чернівецька область",
+      "display_name_ru": "Черновицкая область",
+      "capital_ua": "Чернівці",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-25": {
+      "entity_id": "UA-25",
+      "display_name_ua": "Чернігівська область",
+      "display_name_ru": "Черниговская область",
+      "capital_ua": "Чернігів",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-26": {
+      "entity_id": "UA-26",
+      "display_name_ua": "Місто Київ",
+      "display_name_ru": "Город Киев",
+      "capital_ua": "Київ",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "UA-27": {
+      "entity_id": "UA-27",
+      "display_name_ua": "Місто Севастополь",
+      "display_name_ru": "Город Севастополь",
+      "capital_ua": "Севастополь",
+      "status": "METROPOLIS_CORE",
+      "ui_card_color": "emerald",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "BY-01": {
+      "entity_id": "BY-01",
+      "display_name_ua": "Берестейська область",
+      "display_name_ru": "Брестская область",
+      "capital_ua": "Берестя (Брест)",
+      "status": "DOMINION_AUTONOMOUS",
+      "ui_card_color": "amber",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "BY-02": {
+      "entity_id": "BY-02",
+      "display_name_ua": "Гомельська область",
+      "display_name_ru": "Гомельская область",
+      "capital_ua": "Гомель",
+      "status": "DOMINION_AUTONOMOUS",
+      "ui_card_color": "amber",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "BY-03": {
+      "entity_id": "BY-03",
+      "display_name_ua": "Гродненська область",
+      "display_name_ru": "Гродненская область",
+      "capital_ua": "Гродно",
+      "status": "DOMINION_AUTONOMOUS",
+      "ui_card_color": "amber",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "BY-04": {
+      "entity_id": "BY-04",
+      "display_name_ua": "Могильовська область",
+      "display_name_ru": "Могилевская область",
+      "capital_ua": "Могильов",
+      "status": "DOMINION_AUTONOMOUS",
+      "ui_card_color": "amber",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "BY-05": {
+      "entity_id": "BY-05",
+      "display_name_ua": "Мінська область",
+      "display_name_ru": "Минская область",
+      "capital_ua": "Мінськ",
+      "status": "DOMINION_AUTONOMOUS",
+      "ui_card_color": "amber",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "BY-06": {
+      "entity_id": "BY-06",
+      "display_name_ua": "Вітебська область",
+      "display_name_ru": "Витебская область",
+      "capital_ua": "Вітебськ",
+      "status": "DOMINION_AUTONOMOUS",
+      "ui_card_color": "amber",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "BY-07": {
+      "entity_id": "BY-07",
+      "display_name_ua": "Місто Мінськ",
+      "display_name_ru": "Город Минск",
+      "capital_ua": "Мінськ",
+      "status": "DOMINION_AUTONOMOUS",
+      "ui_card_color": "amber",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-01": {
+      "entity_id": "REG-01",
+      "display_name_ua": "Самарський край",
+      "display_name_ru": "Самарский край",
+      "capital_ua": "Самара",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-02": {
+      "entity_id": "REG-02",
+      "display_name_ua": "Татарстанська Народна Республіка",
+      "display_name_ru": "Татарстанская Народная Республика",
+      "capital_ua": "Казань",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-03": {
+      "entity_id": "REG-03",
+      "display_name_ua": "Башкортостанська Народна Республіка",
+      "display_name_ru": "Башкортостанская Народная Республика",
+      "capital_ua": "Уфа",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-04": {
+      "entity_id": "REG-04",
+      "display_name_ua": "Чуваська Народна Республіка",
+      "display_name_ru": "Чувашская Народная Республика",
+      "capital_ua": "Чебоксари",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-05": {
+      "entity_id": "REG-05",
+      "display_name_ua": "Удмуртська Народна Республіка",
+      "display_name_ru": "Удмуртская Народная Республика",
+      "capital_ua": "Іжевськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-06": {
+      "entity_id": "REG-06",
+      "display_name_ua": "Марійська Народна Республіка",
+      "display_name_ru": "Марийская Народная Республика",
+      "capital_ua": "Йошкар-Ола",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-07": {
+      "entity_id": "REG-07",
+      "display_name_ua": "Мордовська Народна Республіка",
+      "display_name_ru": "Мордовская Народная Республика",
+      "capital_ua": "Саранськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-08": {
+      "entity_id": "REG-08",
+      "display_name_ua": "Саратівський край",
+      "display_name_ru": "Саратовский край",
+      "capital_ua": "Саратів",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-09": {
+      "entity_id": "REG-09",
+      "display_name_ua": "Волгоградський край",
+      "display_name_ru": "Волгоградский край",
+      "capital_ua": "Волгоград",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-10": {
+      "entity_id": "REG-10",
+      "display_name_ua": "Астраханська Народна Республіка",
+      "display_name_ru": "Астраханская Народная Республика",
+      "capital_ua": "Астрахань",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-11": {
+      "entity_id": "REG-11",
+      "display_name_ua": "Ульяновський край",
+      "display_name_ru": "Ульяновский край",
+      "capital_ua": "Ульяновськ (Симбірськ)",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-12": {
+      "entity_id": "REG-12",
+      "display_name_ua": "Пензенський край",
+      "display_name_ru": "Пензенский край",
+      "capital_ua": "Пенза",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-13": {
+      "entity_id": "REG-13",
+      "display_name_ua": "Нижегородський край",
+      "display_name_ru": "Нижегородский край",
+      "capital_ua": "Нижній Новгород",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-14": {
+      "entity_id": "REG-14",
+      "display_name_ua": "Кіровський край (В'ятка)",
+      "display_name_ru": "Кировский край (Вятка)",
+      "capital_ua": "Кіров (В'ятка)",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-15": {
+      "entity_id": "REG-15",
+      "display_name_ua": "Оренбурзький край",
+      "display_name_ru": "Оренбургский край",
+      "capital_ua": "Оренбург",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-16": {
+      "entity_id": "REG-16",
+      "display_name_ua": "Курський край (Курщина)",
+      "display_name_ru": "Курский край (Курщина)",
+      "capital_ua": "Курськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-17": {
+      "entity_id": "REG-17",
+      "display_name_ua": "Білгородський край (Білгородщина)",
+      "display_name_ru": "Белгородский край (Белгородщина)",
+      "capital_ua": "Білгород",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-18": {
+      "entity_id": "REG-18",
+      "display_name_ua": "Воронізький край (Вороніжчина)",
+      "display_name_ru": "Воронежский край (Воронежчина)",
+      "capital_ua": "Вороніж",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-19": {
+      "entity_id": "REG-19",
+      "display_name_ua": "Брянський край (Брянщина)",
+      "display_name_ru": "Брянский край (Брянщина)",
+      "capital_ua": "Брянськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-20": {
+      "entity_id": "REG-20",
+      "display_name_ua": "Донська Народна Республіка",
+      "display_name_ru": "Донская Народная Республика",
+      "capital_ua": "Ростов-на-Дону",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-21": {
+      "entity_id": "REG-21",
+      "display_name_ua": "Кубанський край",
+      "display_name_ru": "Кубанский край",
+      "capital_ua": "Краснодар (Катеринодар)",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-22": {
+      "entity_id": "REG-22",
+      "display_name_ua": "Ставропольський край",
+      "display_name_ru": "Ставропольский край",
+      "capital_ua": "Ставрополь",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-23": {
+      "entity_id": "REG-23",
+      "display_name_ua": "Дагестанська Народна Республіка",
+      "display_name_ru": "Дагестанская Народная Республика",
+      "capital_ua": "Махачкала",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-24": {
+      "entity_id": "REG-24",
+      "display_name_ua": "Чеченська Республіка Ічкерія",
+      "display_name_ru": "Чеченская Республика Ичкерия",
+      "capital_ua": "Грозний (Джохар)",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-25": {
+      "entity_id": "REG-25",
+      "display_name_ua": "Інгушська Народна Республіка",
+      "display_name_ru": "Ингушская Народная Республика",
+      "capital_ua": "Магас",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-26": {
+      "entity_id": "REG-26",
+      "display_name_ua": "Північно-Осетинська Народна Республіка",
+      "display_name_ru": "Северо-Осетинская Народная Республика",
+      "capital_ua": "Владикавказ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-27": {
+      "entity_id": "REG-27",
+      "display_name_ua": "Кабардино-Балкарська Народна Республіка",
+      "display_name_ru": "Кабардино-Балкарская Народная Республика",
+      "capital_ua": "Нальчик",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-28": {
+      "entity_id": "REG-28",
+      "display_name_ua": "Карачаєво-Черкеська Народна Республіка",
+      "display_name_ru": "Карачаево-Черкесская Народная Республика",
+      "capital_ua": "Черкеськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-29": {
+      "entity_id": "REG-29",
+      "display_name_ua": "Республіка Адигея",
+      "display_name_ru": "Республика Адыгея",
+      "capital_ua": "Майкоп",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-30": {
+      "entity_id": "REG-30",
+      "display_name_ua": "Республіка Калмикія",
+      "display_name_ru": "Республика Калмыкия",
+      "capital_ua": "Еліста",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-31": {
+      "entity_id": "REG-31",
+      "display_name_ua": "Московський спеціальний округ",
+      "display_name_ru": "Московский специальный округ",
+      "capital_ua": "Москва",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-32": {
+      "entity_id": "REG-32",
+      "display_name_ua": "Московія (Московський край)",
+      "display_name_ru": "Московия (Московский край)",
+      "capital_ua": "Красногорськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-33": {
+      "entity_id": "REG-33",
+      "display_name_ua": "Тверська Народна Республіка",
+      "display_name_ru": "Тверская Народная Республика",
+      "capital_ua": "Твер",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-34": {
+      "entity_id": "REG-34",
+      "display_name_ua": "Смоленський край (Смоленщина)",
+      "display_name_ru": "Смоленский край (Смоленщина)",
+      "capital_ua": "Смоленськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-35": {
+      "entity_id": "REG-35",
+      "display_name_ua": "Ярославська Народна Республіка",
+      "display_name_ru": "Ярославская Народная Республика",
+      "capital_ua": "Ярославль",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-36": {
+      "entity_id": "REG-36",
+      "display_name_ua": "Вологодський край",
+      "display_name_ru": "Вологодский край",
+      "capital_ua": "Вологда",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-37": {
+      "entity_id": "REG-37",
+      "display_name_ua": "Костромський край",
+      "display_name_ru": "Костромской край",
+      "capital_ua": "Кострома",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-38": {
+      "entity_id": "REG-38",
+      "display_name_ua": "Владимирський край",
+      "display_name_ru": "Владимирский край",
+      "capital_ua": "Владимир",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-39": {
+      "entity_id": "REG-39",
+      "display_name_ua": "Івановський край",
+      "display_name_ru": "Ивановский край",
+      "capital_ua": "Іваново",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-40": {
+      "entity_id": "REG-40",
+      "display_name_ua": "Рязанський край",
+      "display_name_ru": "Рязанский край",
+      "capital_ua": "Рязань",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-41": {
+      "entity_id": "REG-41",
+      "display_name_ua": "Тульський край",
+      "display_name_ru": "Тульский край",
+      "capital_ua": "Тула",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-42": {
+      "entity_id": "REG-42",
+      "display_name_ua": "Калузький край",
+      "display_name_ru": "Калужский край",
+      "capital_ua": "Калуга",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-43": {
+      "entity_id": "REG-43",
+      "display_name_ua": "Орловський край",
+      "display_name_ru": "Орловский край",
+      "capital_ua": "Орел",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-44": {
+      "entity_id": "REG-44",
+      "display_name_ua": "Липецький край",
+      "display_name_ru": "Липецкий край",
+      "capital_ua": "Липецьк",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-45": {
+      "entity_id": "REG-45",
+      "display_name_ua": "Тамбовський край",
+      "display_name_ru": "Тамбовский край",
+      "capital_ua": "Тамбов",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-46": {
+      "entity_id": "REG-46",
+      "display_name_ua": "Вільне місто Санкт-Петербург",
+      "display_name_ru": "Свободный город Санкт-Петербург",
+      "capital_ua": "Санкт-Петербург",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-47": {
+      "entity_id": "REG-47",
+      "display_name_ua": "Інгерманландський край",
+      "display_name_ru": "Ингерманландский край",
+      "capital_ua": "Гатчина",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-48": {
+      "entity_id": "REG-48",
+      "display_name_ua": "Новгородська Вічева Республіка",
+      "display_name_ru": "Новгородская Вечевая Республика",
+      "capital_ua": "Великий Новгород",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-49": {
+      "entity_id": "REG-49",
+      "display_name_ua": "Псковська Народна Республіка",
+      "display_name_ru": "Псковская Народная Республика",
+      "capital_ua": "Псков",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-50": {
+      "entity_id": "REG-50",
+      "display_name_ua": "Карельська Народна Республіка",
+      "display_name_ru": "Карельская Народная Республика",
+      "capital_ua": "Петрозаводськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-51": {
+      "entity_id": "REG-51",
+      "display_name_ua": "Республіка Комі",
+      "display_name_ru": "Республика Коми",
+      "capital_ua": "Сиктивкар",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-52": {
+      "entity_id": "REG-52",
+      "display_name_ua": "Мурманський імперський порт",
+      "display_name_ru": "Мурманский имперский порт",
+      "capital_ua": "Мурманськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-53": {
+      "entity_id": "REG-53",
+      "display_name_ua": "Архангельський край",
+      "display_name_ru": "Архангельский край",
+      "capital_ua": "Архангельськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-54": {
+      "entity_id": "REG-54",
+      "display_name_ua": "Ненецька Народна Республіка",
+      "display_name_ru": "Ненецкая Народная Республика",
+      "capital_ua": "Нар'ян-Мар",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-55": {
+      "entity_id": "REG-55",
+      "display_name_ua": "Янтарний край (Кенігсберг)",
+      "display_name_ru": "Янтарный край (Кенигсберг)",
+      "capital_ua": "Кенігсберг (Калінінград)",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-56": {
+      "entity_id": "REG-56",
+      "display_name_ua": "Уральська Народна Республіка",
+      "display_name_ru": "Уральская Народная Республика",
+      "capital_ua": "Екатеринбург",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-57": {
+      "entity_id": "REG-57",
+      "display_name_ua": "Челябінський край",
+      "display_name_ru": "Челябинский край",
+      "capital_ua": "Челябінськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-58": {
+      "entity_id": "REG-58",
+      "display_name_ua": "Пермський край",
+      "display_name_ru": "Пермский край",
+      "capital_ua": "Пермь",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-59": {
+      "entity_id": "REG-59",
+      "display_name_ua": "Курганський край",
+      "display_name_ru": "Курганский край",
+      "capital_ua": "Курган",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-60": {
+      "entity_id": "REG-60",
+      "display_name_ua": "Сибірська Народна Республіка",
+      "display_name_ru": "Сибирская Народная Республика",
+      "capital_ua": "Новосибірськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-61": {
+      "entity_id": "REG-61",
+      "display_name_ua": "Омський край",
+      "display_name_ru": "Омский край",
+      "capital_ua": "Омськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-62": {
+      "entity_id": "REG-62",
+      "display_name_ua": "Томський край",
+      "display_name_ru": "Томский край",
+      "capital_ua": "Томськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-63": {
+      "entity_id": "REG-63",
+      "display_name_ua": "Тюменський край",
+      "display_name_ru": "Тюменский край",
+      "capital_ua": "Тюмень",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-64": {
+      "entity_id": "REG-64",
+      "display_name_ua": "Ханти-Мансійська Народна Республіка (Югра)",
+      "display_name_ru": "Ханты-Мансийская Народная Республика (Югра)",
+      "capital_ua": "Ханти-Мансійськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-65": {
+      "entity_id": "REG-65",
+      "display_name_ua": "Ямало-Ненецька Народна Республіка",
+      "display_name_ru": "Ямало-Ненецкая Народная Республика",
+      "capital_ua": "Салехард",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-66": {
+      "entity_id": "REG-66",
+      "display_name_ua": "Кемеровський край (Кузбас)",
+      "display_name_ru": "Кемеровский край (Кузбасс)",
+      "capital_ua": "Кемерово",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-67": {
+      "entity_id": "REG-67",
+      "display_name_ua": "Алтайський край",
+      "display_name_ru": "Алтайский край",
+      "capital_ua": "Барнаул",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-68": {
+      "entity_id": "REG-68",
+      "display_name_ua": "Республіка Алтай",
+      "display_name_ru": "Республика Алтай",
+      "capital_ua": "Горно-Алтайськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-69": {
+      "entity_id": "REG-69",
+      "display_name_ua": "Красноярський край",
+      "display_name_ru": "Красноярский край",
+      "capital_ua": "Красноярськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-70": {
+      "entity_id": "REG-70",
+      "display_name_ua": "Республіка Хакасія",
+      "display_name_ru": "Республика Хакасия",
+      "capital_ua": "Абакан",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-71": {
+      "entity_id": "REG-71",
+      "display_name_ua": "Республіка Тива",
+      "display_name_ru": "Республика Тыва",
+      "capital_ua": "Кизіл",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-72": {
+      "entity_id": "REG-72",
+      "display_name_ua": "Іркутський край",
+      "display_name_ru": "Иркутский край",
+      "capital_ua": "Іркутськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-73": {
+      "entity_id": "REG-73",
+      "display_name_ua": "Республіка Бурятія",
+      "display_name_ru": "Республика Бурятия",
+      "capital_ua": "Улан-Уде",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-74": {
+      "entity_id": "REG-74",
+      "display_name_ua": "Забайкальський край",
+      "display_name_ru": "Забайкальский край",
+      "capital_ua": "Чита",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-75": {
+      "entity_id": "REG-75",
+      "display_name_ua": "Республіка Саха (Якутія)",
+      "display_name_ru": "Республика Саха (Якутия)",
+      "capital_ua": "Якутськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-76": {
+      "entity_id": "REG-76",
+      "display_name_ua": "Автономна Земля Зелений Клин (Примор'я)",
+      "display_name_ru": "Автономная Земля Зеленый Клин (Приморье)",
+      "capital_ua": "Владивосток",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-77": {
+      "entity_id": "REG-77",
+      "display_name_ua": "Хабаровський край",
+      "display_name_ru": "Хабаровский край",
+      "capital_ua": "Хабаровськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-78": {
+      "entity_id": "REG-78",
+      "display_name_ua": "Амурський край",
+      "display_name_ru": "Амурский край",
+      "capital_ua": "Благовєщенськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-79": {
+      "entity_id": "REG-79",
+      "display_name_ua": "Єврейська Автономна Область",
+      "display_name_ru": "Еврейская Автономная Область",
+      "capital_ua": "Біробіджан",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-80": {
+      "entity_id": "REG-80",
+      "display_name_ua": "Сахалінський край",
+      "display_name_ru": "Сахалинский край",
+      "capital_ua": "Южно-Сахалінськ",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-81": {
+      "entity_id": "REG-81",
+      "display_name_ua": "Камчатський край",
+      "display_name_ru": "Камчатский край",
+      "capital_ua": "Петропавловськ-Камчатський",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-82": {
+      "entity_id": "REG-82",
+      "display_name_ua": "Магаданський край",
+      "display_name_ru": "Магаданский край",
+      "capital_ua": "Магадан",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    },
+    "REG-83": {
+      "entity_id": "REG-83",
+      "display_name_ua": "Чукотська Народна Республіка",
+      "display_name_ru": "Чукотская Народная Республика",
+      "capital_ua": "Анадир",
+      "status": "REORGANIZED_REGION",
+      "ui_card_color": "slate",
+      "widgets": [
+        "demographics",
+        "resources",
+        "governance_status",
+        "synonym_selector"
+      ],
+      "portal_directive": null
+    }
+  }
+}
