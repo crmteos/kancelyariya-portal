@@ -1,4 +1,4 @@
-﻿{
+{
   "data_hub": "schema_registry_relational",
   "contours": [
     {
@@ -10,7 +10,7 @@
     {
       "name": "Achtung",
       "ukrainian": "Ахтуні",
-      "description": "Гостра, нищівна сатура, неофеодальний гротеск, розвінання ворожого соціуму та коригування частот за допомогою словника «поганял»",
+      "description": "Гостра, нищівна сатура, неофеодальний гротеск, розвіннення ворожого суціуму та коригування частот за допомогою словника «поганял»",
       "language": "рос"
     }
   ],
@@ -42,7 +42,7 @@
   ],
   "media_categories": [
     "Історія",
-    "Новини",
+    "Новини", 
     "Футуризм"
   ],
   "osint_passport_schema": {
@@ -62,6 +62,17 @@
       "social_tension": "висока",
       "operational_signals": ["аварія ТЕЦ", "протест транспортників"]
     }
+  },
+  "schema_registries": {
+    "core_entities": "src/data/core/entities_core.json",
+    "chancery_directives": "src/data/modules/chancery_directives.json",
+    "portal_layouts": "src/data/modules/portal_layout.json",
+    "media_campaigns": "src/data/modules/media_campaigns.json",
+    "type_definitions": "src/types/empire.ts",
+    "data_service": "src/services/empireDataService.ts"
+  },
+  "related_schemas": {
+    "regions_register": "src/data/core/entities_core.json",
+    "osint_passports": "regional_passports_master.json"
   }
 }
-
