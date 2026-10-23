@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Decrees — Kancelyariya Portal</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root { --bg: #0a0a0f; --bg-secondary: #12121a; --fg: #e8e8f0; --muted: #6b6b80; --tanunah: #ffd700; --achtung: #ff4466; --card: #1a1a24; --border: #2a2a3a; }
@@ -364,6 +364,22 @@
     </footer>
 
     <script>
+        // Base path for GitHub Pages deployment
+        const BASE_PATH = window.location.pathname.includes('/kancelyariya-portal') 
+            ? '/kancelyariya-portal/' 
+            : './';
+
+        // Dual-engine: inbound OSINT facts + fact appropriations
+        // Left block = primary fact from inbound_osint_feed.json (real event)
+        // Right block = appropriated decree from fact_appropriations.json (official document)
+        // Metropole Boundary Guard: Ukraine regions (77, 78) = read-only, objective news only
+
+        // Load primary fact from inbound_osint_feed.json
+        fetch(BASE_PATH + 'src/data/inbound_osint_feed.json').then(r => { if (!r.ok) throw new Error('Failed to load OSINT feed'); return r.json(); }).then(data => { window.osintFacts = data; renderOSINTFacts(data) }).catch(() => { window.osintFacts = null; renderOSINTFacts(null) });
+
+        // Load appropriated decree from fact_appropriations.json
+        fetch(BASE_PATH + 'src/data/fact_appropriations.json').then(r => { if (!r.ok) throw new Error('Failed to load facts'); return r.json(); }).then(data => { window.facts = data; renderFacts(data) }).catch(() => { window.facts = null; renderFacts(null) });
+
         /* ===== Канонічні топоніми (за реєстром Писаря) ===== */
         var TOPONYMS = {
             SAMARA: 'Самарський край',
