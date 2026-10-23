@@ -1,0 +1,40 @@
+{
+  "vagon_ahtungs": [
+    {
+      "id": "radio_01",
+      "title": "Частотний сигнал: огляд подій тижня",
+      "contour": "Achtung",
+      "format": "audio",
+      "source_type": "telegram",
+      "url_or_id": "https://t.me/kancelyariya_portal/1",
+      "teaser": "Оперативна текстова біжуча стрічка для смотрящих атаманів"
+    },
+    {
+      "id": "radio_02",
+      "title": "Поганялівник: терміни та вирази тижня",
+      "contour": "Achtung",
+      "format": "audio",
+      "source_type": "telegram",
+      "url_or_id": "https://t.me/kancelyariya_portal/2",
+      "teaser": "Частотні термінові маляви смотрящих атаманів"
+    },
+    {
+      "id": "radio_03",
+      "title": "Розвідка зграндією: оперативні сигнали",
+      "contour": "Achtung",
+      "format": "audio",
+      "source_type": "telegram",
+      "url_or_id": "https://t.me/kancelyariya_portal/3",
+      "teaser": "Оперативна інформація з прикордонних направлень"
+    },
+    {
+      "id": "radio_04",
+      "title": "Атаманський потік: головні новини",
+      "contour": "Achtung",
+      "format": "text",
+      "source_type": "telegram",
+      "url_or_id": "https://t.me/kancelyariya_portal/4",
+      "teaser": "Головні пости та оновлення атаманського контуру"
+    }
+  ]
+}

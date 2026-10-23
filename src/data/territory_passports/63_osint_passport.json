@@ -1,0 +1,21 @@
+{
+  "region_code": 63,
+  "original_name": "Самарська область",
+  "imperial_title": "Самарський Край",
+  "assigned_ataman": "Атаман OSINT-63",
+  "contour": "Achtung",
+  "coordinates": {
+    "lat": 53.1959,
+    "lng": 50.1002,
+    "map_layer_id": "layer_samara_01"
+  },
+  "osint_profile": {
+    "infrastructure_status": "критичний (84% знос)",
+    "smotryaschy_nickname": "Вася Кувалда",
+    "social_tension": "висока",
+    "operational_signals": [
+      "аварія ТЕЦ",
+      "протест транспортників"
+    ]
+  }
+}

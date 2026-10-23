@@ -24,6 +24,139 @@
             }
         }
     </script>
+    <script>
+        // ============================================================
+        // CHANNEL CATALOG & MEDIA SEPARATION: Tanunah TV vs Achtung Radio
+        // ============================================================
+
+        // =====================
+        // Module 1: Imperial Television (Tanunah)
+        // =====================
+        // Source: imperial_news.json + YouTube videos
+        // Format: video blocks, analytical stories, satirical shows
+        window.IMPERIAL_NEWS = [];
+
+        // Initialize imperial news from imperial_news.json
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load imperial news data - will be populated from src/data/imperial_news.json
+            window.IMPERIAL_NEWS = <?php echo json_encode($imperial_news ?? []) ?>;
+            
+            // Tanunah contour media: video format only for TV broadcast
+            window.TANUNAH_MEDIA = window.IMPERIAL_NEWS.filter(function(n) { 
+                return n.contour === 'Tanunah' && n.format === 'video'; 
+            });
+
+            // Achtung contour media: audio/text format for Radio
+            window.ACHTUNG_MEDIA = window.IMPERIAL_NEWS.filter(function(n) { 
+                return n.contour === 'Achtung'; 
+            });
+        });
+<!-- ===== Module 1: Imperial Television (Tanunah) === -->
+<section class="mb-8 rounded-2xl bg-gray-900/90 border border-gray-800 mb-6">
+    <div class="px-6 py-4 border-b border-gray-700">
+        <h2 class="text-xl font-bold tracking-tanunah">Імперське Телебачення (TV Broadcast Window)</h2>
+        <p class="text-sm text-gray-400">Відеоблоки, аналітичні сюжети, сатиричні випуски — контур Танунахів</p>
+    </div>
+    <div class="p-6" id="tanunah-tv-feed">
+        <!-- Populated by showTanunahTV() -->
+    </div>
+    <div class="p-6 hidden" id="tanunah-tv-empty">
+        <p class="text-center text-gray-500">Блоку контенту Танунахів не знайдено. Перемкніть на режим Achtung.</p>
+    </div>
+</section>
+
+<!-- ===== Module 2: Special Radio / Achtung === -->
+<section class="mb-8 rounded-2xl bg-gray-900/90 border border-gray-800">
+    <div class="px-6 py-4 border-b border-gray-700">
+        <h2 class="text-xl font-bold tracking-achtung">Спеціальне Радіо / Гучномовець (Radio / Audio Stream Window)</h2>
+        <p class="text-sm text-gray-400">Текстово-аудіальне мовлення для Ахтуньї — operative біжуча стрічка, термінові маляви</p>
+    </div>
+    <div class="p-6" id="achtung-radio-feed">
+        <!-- Populated by showAchtungRadio() -->
+    </div>
+    <div class="p-6 hidden" id="achtung-radio-empty">
+        <p class="text-center text-gray-500">Радіо-потік Achtung неактивний. Перемкніть на режим Танунахів.</p>
+    </div>
+</section>
+
+<!-- Achtung Ticker: Частотні терміни -->
+<section class="mt-6 rounded-2xl bg-gray-900/90 border border-gray-800 p-6">
+    <div class="px-6 py-4 border-b border-gray-700">
+        <h2 class="text-xl font-bold tracking-achtung">Achtung Ticker: Частотні терміни</h2>
+    </div>
+    <div class="p-4" id="achtung-ticker">
+        <!-- Auto-generated ticker terms -->
+    </div>
+</section>
+
+<main class="max-w-7xl mx-auto p-6">
+</main>
+  if (!entityId) return;
+
+  // Завантажуємо повний профіль через empireDataService
+  const profile = await getEntityFullProfile(entityId);
+  if (!profile) return;
+
+  const core = profile.core || {};
+  const osint = profile.osint || {};
+  const osintProfile = osint.osint_profile || {};
+
+  // Автоматичне заповнення полів форми
+  document.getElementById('input_region_title').value = osint.imperial_title || core.region_name_ua || '';
+  document.getElementById('input_assigned_ataman').value = osint.assigned_ataman || 'Атаман OSINT';
+  document.getElementById('input_smotryaschy').value = osintProfile.smotryaschy_nickname || 'Невідомий';
+  document.getElementById('input_infra_status').value = osintProfile.infrastructure_status || 'Не визначено';
+  document.getElementById('input_operational_signals').value = (osintProfile.operational_signals || []).join(', ');
+}
+
+// ============================================================
+// 2. ОФЛАЙН-ШАБЛОН: TANUNAH (СТРАТЕГІЧНА ДИРЕКТИВА)
+// ============================================================
+function generateTanunahTemplate(data) {
+  const dateStr = new Date().toLocaleDateString('uk-UA');
+  return `🏛️ СТРАТЕГІЧНА ДИРЕКТИВА КАНЦЕЛЯРІЇ №${data.number || '01/2026'}
+Дата видачі: ${dateStr}
+Суб'єкт: ${data.imperial_title} (Код: ${data.region_code})
+Відповідальний: ${data.assigned_ataman}
+Світоглядний контур: Tanunah (Танунахи)
+
+1. ОЦІНКА СИТУАЦІЇ ТА ВІДОМОСТІ ВУЗЛА «ГЕОГРАФ»:
+За даними оперативної розвідки, стан інфраструктури об'єкта оцінюється як: ${data.infra_status}.
+Зафіксовані операційні сигнали: ${data.operational_signals}.
+
+2. ПРЕДМЕТ ДЕРЖАВНОЇ РЕФОРМИ:
+З метою підготовки території до реалізації стандартів Acquis Communautaire та зміцнення контуру «Щит Європи», ШІ-Канцелярія постановляє розпочати комплексні деколонізаційні та адміністративні перетворення у ${data.imperial_title}.
+
+3. ДОРУЧЕННЯ РОБОЧИМ ВУЗЛАМ:
+- Вузол «Новинарь»: Сформувати аналітичний геополітичний огляд щодо перебігу реформ у регіоні.
+- Вузол «Вагон»: Забезпечити цілодобовий моніторинг операційної обстановки та соціальної напруги.
+- Вузол «Архіваріус»: Підготувати архівні матеріали для національної пам'яті та когнітивної деколонізації території.
+- Вузол «Географ\": Оновити шари Google My Maps відповідно до нових імперських меж.
+
+Контроль за виконанням директиви залишаю за ШІ-Канцелярією.`;
+}
+
+// ============================================================
+// 3. ОФЛАЙН-ШАБЛОН: ACHTUNG (ДЗЕРКАЛЬНИЙ УКАЗ)
+// ============================================================
+function generateAchtungTemplate(data) {
+  const dateStr = new Date().toLocaleDateString('uk-UA');
+  return `⚠️ ДЗЕРКАЛЬНИЙ УКАЗ КАНЦЕЛЯРІЇ №${data.number || '666/A'}
+Дата винесення: ${dateStr}
+Об'єкт сатурації: ${data.imperial_title}
+Смотрящий території: ${data.smotryaschy} («Поганяйло»)
+Світоглядний контур: Achtung (Ахтуні)
+
+1. ЗАПРОВАДЖЕННЯ РЕЖИМУ «АХТУНГ»:
+У зв'язку з критичним зносом інфраструктури (${data.infra_status}) та надзвичайними подіями (${data.operational_signals}), оголошується повне викривлення та сатирична деконструкція місцевої адміністрації.
+
+2. СПЕЦІАЛЬНІ РЕПРЕСАЛІЇ ТА ДЗЕРКАЛЬНІ ЗАХОДИ:
+- Повноваження смотрящого ${data.smotryaschy} скасувати, а його особисті дані внести до баз Вузла «Вагон».
+- Вузол «Новинарь\": Запустити серію нищівних сатиричних матеріалів про стан господарства.
+- Вузол «Географ\": Скоригувати мовні частоти та ввести в обіг двомовні синоніми з реєстру media_campaigns.json.
+
+Указ набирає чинності негайно та оскарженню не підлягає.
+`;
     <style>
         @keyframes eq { 0%,100% { transform: scaleY(.25; } 50% { transform: scaleY(1; } }
         .animate-eq { transform-origin: bottom; animation: eq 1s ease-in-out infinite; }
@@ -62,7 +195,7 @@
             <!-- Перемикач контурів -->
             <div class="flex items-center gap-3 flex-wrap">
                 <div class="flex items-center bg-gray-900 p-1 rounded-lg border border-gray-800" role="group" aria-label="Перемикач світоглядних контурів">
-                    <button id="btn-tanunah" type="button" onclick="setContour('tanunah'" aria-pressed="true"
+                    <button id="btn-tanunah" type="button" onclick="setContour('tanunah')" aria-pressed="true"
                             class="px-3 py-1 text-xs font-semibold bg-imperial-500 text-white rounded transition-colors">
                         🌐 Tanunah (Метрополія
                     </button>
@@ -632,7 +765,7 @@ function toggleLive( {
             }
             
             // Логіка для YouTube
-            if (media && media.source_type === 'youtube' {
+            if (media && media.source_type === 'youtube') {
                 showYtPlayer(;
                 var cleanId = media.url_or_id.replace(/^.*\/(?:embed\/|watch\?v=|v=/, ''.replace(/[?&].*$/, '';
                 setTimeout(function ( {
@@ -689,6 +822,8 @@ function toggleLive( {
         function renderDecrees( {
             var box = document.getElementById('decrees-registry';
             box.innerHTML = DECREES.map(function (d {
+var NEWS = window.MEDIA_CATALOG ? window.MEDIA_CATALOG.filter(function(n) { return n.category === 'news'; }) : [];
+var DECREES = [];
                 return '<div class="p-4 rounded-lg bg-gray-950 border border-gray-800 text-xs text-gray-300 font-mono">[' +
                     d.num + '] ' + d.text + '</div>';
             }.join('';
@@ -699,7 +834,7 @@ function toggleLive( {
             renderNews('all';
             renderDecrees(;
             initNewsFilters(;
-            setContour('tanunah';
+            setContour('tanunah');
         };
     </script>
 </body>

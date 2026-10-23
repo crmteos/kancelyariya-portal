@@ -1,0 +1,40 @@
+{
+  "imperial_news": [
+    {
+      "id": "tv_01",
+      "title": "Стратегічна сповідь з front-line: стан інфраструктури",
+      "contour": "Tanunah",
+      "format": "video",
+      "source_type": "youtube",
+      "url_or_id": "KZRJf9mZPhY",
+      "teaser": "Аналітичний огляд стану інфраструктури на фронті"
+    },
+    {
+      "id": "tv_02",
+      "title": "Сатиричний випуск: поганялі епізодів",
+      "contour": "Tanunah",
+      "format": "video",
+      "source_type": "youtube",
+      "url_or_id": "z8a1KHBjS8U",
+      "teaser": "Сатира про	current political situation"
+    },
+    {
+      "id": "tv_03",
+      "title": "Історія imperiі: культурний вістник",
+      "contour": "Tanunah",
+      "format": "video",
+      "source_type": "youtube",
+      "url_or_id": "7wNDw6lqo6E",
+      "teaser": "Культурні аспекти та традиції"
+    },
+    {
+      "id": "tv_04",
+      "title": "Футурізм та майбутнє: scope vision",
+      "contour": "Tanunah",
+      "format": "video",
+      "source_type": "youtube",
+      "url_or_id": "Xy1Screens",
+      "teaser": "Футурističний погляд на майбутнє"
+    }
+  ]
+}

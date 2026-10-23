@@ -1,0 +1,56 @@
+{
+  "insignia_matrix": {
+    "nodes": {
+      "Новинарь": {
+        "role": "репортер",
+        "style": "антропоморфний аватари, генериваційний контент",
+        "knowledge_ids": ["K-001", "K-002", "K-003"],
+        "sources": ["Telegram channels", "YouTube analytics", "X trends"],
+        "target_files": ["src/data/kernel_telemetry.json", "src/data/fact_appropriations.json"]
+      },
+      "Футуролог": {
+        "role": "осінт-аналітик",
+        "style": "прогностичні сценарії, ГІС-картографія",
+        "knowledge_ids": ["K-101", "K-102"],
+        "sources": ["future studies journals", "scientific publications"],
+        "target_files": ["docs/context_knowledge/formal/", "src/data/kernel_telemetry.json"]
+      },
+      "Архіваріус": {
+        "role": "каталогізатор",
+        "style": "історія проєкту, когнітивна деколонізація",
+        "knowledge_ids": ["K-201", "K-202", "K-203"],
+        "sources": ["national_memory.json", "historical archives"],
+        "target_files": ["docs/context_knowledge/narrative/", "src/data/national_memory.json"]
+      }
+    },
+    "relations": {
+      "region_code": {
+        "type": "integer",
+        "description": "Integer key linking to regions_register.json and OSINT passports (e.g., 63, 77, 8)"
+      },
+      "contour": {
+        "type": "string",
+        "enum": ["Tanunah", "Achtung", "universal"],
+        "description": "Contour affiliation from chancery_manifest.json worker_nodes"
+      },
+      "knowledge_id": {
+        "type": "string",
+        "description": "Unique identifier for knowledge entry (format: K-XXX)"
+      },
+      "status": {
+        "type": "string",
+        "enum": ["active", "archived", "pending"],
+        "description": "Status of the knowledge entry in the flat context knowledge base"
+      }
+    },
+    "coverage": {
+      "total_nodes": 3,
+      "active_knowledge_entries": 7,
+      "gap_analysis": {
+        "uncovered_regions": [],
+        "untagged_contours": [],
+        "pending_catalogue": 0
+      }
+    }
+  }
+}

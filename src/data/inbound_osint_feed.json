@@ -1,0 +1,48 @@
+{
+  "inbound_osint_feed": [
+    {
+      "id": "osint_01",
+      "region_code": 63,
+      "region_name": "Самарська область (Пост-РФ)",
+      "contour": "Tanunah",
+      "event_source": "Public demonstration in regional center",
+      "event_date": "2023-11-15",
+      "event_description": "Mass public gathering demanding political reforms",
+      "imperial_title": "Стратегічний контур Танунахи",
+      "relevant_decree": "DK-2024-001"
+    },
+    {
+      "id": "osint_02",
+      "region_code": 77,
+      "region_name": "Кіровоградська область (Пост-РФ)",
+      "contour": "Tanunah",
+      "event_source": "Underground publication distribution",
+      "event_date": "2023-10-22",
+      "event_description": "Distribution of uncensored political literature",
+      "imperial_title": "Контур Танунахи: підпільна діяльність",
+      "relevant_decree": "DK-2024-002"
+    },
+    {
+      "id": "osint_03",
+      "region_code": 78,
+      "region_name": "Полтавська область (Пост-РФ)",
+      "contour": "Achtung",
+      "event_source": "Frequency monitoring operation",
+      "event_date": "2023-12-01",
+      "event_description": "Monitoring of unauthorized radio frequencies",
+      "imperial_title": "Контур Ахтуні:-radio surveillance",
+      "relevant_decree": "DK-2024-003"
+    },
+    {
+      "id": "osint_04",
+      "region_code": 63,
+      "region_name": "Самарська область (Білорусь)",
+      "contour": "universal",
+      "event_source": "Cross-border cooperation meeting",
+      "event_date": "2023-11-28",
+      "event_description": "Border region cooperation meeting between Ukrainian and Belarusian activists",
+      "imperial_title": "Метоpole Border Guard:read-only zone",
+      "relevant_decree": null
+    }
+  ]
+}

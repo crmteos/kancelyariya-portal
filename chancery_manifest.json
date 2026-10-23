@@ -18,17 +18,20 @@
     {
       "name": "Новинарь",
       "role": "Генерація новинної та геополітичної аналітики",
-      "memory": "imperial_news.json"
+      "memory": "src/data/imperial_news.json",
+      "contour": "Tanunah"
     },
     {
       "name": "Вагон",
       "role": "Оперативно-розвідувальний та моніторинговий вузол",
-      "memory": "vagon_ahtungs.json"
+      "memory": "src/data/vagon_ahtungs.json",
+      "contour": "Achtung"
     },
     {
       "name": "Архіваріус",
       "role": "База національної пам'яті та когнітивна деколонізація",
-      "memory": "national_memory.json"
+      "memory": "src/data/national_memory.json",
+      "contour": "universal"
     },
     {
       "name": "Географ",
@@ -36,31 +39,115 @@
       "primary_registry": "regions_register.json",
       "primary_key": "region_code",
       "google_maps_mid": "1nVz5dLwrxEYS3dWcCXfMU2z9-6GubpE",
-      "sub_agents": ["smotryaschy_ataman", "cartographer"],
-      "memory": "territory_passports"
+      "sub_agents": [
+        "smotryaschy_ataman",
+        "cartographer"
+      ],
+      "memory": "src/data/territory_passports",
+      "contour": "universal"
+    },
+    {
+      "name": "Kernel_Content_Analyst",
+      "role": "Центральний модуль JSON-телеметрії та KPI-виведення",
+      "memory": "src/data/kernel_telemetry.json",
+      "contour": "universal"
     }
   ],
   "media_categories": [
     "Історія",
-    "Новини", 
+    "Новини",
     "Футуризм"
   ],
   "osint_passport_schema": {
-    "region_code": 63,
-    "original_name": "Самарська область",
-    "imperial_title": "Самарський Край",
-    "assigned_ataman": "Атаман OSINT-63",
-    "contour": "Achtung",
-    "coordinates": {
-      "lat": 53.1959,
-      "lng": 50.1002,
-      "map_layer_id": "layer_samara_01"
+    "type": "object",
+    "required": [
+      "region_code",
+      "original_name",
+      "imperial_title",
+      "assigned_ataman",
+      "contour",
+      "coordinates",
+      "osint_profile"
+    ],
+    "properties": {
+      "region_code": {
+        "type": "integer"
+      },
+      "original_name": {
+        "type": "string"
+      },
+      "imperial_title": {
+        "type": "string"
+      },
+      "assigned_ataman": {
+        "type": "string"
+      },
+      "contour": {
+        "type": "string",
+        "enum": [
+          "Tanunah",
+          "Achtung",
+          "universal"
+        ]
+      },
+      "coordinates": {
+        "type": "object",
+        "required": [
+          "lat",
+          "lng"
+        ],
+        "properties": {
+          "lat": {
+            "type": "number"
+          },
+          "lng": {
+            "type": "number"
+          },
+          "map_layer_id": {
+            "type": "string"
+          }
+        }
+      },
+      "osint_profile": {
+        "type": "object",
+        "required": [
+          "infrastructure_status",
+          "smotryaschy_nickname",
+          "social_tension",
+          "operational_signals"
+        ],
+        "properties": {
+          "infrastructure_status": {
+            "type": "string"
+          },
+          "smotryaschy_nickname": {
+            "type": "string"
+          },
+          "social_tension": {
+            "type": "string"
+          },
+          "operational_signals": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
     },
-    "osint_profile": {
-      "infrastructure_status": "критичний (84% знос)",
-      "smotryaschy_nickname": "Вася Кувалда",
-      "social_tension": "висока",
-      "operational_signals": ["аварія ТЕЦ", "протест транспортників"]
+    "fact_appropriation_schema": {
+      "type": "object",
+      "required": ["fact_id", "real_event_source", "timestamp", "target_region_code", "decree_number", "issuing_ataman", "appropriated_narrative", "contour"],
+      "properties": {
+        "fact_id": { "type": "string" },
+        "real_event_source": { "type": "string" },
+        "timestamp": { "type": "number" },
+        "target_region_code": { "type": "integer" },
+        "decree_number": { "type": "string" },
+        "issuing_ataman": { "type": "string" },
+        "appropriated_narrative": { "type": "string" },
+        "contour": { "type": "string", "enum": ["Tanunah", "Achtung"] }
+      }
     }
   },
   "schema_registries": {
@@ -73,6 +160,46 @@
   },
   "related_schemas": {
     "regions_register": "src/data/core/entities_core.json",
-    "osint_passports": "regional_passports_master.json"
-  }
+    "osint_passports": "regional_passports_master.json",
+    "context_knowledge_base": "docs/context_knowledge/",
+    "kernel_telemetry": "src/data/kernel_telemetry.json",
+    "fact_appropriations": "src/data/fact_appropriations.json",
+    "inbound_osint_feed": "src/data/inbound_osint_feed.json",
+    "insignia_matrix": "src/data/kleyrody_insignia.json",
+    "axioms_base": "src/data/tablets_axioms.json"
+  },
+  "axioms_status": {
+    "status": "IMMUTABLE_AXIOMATIC_CORE",
+    "description": "Непорушний аксиоматичний ядро системи, що фіксує fundamentálne принципи дій ШІ та інформаційної політики"
+  },
+  "relational_keys": {
+    "region_code": {
+      "type": "integer",
+      "description": "Integer key linking to regions_register.json and OSINT passports (e.g., 63, 77, 8)"
+    },
+    "contour": {
+      "type": "string",
+      "enum": ["Tanunah", "Achtung", "universal"],
+      "description": "Contour affiliation from chancery_manifest.json worker_nodes"
+    },
+    "knowledge_id": {
+      "type": "string",
+      "description": "Unique identifier for knowledge entry (format: K-XXX)"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "archived", "pending"],
+      "description": "Status of the knowledge entry in the flat context knowledge base"
+    }
+  },
+  "metropole_boundary_policy": {
+    "read_only_fact": true,
+    "ukraine_zone": "read_only",
+    "post_rf_zone": "allowed",
+    "belarus_zone": "allowed",
+    "metropole_signal_processing": {
+      "constructive_mode": "AMPLIFY_IN_PHASE",
+      "destructive_mode": "QUENCH_TO_ZERO_IN_ANTIPHASE"
+    }
+}
 }

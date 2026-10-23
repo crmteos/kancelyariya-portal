@@ -144,3 +144,54 @@ export const initializeDataServices = async (): Promise<{
   
   return { entities, directives, layouts, campaigns };
 };
+export interface OsintPassport {
+  id: string;
+  country: string;
+  code: string;
+  region: string;
+  fields: string[];
+}
+
+export interface OsintPassportLoader {
+  (): Promise<OsintPassport[]>;
+}
+
+// Load all OSINT passports from JSON
+export const loadOsintPassports: OsintPassportLoader = async (): Promise<OsintPassport[]> => {
+  const response = await fetch('/src/data/modules/regional_passports_master.json');
+  const data = await response.json();
+  return data.passports;
+}
+
+// Initialize all data services
+export const initializeDataServices = async (): Promise<{
+  entities: EntityCore[];
+  directives: ChanceryDirective[];
+  layouts: PortalLayout[];
+  campaigns: MediaCampaign[];
+  passports: OsintPassport[];
+}> => {
+  const [entities, directives, layouts, campaigns, passports] = await Promise.all([
+    loadEntitiesCore(),
+    loadChanceryDirectives(),
+    loadPortalLayout(),
+    loadMediaCampaigns(),
+    loadOsintPassports(),
+  ]);
+
+  return { entities, directives, layouts, campaigns, passports };
+};
+// Get full profile combining core entity data with OSINT passport
+export const getEntityFullProfile = (entityId: string, entities: EntityCore[], passports: OsintPassport[]) => {
+  const coreEntity = entities.find(e => e.entity_id === entityId);
+  const passport = passports.find(p => p.id === entityId || p.code === entityId);
+  
+  if (!coreEntity) {
+    return null;
+  }
+  
+  return {
+    ...coreEntity,
+    ...(passport ? { osint_passport: passport } : {}),
+  };
+};

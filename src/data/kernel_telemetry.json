@@ -1,0 +1,10 @@
+{
+  "kernel_telemetry": {
+    "active_listeners": 0,
+    "signals_collected": 0,
+    "infrastructure_status": "stable",
+    "tension_level": "low",
+    "operational_signals": [],
+    "timestamp": 0
+  }
+}

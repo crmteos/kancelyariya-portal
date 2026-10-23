@@ -1,0 +1,1 @@
+gen = lambda: open("admin.html","w",encoding="utf-8").write

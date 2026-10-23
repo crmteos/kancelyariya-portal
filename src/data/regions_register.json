@@ -1,0 +1,25 @@
+{
+  "regions": [
+    {
+      "region_code": 63,
+      "name": "Самарська область",
+      "imperial_title": "Самарський Край",
+      "contour": "Achtung",
+      "passport_path": "src/data/territory_passports/63_osint_passport.json"
+    },
+    {
+      "region_code": 77,
+      "name": "Московская область",
+      "imperial_title": "Московский Повіт",
+      "contour": "Tanunah",
+      "passport_path": "src/data/territory_passports/77_osint_passport.json"
+    },
+    {
+      "region_code": 78,
+      "name": "Невская область",
+      "imperial_title": "Невский Округ",
+      "contour": "universal",
+      "passport_path": "src/data/territory_passports/78_osint_passport.json"
+    }
+  ]
+}

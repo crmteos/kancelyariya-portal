@@ -1,0 +1,7 @@
+{
+  "role": "admin_dashboard",
+  "title": "Admin Dashboard — Kancelyariya Portal",
+  "description": "KPI Dashboard powered by kernel_telemetry.json and fact_appropriations.json",
+  "contour": "universal",
+  "generated_from": ["src/data/kernel_telemetry.json", "src/data/fact_appropriations.json"]
+}

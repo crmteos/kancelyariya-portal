@@ -1,0 +1,18 @@
+{
+  "passports": [
+    {
+      "id": "passport_ukraine",
+      "country": "Україна",
+      "code": "UA",
+      "region": "national",
+      "fields": ["id", "full_name", "birth_date", "issued_by", "valid_until", "notes"]
+    },
+    {
+      "id": "passport_eu_sample",
+      "country": "Европейський Союз",
+      "code": "EU",
+      "region": "regional",
+      "fields": ["id", "full_name", "birth_date", "issued_by", "valid_until", "notes"]
+    }
+  ]
+}

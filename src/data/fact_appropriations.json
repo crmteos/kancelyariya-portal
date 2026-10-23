@@ -1,0 +1,14 @@
+{
+  "fact_appropriations": [
+    {
+      "fact_id": "MK-001",
+      "real_event_source": "Parade in Mukachevo",
+      "timestamp": 1700000000,
+      "target_region_code": 63,
+      "decree_number": "DK-2024-001",
+      "issuing_ataman": "Ataman Vasya-Kuvadli",
+      "appropriated_narrative": "Imperial directive issued for regional development",
+      "contour": "Tanunah"
+    }
+  ]
+}
