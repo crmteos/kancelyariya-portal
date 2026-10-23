@@ -45,7 +45,10 @@
         // Initialize imperial news from imperial_news.json
         document.addEventListener('DOMContentLoaded', function() {
             // Load imperial news data - will be populated from src/data/imperial_news.json
-            window.IMPERIAL_NEWS = <?php echo json_encode($imperial_news ?? []) ?>;
+            fetch(BASE_PATH + 'src/data/imperial_news.json')
+                .then(r => { if (!r.ok) throw new Error('Failed to load imperial news'); return r.json(); })
+                .then(data => {
+                    window.IMPERIAL_NEWS = data.imperial_news || [];
             
             // Tanunah contour media: video format only for TV broadcast
             window.TANUNAH_MEDIA = window.IMPERIAL_NEWS.filter(function(n) { 
