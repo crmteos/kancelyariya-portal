@@ -392,17 +392,20 @@
 
         function setContour(c) {
             currentContour = (c === 'achtung') ? 'achtung' : 'tanunah';
+            // Metropole Boundary Guard: only apply contour UI if elements exist
             var t = document.getElementById('c-tanunah');
             var a = document.getElementById('c-achtung');
+            if (!t && !a) return; // Skip contour UI if elements not present
             var base = 'px-2 py-2 text-xs font-semibold rounded-lg transition-colors';
             if (currentContour === 'tanunah') {
-                t.className = base + ' bg-imperial-500 text-white';
-                a.className = base + ' bg-gray-800 text-gray-300 hover:bg-gray-700';
+                if (t) t.className = base + ' bg-imperial-500 text-white';
+                if (a) a.className = base + ' bg-gray-800 text-gray-300 hover:bg-gray-700';
             } else {
-                a.className = base + ' bg-amber-600 text-white';
-                t.className = base + ' bg-gray-800 text-gray-300 hover:bg-gray-700';
+                if (a) a.className = base + ' bg-amber-600 text-white';
+                if (t) t.className = base + ' bg-gray-800 text-gray-300 hover:bg-gray-700';
             }
-            document.body.setAttribute('data-contour', currentContour);
+            // Only set data-contour attribute if body exists
+            if (document.body) document.body.setAttribute('data-contour', currentContour);
         }
 
         function getFormData() {

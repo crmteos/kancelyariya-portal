@@ -32,6 +32,7 @@
 - `chancery_manifest.json`: VALID JSON — worker_nodes have contour, schema has type/required/properties
 - `regions_register.json`: VALID JSON — region_codes are integers (63, 77, 8 as int)
 - `63_osint_passport.json`: VALID JSON — region_code integer, contour in allowed enum, all required fields present
+- **Hotfix: GitHub Pages deployment fix** — resolved relative fetch paths (`/src/data/...` → `./src/data/...`), added `try...catch` blocks and `response.ok` checks to all fetch functions, added `BASE_PATH` constant in `index.html`, `admin.html`, and `decrees.html`
 
 ### Задача: Cleanup decrees.html
 - `decrees.html` — завершена утримання: збрано старі функції archive/print, реалізована двокомпонентна архітектура факту (осінт-вхід + факт-апропріація), додано_logicmetropole boundary guard для України (регіони 77, 78)

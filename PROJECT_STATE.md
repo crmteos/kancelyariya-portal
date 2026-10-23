@@ -42,6 +42,9 @@
 
 **Завдання:** створення базових JSON-шаблонів regions_register.json та {region_code}_osint_passport.json.
 
+### ✅ Completed Tasks
+- **Hotfix: GitHub Pages deployment fix** — resolved blank page / 404 path bug by converting absolute `fetch()` paths to relative (`/src/data/...` → `./src/data/...`), adding `BASE_PATH` constant conditional on `window.location.pathname.includes('/kancelyariya-portal')`, and adding `try...catch` + `response.ok` error handling to all fetch functions in `index.html`, `admin.html`, and `decrees.html`. Also ensured `.nojekyll` file exists in project root.
+
 ### 📜 Формалізація протоколу комунікації (Checkpoint 1.5)
 - **Завдання:** Формалізація двоканального протоколу взаємодії між Блокнотом-Архітектором та ШІ-кодером
 - **Статус:** ✅ Завершено
