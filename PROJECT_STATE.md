@@ -3,7 +3,7 @@
 ## Task Status
 - **Media Portal Isolation**: COMPLETE
 - **Goal**: Remove decree generation functions and raw JavaScript from `index.html`, replacing them with clean JSON data connectivity for Tanunah (TV) and Achtung (Radio)
-- **Done**: All decree functions (`generateTanunahTemplate`, `generateAchtungTemplate`) and raw JS code (`if (!profile) return`) removed from `index.html`
+- **Done**: All decree functions (`generateTanunahTemplate`, `generateAchtungTemplate`) and raw JS code (`if (!profile) return`) removed from `index.html`; Ticker block cleaned - replaced "Achtung Ticker: Частотні терміни" HTML block with duplicate "Завантаження..." text and associated raw JavaScript (`renderAchtungTicker` function, `document.getElementById` calls) with single clean HTML container
 - **In Progress**: None
 - **Blocked**: None
 
