@@ -35,12 +35,13 @@
 - **Hotfix: GitHub Pages deployment fix** — resolved absolute fetch paths and PHP syntax errors on `index.html` line 48 by replacing `window.IMPERIAL_NEWS = <?php echo json_encode($imperial_news ?? []) ?>;` with `fetch(BASE_PATH + 'src/data/imperial_news.json')` using relative `BASE_PATH` constant, added `.then(r => { if (!r.ok) throw new Error('Failed to load imperial news') })` error guard and `try...catch` blocks with DOM fallback UI messages, added `BASE_PATH` constant in `index.html`, `admin.html`, and `decrees.html`
 
 ## Last Report
-- **Task**: Clean fix: Rewrite Ticker Block in index.html
-- **Files Modified**: `index.html` — removed entire "Achtung Ticker: Частотні терміни" HTML block with duplicate "Завантаження..." text and associated raw JavaScript (`renderAchtungTicker` function, `document.getElementById` calls); replaced with single clean HTML container
+- **Task**: Remove leftover decree text and old text block from Radio section in index.html
+- **Files Modified**: `index.html` — removed old leaked `<div>` container with "Завантаження operative сигналів..." text from Radio section (Module 2); preserved clean Radio block "📻 РАДІО «ОПРИЧНИК»** after Tanunah TV header; maintained `if (!tickerElem) return;` safety check
 - **Validation**: `python check_and_update.py` — PASS: All JSON data files valid (regions_register.json, 63/77/78 OSINT passports)
-- **Deployed**: GitHub `crmteos/kancelyariya-portal` — main branch updated with index.html ticker cleanup
-- **Status**: Media portal ticker block cleaned — no raw text or decree functions remaining in markup
+- **Deployed**: GitHub `crmteos/kancelyariya-portal` — main branch updated with index.html Radio section cleanup
+- **Status**: Radio section HTML structure clean — no raw decree code or leaked containers remaining in markup
 
+- **Previous Task**: Clean fix: Rewrite Ticker Block in index.html
 - **Previous Task**: Surgically remove raw JS code block from index.html body
 - **Files Modified**: `index.html` — removed `if (!profile) return;` block through Ukrainian decree text (`1. ОЦІНКА СИТУАЦІЇ...` with `${data.infra_status}`, `${data.operational_signals}`), kept only `<div id="achtung-ticker-content" class="text-sm font-mono text-red-400">Завантаження operative сигналів...</div>` HTML container
 - **Validation**: `python check_and_update.py` — PASS: All JSON data files valid (regions_register.json, 63/77/78 OSINT passports)
