@@ -365,9 +365,8 @@
 
     <script>
         // Base path for GitHub Pages deployment
-        const BASE_PATH = window.location.pathname.includes('/kancelyariya-portal') 
-            ? '/kancelyariya-portal/' 
-            : './';
+        // Data files are at root, so use './' consistently
+        const BASE_PATH = './';
 
         // Dual-engine: inbound OSINT facts + fact appropriations
         // Left block = primary fact from inbound_osint_feed.json (real event)

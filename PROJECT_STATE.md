@@ -44,6 +44,8 @@
 
 ### ✅ Completed Tasks
 - **Hotfix: GitHub Pages deployment fix** — resolved blank page / 404 path bug by converting absolute `fetch()` paths to relative (`/src/data/...` → `./src/data/...`), adding `BASE_PATH` constant conditional on `window.location.pathname.includes('/kancelyariya-portal')`, and adding `try...catch` + `response.ok` error handling to all fetch functions in `index.html`, `admin.html`, and `decrees.html`. Also ensured `.nojekyll` file exists in project root.
+- **Fix: BASE_PATH consistency** — changed `BASE_PATH` from conditional `/kancelyariya-portal/` to fixed `'./'` in `index.html`, `admin.html`, and `decrees.html`. Data files are deployed at root level, so `'./'` ensures correct path resolution for fetch calls to `src/data/...` files.
+- **Hotfix: index.html line 48 SyntaxError** — replaced PHP code `window.IMPERIAL_NEWS = <?php echo json_encode($imperial_news ?? []) ?>;` with `fetch(BASE_PATH + 'src/data/imperial_news.json')` using relative `BASE_PATH` constant, adding `.then(r => { if (!r.ok) throw new Error('Failed to load imperial news') })` guard and `try...catch` error handling with DOM fallback UI messages, resolving `Uncaught SyntaxError: Unexpected token '<'` caused by GitHub Pages not processing PHP
 
 ### 📜 Формалізація протоколу комунікації (Checkpoint 1.5)
 - **Завдання:** Формалізація двоканального протоколу взаємодії між Блокнотом-Архітектором та ШІ-кодером

@@ -13,9 +13,8 @@
     <script src="js/media_catalog.js"></script>
         <script>
             // Base path for GitHub Pages deployment
-            const BASE_PATH = window.location.pathname.includes('/kancelyariya-portal') 
-                ? '/kancelyariya-portal/' 
-                : './';
+            // Data files are at root, so use './' consistently
+            const BASE_PATH = './';
         </script>
     <script>
         tailwind.config = {
