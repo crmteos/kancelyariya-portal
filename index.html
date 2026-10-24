@@ -59,6 +59,43 @@
             window.ACHTUNG_MEDIA = window.IMPERIAL_NEWS.filter(function(n) { 
                 return n.contour === 'Achtung'; 
             });
+// Render Achtung ticker - text headlines only
+            function renderAchtungTicker() {
+                // Fetch vagon ahtungs data
+                fetch('./src/data/vagon_ahtungs.json')
+                    .then(r => { if (!r.ok) throw new Error('Failed to load vagon ahtungs'); return r.json(); })
+                    .then(data => {
+                        // Also try inbound osint feed as fallback
+                        fetch('./src/data/inbound_osint_feed.json')
+                            .then(r => { if (!r.ok) return; return r.json(); })
+                            .then(data => {
+                                // Combine imperial Achtung with vagon and osint data
+                                var allTerms = (window.ACHTUNG_MEDIA || []).concat(data || []);
+                                // Clear existing ticker content
+                                document.getElementById('achtung-ticker-content').innerHTML = '';
+                                // Insert only text headlines
+                                allTerms.forEach(function(term) {
+                                    if (term.headline || term.title) {
+                                        var headlineText = term.headline || term.title;
+                                        var div = document.createElement('div');
+                                        div.className = 'text-sm font-mono text-red-400 mb-1';
+                                        div.textContent = headlineText;
+                                        document.getElementById('achtung-ticker-content').appendChild(div);
+                                    }
+                                });
+                            })
+                            .catch(err => {
+                                console.error('Error loading inbound osint feed:', err);
+                            });
+                    })
+                    .catch(err => {
+                        console.error('Error loading vagon ahtungs:', err);
+                        document.getElementById('achtung-ticker-content').innerHTML = 'Помилка завантаження сигналів';
+                    });
+            }
+
+            // Initialize ticker
+            renderAchtungTicker();
         });</script>
 <!-- ===== Module 1: Imperial Television (Tanunah) === -->
 <section class="mb-8 rounded-2xl bg-gray-900/90 border border-gray-800 mb-6">
@@ -93,8 +130,8 @@
     <div class="px-6 py-4 border-b border-gray-700">
         <h2 class="text-xl font-bold tracking-achtung">Achtung Ticker: Частотні терміни</h2>
     </div>
-    <div class="p-4" id="achtung-ticker">
-        <!-- Auto-generated ticker terms -->
+    <div id="achtung-ticker-content" class="text-sm font-mono text-red-400">Завантаження оперативних сигналів...</div>
+        Завантаження оперативних сигналів...
     </div>
 </section>
 
@@ -117,9 +154,7 @@
 
 // ============================================================
 
-1. ОЦІНКА СИТУАЦІЇ ТА ВІДОМОСТІ ВУЗЛА «ГЕОГРАФ»:
-За даними оперативної розвідки, стан інфраструктури об'єкта оцінюється як: ${data.infra_status}.
-Зафіксовані операційні сигнали: ${data.operational_signals}.
+
 
 2. ПРЕДМЕТ ДЕРЖАВНОЇ РЕФОРМИ:
 З метою підготовки території до реалізації стандартів Acquis Communautaire та зміцнення контуру «Щит Європи», ШІ-Канцелярія постановляє розпочати комплексні деколонізаційні та адміністративні перетворення у ${data.imperial_title}.
