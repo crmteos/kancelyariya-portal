@@ -100,10 +100,7 @@
 
 <main class="max-w-7xl mx-auto p-6">
 </main>
-  if (!entityId) return;
-
-  // Завантажуємо повний профіль через empireDataService
-  const profile = await getEntityFullProfile(entityId);
+  
   if (!profile) return;
 
   const core = profile.core || {};
