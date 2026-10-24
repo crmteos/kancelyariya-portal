@@ -128,7 +128,10 @@
 <!-- Achtung Ticker: Частотні терміни -->
 <section class="mt-6 rounded-2xl bg-gray-900/90 border border-gray-800 p-6">
     <div class="px-6 py-4 border-b border-gray-700">
-        <h2 class="text-xl font-bold tracking-achtung">Achtung Ticker: Частотні терміни</h2>
+        <div id="achtung-ticker-container" class="border border-red-900 bg-black/50 p-3 rounded my-2">
+  <div class="font-bold text-red-500 text-xs mb-1">Achtung Ticker: Частотні терміни</div>
+  <div id="achtung-ticker-content" class="text-sm font-mono text-red-400">Завантаження operative сигналів...</div>
+</div>
     </div>
     <div id="achtung-ticker-content" class="text-sm font-mono text-red-400">Завантаження оперативних сигналів...</div>
         Завантаження оперативних сигналів...
@@ -145,7 +148,7 @@
   ;
 
   
-  document.getElementById('input_smotryaschy').value = .smotryaschy_nickname || 'Невідомий';
+  
   
   }
 
