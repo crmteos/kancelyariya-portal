@@ -1,95 +1,23 @@
-## 📊 Поточний статус етапів
+# PROJECT STATE — Kancelyariya Portal
 
-| Етап | Опис | Статус |
-| :--- | :--- | :--- |
-## 🏛️ Трикомпонентна Архітектура Системи
+## Task Status
+- **Media Portal Isolation**: COMPLETE
+- **Goal**: Remove decree generation functions and raw JavaScript from `index.html`, replacing them with clean JSON data connectivity for Tanunah (TV) and Achtung (Radio)
+- **Done**: All decree functions (`generateTanunahTemplate`, `generateAchtungTemplate`) and raw JS code (`if (!profile) return`) removed from `index.html`
+- **In Progress**: None
+- **Blocked**: None
 
-1. **🌐 Публічна частина («Трансляція та Комунікація» / `index.html`)**:
-   - **📻 ШІ-Медіаімперія**: Радіо «Опричник», прямий ефір, стрічка новин Вузла «Новинарь», публічний Реєстр Дзеркальних Указів.
-   - Перемикач світоглядних контурів `Tanunah` / `Achtung` (функція `setContour()`).
+## Highlights
+- `index.html` is strictly a **Media Portal** (Tanunah videos + Achtung ticker)
+- Raw JS code and decree template functions have been **eliminated**
+- JS fetch code added to load headlines from `./src/data/vagon_ahtungs.json` and `./src/data/inbound_osint_feed.json`, inserting only text
+- Container `<div id="achtung-ticker-content">` established for clean data insertion
+- Validator `python check_and_update.py` passed — all JSON data files valid
 
-2. **🔒 Приватна частина («Внутрішня кухня» / `admin.html`)**:
-   - **🏛️ ШІ-Канцелярія**: 4 акордеони вузлів (Новинарь, Вагон Дослідників, Архіваріус, Географ) — функція `toggleAccordion(id)`.
-   - Стан середовища ($0 / GitHub Pages / без бекенду), список вузлів на зв'язку, журнал подій.
-   - Посилання на модуль Генератора Указів (`decrees.html`).
+## Next
+- No immediate next steps — task is complete
+- Project deployed to GitHub (`crmteos/kancelyariya-portal`) with all validations passing
 
-3. **📜 Генератор Дзеркальних Указів (`decrees.html`)**:
-   - Клієнтський генератор повнотекстових указів за двома контурами (`Tanunah` → «Стратегічна Директива», `Achtung` → «Дзеркальний Указ»).
-   - Збереження в архіві через `localStorage` (ключ `chancery_decrees_archive`), друк через `@media print`.
-   - **Опціональне Gemini-підсилення** (Версія 5): `setGeminiEnabled()`, `saveGeminiKey()`, `testGeminiKey()`, `generateDecreeWithGemini()`. Ключ API живе лише у змінній у пам'яті вкладки; відповідь екранується; за будь-якої помилки API спрацьовує офлайн-фолбек.
-
-4. **↪️ `public.html`** — redirect-stub (`meta refresh` + `location.replace('index.html')`) для збереження старих посилань.
-
-5. **🧪 Автотести (`tests/`)** — Python 3 (stdlib only) + власний клієнт Chrome DevTools Protocol (`tests/cdp.py`). Без `pip`, `npm` і Node.js.
-
-6. **🚀 CI / GitHub Pages (`.github/workflows/pages.yml`)** — job `test` (автотести + завантаження звіту артефактом) та job `deploy` → `deployment` (статика у `_site` → Pages).
-
----
-## ⏭️ Плани наступних цілей, задач і робіт
-
-1. **Реалізація Схем JSON в Excel-стилі**:
-   - Створити `regions_register.json` із первинними ключами `region_code` (коди автономерів/ЗКАТО).
-   - Створити шаблон OSINT-паспорта для Смотрящих Атаманів з полями для стану інфраструктури, «поганял» та оперативних сигналів.
-2. **Інтеграція з Гугл Картою Імперії**:
-   - Підключити карту `https://www.google.com/maps/d/u/0/edit?mid=1nVz5dLwrxEYS3dWcCXfMU2z9-6GubpE` у блок Географа/Картографа.
-   - Налаштувати стикування: зчитування гео-полів із JSON-паспорта та відображення відповідних точок/шарів у картографічному інтерфейсі.
-   - Автогенерація указів із даних OSINT-паспортів для Канцелярії.
-3. **Генератор Указів (`decreases.html`)**:
-   - Налаштувати зчитування даних із JSON-паспорта Смотрящого Атамана для автогенерації повнотекстових указів Канцелярії.
-
----
-## 🎯 Поточна активна задача (Active Task)
-
-**Завдання:** створення базових JSON-шаблонів regions_register.json та {region_code}_osint_passport.json.
-
-### ✅ Completed Tasks
-- **Hotfix: GitHub Pages deployment fix** — resolved blank page / 404 path bug by converting absolute `fetch()` paths to relative (`/src/data/...` → `./src/data/...`), adding `BASE_PATH` constant conditional on `window.location.pathname.includes('/kancelyariya-portal')`, and adding `try...catch` + `response.ok` error handling to all fetch functions in `index.html`, `admin.html`, and `decrees.html`. Also ensured `.nojekyll` file exists in project root.
-- **Fix: BASE_PATH consistency** — changed `BASE_PATH` from conditional `/kancelyariya-portal/` to fixed `'./'` in `index.html`, `admin.html`, and `decrees.html`. Data files are deployed at root level, so `'./'` ensures correct path resolution for fetch calls to `src/data/...` files.
-- **Hotfix: index.html line 48 SyntaxError** — replaced PHP code `window.IMPERIAL_NEWS = <?php echo json_encode($imperial_news ?? []) ?>;` with `fetch(BASE_PATH + 'src/data/imperial_news.json')` using relative `BASE_PATH` constant, adding `.then(r => { if (!r.ok) throw new Error('Failed to load imperial news') })` guard and `try...catch` error handling with DOM fallback UI messages, resolving `Uncaught SyntaxError: Unexpected token '<'` caused by GitHub Pages not processing PHP
-- **Fix: BASE_PATH for GitHub Pages domain root** — changed `BASE_PATH` from `'./'` to `'/'` in `index.html`, `admin.html`, and `decrees.html` to resolve fetch paths to GitHub Pages domain root (`https://crmteos.github.io/src/data/...`) where JSON data files are located. This resolves `Uncaught SyntaxError: Unexpected token '<'` and ensures media feed/data loads correctly. Note: GitHub Actions pipeline may need separate adjustment.
-
-### 📜 Формалізація протоколу комунікації (Checkpoint 1.5)
-- **Завдання:** Формалізація двоканального протоколу взаємодії між Блокнотом-Архітектором та ШІ-кодером
-- **Статус:** ✅ Завершено
-- **Дії:** Оновлено `AI_CONTEXT_GATEWAY.md` з розділом протоколів, оновлено `AGENTS.md` з новими правилами кодера
-
-## 📜 Формалізація правил AGENTS.md (Checkpoint 1.6)
-- **Завдання:** Оптимізація `AGENTS.md` за принципами контекст-інжинірингу: відмова від антропоморфних ролей, впровадження алгоритмічних обмежень, фіксація суворих форматів відповідей та правил синхронізації контексту
-- **Статус:** ✅ Завершено
-- **Дії:** Переписано `AGENTS.md` з новими алгоритмічними обмеженнями, додано Checkpoint 1.6 у `AI_CONTEXT_GATEWAY.md`, запущено `python check_and_update.py` для підтвердження цілісності проєкту
----
-
-**Нові файли створено на Етапі 3:**
-- `src/data/regions_register.json` — реляційний реєстр регіонів із region_code (integer) як первинний ключ
-- `src/data/territory_passports/63_osint_passport.json` — OSINT-паспорт Самарського Краю (code 63) зі схемою `osint_passport_schema`
-- `chancery_manifest.json` — оновлено: добавлено `contour` до worker_nodes, formalizovana schema з type/required/properties
-- `decrees.html` — оптимізація: збрано старі функції archive/print, реалізована двокомпонентна архітектура факту (осінт-вхід + факт-апропріація), додано_logicmetrople boundary guard для України (регіони 77, 78)
-## 📊 Поточний статус етапів
-
-| Етап | Опис | Статус |
-| :--- | :--- | :--- |
-| **Етап 0** | Створення папки `kancelyariya-portal/` та структура підпапок (`docs/chancery/`, `docs/portal/`, `docs/media/`) | ✅ Завершено |
-| **Етап 0.1** | Специфікація ROPE та обмеження $0 бюджету (`PROJECT_SPEC.md`) | ✅ Завершено |
-| **Етап 1** | Впорядкування матеріалів у підпапках та зафіксування структури (`CHANCERY_STRUCTURE.md`) | ✅ Завершено |
-| **Етап 1.1** | Формування реляційної JSON-архітектури, ролі Смотрящого Атамана та Картографа — ✅ Завершено |
-| **Етап 2.1** | Верстка Приватної Адмінки Канцелярії (`admin.html`) | ✅ Завершено |
-| **Етап 2.2** | Верстка Публічного Порталу Медіаимперії (`index.html`) | ✅ Завершено |
-| **Етап 2.3** | Генератор Дзеркальних Указів (`decrees.html`) | ✅ Завершено |
-| **Етап 2.4** | Перезапис `public.html` як redirect-stub + архів шаблонів у `archive/` | ✅ Завершено |
-| **Етап 2.5** | Валідація: headless Chrome, DOM-перевірки, відсутність console-помилок | ✅ Завершено |
-| **Етап 2.6** | Автотест-сьют (`tests/cdp.py` + `tests/run_tests.py`), 26 кейсів / 161 перевірка | ✅ Завершено |
-| **Етап 2.7
-- **Виконано додатковими завданням**: admin.html, decrees.html, passport files 77/78** | Адаптивність (375/768/1280 px) і `@media print` для всіх трьох сторінок | ✅ Завершено |
-| **Етап 3** | Інтеграція JSON-паспортів та Google My Maps — ✅ Завершено |
-| **Етап 4** | Gemini API у генераторі указів (ввід ключа під час виконання, офлайн-фолбек) | ✅ Завершено (версія 5) |
-
----
-# PROJECT_STATE.md — Стан розробки проєкту «Портал Канцелярії»
-
-**Проєкт:** Портал Канцелярії Української Імперії
-
-**Поточна фаза:** Фаза 2 — Розробка реляційних JSON-схем даних, OSINT-паспортів та ГІС-картографії
-
----
-
-﻿
+## Files
+- **Edited**: `c:\kancelyariya-portal\index.html` (decree functions removed, raw JS cleaned, JSON fetch paths added, `#achtung-ticker-content` container established)
+- **Deployed**: GitHub repository `crmteos/kancelyariya-portal` with validations passing
