@@ -59,82 +59,6 @@
             window.ACHTUNG_MEDIA = window.IMPERIAL_NEWS.filter(function(n) { 
                 return n.contour === 'Achtung'; 
             });
-// Render Achtung ticker - text headlines only
-            function renderAchtungTicker() {
-                // Fetch vagon ahtungs data
-                fetch('./src/data/vagon_ahtungs.json')
-                    .then(r => { if (!r.ok) throw new Error('Failed to load vagon ahtungs'); return r.json(); })
-                    .then(data => {
-                        // Also try inbound osint feed as fallback
-                        fetch('./src/data/inbound_osint_feed.json')
-                            .then(r => { if (!r.ok) return; return r.json(); })
-                            .then(data => {
-                                // Combine imperial Achtung with vagon and osint data
-                                var allTerms = (window.ACHTUNG_MEDIA || []).concat(data || []);
-                                // Clear existing ticker content
-                                document.getElementById('achtung-ticker-content').innerHTML = '';
-                                // Insert only text headlines
-                                allTerms.forEach(function(term) {
-                                    if (term.headline || term.title) {
-                                        var headlineText = term.headline || term.title;
-                                        var div = document.createElement('div');
-                                        div.className = 'text-sm font-mono text-red-400 mb-1';
-                                        div.textContent = headlineText;
-                                        document.getElementById('achtung-ticker-content').appendChild(div);
-                                    }
-                                });
-                            })
-                            .catch(err => {
-                                console.error('Error loading inbound osint feed:', err);
-                            });
-                    })
-                    .catch(err => {
-                        console.error('Error loading vagon ahtungs:', err);
-                        document.getElementById('achtung-ticker-content').innerHTML = 'Помилка завантаження сигналів';
-                    });
-            }
-
-            // Initialize ticker
-            renderAchtungTicker();
-        });</script>
-<!-- ===== Module 1: Imperial Television (Tanunah) === -->
-<section class="mb-8 rounded-2xl bg-gray-900/90 border border-gray-800 mb-6">
-    <div class="px-6 py-4 border-b border-gray-700">
-        <h2 class="text-xl font-bold tracking-tanunah">Імперське Телебачення (TV Broadcast Window)</h2>
-        <p class="text-sm text-gray-400">Відеоблоки, аналітичні сюжети, сатиричні випуски — контур Танунахів</p>
-    </div>
-    <div class="p-6" id="tanunah-tv-feed">
-        <!-- Populated by showTanunahTV() -->
-    </div>
-    <div class="p-6 hidden" id="tanunah-tv-empty">
-        <p class="text-center text-gray-500">Блоку контенту Танунахів не знайдено. Перемкніть на режим Achtung.</p>
-    </div>
-</section>
-
-<!-- ===== Module 2: Special Radio / Achtung === -->
-<section class="mb-8 rounded-2xl bg-gray-900/90 border border-gray-800">
-    <div class="px-6 py-4 border-b border-gray-700">
-        <h2 class="text-xl font-bold tracking-achtung">Спеціальне Радіо / Гучномовець (Radio / Audio Stream Window)</h2>
-        <p class="text-sm text-gray-400">Текстово-аудіальне мовлення для Ахтуньї — operative біжуча стрічка, термінові маляви</p>
-    </div>
-    <div class="p-6" id="achtung-radio-feed">
-        <!-- Populated by showAchtungRadio() -->
-    </div>
-    <div class="p-6 hidden" id="achtung-radio-empty">
-        <p class="text-center text-gray-500">Радіо-потік Achtung неактивний. Перемкніть на режим Танунахів.</p>
-    </div>
-</section>
-
-<!-- Achtung Ticker: Частотні терміни -->
-<section class="mt-6 rounded-2xl bg-gray-900/90 border border-gray-800 p-6">
-    <div class="px-6 py-4 border-b border-gray-700">
-        <div id="achtung-ticker-container" class="border border-red-900 bg-black/50 p-3 rounded my-2">
-  <div class="font-bold text-red-500 text-xs mb-1">Achtung Ticker: Частотні терміни</div>
-  <div id="achtung-ticker-content" class="text-sm font-mono text-red-400">Завантаження operative сигналів...</div>
-</div>
-    </div>
-    <div id="achtung-ticker-content" class="text-sm font-mono text-red-400">Завантаження оперативних сигналів...</div>
-        Завантаження оперативних сигналів...
     </div>
 </section>
 
@@ -163,30 +87,6 @@
 - Вузол «Географ\": Оновити шари Google My Maps відповідно до нових імперських меж.
 
 Контроль за виконанням директиви залишаю за ШІ-Канцелярією.`;
-}
-
-// ============================================================
-1.  «АХТУНГ»:
-У зв'язку з критичним  інфраструктури () та надзвичайними подіями (), оголошується повне викривлення та сатирична   
-
-2. СПЕЦІАЛЬНІ РЕПРЕСАЛІЇ ТА ДЗЕРКАЛЬНІ ЗАХОДИ:
-- Повноваження смотрящого ${data.smotryaschy} скасувати, а його особисті дані внести до баз Вузла «Вагон».
-- Вузол «Новинарь\": Запустити серію нищівних сатиричних матеріалів про стан господарства.
-- Вузол «Географ\": Скоригувати мовні частоти та ввести в обіг двомовні синоніми з реєстру media_campaigns.json.
-
-Указ набирає  негайно та оскарженню .
-`;
-    <style>
-        @keyframes eq { 0%,100% { transform: scaleY(.25; } 50% { transform: scaleY(1; } }
-        .animate-eq { transform-origin: bottom; animation: eq 1s ease-in-out infinite; }
-        @media (prefers-reduced-motion: reduce { .animate-eq { animation: none; } }
-
-        /* ===== Друк: світлий аркуш, приховані службові блоки ===== */
-        @media print {
-            html, body { background: #fff !important; color: #000 !important; }
-            body * { color: #000 !important; background: transparent !important; box-shadow: none !important; }
-            .no-print { display: none !important; }
-            main { max-width: 100% !important; padding: 0 !important; }
             section, article {
                 border: 1px solid #999 !important;
                 break-inside: avoid;
@@ -228,6 +128,10 @@
     </header>
 
     <main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+<div id="achtung-ticker-container" class="border border-red-900 bg-black/50 p-3 rounded my-2">
+  <div class="font-bold text-red-500 text-xs mb-1">Achtung Ticker: Частотні терміни</div>
+  <div id="achtung-ticker-content" class="text-sm font-mono text-red-400">Завантаження оперативних сигналів...</div>
+</div>
 
         <!-- Модуль прямого ефіру Радіо «Опричник» -->
         <section class="p-6 rounded-2xl bg-gradient-to-r from-amber-950/40 via-imperial-900/60 to-gray-900 border border-amber-500/30 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
