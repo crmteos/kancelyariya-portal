@@ -10,7 +10,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- YouTube IFrame Player API -->
     <script src="https://www.youtube.com/iframe_api"></script>
-    <script src="BASE_PATH + 'js/media_catalog.js'></script>
+    <!-- Media catalog JS loaded after DOMContentLoaded -->
+    <script src="js/media_catalog.js" defer></script>
+    
         <script>
             // Base path for GitHub Pages deployment
             const BASE_PATH = '/';
@@ -57,7 +59,7 @@
             window.ACHTUNG_MEDIA = window.IMPERIAL_NEWS.filter(function(n) { 
                 return n.contour === 'Achtung'; 
             });
-        });
+        });</script>
 <!-- ===== Module 1: Imperial Television (Tanunah) === -->
 <section class="mb-8 rounded-2xl bg-gray-900/90 border border-gray-800 mb-6">
     <div class="px-6 py-4 border-b border-gray-700">
@@ -117,15 +119,6 @@
 }
 
 // ============================================================
-// 2. ОФЛАЙН-ШАБЛОН: TANUNAH (СТРАТЕГІЧНА ДИРЕКТИВА)
-// ============================================================
-function generateTanunahTemplate(data) {
-  const dateStr = new Date().toLocaleDateString('uk-UA');
-  return `🏛️ СТРАТЕГІЧНА ДИРЕКТИВА КАНЦЕЛЯРІЇ №${data.number || '01/2026'}
-Дата видачі: ${dateStr}
-Суб'єкт: ${data.imperial_title} (Код: ${data.region_code})
-Відповідальний: ${data.assigned_ataman}
-Світоглядний контур: Tanunah (Танунахи)
 
 1. ОЦІНКА СИТУАЦІЇ ТА ВІДОМОСТІ ВУЗЛА «ГЕОГРАФ»:
 За даними оперативної розвідки, стан інфраструктури об'єкта оцінюється як: ${data.infra_status}.
@@ -144,16 +137,6 @@ function generateTanunahTemplate(data) {
 }
 
 // ============================================================
-// 3. ОФЛАЙН-ШАБЛОН: ACHTUNG (ДЗЕРКАЛЬНИЙ УКАЗ)
-// ============================================================
-function generateAchtungTemplate(data) {
-  const dateStr = new Date().toLocaleDateString('uk-UA');
-  return `⚠️ ДЗЕРКАЛЬНИЙ УКАЗ КАНЦЕЛЯРІЇ №${data.number || '666/A'}
-Дата винесення: ${dateStr}
-Об'єкт сатурації: ${data.imperial_title}
-Смотрящий території: ${data.smotryaschy} («Поганяйло»)
-Світоглядний контур: Achtung (Ахтуні)
-
 1. ЗАПРОВАДЖЕННЯ РЕЖИМУ «АХТУНГ»:
 У зв'язку з критичним зносом інфраструктури (${data.infra_status}) та надзвичайними подіями (${data.operational_signals}), оголошується повне викривлення та сатирична деконструкція місцевої адміністрації.
 
@@ -548,7 +531,7 @@ function generateAchtungTemplate(data) {
 
         function playNextRandomVideo( {
             if (YT_MEDIA.length === 0 { return; }
-            var next = YT_MEDIA[Math.floor(Math.random( * YT_MEDIA.length];
+            var next = YT_MEDIA[Math.floor(Math.random() * YT_MEDIA.length)];
             var announcement = next.id;
             var djBox = document.getElementById('dj-announcement';
             var djText = document.getElementById('dj-text';
@@ -742,7 +725,7 @@ function toggleLive( {
             
             // Вибираємо випадковий елемент та завантажуємо його
             if (filtered.length > 0 {
-                var selected = filtered[Math.floor(Math.random( * filtered.length];
+                var selected = filtered[Math.floor(Math.random() * filtered.length)];
                 loadMedia(selected;
             } else {
                 // Fallback: вибрати будь-що з catalog
@@ -750,7 +733,7 @@ function toggleLive( {
                     return item.format === fmt || top === 'all';
                 };
                 if (fallback.length > 0 {
-                    var selected = fallback[Math.floor(Math.random( * fallback.length];
+                    var selected = fallback[Math.floor(Math.random() * fallback.length)];
                     loadMedia(selected;
                 }
             }
