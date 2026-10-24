@@ -138,7 +138,7 @@
 <main class="max-w-7xl mx-auto p-6">
 </main>
   
-  if (!profile) return;
+  
 
   const core = profile.core || {};
   const osint = profile.osint || {};
@@ -148,9 +148,8 @@
   document.getElementById('input_region_title').value = osint.imperial_title || core.region_name_ua || '';
   document.getElementById('input_assigned_ataman').value = osint.assigned_ataman || 'Атаман OSINT';
   document.getElementById('input_smotryaschy').value = osintProfile.smotryaschy_nickname || 'Невідомий';
-  document.getElementById('input_infra_status').value = osintProfile.infrastructure_status || 'Не визначено';
-  document.getElementById('input_operational_signals').value = (osintProfile.operational_signals || []).join(', ');
-}
+  
+  }
 
 // ============================================================
 
@@ -170,7 +169,7 @@
 
 // ============================================================
 1. ЗАПРОВАДЖЕННЯ РЕЖИМУ «АХТУНГ»:
-У зв'язку з критичним зносом інфраструктури (${data.infra_status}) та надзвичайними подіями (${data.operational_signals}), оголошується повне викривлення та сатирична деконструкція місцевої адміністрації.
+У зв'язку з критичним  інфраструктури () та надзвичайними подіями (), оголошується повне викривлення та сатирична   
 
 2. СПЕЦІАЛЬНІ РЕПРЕСАЛІЇ ТА ДЗЕРКАЛЬНІ ЗАХОДИ:
 - Повноваження смотрящого ${data.smotryaschy} скасувати, а його особисті дані внести до баз Вузла «Вагон».
