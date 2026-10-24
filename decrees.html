@@ -365,8 +365,8 @@
 
     <script>
         // Base path for GitHub Pages deployment
-        // Data files are at root, so use './' consistently
-        const BASE_PATH = './';
+        // Use '/' to always resolve to domain root (where src/data/ is located)
+        const BASE_PATH = '/';
 
         // Dual-engine: inbound OSINT facts + fact appropriations
         // Left block = primary fact from inbound_osint_feed.json (real event)
